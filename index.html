@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Moderna</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Chathura:wght@100;300;400;700;800&family=Goldman:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+    <div class="stars"></div>
+    <div id="welcome-section" class="center-body">
+        <div class="loader-triangle">
+            <svg id="triangle" width="120px" viewBox="-3 -4 39 39">
+                <polygon fill="transparent" stroke="#ff3beb" stroke-width="2" points="16,32 32,0 0,0"></polygon>
+            </svg>
+        </div>
+        <div class="welcome-message">
+            <h1 class="epic-text">Ark Developer | AJHOE Technology </h1>
+        </div>
+    </div>
+
+    <!--de aca coemiza el contenido de la pagina -->
+    <div id="main-content" class="hidden">
+        <video id="video-background" autoplay loop muted>
+            <source src="src/cubo.mp4" type="video/mp4">
+        </video>
+        <div class="absolute top-0 left-0 m-4">
+            <img src="src/1001136218removebgpreview.png" alt="Logo" class="w-16 h-16">
+        </div>
+       <!-- <div class="notch">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded m-2">Botón 1</button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded m-2">Botón 2</button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded m-2">Botón 3</button>
+        </div> -->
+
+        <div class="container mx-auto p-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/evil.jpg" alt="Foto de perfil" class="w-32 h-32 rounded-full mb-4 shadow-lg">
+                <h1 class="text-4xl font-bold text-center">Jhoel Andres Chura</h1>
+                <p class="text-xl text-center mt-4">Carrera: Ingeniería en Sistemas</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/upds.png" alt="Logo de la universidad" class="w-24 h-24 mb-4 shadow-lg">
+                <h2 class="text-3xl font-semibold text-center">Universidad Privada Domingo Sabio</h2>
+                <p class="text-lg text-center mt-2">Semestre: 6</p>
+            </div>
+        </div>
+        <div
+            class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-500 hover:scale-105 hover:rotate-2">
+            <h2 class="text-2xl font-bold mb-4 animate-bounce transition-transform duration-700 hover:text-indigo-500">
+                Perfil Profesional
+            </h2>
+
+            <img src="src/anonymus.jpeg" alt="Foto Profesional"
+                class="w-32 h-32 rounded-full shadow-lg mb-6 transition-transform duration-700 hover:scale-110 hover:shadow-2xl animate-fadeIn">
+
+            <p class="text-lg mb-4 animate-fadeIn transition-opacity duration-700 delay-100 hover:text-indigo-400">
+                Soy un desarrollador con experiencia en desarrollo full-stack, especializado en aplicaciones para
+                Windows utilizando .NET Framework. Mi formación abarca tanto frontend como backend, con un enfoque en la
+                programación orientada a objetos y el diseño moderno, garantizando soluciones eficientes y estilizadas.
+            </p>
+            <p class="text-lg mb-4 animate-fadeIn transition-opacity duration-700 delay-300 hover:text-indigo-400">
+                Tengo conocimientos sólidos en electrónica y experiencia práctica en el desarrollo y gestión de
+                circuitos electrónicos y módulos. Mi perfil se complementa con experiencia en ciberseguridad, lo que me
+                permite abordar proyectos con una perspectiva integral y segura.
+            </p>
+            <p class="text-lg mb-4 animate-fadeIn transition-opacity duration-700 delay-500 hover:text-indigo-400">
+                Además, estoy en proceso de obtener mi título de Ingeniero en Sistemas, lo que refuerza mi capacidad de
+                abordar problemas complejos desde un enfoque técnico y estratégico. Mi trayectoria incluye también
+                habilidades en Python, CSS, diseño gráfico, renderización de videos, y desarrollo de aplicaciones
+                móviles y web.
+            </p>
+        </div>
+
+
+        <!-- Sección de Portafolio de Tecnologías -->
+        <div class="container mx-auto p-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/NET-Framework-Symbol.png" alt="C#" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">C# en .NET Framework</h3>
+                <p class="text-center mt-2">Desarrollo de aplicaciones de escritorio y servicios web robustos con .NET
+                    Framework.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/c-logo-black-and-white.png" alt="C++" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">C++</h3>
+                <p class="text-center mt-2">Lenguaje poderoso para desarrollo de software de sistemas, videojuegos y
+                    aplicaciones embebidas.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/Python-logo-notext.svg.png" alt="Python" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Python</h3>
+                <p class="text-center mt-2">Programación versátil en automatización, análisis de datos, aprendizaje
+                    automático, y desarrollo web.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/php-icon-256x256-oq5bc0bt.png" alt="PHP" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">PHP</h3>
+                <p class="text-center mt-2">Desarrollo backend para aplicaciones web dinámicas utilizando PHP y
+                    frameworks como Laravel.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/pngimg.com - mysql_PNG9.png" alt="MySQL" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">MySQL</h3>
+                <p class="text-center mt-2">Gestión y diseño de bases de datos relacionales para aplicaciones
+                    escalables.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/laravellogo.webp" alt="Laravel" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Laravel</h3>
+                <p class="text-center mt-2">Framework PHP para desarrollo ágil y seguro de aplicaciones web MVC.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/kotlin-icon-512x512-0o0lfw0b.png" alt="Kotlin" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Kotlin</h3>
+                <p class="text-center mt-2">Desarrollo de aplicaciones Android con un enfoque moderno, conciso y seguro.
+                </p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/HTML5_Logo_256.png" alt="HTML" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">HTML</h3>
+                <p class="text-center mt-2">Lenguaje fundamental para el desarrollo de la estructura de páginas web.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/css.webp" alt="CSS" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">CSS</h3>
+                <p class="text-center mt-2">Estilización de páginas web con CSS y preprocesadores como SASS y Tailwind
+                    CSS.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/javascript.webp" alt="JavaScript" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">JavaScript</h3>
+                <p class="text-center mt-2">Desarrollo frontend dinámico y frameworks modernos como React y Vue.js.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/sql-database-sql-azure-icon-976x1024-eobwqz2q.png" alt="SQL Server"
+                    class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">SQL Server</h3>
+                <p class="text-center mt-2">Manejo avanzado de bases de datos con SQL Server para aplicaciones
+                    empresariales.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/arduino-icon-512x349-cc0agxke.png" alt="Arduino" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Arduino</h3>
+                <p class="text-center mt-2">Prototipos de hardware interactivo utilizando la plataforma Arduino.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/lenguajec.png" alt="Lenguaje C" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Lenguaje C</h3>
+                <p class="text-center mt-2">Desarrollo de sistemas embebidos y programación de bajo nivel en C.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/chatgpt.webp" alt="ChatGPT" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">ChatGPT</h3>
+                <p class="text-center mt-2">Desarrollo de prompts efectivos y personalizados para modelos de lenguaje
+                    natural.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/google-gemini-icon.webp" alt="Gemini" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Gemini</h3>
+                <p class="text-center mt-2">Uso de Gemini para investigación y desarrollo de soluciones avanzadas en IA.
+                </p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/Microsoft-Copilot-Logo-300x300.png.webp" alt="GitHub Copilot" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Copilot</h3>
+                <p class="text-center mt-2">Automatización del código y asistencia en tiempo real para desarrollo
+                    eficiente con Copilot.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/visual-basic.png" alt="Visual Basic"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Visual Basic</h3>
+                <p class="text-center mt-2">Desarrollo de aplicaciones de escritorio utilizando Visual Basic.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/JSON_vector_logo.svg.png" alt="JSON"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">JSON</h3>
+                <p class="text-center mt-2">Intercambio de datos ligero y eficiente usando JSON.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/gradle-icon-2048x1504-ro73tce1.png" alt="Gradle"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Gradle</h3>
+                <p class="text-center mt-2">Automatización de la construcción de proyectos con Gradle.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/tensorflow-icon-955x1024-hd4xzbqj.png" alt="TensorFlow"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">TensorFlow</h3>
+                <p class="text-center mt-2">Desarrollo de modelos de machine learning con TensorFlow.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/Windows-Server-Logo.png-300x150.webp" alt="Windows Server"
+                    class="w-12 h-13 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Windows Server</h3>
+                <p class="text-center mt-2">Administración y configuración de servidores con Windows Server.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/linux.webp" alt="Linux"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Linux</h3>
+                <p class="text-center mt-2">Administración de sistemas operativos basados en Linux.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/github.png" alt="Git y GitHub"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Git y GitHub</h3>
+                <p class="text-center mt-2">Control de versiones y colaboración en código con Git y GitHub.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/blackmagic-design-davinci-resolve-18-studio-activation-usb-dongle.webp"
+                    alt="DaVinci Resolve"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">DaVinci Resolve</h3>
+                <p class="text-center mt-2">Edición y corrección de color profesional con DaVinci Resolve.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/Adobe_Photoshop_.png" alt="Photoshop"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Photoshop</h3>
+                <p class="text-center mt-2">Diseño y edición de imágenes con Adobe Photoshop.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/adobe-illustrator-icon-512x512-s1nfujvx.png" alt="Illustrator"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Illustrator</h3>
+                <p class="text-center mt-2">Diseño gráfico vectorial con Adobe Illustrator.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/virtual-dj-icon-z7uno.webp" alt="Virtual DJ"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Virtual DJ</h3>
+                <p class="text-center mt-2">Mezcla de música digital y DJing con Virtual DJ.</p>
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/audacity-icon-462x512-n5heqj8v.png" alt="Audacity"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Audacity</h3>
+                <p class="text-center mt-2">Edición de audio y grabación con Audacity.</p>
+            </div>
+
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/afeter efects.png" alt="Adobe After Effects"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Adobe After Effects</h3>
+                <p class="text-center mt-2">Edición y efectos visuales en Adobe After Effects.</p>
+            </div>
+
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/obs.png" alt="OBS"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">OBS</h3>
+                <p class="text-center mt-2">Grabación y transmisión en vivo con OBS Studio.</p>
+            </div>
+
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/windows.png" alt="Windows"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Windows</h3>
+                <p class="text-center mt-2">Sistema operativo Windows de Microsoft.</p>
+            </div>
+
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/SketchUp-M.png" alt="SketchUp"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">SketchUp</h3>
+                <p class="text-center mt-2">Modelado en 3D con SketchUp.</p>
+            </div>
+
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/proteus.png" alt="Proteus"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">Proteus</h3>
+                <p class="text-center mt-2">Simulación de circuitos electrónicos con Proteus.</p>
+            </div>
+
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/autodesk.png" alt="AutoCAD"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">AutoCAD</h3>
+                <p class="text-center mt-2">Diseño y dibujo en 2D y 3D con AutoCAD.</p>
+            </div>
+
+        </div>
+        <h2 class="text-3xl font-bold text-center mt-12 mb-8">Mis proyectos lanzados</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/logo2.ico" alt="Illustrator"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <video class="w-full h-auto mt-4 rounded-lg shadow-lg" controls>
+                    <source src="src/YouCut_20240702_210325735.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
+                <h3 class="text-2xl font-semibold text-center mt-4">Sistema Supermercado Ark</h3>
+                <p class="text-center mt-2">Sistema basado en plataformas de Windows.</p>
+                <div class="mt-4 text-center">
+                    <p><strong>Plataforma:</strong> Windows, desarrollado con .NET Framework</p>
+                    <p><strong>Fecha de Lanzamiento:</strong> Julio 2024</p>
+                    <p><strong>Características Principales:</strong> Gestión de inventarios, ventas y reportes
+                        personalizados.</p>
+                </div>
+                <a href="src/Sistema Supermercado.zip" download
+                    class="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300">
+                    Descargar Demo
+                </a>
+            </div>
+
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/image-removebg-preview.png" alt="Virtual DJ" class="w-26 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                
+                <!-- Enlace de Google Drive en lugar del video -->
+                <a href="https://drive.google.com/file/d/1sH9vHzZLW-hA_4YQYjnMcGLVW_OTZCgN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                    <img src="https://drive.google.com/thumbnail?id=1sH9vHzZLW-hA_4YQYjnMcGLVW_OTZCgN" alt="Miniatura del Video" class="w-full h-auto mt-4 rounded-lg shadow-lg">
+                </a>
+            
+                <h3 class="text-2xl font-semibold text-center">Página Web Flash Appliance</h3>
+                <p class="text-center mt-2">Desarrollado en HTML, PHP, MySQL y CSS.</p>
+                <p class="text-center mt-2 font-medium">Fecha de Lanzamiento: <span class="font-normal">Febrero 2024</span></p>
+                <p class="text-center mt-2 font-medium">Plataforma: <span class="font-normal">Web</span></p>
+                <p class="text-center mt-2 font-medium">Características:</p>
+                <ul class="text-center list-disc list-inside mt-2">
+                    <li>Gestión de inventarios</li>
+                    <li>Ventas y generación de reportes de ventas</li>
+                    <li>Registro y gestión de clientes</li>
+                    <li>Funcionalidades de tienda en línea</li>
+                </ul>
+                <a href="src/PROYECTO FINAL CODIGO.docx" download class="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300">
+                    Descargar Documentación
+                </a>
+            </div>            
+
+            <div
+                class="relative group glass container-3d rounded-lg p-8 shadow-lg hover:shadow-2xl flex flex-col items-center transition-transform duration-500 transform hover:scale-105 hover:blur-sm">
+                <img src="src/logoaj.png" alt="Ajetex"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12 hover:scale-110">
+                <h3 class="text-2xl font-semibold text-center transition-colors duration-300 hover:text-blue-500">Ajetex
+                </h3>
+                <p class="text-center mt-2 transition-opacity duration-300 hover:opacity-80">Página web para la gestión
+                    de inventarios, pedidos y registro de usuarios, especializada en ropa deportiva y equipos
+                    electrónicos.</p>
+                <ul class="list-disc mt-4 transition-transform duration-300 hover:translate-y-1">
+                    <li>Gestión completa de inventarios.</li>
+                    <li>Registro y administración de pedidos.</li>
+                    <li>Registro de usuarios con opciones personalizadas.</li>
+                    <li>Catálogo en línea de ropa deportiva y equipos electrónicos.</li>
+                    <li>Interfaz amigable y fácil de usar.</li>
+                </ul>
+                <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 bg-opacity-75 rounded-lg">
+                    <span class="text-white text-3xl font-bold">Próximamente</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-center mt-12 mb-8">Mi formación en linea</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <h3 class="text-2xl font-semibold mb-4">Insider en Microsoft</h3>
+                <p class="text-lg mb-4">Soy insider en Microsoft, especializado en Windows y Office. Estoy al tanto de
+                    las últimas actualizaciones y características exclusivas.</p>
+                <img src="src/insider.png" alt="Insider Logo" class="w-16 h-16 mt-4">
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <h3 class="text-2xl font-semibold mb-4">Microsoft Learn</h3>
+                <p class="text-lg mb-4">Actualmente, estoy tomando clases diarias en Microsoft Learn para obtener
+                    certificaciones en diversas áreas de tecnología.</p>
+                <img src="src/learnig.png" alt="Microsoft Learn Logo" class="w-16 h-16 mt-4">
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <h3 class="text-2xl font-semibold mb-4">Clases de Cisco</h3>
+                <p class="text-lg mb-4">He tomado clases de Cisco relacionadas con redes, lo que me ha proporcionado una
+                    sólida comprensión de las tecnologías de red y su implementación.</p>
+                <img src="src/cisco.png" alt="Cisco Logo" class="w-16 h-16 mt-4">
+            </div>
+
+        </div>
+
+        <!-- Botón flotante para abrir el popup -->
+        <button
+        class="fixed bottom-8 right-8 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 z-50 music-button transition-transform transform hover:scale-105 hover:rotate-3">
+        🎶
+    </button>
+    
+        <div id="music-popup"
+            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm hidden z-40">
+            <div class="absolute inset-0 overflow-hidden z-0">
+                <video class="w-full h-full object-cover" autoplay loop muted disablePictureInPicture>
+                    <source src="src/Tech_Triangle.webm" type="video/webm">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+            <div
+                class="relative bg-white bg-opacity-30 backdrop-blur-lg border border-white/30 rounded-lg p-6 max-w-md w-full shadow-lg z-10">
+                <button
+                    class="absolute top-4 right-4 text-white bg-gray-700 bg-opacity-70 rounded-full p-2 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 close-popup">
+                    <i class="fas fa-times">X</i>
+                </button>
+                <div id="track-name" class="text-center text-white font-semibold text-lg mb-4">
+                    The Chemical Brothers - Hey Boy Hey Girl (ARTBAT Remix)
+                </div>
+                <audio id="audio-player" controls class="w-full mb-4">
+                    <source src="src/music.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                <canvas id="audio-spectrum" width="600" height="200" class="w-full"></canvas>
+            </div>
+        </div>
+
+        <!-- Overlay para el fondo -->
+        <div id="overlay1" class="fixed inset-0 bg-black opacity-70 hidden z-30"></div>
+
+
+        <div class="glass container-3d rounded-lg p-8 shadow-lg mt-8">
+            <h3 class="text-2xl font-semibold mb-4 animate-fade-in">Contacto</h3>
+            <p class="text-lg mb-4 animate-fade-in animate-delay-100">Puedes contactarme a través de mi correo electrónico para recibir más información o para solicitar una copia física de mi CV:</p>
+            <p class="text-lg mb-4 animate-fade-in animate-delay-200">
+                <a href="mailto:ajoe_ark@hotmail.com" class="text-blue-500 hover:underline transition-transform duration-300 hover:scale-105">ajoe_ark@hotmail.com</a>
+            </p>
+            <p class="text-lg animate-fade-in animate-delay-300">Para recibir una copia física de mi CV, por favor, envíame un correo electrónico y te proporcionaré los detalles necesarios.</p>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="music.js"></script>
+</body>
+
+</html>

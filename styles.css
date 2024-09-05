@@ -1,0 +1,435 @@
+:root {
+    --star-color: #f0f0f0;
+    --star-tail-length: 6em;
+    --star-tail-height: 2px;
+    --fall-duration: 9s;
+    --tail-fade-duration: var(--fall-duration);
+    --background-gradient: linear-gradient(135deg, #000000, #343333);
+    --button-bg: rgba(0, 123, 255, 0.8);
+    --button-bg-hover: rgba(0, 123, 255, 1);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+body {
+    background: var(--background-gradient);
+    background-size: 200% 200%;
+    background-attachment: fixed;
+    animation: backgroundAnimation 25s linear infinite;
+    font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.star {
+    --star-width: calc(var(--star-tail-length) / 6);
+    position: absolute;
+    top: var(--top-offset);
+    left: 0;
+    width: var(--star-tail-length);
+    height: var(--star-tail-height);
+    color: var(--star-color);
+    background: linear-gradient(45deg, currentColor, transparent);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px currentColor);
+    transform: translate3d(104em, 0, 0);
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite,
+               tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+}
+
+.star:nth-child(1) {
+    --star-tail-length: 5em;
+    --top-offset: 0vh;
+    --fall-duration: 6s;
+    --fall-delay: 0s;
+}
+
+.star::before, .star::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: calc(var(--star-width) / -2);
+    width: var(--star-width);
+    height: 100%;
+    background: linear-gradient(45deg, transparent, currentColor, transparent);
+    border-radius: inherit;
+    animation: blink 2s linear infinite;
+}
+
+.star::before {
+    transform: rotate(45deg);
+}
+
+.star::after {
+    transform: rotate(-45deg);
+}
+
+@keyframes fall {
+    to {
+        transform: translate3d(-30em, 0, 0);
+    }
+}
+
+@keyframes tail-fade {
+    0%, 50% {
+        width: var(--star-tail-length);
+        opacity: 1;
+    }
+    70%, 80% {
+        width: 0;
+        opacity: 0.4;
+    }
+    100% {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 50%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Estilos para el video de fondo */
+#video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Estilos para los mensajes de bienvenida */
+.welcome-message {
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin-top: 20px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilos para el vidrio esmerilado */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    z-index: 10;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.glass:hover {
+    backdrop-filter: blur(15px);
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el contenedor 3D */
+.container-3d {
+    perspective: 1000px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.container-3d:hover {
+    transform: rotateY(15deg) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    display: grid;
+    padding-top: 50px;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-message {
+        font-size: 1.2em;
+    }
+}
+
+.epic-text {
+    opacity: 0;
+    animation: epicTextAnimation 3s ease-in-out forwards;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+@keyframes epicTextAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilos para el loader */
+.loader-triangle polygon {
+    stroke: white;
+    stroke-dasharray: 17;
+    animation: myloader 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+}
+
+@keyframes myloader {
+    to {
+        stroke-dashoffset: -136;
+    }
+}
+
+/* Estilos para el notch */
+.notch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.notch button {
+    background: var(--button-bg);
+    color: white;
+    padding: 8px 16px; /* Ajusta el padding para botones más pequeños */
+    margin: 0 8px; /* Reduce el margen para que los botones se acomoden mejor */
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.notch button:hover {
+    background: var(--button-bg-hover);
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .notch {
+        width: 90%; /* Aumenta el ancho en pantallas medianas para mejor ajuste */
+        height: 60px; /* Ajusta la altura si es necesario */
+    }
+
+    .notch button {
+        padding: 8px 14px; /* Ajusta el padding para pantallas medianas */
+        margin: 0 6px; /* Ajusta el margen para pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .notch {
+        width: 95%; /* Aumenta el ancho en pantallas pequeñas */
+        height: 70px; /* Ajusta la altura si es necesario */
+    }
+
+    .notch button {
+        padding: 10px 12px; /* Ajusta el padding para pantallas pequeñas */
+        margin: 0 4px; /* Ajusta el margen para pantallas pequeñas */
+    }
+}
+
+/* Efecto de Hover para Imágenes */
+img {
+    transition: transform 0.3s, filter 0.3s, transform 0.5s;
+}
+
+img:hover {
+    transform: scale(1.1) translateZ(10px);
+    filter: brightness(1.2);
+}
+
+/* Efecto de Hover para Botones */
+button {
+    transition: transform 0.3s, background 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: var(--button-bg-hover);
+}
+
+/* Sombra de texto */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Resplandor en el texto */
+.glow {
+    color: #ff3beb;
+    text-shadow: 0 0 10px rgba(255, 59, 235, 0.6);
+}
+
+/* Efecto de Sombra Parpadeante en Texto */
+@keyframes shadowBlink {
+    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    50% { text-shadow: 0 0 10px rgba(255, 255, 255, 1); }
+    100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+}
+
+.text-blink {
+    animation: shadowBlink 1.5s infinite alternate;
+}
+
+/* Animaciones de Entrada para Elementos */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Efecto de Ripple en Botones */
+.ripple {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.6s, opacity 1s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ripple:focus::after,
+.ripple:active::after {
+    transform: scale(1);
+    opacity: 1;
+    transition: 0s;
+}
+
+#track-name {
+    color: black; 
+}
+
+
+
+
+
+
+/* Estilos para el tooltip */
+#tooltip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 60; /* Asegúrate de que el tooltip esté por encima del botón de música */
+}
+
+#tooltip p {
+    margin: 0;
+}
+
+#close-tooltip {
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  @keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animate-fade-in {
+    animation: fade-in 1s ease-out;
+}
+.animate-delay-100 {
+    animation-delay: 0.1s;
+}
+.animate-delay-200 {
+    animation-delay: 0.2s;
+}
+.animate-delay-300 {
+    animation-delay: 0.3s;
+}  
