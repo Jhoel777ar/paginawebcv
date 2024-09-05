@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function startCounting() {
         const visitorCountElement = document.getElementById('visitor-count');
-        const storedVisitorCount = parseInt(localStorage.getItem('visitorCount')) || 70;
-        animateCount(visitorCountElement, 0, storedVisitorCount, 2000);
+        const storedVisitorCount = parseInt(localStorage.getItem('visitorCount')) || 0;
+        animateCount(visitorCountElement, 70, storedVisitorCount, 2000);
         const projectCountElement = document.getElementById('project-count');
         const projectLimit = 10;
         animateCount(projectCountElement, 0, projectLimit, 2000);
