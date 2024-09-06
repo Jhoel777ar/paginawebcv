@@ -1,33 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Función para animar el contador
+    const VISITOR_COUNT_URL = 'https://raw.githubusercontent.com/Jhoel777ar/paginawebcv/main/visitorCount.json';  // URL del archivo JSON en GitHub
+
+    async function fetchVisitorCount() {
+        try {
+            const response = await fetch(VISITOR_COUNT_URL);
+            const data = await response.json();
+            return data.visitorCount;
+        } catch (error) {
+            console.error('Error al obtener el contador de visitantes:', error);
+            return 724; // Valor por defecto si hay un error
+        }
+    }
+
+    async function startCounting() {
+        const visitorCountElement = document.getElementById('visitor-count');
+        let visitorCount = await fetchVisitorCount();  // Obtener el contador actual
+        visitorCount++;
+
+        animateCount(visitorCountElement, 0, visitorCount, 2000);  // Mostrar el contador con animación
+
+        // Nota: GitHub Pages no soporta PUT, por lo que no se puede actualizar el JSON desde aquí
+    }
+
     function animateCount(element, start, end, duration) {
         let startTimestamp = null;
         const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             const currentValue = Math.floor(progress * (end - start) + start);
-            element.textContent = `+${currentValue}`; 
+            element.textContent = `+${currentValue}`;
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             } else {
-                element.textContent = `+${end}`; 
+                element.textContent = `+${end}`;
             }
         };
         window.requestAnimationFrame(step);
     }
 
-    // Inicializa y anima los contadores
-    function startCounting() {
-        const visitorCountElement = document.getElementById('visitor-count');
-        const storedVisitorCount = parseInt(localStorage.getItem('visitorCount')) || 724; 
-        animateCount(visitorCountElement, 724, storedVisitorCount, 2000);
-
-        const projectCountElement = document.getElementById('project-count');
-        const projectLimit = 724;
-        animateCount(projectCountElement, 724, projectLimit, 2000);
-    }
-
-    // Actualiza la hora actual
     function updateTime() {
         const now = new Date();
         const hours = now.getHours().toString().padStart(2, '0');
@@ -37,33 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('time').textContent = timeString;
     }
 
-    // Incrementa el contador de visitantes y almacena el resultado
-    function incrementVisitorCount() {
-        if (!sessionStorage.getItem('pageVisited')) {
-            let visitorCount = parseInt(localStorage.getItem('visitorCount')) || 724; // Inicia en 724
-            visitorCount++;
-            localStorage.setItem('visitorCount', visitorCount);
-            sessionStorage.setItem('pageVisited', 'true');
-        }
-    }
+    setInterval(updateTime, 1000);
 
-    // Mostrar el dominio del referente
-    function showReferrer() {
-        const referrer = document.referrer || 'Página no disponible';
-        try {
-            const referrerDomain = new URL(referrer).hostname;
-            document.getElementById('address').textContent = referrerDomain;
-        } catch (e) {
-            document.getElementById('address').textContent = 'Página no disponible';
-        }
-    }
+    const referrer = document.referrer || 'Página no disponible';
+    const referrerDomain = new URL(referrer).hostname;
+    document.getElementById('address').textContent = referrerDomain;
 
-    // Inicialización de funciones
-    startCounting();  
-    incrementVisitorCount();
-    showReferrer();
-    setInterval(updateTime, 1000); // Actualiza la hora cada segundo
-
-    // Opción para actualizar los contadores de visitantes y proyectos cada 3 segundos
-    setInterval(startCounting, 3000);
+    startCounting();  // Iniciar la cuenta de visitantes
 });
