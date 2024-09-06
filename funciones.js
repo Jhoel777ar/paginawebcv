@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function startCounting() {
         const visitorCountElement = document.getElementById('visitor-count');
         const storedVisitorCount = parseInt(localStorage.getItem('visitorCount')) || 724; 
-        animateCount(visitorCountElement, 0, storedVisitorCount, 2000);
+        animateCount(visitorCountElement, 724, storedVisitorCount, 2000);
 
         const projectCountElement = document.getElementById('project-count');
-        const projectLimit = 10;
-        animateCount(projectCountElement, 0, projectLimit, 2000);
+        const projectLimit = 724;
+        animateCount(projectCountElement, 724, projectLimit, 2000);
     }
 
     // Actualiza la hora actual
