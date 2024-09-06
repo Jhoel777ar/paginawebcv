@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startCounting() {
         const visitorCountElement = document.getElementById('visitor-count');
-        const storedVisitorCount = parseInt(localStorage.getItem('visitorCount')) || 270; // Inicia en 270
+        const storedVisitorCount = parseInt(localStorage.getItem('visitorCount')) || 270; 
         animateCount(visitorCountElement, 0, storedVisitorCount, 2000);
 
         const projectCountElement = document.getElementById('project-count');
@@ -47,14 +47,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar el dominio del referente
     function showReferrer() {
         const referrer = document.referrer || 'Página no disponible';
-        const referrerDomain = new URL(referrer).hostname;
-        document.getElementById('address').textContent = referrerDomain;
+        try {
+            const referrerDomain = new URL(referrer).hostname;
+            document.getElementById('address').textContent = referrerDomain;
+        } catch (e) {
+            document.getElementById('address').textContent = 'Página no disponible';
+        }
     }
 
-    startCounting();
-    setInterval(updateTime, 1000); // Actualizar la hora cada segundo
-    incrementVisitorCount(); // Incrementa y muestra el contador de visitantes
-    showReferrer(); // Mostrar la referencia del dominio
+    startCounting();  
+    setInterval(updateTime, 1000); 
+    incrementVisitorCount(); 
+    showReferrer(); 
 
-    setInterval(startCounting, 3000); // Actualizar los contadores cada 3 segundos
+    setInterval(startCounting, 3000);
 });
