@@ -90,3 +90,15 @@
     // Añadir el manejador para el evento 'ended'
     audioPlayer.addEventListener('ended', onAudioEnded);
 })();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const musicButton = document.querySelector('.music-button');
+
+    musicButton.addEventListener('click', () => {
+        musicButton.classList.add('active:dirty-effect');
+        setTimeout(() => {
+            musicButton.classList.remove('active:dirty-effect');
+        }, 300);
+    });
+});
