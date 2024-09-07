@@ -4,7 +4,7 @@
     --star-tail-height: 2px;
     --fall-duration: 9s;
     --tail-fade-duration: var(--fall-duration);
-    --background-gradient: linear-gradient(135deg, #000000, #343333);
+    --background-gradient: linear-gradient(135deg, #000000, #464545);
     --button-bg: rgba(0, 123, 255, 0.8);
     --button-bg-hover: rgba(0, 123, 255, 1);
     --glass-bg: rgba(255, 255, 255, 0.1);
@@ -140,24 +140,46 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     z-index: 10;
-    transition: transform 0.5s, box-shadow 0.5s;
+    transition: transform 0.5s, box-shadow 0.5s, filter 0.5s, border-color 0.5s;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 10px; 
 }
 
 .glass:hover {
     backdrop-filter: blur(15px);
-    transform: scale(1.02);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02) rotate(2deg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.2);
+    filter: brightness(1.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2)); /* Fondo degradado */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Estilos para el contenedor 3D */
 .container-3d {
     perspective: 1000px;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .container-3d:hover {
     transform: rotateY(15deg) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2)); /* Fondo degradado */
 }
 
 .container {
@@ -183,10 +205,14 @@ body {
 
 .epic-text {
     opacity: 0;
-    animation: epicTextAnimation 3s ease-in-out forwards;
+    animation: epicTextAnimation 3s ease-in-out forwards, blink 1.5s infinite;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     font-size: 2rem;
     font-weight: bold;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent;
 }
 
 @keyframes epicTextAnimation {
@@ -204,13 +230,24 @@ body {
     }
 }
 
+@keyframes blink {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+}
+
+
+
 .hidden {
     display: none;
 }
 
 /* Estilos para el loader */
 .loader-triangle polygon {
-    stroke: white;
+    stroke: rgb(223, 128, 20);
     stroke-dasharray: 17;
     animation: myloader 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
 }
@@ -221,84 +258,16 @@ body {
     }
 }
 
-/* Estilos para el notch */
-.notch {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 500px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(10px);
-    z-index: 10;
-    padding: 0 10px;
-    box-sizing: border-box;
-}
-
-.notch button {
-    background: var(--button-bg);
-    color: white;
-    padding: 8px 16px; /* Ajusta el padding para botones más pequeños */
-    margin: 0 8px; /* Reduce el margen para que los botones se acomoden mejor */
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.notch button:hover {
-    background: var(--button-bg-hover);
-}
-
-/* Media Queries para dispositivos móviles */
-@media (max-width: 768px) {
-    .notch {
-        width: 90%; /* Aumenta el ancho en pantallas medianas para mejor ajuste */
-        height: 60px; /* Ajusta la altura si es necesario */
-    }
-
-    .notch button {
-        padding: 8px 14px; /* Ajusta el padding para pantallas medianas */
-        margin: 0 6px; /* Ajusta el margen para pantallas medianas */
-    }
-}
-
-@media (max-width: 480px) {
-    .notch {
-        width: 95%; /* Aumenta el ancho en pantallas pequeñas */
-        height: 70px; /* Ajusta la altura si es necesario */
-    }
-
-    .notch button {
-        padding: 10px 12px; /* Ajusta el padding para pantallas pequeñas */
-        margin: 0 4px; /* Ajusta el margen para pantallas pequeñas */
-    }
-}
-
 /* Efecto de Hover para Imágenes */
 img {
-    transition: transform 0.3s, filter 0.3s, transform 0.5s;
+    transition: transform 0.3s, filter 0.3s, box-shadow 0.3s;
+    border-radius: 10px; 
 }
 
 img:hover {
-    transform: scale(1.1) translateZ(10px);
+    transform: scale(1.1) rotate(2deg) translateZ(10px);
     filter: brightness(1.2);
-}
-
-/* Efecto de Hover para Botones */
-button {
-    transition: transform 0.3s, background 0.3s;
-}
-
-button:hover {
-    transform: scale(1.05);
-    background: var(--button-bg-hover);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
 }
 
 /* Sombra de texto */
@@ -306,13 +275,11 @@ button:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Resplandor en el texto */
 .glow {
     color: #ff3beb;
     text-shadow: 0 0 10px rgba(255, 59, 235, 0.6);
 }
 
-/* Efecto de Sombra Parpadeante en Texto */
 @keyframes shadowBlink {
     0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
     50% { text-shadow: 0 0 10px rgba(255, 255, 255, 1); }
@@ -373,17 +340,19 @@ button:hover {
 }
 
 
-
-
-
-
 /* Estilos para el tooltip */
 #tooltip {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 60; /* Asegúrate de que el tooltip esté por encima del botón de música */
+    z-index: 60; 
+    background: rgba(0, 0, 0, 0.8); 
+    color: white;
+    padding: 10px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease, opacity 0.3s ease; 
 }
 
 #tooltip p {
@@ -393,56 +362,38 @@ button:hover {
 #close-tooltip {
     border: none;
     cursor: pointer;
+    background: transparent; 
+    color: white; 
+    font-size: 1.2em; 
+    transition: color 0.3s ease; 
 }
 
-
-
-
+#close-tooltip:hover {
+    color: #ff6ec4;
+}
 
 @keyframes fadeIn {
     from {
-      opacity: 0;
+        opacity: 0;
+        transform: translateY(10px);
     }
     to {
-      opacity: 1;
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-  
-  .animate-fadeIn {
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
     animation: fadeIn 1s ease-in-out forwards;
-  }
-  @keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.animate-fade-in {
-    animation: fade-in 1s ease-out;
-}
-.animate-delay-100 {
-    animation-delay: 0.1s;
-}
-.animate-delay-200 {
-    animation-delay: 0.2s;
-}
-.animate-delay-300 {
-    animation-delay: 0.3s;
-}  
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 @keyframes textShadow {
@@ -467,9 +418,14 @@ button:hover {
 }
 
 .animate-3d:hover {
-    color: #e0e0e0; /* Cambia el color del texto al pasar el ratón */
+    color: #e0e0e0;
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.7);
 }
+
+.bg-opacity-80 {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 
 @keyframes slideUp {
     from {
@@ -485,3 +441,51 @@ button:hover {
 footer {
     animation: slideUp 1s ease-out;
 }
+
+
+@keyframes blink {
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.animate-blink {
+    animation: blink 1.5s linear infinite;
+}
+
+#visitor-counter, #project-counter, #address-message, #current-time {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#visitor-counter:hover, #project-counter:hover, #address-message:hover, #current-time:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.bg-dark-transparent {
+    background-color: rgba(0, 0, 0, 0.5); /* Negro transparente */
+}
+
+.bg-dark-transparent-hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Negro transparente más oscuro al pasar el ratón */
+}
+
+.music-button {
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.music-button:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.music-button:active {
+    background-color: rgba(0, 0, 0, 0.9); /
+}
+
+.active:dirty-effect {
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2), 0 0 15px rgba(0, 0, 0, 0.5); 
+}
+
