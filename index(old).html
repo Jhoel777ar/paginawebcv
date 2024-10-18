@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi pagina CV</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Chathura:wght@100;300;400;700;800&family=Goldman:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles(old).css">
+    <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+    <div class="stars"></div>
+    <div id="welcome-section" class="center-body">
+        <div class="loader-triangle">
+            <svg id="triangle" width="120px" viewBox="-3 -4 39 39">
+                <polygon fill="transparent" stroke="#ff3beb" stroke-width="2" points="16,32 32,0 0,0"></polygon>
+            </svg>
+        </div>
+        <div class="welcome-message">
+            <h1 class="epic-text">ARK DEV</h1>
+        </div>
+    </div>
+    <!--de aca coemiza el contenido de la pagina -->
+    <div id="main-content" class="hidden">
+        <video id="video-background" autoplay loop muted>
+            <source src="src/cubo.mp4" type="video/mp4">
+        </video>
+        <div class="absolute top-0 left-0 m-4">
+            <img src="src/1001136218removebgpreview.png" alt="Logo" class="w-16 h-16">
+        </div>
+        <div class="container mx-auto p-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center mb-6">
+                <img src="src/upds.png" alt="Logo de la universidad" class="w-24 h-24 mb-4 shadow-lg">
+                <h2 class="text-3xl font-semibold text-center">UNIVERSIDAD PRIVADA DOMINGO SABIO</h2>
+                <p class="text-lg text-center mt-2">SEMESTRE: 6</p>
+                <p class="text-lg text-center">UBICACIÓN: MIRAFLORES, LA PAZ - BOLIVIA</p>
+            </div>
+        
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center mb-6">
+                <img src="src/pucv-blanco.png" alt="Logo de la PUCV" class="w-24 h-24 mb-4 shadow-lg">
+                <h2 class="text-3xl font-semibold text-center">PONTIFICIA UNIVERSIDAD CATÓLICA DE VALPARAÍSO</h2>
+                <p class="text-lg text-center mt-2">ESTADO: ESTUDIANTE DE INTERCAMBIO</p>
+                <p class="text-lg text-center">UBICACIÓN: VALPARAÍSO, CHILE</p>
+            </div>
+        </div>        
+        <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-500 hover:scale-105 hover:rotate-2">
+            <h2 class="text-2xl font-bold mb-4 animate-bounce transition-transform duration-700 hover:text-indigo-500">
+                PERFIL PROFESIONAL
+            </h2>
+        
+            <img src="src/videoframe_6727.png" alt="Foto Profesional"
+                class="w-32 h-32 rounded-full shadow-lg mb-6 transition-transform duration-700 hover:scale-110 hover:shadow-2xl animate-fadeIn">
+        
+            <p class="text-lg mb-4 animate-fadeIn transition-opacity duration-700 delay-100 hover:text-indigo-400">
+                SOY UN DESARROLLADOR CON EXPERIENCIA EN DESARROLLO FULL-STACK, ESPECIALIZADO EN APLICACIONES PARA
+                WINDOWS UTILIZANDO .NET FRAMEWORK. MI FORMACIÓN ABARCA TANTO FRONTEND COMO BACKEND, CON UN ENFOQUE EN LA
+                PROGRAMACIÓN ORIENTADA A OBJETOS Y EL DISEÑO MODERNO, GARANTIZANDO SOLUCIONES EFICIENTES Y ESTILIZADAS.
+            </p>
+            <p class="text-lg mb-4 animate-fadeIn transition-opacity duration-700 delay-300 hover:text-indigo-400">
+                TENGO CONOCIMIENTOS SÓLIDOS EN ELECTRÓNICA Y EXPERIENCIA PRÁCTICA EN EL DESARROLLO Y GESTIÓN DE
+                CIRCUITOS ELECTRÓNICOS Y MÓDULOS. MI PERFIL SE COMPLEMENTA CON EXPERIENCIA EN CIBERSEGURIDAD, LO QUE ME
+                PERMITE ABORDAR PROYECTOS CON UNA PERSPECTIVA INTEGRAL Y SEGURA.
+            </p>
+            <p class="text-lg mb-4 animate-fadeIn transition-opacity duration-700 delay-500 hover:text-indigo-400">
+                ADEMÁS, ESTOY EN PROCESO DE OBTENER MI TÍTULO DE INGENIERO EN SISTEMAS, LO QUE REFUERZA MI CAPACIDAD DE
+                ABORDAR PROBLEMAS COMPLEJOS DESDE UN ENFOQUE TÉCNICO Y ESTRATÉGICO. MI TRAJECTORIA INCLUYE TAMBIÉN
+                HABILIDADES EN PYTHON, CSS, DISEÑO GRÁFICO, RENDERIZACIÓN DE VIDEOS, Y DESARROLLO DE APLICACIONES
+                MÓVILES Y WEB.
+            </p>
+        </div>        
+
+        <!-- Sección de Portafolio de Tecnologías -->
+        <div class="container mx-auto p-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/NET-Framework-Symbol.png" alt="C#" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">C# EN .NET FRAMEWORK</h3>
+                <p class="text-center mt-2">DESARROLLO DE APLICACIONES DE ESCRITORIO Y SERVICIOS WEB ROBUSTOS CON .NET FRAMEWORK.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/c-logo-black-and-white.png" alt="C++" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">C++</h3>
+                <p class="text-center mt-2">LENGUAJE PODEROSO PARA DESARROLLO DE SOFTWARE DE SISTEMAS, VIDEOJUEGOS Y APLICACIONES EMBEBIDAS.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/Python-logo-notext.svg.png" alt="Python" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">PYTHON</h3>
+                <p class="text-center mt-2">PROGRAMACIÓN VERSÁTIL EN AUTOMATIZACIÓN, ANÁLISIS DE DATOS, APRENDIZAJE AUTOMÁTICO Y DESARROLLO WEB.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/php-icon-256x256-oq5bc0bt.png" alt="PHP" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">PHP</h3>
+                <p class="text-center mt-2">DESARROLLO BACKEND PARA APLICACIONES WEB DINÁMICAS UTILIZANDO PHP Y FRAMEWORKS COMO LARAVEL.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/pngimg.com - mysql_PNG9.png" alt="MySQL" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">MYSQL</h3>
+                <p class="text-center mt-2">GESTIÓN Y DISEÑO DE BASES DE DATOS RELACIONALES PARA APLICACIONES ESCALABLES.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/laravellogo.webp" alt="Laravel" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">LARAVEL</h3>
+                <p class="text-center mt-2">FRAMEWORK PHP PARA DESARROLLO ÁGIL Y SEGURO DE APLICACIONES WEB MVC.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/kotlin-icon-512x512-0o0lfw0b.png" alt="Kotlin" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">KOTLIN</h3>
+                <p class="text-center mt-2">DESARROLLO DE APLICACIONES ANDROID CON UN ENFOQUE MODERNO, CONCISO Y SEGURO.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/HTML5_Logo_256.png" alt="HTML" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">HTML</h3>
+                <p class="text-center mt-2">LENGUAJE FUNDAMENTAL PARA EL DESARROLLO DE LA ESTRUCTURA DE PÁGINAS WEB.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/css.webp" alt="CSS" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">CSS</h3>
+                <p class="text-center mt-2">ESTILIZACIÓN DE PÁGINAS WEB CON CSS Y PREPROCESADORES COMO SASS Y TAILWIND CSS.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/javascript.webp" alt="JavaScript" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">JAVASCRIPT</h3>
+                <p class="text-center mt-2">DESARROLLO FRONTEND DINÁMICO Y FRAMEWORKS MODERNOS COMO REACT Y VUE.JS.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/sql-database-sql-azure-icon-976x1024-eobwqz2q.png" alt="SQL Server" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">SQL SERVER</h3>
+                <p class="text-center mt-2">MANEJO AVANZADO DE BASES DE DATOS CON SQL SERVER PARA APLICACIONES EMPRESARIALES.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/arduino-icon-512x349-cc0agxke.png" alt="Arduino" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">ARDUINO</h3>
+                <p class="text-center mt-2">PROTOTIPOS DE HARDWARE INTERACTIVO UTILIZANDO LA PLATAFORMA ARDUINO.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/lenguajec.png" alt="Lenguaje C" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">LENGUAJE C</h3>
+                <p class="text-center mt-2">DESARROLLO DE SISTEMAS EMBEBIDOS Y PROGRAMACIÓN DE BAJO NIVEL EN C.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/chatgpt.webp" alt="ChatGPT" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">CHATGPT</h3>
+                <p class="text-center mt-2">DESARROLLO DE PROMPTS EFECTIVOS Y PERSONALIZADOS PARA MODELOS DE LENGUAJE NATURAL.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/google-gemini-icon.webp" alt="Gemini" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">GEMINI</h3>
+                <p class="text-center mt-2">USO DE GEMINI PARA INVESTIGACIÓN Y DESARROLLO DE SOLUCIONES AVANZADAS EN IA.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/Microsoft-Copilot-Logo-300x300.png.webp" alt="GitHub Copilot" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">COPILOT</h3>
+                <p class="text-center mt-2">AUTOMATIZACIÓN DEL CÓDIGO Y ASISTENCIA EN TIEMPO REAL PARA DESARROLLO EFICIENTE CON COPILOT.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/visual-basic.png" alt="Visual Basic" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-center">VISUAL BASIC</h3>
+                <p class="text-center mt-2">DESARROLLO DE APLICACIONES DE ESCRITORIO CON UNA INTERFAZ GRÁFICA INTUITIVA.</p>
+            </div>            
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/JSON_vector_logo.svg.png" alt="JSON" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">JSON</h3>
+                <p class="text-center mt-2">INTERCAMBIO DE DATOS LIGERO Y EFICIENTE USANDO JSON.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/gradle-icon-2048x1504-ro73tce1.png" alt="Gradle" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">GRADLE</h3>
+                <p class="text-center mt-2">AUTOMATIZACIÓN DE LA CONSTRUCCIÓN DE PROYECTOS CON GRADLE.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/tensorflow-icon-955x1024-hd4xzbqj.png" alt="TensorFlow" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">TENSORFLOW</h3>
+                <p class="text-center mt-2">DESARROLLO DE MODELOS DE MACHINE LEARNING CON TENSORFLOW.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/Windows-Server-Logo.png-300x150.webp" alt="Windows Server" class="w-12 h-13 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">WINDOWS SERVER</h3>
+                <p class="text-center mt-2">ADMINISTRACIÓN Y CONFIGURACIÓN DE SERVIDORES CON WINDOWS SERVER.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/linux.webp" alt="Linux" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">LINUX</h3>
+                <p class="text-center mt-2">ADMINISTRACIÓN DE SISTEMAS OPERATIVOS BASADOS EN LINUX.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/github.png" alt="Git y GitHub" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">GIT Y GITHUB</h3>
+                <p class="text-center mt-2">CONTROL DE VERSIONES Y COLABORACIÓN EN CÓDIGO CON GIT Y GITHUB.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/blackmagic-design-davinci-resolve-18-studio-activation-usb-dongle.webp" alt="DaVinci Resolve" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">DAVINCI RESOLVE</h3>
+                <p class="text-center mt-2">EDICIÓN Y CORRECCIÓN DE COLOR PROFESIONAL CON DAVINCI RESOLVE.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/Adobe_Photoshop_.png" alt="Photoshop" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">PHOTOSHOP</h3>
+                <p class="text-center mt-2">DISEÑO Y EDICIÓN DE IMÁGENES CON ADOBE PHOTOSHOP.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/adobe-illustrator-icon-512x512-s1nfujvx.png" alt="Illustrator" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">ILLUSTRATOR</h3>
+                <p class="text-center mt-2">DISEÑO GRÁFICO VECTORIAL CON ADOBE ILLUSTRATOR.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/virtual-dj-icon-z7uno.webp" alt="Virtual DJ" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">VIRTUAL DJ</h3>
+                <p class="text-center mt-2">MEZCLA DE MÚSICA DIGITAL Y DJING CON VIRTUAL DJ.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/audacity-icon-462x512-n5heqj8v.png" alt="Audacity" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">AUDACITY</h3>
+                <p class="text-center mt-2">EDICIÓN DE AUDIO Y GRABACIÓN CON AUDACITY.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/afeter efects.png" alt="Adobe After Effects" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">ADOBE AFTER EFFECTS</h3>
+                <p class="text-center mt-2">EDICIÓN Y EFECTOS VISUALES EN ADOBE AFTER EFFECTS.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/obs.png" alt="OBS" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">OBS</h3>
+                <p class="text-center mt-2">GRABACIÓN Y TRANSMISIÓN EN VIVO CON OBS STUDIO.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/windows.png" alt="Windows" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">WINDOWS</h3>
+                <p class="text-center mt-2">SISTEMA OPERATIVO WINDOWS DE MICROSOFT.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/SketchUp-M.png" alt="SketchUp" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">SKETCHUP</h3>
+                <p class="text-center mt-2">MODELAJE EN 3D CON SKETCHUP.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/proteus.png" alt="Proteus" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">PROTEUS</h3>
+                <p class="text-center mt-2">SIMULACIÓN DE CIRCUITOS ELECTRÓNICOS CON PROTEUS.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/autodesk.png" alt="AutoCAD" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">AUTOCAD</h3>
+                <p class="text-center mt-2">DISEÑO Y DIBUJO EN 2D Y 3D CON AUTOCAD.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105 mt-8">
+                <img src="src/vuejs-original-wordmark-icon-1736x2048-4z2z3y92.png" alt="Vue.js" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">VUE.JS</h3>
+                <p class="text-center mt-2">FRAMEWORK PROGRESIVO PARA CONSTRUIR INTERFACES DE USUARIO.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105 mt-8">
+                <img src="src/logo-winui.png" alt="WinUI 3" class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <h3 class="text-2xl font-semibold text-center">WINUI 3</h3>
+                <p class="text-center mt-2">DESARROLLA APLICACIONES DE WINDOWS CON LA INTERFAZ DE USUARIO MÁS MODERNA.</p>
+            </div>            
+        </div>
+
+        <h2 class="text-3xl font-bold text-center mt-12 mb-8">En proceso de aprendizaje</h2>
+        <div class="container mx-auto p-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/node.png" alt="Node.js" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Node.js</h3>
+                <p class="text-center mt-2">Entorno de ejecución para JavaScript construido con el motor V8 de Chrome,
+                    ideal para crear aplicaciones del lado del servidor.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/react.webp" alt="React" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">React</h3>
+                <p class="text-center mt-2">Biblioteca de JavaScript para construir interfaces de usuario interactivas y
+                    componentes reutilizables.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/docker.webp" alt="Docker" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Docker</h3>
+                <p class="text-center mt-2">Plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores
+                    de manera eficiente.</p>
+            </div>
+            <div class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center">
+                <img src="src/java.png" alt="Java" class="w-16 h-16 mb-4">
+                <h3 class="text-2xl font-semibold text-center">Java</h3>
+                <p class="text-center mt-2">Lenguaje de programación versátil y orientado a objetos, utilizado en una
+                    amplia variedad de aplicaciones empresariales y móviles.</p>
+            </div>
+        </div>
+
+
+        <h2 class="text-3xl font-bold text-center mt-12 mb-8">Mis proyectos lanzados</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/logo2.ico" alt="Illustrator"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+                <a href="https://drive.google.com/file/d/1TuvfTF6iMqISE7VmjLWk-Foi4l5lOoEi/view?usp=sharing"
+                    target="_blank">
+                    <img src="https://drive.google.com/thumbnail?id=1TuvfTF6iMqISE7VmjLWk-Foi4l5lOoEi"
+                        alt="Miniatura del video" class="w-full h-auto mt-4 rounded-lg shadow-lg cursor-pointer">
+                </a>
+                <h3 class="text-2xl font-semibold text-center mt-4">Sistema Supermercado Ark</h3>
+                <p class="text-center mt-2">Sistema basado en plataformas de Windows.</p>
+                <div class="mt-4 text-center">
+                    <p><strong>Plataforma:</strong> Windows, desarrollado con .NET Framework</p>
+                    <p><strong>Fecha de Lanzamiento:</strong> Julio 2024</p>
+                    <p><strong>Características Principales:</strong> Gestión de inventarios, ventas y reportes
+                        personalizados.</p>
+                </div>
+                <a href="https://drive.google.com/uc?export=download&id=1NNLuiisve5K7oCZP0hyDNK_98_APzQQs" download
+                    class="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300">
+                    Descargar Demo
+                </a>
+            </div>
+
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <img src="src/image-removebg-preview.png" alt="Virtual DJ"
+                    class="w-26 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12">
+
+                <!-- Enlace de Google Drive en lugar del video -->
+                <a href="https://drive.google.com/file/d/1sH9vHzZLW-hA_4YQYjnMcGLVW_OTZCgN/view?usp=sharing"
+                    target="_blank" rel="noopener noreferrer">
+                    <img src="https://drive.google.com/thumbnail?id=1sH9vHzZLW-hA_4YQYjnMcGLVW_OTZCgN"
+                        alt="Miniatura del Video" class="w-full h-auto mt-4 rounded-lg shadow-lg">
+                </a>
+
+                <h3 class="text-2xl font-semibold text-center">Página Web Flash Appliance</h3>
+                <p class="text-center mt-2">Desarrollado en HTML, PHP, MySQL y CSS.</p>
+                <p class="text-center mt-2 font-medium">Fecha de Lanzamiento: <span class="font-normal">Febrero
+                        2024</span></p>
+                <p class="text-center mt-2 font-medium">Plataforma: <span class="font-normal">Web</span></p>
+                <p class="text-center mt-2 font-medium">Características:</p>
+                <ul class="text-center list-disc list-inside mt-2">
+                    <li>Gestión de inventarios</li>
+                    <li>Ventas y generación de reportes de ventas</li>
+                    <li>Registro y gestión de clientes</li>
+                    <li>Funcionalidades de tienda en línea</li>
+                </ul>
+                <a href="src/PROYECTO FINAL CODIGO.docx" download
+                    class="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300">
+                    Descargar Documentación
+                </a>
+            </div>
+
+            <div
+                class="relative group glass container-3d rounded-lg p-8 shadow-lg hover:shadow-2xl flex flex-col items-center transition-transform duration-500 transform hover:scale-105 hover:blur-sm">
+                <img src="src/logoaj.png" alt="Ajetex"
+                    class="w-16 h-16 mb-4 transition-transform duration-300 transform hover:rotate-12 hover:scale-110">
+                <h3 class="text-2xl font-semibold text-center transition-colors duration-300 hover:text-blue-500">Ajetex
+                </h3>
+                <p class="text-center mt-2 transition-opacity duration-300 hover:opacity-80">Página web para la gestión
+                    de inventarios, pedidos y registro de usuarios, especializada en ropa deportiva y equipos
+                    electrónicos.</p>
+                <ul class="list-disc mt-4 transition-transform duration-300 hover:translate-y-1">
+                    <li>Gestión completa de inventarios.</li>
+                    <li>Registro y administración de pedidos.</li>
+                    <li>Registro de usuarios con opciones personalizadas.</li>
+                    <li>Catálogo en línea de ropa deportiva y equipos electrónicos.</li>
+                    <li>Interfaz amigable y fácil de usar.</li>
+                </ul>
+                <div
+                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 bg-opacity-75 rounded-lg">
+                    <span class="text-white text-3xl font-bold">Próximamente</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-center mt-12 mb-8">Mi formación en linea</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <h3 class="text-2xl font-semibold mb-4">Insider en Microsoft</h3>
+                <p class="text-lg mb-4">Soy insider en Microsoft, especializado en Windows y Office. Estoy al tanto de
+                    las últimas actualizaciones y características exclusivas.</p>
+                <img src="src/insider.png" alt="Insider Logo" class="w-16 h-16 mt-4">
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <h3 class="text-2xl font-semibold mb-4">Microsoft Learn</h3>
+                <p class="text-lg mb-4">Actualmente, estoy tomando clases diarias en Microsoft Learn para obtener
+                    certificaciones en diversas áreas de tecnología.</p>
+                <img src="src/learnig.png" alt="Microsoft Learn Logo" class="w-16 h-16 mt-4">
+            </div>
+            <div
+                class="glass container-3d rounded-lg p-8 shadow-lg hover:shadow-xl flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+                <h3 class="text-2xl font-semibold mb-4">Clases de Cisco</h3>
+                <p class="text-lg mb-4">He tomado clases de Cisco relacionadas con redes, lo que me ha proporcionado una
+                    sólida comprensión de las tecnologías de red y su implementación.</p>
+                <img src="src/cisco.png" alt="Cisco Logo" class="w-16 h-16 mt-4">
+            </div>
+
+        </div>
+
+        <!-- Botón flotante para abrir el popup -->
+        <button
+    class="fixed bottom-8 right-8 bg-dark-transparent text-white p-4 rounded-full shadow-lg hover:bg-dark-transparent-hover focus:outline-none focus:ring-2 focus:ring-dark-transparent focus:ring-opacity-50 z-50 music-button transition-transform transform hover:scale-105 hover:rotate-3 active:dirty-effect">
+    <i class="fas fa-music"></i>
+</button>
+
+        <div id="music-popup"
+            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm hidden z-40">
+            <div class="absolute inset-0 overflow-hidden z-0">
+                <video class="w-auto h-auto object-cover" autoplay loop muted disablePictureInPicture>
+                    <source src="src/Tech_Triangle.webm" type="video/webm">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+            <div
+                class="relative bg-white bg-opacity-30 backdrop-blur-lg border border-white/30 rounded-lg p-6 max-w-md w-full shadow-lg z-10">
+                <button
+                    class="absolute top-4 right-4 text-white bg-gray-700 bg-opacity-70 rounded-full p-2 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 close-popup">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div id="track-name" class="text-center text-white font-semibold text-lg mb-4">
+                    The Chemical Brothers - Hey Boy Hey Girl (ARTBAT Remix)
+                </div>
+                <audio id="audio-player" controls class="w-full mb-4">
+                    <source src="src/music.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                <canvas id="audio-spectrum" width="600" height="200" class="w-full"></canvas>
+            </div>
+        </div>
+
+        <!-- Overlay para el fondo -->
+        <div id="overlay1" class="fixed inset-0 bg-black opacity-70 hidden z-30"></div>
+
+        <div class="glass container-3d rounded-lg p-8 shadow-lg mt-8 flex flex-col gap-6 md:flex-row md:gap-12">
+            <div id="visitor-counter"
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-blue-500 to-blue-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Visitantes</h2>
+                <p id="visitor-count" class="text-5xl font-bold animate-blink">1224</p>
+            </div>
+            <div id="project-counter"
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-green-500 to-green-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Proyectos Realizados no lanzados</h2>
+                <p id="project-count" class="text-5xl font-bold animate-blink">10</p>
+            </div>
+            <div id="address-message"
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-yellow-500 to-yellow-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Dirección</h2>
+                <p id="address" class="text-lg">Cargando...</p>
+            </div>
+            <div id="current-time"
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-red-500 to-red-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Hora Actual</h2>
+                <p id="time" class="text-3xl font-bold"></p>
+            </div>
+
+        </div>
+
+        <div class="glass container-3d rounded-lg p-8 shadow-lg mt-8 flex flex-col gap-6 md:flex-row md:gap-12">
+            <div
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-purple-500 to-indigo-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Playlist 1</h2>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/1e8ih5s1Ympa2JYD6zHol5?utm_source=generator"
+                    width="100%" height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+            <div
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-teal-500 to-cyan-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Playlist 2</h2>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/37i9dQZEVXbMDoHDwVN2tF?utm_source=generator"
+                    width="100%" height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+            <div
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-pink-500 to-red-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Playlist 3</h2>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/37i9dQZEVXbJqfMFK4d691?utm_source=generator"
+                    width="100%" height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+        </div>
+
+
+        <footer class="bg-gray-900 bg-opacity-80 text-white py-12 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="text-center">
+                    <img src="src/1001136218removebgpreview.png" alt="Ark Developer Logo"
+                        class="mx-auto mb-6 w-24 h-24 animate-fadeIn">
+                    <h3 class="text-3xl font-semibold mb-6 animate-3d">Contacto</h3>
+                    <p class="text-lg mb-6 animate-3d animate-delay-100">Puedes contactarme a través de mi correo
+                        electrónico para recibir más información o para solicitar una copia física de mi CV:</p>
+                    <p class="text-lg mb-6 animate-3d animate-delay-200">
+                        <a href="mailto:ajoe_ark@hotmail.com"
+                            class="text-blue-500 hover:underline hover:text-blue-300 transition-transform duration-300 hover:scale-105">ajoe_ark@hotmail.com</a>
+                    </p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-80 text-center py-6 mt-12 rounded-lg shadow-lg">
+                    <p class="text-gray-400 text-sm">© 2024 ARK Dev. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="music.js"></script>
+    <script src="funciones.js"></script>
+</body>
+
+</html>
