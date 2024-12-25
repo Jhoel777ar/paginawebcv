@@ -1,1 +1,242 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARK OS Lite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@400;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            color: white;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            overflow-x: hidden;
+        }
+
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent);
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .glass-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            text-align: center;
+            padding: 30px;
+            margin: 50px auto;
+            max-width: 90%;
+            width: 600px;
+            background: rgba(25, 25, 25, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+            animation: glassFade 1.5s ease;
+        }
+
+        @keyframes glassFade {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .glowing-text {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #00f0ff, #8000ff, #ff0080);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: glowing 2s infinite alternate;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes glowing {
+            0% {
+                filter: brightness(0.8);
+            }
+
+            100% {
+                filter: brightness(1.5);
+            }
+        }
+
+        .btn-download {
+            background: linear-gradient(145deg, #1db954, #1ed760);
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(0, 255, 128, 0.7);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 12px 40px rgba(0, 255, 128, 0.9);
+        }
+
+        .btn-start {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            padding: 10px 25px;
+            color: white;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 25px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-start:hover {
+            transform: scale(1.2);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.7);
+        }
+
+        footer {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 20px;
+            animation: fadeInUp 2s ease;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-container {
+                padding: 20px;
+                width: 90%;
+            }
+
+            .glowing-text {
+                font-size: 2rem;
+            }
+
+            .btn-download {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            .btn-start {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="particles-js" class="animated-background"></div>
+
+    <a href="index.html" class="btn-start">Home</a>
+
+    <div class="flex flex-col items-center justify-center min-h-screen py-10 px-5">
+        <div class="flex space-x-6 logo">
+            <img src="src/1001136218removebgpreview.png" alt="ARK OS Logo" class="w-28">
+            <img src="https://img.icons8.com/color/512/windows-11.png" alt="Windows 11 Logo" class="w-28">
+        </div>
+
+        <div class="glass content max-w-4xl mx-auto mt-10 text-center space-y-6">
+            <h1 class="glowing-text">ARK OS Lite</h1>
+            <p class="text-lg text-gray-300">
+                ARK OS Lite is a modified operating system based on Windows 11, specially designed to offer exceptional
+                performance on low-resource devices. It does not require TPM and can run with as little as 1 GB of RAM,
+                making it an excellent choice for older or low-performance computers.
+            </p>
+            <p class="text-lg text-gray-300">
+                This system is highly recommended for low-resource virtual machines, as well as for older machines that
+                can
+                no longer efficiently run more modern operating systems. ARK OS Lite is optimized to ensure a fast,
+                lightweight,
+                and functional experience.
+            </p>
+            <p class="text-lg text-gray-300">
+                It is recommended that the system have internet access to make the most of its integrated capabilities
+                and
+                services, but it remains functional in offline environments. An excellent choice for users looking to
+                revive
+                old hardware or create efficient virtual environments.
+            </p>
+        </div>
+
+        <div class="glass content max-w-4xl mx-auto mt-10 text-center space-y-6">
+            <a href="https://www.mediafire.com/file/z342jeot3h3qiof/ArkOs_Oficial.iso/file" class="btn-download">
+                Download ARK OS Lite ISO
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Ark Dev. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        gsap.from(".logo img", { duration: 1.5, y: -50, opacity: 0, stagger: 0.3 });
+        gsap.from(".glass", { duration: 1, scale: 0.9, opacity: 0, ease: "power2.out" });
+        gsap.from("footer", { duration: 1, y: 50, opacity: 0, delay: 1.5 });
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.6, random: true },
+                size: { value: 4, random: true },
+                move: { enable: true, speed: 2, direction: "none", out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
