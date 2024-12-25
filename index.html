@@ -1,61 +1,3040 @@
 <!DOCTYPE html>
-<html lang="es">
+<html data-wf-domain="https://jhoel777ar.github.io/paginawebcv/" data-wf-page="66a68529752ea579681df34d"
+    data-wf-site="66a68529752ea579681df340" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi pagina CV</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <title>ARK DEV</title>
+    <meta
+    content="Welcome to ARK Dev. We specialize in lightweight operating systems and innovative software solutions, creating seamless and efficient experiences for users and businesses."
+    name="description" />
+<meta content="ARK Dev – Lightweight OS and Software Solutions" property="og:title" />
+<meta
+    content="Welcome to ARK Dev. We specialize in lightweight operating systems and innovative software solutions, creating seamless and efficient experiences for users and businesses."
+    property="og:description" />
+<meta content="ARK Dev – Lightweight OS and Software Solutions" property="twitter:title" />
+<meta
+    content="Welcome to ARK Dev. We specialize in lightweight operating systems and innovative software solutions, creating seamless and efficient experiences for users and businesses."
+    property="twitter:description" />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link
+        href="https://cdn.prod.website-files.com/66a68529752ea579681df340/css/muradov-design-2-0-ui9t47ne.webflow.c7e053b2e.min.css"
+        rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        !function (o, c) {
+            var n = c.documentElement
+                , t = " w-mod-";
+            n.className += t + "js",
+                ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+        }(window, document);
+    </script>
     <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NC3BHH5HG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-1NC3BHH5HG');
+    </script>
+    <style>
+        .content-blocker {
+            display: block;
+        }
+
+        .loader-block {
+            display: flex;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 
-<body>
-    <div class="stars"></div>
-    <header class="header">
-        <video class="header-video" autoplay muted loop id="video">
-            <source src="src/cubo.webm" type="video/webm">
-            Tu navegador no soporta el video.
-        </video>
-        <div class="loader-triangle">
-            <svg id="triangle" width="70px" viewBox="-3 -4 39 39">
-                <polygon fill="transparent" stroke="#ff3beb" stroke-width="2" points="16,32 32,0 0,0"></polygon>
-            </svg>
+<body class="body">
+    <div class="page-wrap">
+        <div class="code-embed--global w-embed">
+            <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            <style>
+                @media only screen and (min-width: 992px) {
+                    html {
+                        font-size: clamp(0.5rem, 1.5625vh, 1.115vw);
+                    }
+                }
+
+                ::selection {
+                    color: white;
+                    background-color: rgb(88, 47, 205);
+                }
+            </style>
+            <style>
+                html {
+                    -webkit-font-smoothing: antialiased;
+                }
+
+                .scene canvas {
+                    height: 100% !important;
+                    width: 100% !important;
+                }
+
+                .text-link--menu:before {
+                    content: '';
+                    position: absolute;
+                    height: 0.25rem;
+                    width: 0.25rem;
+                    background: var(--main--white);
+                    border-radius: 100%;
+                    bottom: -1.25rem;
+                    box-shadow: 0rem -0.25rem 1rem var(--main--white);
+                    opacity: 0;
+                    transition: all .1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+                }
+
+                .text-link--menu.w--current:before {
+                    bottom: -0.75rem;
+                    opacity: 1;
+                }
+
+                .block--card--services--details .item--card--services--details:last-child {
+                    border: 0;
+                }
+
+                .caption-l.is--about--paragraph span,
+                .caption-l.is--services--paragraph span {
+                    display: inline !important;
+                }
+
+                .heading-m span {
+                    display: inline-block !important;
+                }
+
+                /* SPLIDE */
+                .splide {
+                    visibility: visible;
+                }
+
+                .splide__track {
+                    overflow: visible;
+                }
+
+                .image--navbar--logo path {
+                    will-change: filter, opacity, transform;
+                }
+
+                /* SWIPER */
+                .swiper {
+                    overflow: visible;
+                }
+
+                .swiper-slide {
+                    display: flex;
+                    -webkit-backface-visibility: visible;
+                    backface-visibility: visible;
+                    overflow: visible;
+                    height: auto !important;
+                }
+
+                .swiper-3d .swiper-wrapper {
+                    transform-style: flat;
+                }
+
+                .slider-pagination {
+                    transition: none !important;
+                }
+
+                .slider-pagination.swiper-pagination {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    bottom: -1.75rem;
+                    top: auto;
+                }
+
+                .swiper-pagination-bullet {
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    opacity: 1;
+                }
+
+                .swiper-pagination-bullet {
+                    margin: 0 0.25rem;
+                    background: var(--secondary--white-15);
+                    filter: drop-shadow(0rem 0.25rem 1rem rgba(255, 255, 255, 0));
+                    transition: .2s ease all;
+                }
+
+                .swiper-pagination-bullet-active {
+                    background: var(--main--white) !important;
+                    filter: drop-shadow(0rem 0.25rem 0.5rem rgba(255, 255, 255, 1));
+                }
+
+                .swiper-3d .swiper-slide-shadow {
+                    background: none;
+                }
+            </style>
         </div>
-    </header>
-    <canvas id="canvas" style="display:none;"></canvas>
-    <main>
-        <div class="card glass-card">
-            <img src="src/videoframe_6727.png" alt="Foto de perfil" class="profile-img">
-            <h1>Jhoel Andres C.</h1>
-            <button id="openModal">Quien soy?</button>
+        <div class="content-blocker"></div>
+        <div class="loader-block">
+            <div id="text--loader-block" class="caption-m is--spaced">Loading</div>
+            <div data-w-id="e014ea31-aafc-0950-aca0-d61c2a2b738b" class="caption-m is--spaced is--dot-01 is--dot">.
+            </div>
+            <div data-w-id="74089d28-f0d9-c6b4-0663-db1ff71c4f1a" class="caption-m is--spaced is--dot-02 is--dot">.
+            </div>
+            <div data-w-id="34645ee5-52a6-bc0e-06b1-2cb8796b911f" class="caption-m is--spaced is--dot-03 is--dot">.
+            </div>
         </div>
-    </main>    
-    <div id="modal" class="modal">
-        <div class="video-background">
-            <video autoplay loop muted>
-                <source src="src/Untitled video - Made with Clipchamp.webm" type="video/webm">
-                Tu navegador no soporta video.
-            </video>
+        <!--logo y texto intro-->
+        <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease"
+            role="banner" class="navbar w-nav">
+            <div class="container w-container">
+                <div class="content-wrap--navbar">
+                    <a aria-label="Scroll to page top" href="#work" class="link-block--navbar--logo w-inline-block">
+                        <div class="image--navbar--logo w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="40" viewBox="0 0 200 40"
+                                fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img">
+                                <defs>
+                                    <clipPath id="clip0_492_29">
+                                        <rect width="200" height="40" fill="white" />
+                                    </clipPath>
+                                </defs>
+                                <g clip-path="url(#clip0_492_29)">
+                                    <image href="src2/we001136218removebgpreview.png" x="0" y="5" width="30" height="30"
+                                        preserveAspectRatio="xMidYMid meet" />
+                                    <text x="40" y="27" fill="#F8F7F4" font-family="Arial, sans-serif" font-size="24"
+                                        font-weight="bold">
+                                        ARK DEV <>
+                                    </text>
+                                </g>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="modal-content">
-            <span id="closeModal" class="close">&times;</span>
-            <h2>INFORMACIÓN ADICIONAL</h2>
-         <p>HOLA, SOY JHOEL ANDRÉS, UN PRÓXIMO A SER INGENIERO EN SISTEMAS Y PROGRAMADOR MULTIDISCIPLINARIO. MI EXPERIENCIA ABARCA VARIOS LENGUAJES DE PROGRAMACIÓN Y TENGO CONOCIMIENTOS EN CIBERSEGURIDAD. ADEMÁS, SOY FUNDADOR DE AJHOE PRIVATE COMPANY, UNA MICROEMPRESA COMERCIAL IMPORTADORA PRIVADA CON VARIOS SOCIOS, CON 6 MESES DE OPERACIÓN DESDE SU FUNDACIÓN EN ABRIL DE 2024. TAMBIÉN FUNDÉ ARK DEV, UN SELLO DE PROGRAMACIÓN REGISTRADO QUE FORMA PARTE DE AJHOE PRIVATE COMPANY. ¡ESTOY EMOCIONADO POR COMPARTIR MIS PROYECTOS Y COLABORAR CON OTROS ENTUSIASTAS DE LA TECNOLOGÍA!</p>
-            <a href="index(old).html" class="redirect-button">VISITAR SITIO (PRIVIEW)</a>
-        </div>          
-        <audio id="background-music" autoplay loop>
-            <source src="src/SOMEONE NEED ME.mp3" type="audio/mpeg">
-            Tu navegador no soporta audio.
-        </audio>
-    </div>    
-    <script src="modocine.js"></script>
+        <style>
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(12px);
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                transform: translateY(-100%);
+                animation: slideIn 0.8s ease-out forwards;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .container.w-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .content-wrap--navbar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image--navbar--logo svg {
+                width: 150px;
+                height: auto;
+                transition: transform 0.3s ease, filter 0.3s ease;
+                cursor: pointer;
+            }
+
+            .image--navbar--logo svg:hover {
+                transform: scale(1.1);
+                filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+            }
+
+            @keyframes logoHover {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-8px);
+                }
+            }
+
+            @keyframes slideIn {
+                0% {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            .navbar:hover {
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .navbar::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0) 80%);
+                animation: loadingEffect 3s ease-in-out infinite;
+                z-index: -1;
+                pointer-events: none;
+            }
+
+            @keyframes loadingEffect {
+                0% {
+                    transform: scale(1) translateX(-100%);
+                }
+
+                50% {
+                    transform: scale(1.1) translateX(0);
+                }
+
+                100% {
+                    transform: scale(1) translateX(100%);
+                }
+            }
+        </style>
+
+        <div class="main">
+            <div id="work" class="sections-wrap">
+                <section class="section is--home--hero">
+                    <div class="w-layout-blockcontainer container w-container">
+                        <div class="content-wrap is--home--hero">
+                            <div class="title-block is--home--hero">
+                                <div class="heading-wrap is--home--hero">
+                                    <h1 class="heading-xl">
+                                        <span id="home--hero--title--top">CODE</span>
+                                        <br />
+                                        <span id="home--hero--title--bottom">DEVELOPER</span>
+                                    </h1>
+                                </div>
+                                <div class="paragraph-wrap is--home--hero">
+                                    <p class="caption-l text-color--secondary--white-75">
+                                        Efficiency And Modernity<br />ARK DEV | AJHOE PRIVATE COMPANY
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section is--home--work">
+                    <div class="w-layout-blockcontainer container w-container">
+                        <div class="content-wrap is--home--work">
+                            <div id="w-node-aad9f30b-7e48-6dfb-6c6a-4a09d5ae00b7-681df34d" class="portfolio-wrap">
+                                <!--video1-->
+                                <div id="w-node-_2813463b-1415-474e-ea52-befae1247dd7-681df34d"
+                                    class="item-wrap--portfolio">
+                                    <div class="w-layout-grid grid--12x">
+                                        <a id="w-node-_2813463b-1415-474e-ea52-befae1247dd9-681df34d"
+                                            href="https://jhoel777ar.github.io/boliviatravel.bo/" target="_blank"
+                                            class="link-block--portfolio w-inline-block">
+                                            <div id="w-node-_2813463b-1415-474e-ea52-befae1247dda-681df34d"
+                                                class="block-wrap--portfolio">
+                                                <div class="card--portfolio is--first">
+                                                    <div class="image-overlap--card--portfolio"></div>
+                                                    <div data-poster-url="src2/imagenes/biliviatravel.png"
+                                                        data-video-urls="src2/video/videoboliviatravel.mp4,src2/video/videoboliviatravel.webm"
+                                                        data-autoplay="true" data-loop="true" data-wf-ignore="true"
+                                                        class="image--card--portfolio w-background-video w-background-video-atom">
+                                                        <video id="bb9835e4-3543-ac22-d320-24121ec3fe98-video"
+                                                            autoplay="" loop=""
+                                                            style="background-image:url(&quot;src2/imagenes/biliviatravel.png&quot;)"
+                                                            muted="" playsinline="" data-wf-ignore="true"
+                                                            data-object-fit="cover">
+                                                            <source src="src2/video/videoboliviatravel.mp4"
+                                                                data-wf-ignore="true" />
+                                                            <source src="src2/video/videoboliviatravel.webm"
+                                                                data-wf-ignore="true" />
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                                <div class="block--item-wrap--portfolio--description">
+                                                    <div class="heading-wrap is--card--work">
+                                                        <h2 class="heading-xs">Bolivia Travel</h2>
+                                                        <div class="icon-wrap--16px is--card--portfolio">
+                                                            <div class="icon w-embed">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                    height="100%" viewBox="0 0 16 17" fill="none"
+                                                                    preserveAspectRatio="xMidYMid meet"
+                                                                    aria-hidden="true" role="img">
+                                                                    <path
+                                                                        d="M9.99999 2.5H14M14 2.5V6.5M14 2.5L6.66666 9.83333"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                    <path
+                                                                        d="M12 9.16667V13.1667C12 13.5203 11.8595 13.8594 11.6095 14.1095C11.3594 14.3595 11.0203 14.5 10.6667 14.5H3.33333C2.97971 14.5 2.64057 14.3595 2.39052 14.1095C2.14048 13.8594 2 13.5203 2 13.1667V5.83333C2 5.47971 2.14048 5.14057 2.39052 4.89052C2.64057 4.64048 2.97971 4.5 3.33333 4.5H7.33333"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-wrap">
+                                                        <div class="caption-m text-color--secondary--white-60">WebSite
+                                                            Development / Custom Code</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--video2-->
+                                <div id="w-node-a5f3e0eb-61fa-d472-4ab0-4db05dad8678-681df34d"
+                                    class="item-wrap--portfolio">
+                                    <div class="w-layout-grid grid--12x">
+                                        <a id="w-node-a5f3e0eb-61fa-d472-4ab0-4db05dad867a-681df34d"
+                                            href="https://vertexventuresupds.netlify.app/" target="_blank"
+                                            class="link-block--portfolio w-inline-block">
+                                            <div id="w-node-a5f3e0eb-61fa-d472-4ab0-4db05dad867b-681df34d"
+                                                class="block-wrap--portfolio">
+                                                <div class="card--portfolio">
+                                                    <div class="image-overlap--card--portfolio"></div>
+                                                    <div data-poster-url="src2/imagenes/vertex.png"
+                                                        data-video-urls="src2/video/vertexventures.mp4,src2/video/vertexventures.webm"
+                                                        data-autoplay="true" data-loop="true" data-wf-ignore="true"
+                                                        class="image--card--portfolio w-background-video w-background-video-atom">
+                                                        <video id="70478e7a-ab8d-364f-c2a3-613e0286e588-video"
+                                                            autoplay="" loop=""
+                                                            style="background-image:url(&quot;src2/imagenes/vertex.png&quot;)"
+                                                            muted="" playsinline="" data-wf-ignore="true"
+                                                            data-object-fit="cover">
+                                                            <source src="src2/video/vertexventures.mp4"
+                                                                data-wf-ignore="true" />
+                                                            <source src="src2/video/vertexventures.webm"
+                                                                data-wf-ignore="true" />
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                                <div class="block--item-wrap--portfolio--description">
+                                                    <div class="heading-wrap is--card--work">
+                                                        <h2 class="heading-xs">Vertex Ventures</h2>
+                                                        <div class="icon-wrap--16px is--card--portfolio">
+                                                            <div class="icon w-embed">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                    height="100%" viewBox="0 0 16 17" fill="none"
+                                                                    preserveAspectRatio="xMidYMid meet"
+                                                                    aria-hidden="true" role="img">
+                                                                    <path
+                                                                        d="M9.99999 2.5H14M14 2.5V6.5M14 2.5L6.66666 9.83333"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                    <path
+                                                                        d="M12 9.16667V13.1667C12 13.5203 11.8595 13.8594 11.6095 14.1095C11.3594 14.3595 11.0203 14.5 10.6667 14.5H3.33333C2.97971 14.5 2.64057 14.3595 2.39052 14.1095C2.14048 13.8594 2 13.5203 2 13.1667V5.83333C2 5.47971 2.14048 5.14057 2.39052 4.89052C2.64057 4.64048 2.97971 4.5 3.33333 4.5H7.33333"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-wrap">
+                                                        <div class="caption-m text-color--secondary--white-60">WebSite
+                                                            Development / Custom Code</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--vide3-->
+                                <div id="w-node-a7afcb5d-7ef3-fb02-f06e-580d6c1f6482-681df34d"
+                                    class="item-wrap--portfolio">
+                                    <div class="w-layout-grid grid--12x">
+                                        <a id="w-node-a7afcb5d-7ef3-fb02-f06e-580d6c1f6484-681df34d"
+                                            href="https://drive.google.com/uc?export=download&id=1NNLuiisve5K7oCZP0hyDNK_98_APzQQs"
+                                            target="_blank" class="link-block--portfolio w-inline-block">
+                                            <div id="w-node-a7afcb5d-7ef3-fb02-f06e-580d6c1f6485-681df34d"
+                                                class="block-wrap--portfolio">
+                                                <div class="card--portfolio">
+                                                    <div data-poster-url="https://cdn.prod.website-files.com/66a68529752ea579681df340%2F671e317365dff2f3b96dd37e_portfolio--verbatim-poster-00001.jpg"
+                                                        data-video-urls="src2/video/supermarketmanilus.mp4,https://cdn.prod.website-files.com/66a68529752ea579681df340%2F671e317365dff2f3b96dd37e_portfolio--verbatim-transcode.webm"
+                                                        data-autoplay="true" data-loop="true" data-wf-ignore="true"
+                                                        class="image--card--portfolio w-background-video w-background-video-atom">
+                                                        <video id="18638bba-b629-6a7f-4bb2-f0e8c2e5a825-video"
+                                                            autoplay="" loop=""
+                                                            style="background-image:url(&quot;https://cdn.prod.website-files.com/66a68529752ea579681df340%2F671e317365dff2f3b96dd37e_portfolio--verbatim-poster-00001.jpg&quot;)"
+                                                            muted="" playsinline="" data-wf-ignore="true"
+                                                            data-object-fit="cover">
+                                                            <source src="src2/video/supermarketmanilus.mp4"
+                                                                data-wf-ignore="true" />
+                                                            <source
+                                                                src="https://cdn.prod.website-files.com/66a68529752ea579681df340%2F671e317365dff2f3b96dd37e_portfolio--verbatim-transcode.webm"
+                                                                data-wf-ignore="true" />
+                                                        </video>
+                                                    </div>
+                                                    <div class="image-overlap--card--portfolio"></div>
+                                                </div>
+                                                <div class="block--item-wrap--portfolio--description">
+                                                    <div class="heading-wrap is--card--work">
+                                                        <h2 class="heading-xs">Supermarket Manilus</h2>
+                                                        <div class="icon-wrap--16px is--card--portfolio">
+                                                            <div class="icon w-embed">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                    height="100%" viewBox="0 0 16 17" fill="none"
+                                                                    preserveAspectRatio="xMidYMid meet"
+                                                                    aria-hidden="true" role="img">
+                                                                    <path
+                                                                        d="M9.99999 2.5H14M14 2.5V6.5M14 2.5L6.66666 9.83333"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                    <path
+                                                                        d="M12 9.16667V13.1667C12 13.5203 11.8595 13.8594 11.6095 14.1095C11.3594 14.3595 11.0203 14.5 10.6667 14.5H3.33333C2.97971 14.5 2.64057 14.3595 2.39052 14.1095C2.14048 13.8594 2 13.5203 2 13.1667V5.83333C2 5.47971 2.14048 5.14057 2.39052 4.89052C2.64057 4.64048 2.97971 4.5 3.33333 4.5H7.33333"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-wrap">
+                                                        <div class="caption-m text-color--secondary--white-60">Windows
+                                                            Development / .Net forms Design/ Custom Code</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--imgane4-->
+                                <div id="w-node-_62fbfc8f-8a90-01aa-77ca-4c846aa5259d-681df34d"
+                                    class="item-wrap--portfolio">
+                                    <div class="w-layout-grid grid--12x">
+                                        <a id="w-node-_351a0765-8a55-ad68-8001-0fa8c071ecaf-681df34d"
+                                            href="./windows.html" target="_blank"
+                                            class="link-block--portfolio w-inline-block">
+                                            <div id="w-node-_3245b8c1-5139-43e0-bab7-1dfed8641ad9-681df34d"
+                                                class="block-wrap--portfolio">
+                                                <div class="w-layout-vflex card--portfolio-wrap">
+                                                    <div class="card--portfolio">
+                                                        <div data-poster-url="src2/imagenes/winui3.jpg"
+                                                            data-video-urls="src2/imagenes/winui3.jpg,src2/imagenes/winui3.jpg"
+                                                            data-autoplay="true" data-loop="true" data-wf-ignore="true"
+                                                            class="image--card--portfolio w-background-video w-background-video-atom">
+                                                            <video id="0d4089ee-d442-69f0-5d09-1786690be8b2-video"
+                                                                autoplay="" loop=""
+                                                                style="background-image:url(&quot;src2/imagenes/winui3.jpg&quot;)"
+                                                                muted="" playsinline="" data-wf-ignore="true"
+                                                                data-object-fit="cover">
+                                                                <source src="src2/imagenes/winui3.jpg"
+                                                                    data-wf-ignore="true" />
+                                                                <source src="src2/imagenes/winui3.jpg"
+                                                                    data-wf-ignore="true" />
+                                                            </video>
+                                                        </div>
+                                                        <div class="image-overlap--card--portfolio"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="block--item-wrap--portfolio--description">
+                                                    <div class="heading-wrap is--card--work">
+                                                        <h2 class="heading-xs">Task WinUI3(Preview)</h2>
+                                                    </div>
+                                                    <div class="text-wrap">
+                                                        <div class="caption-m text-color--secondary--white-60">WinUI3
+                                                            DEvelopment / SDK C# / Custom code Preview</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--video5-->
+                                <div id="w-node-bd09abfd-6ebb-0881-2fd7-ca0559dbaccb-681df34d"
+                                    class="item-wrap--portfolio">
+                                    <div class="w-layout-grid grid--12x">
+                                        <a id="w-node-bd09abfd-6ebb-0881-2fd7-ca0559dbaccd-681df34d"
+                                            href="https://drive.google.com/file/d/1sH9vHzZLW-hA_4YQYjnMcGLVW_OTZCgN/view"
+                                            target="_blank" class="link-block--portfolio w-inline-block">
+                                            <div id="w-node-bd09abfd-6ebb-0881-2fd7-ca0559dbacce-681df34d"
+                                                class="block-wrap--portfolio">
+                                                <div class="card--portfolio">
+                                                    <div data-poster-url="src2/imagenes/flashappliance.png"
+                                                        data-video-urls="src2/imagenes/flashappliance.png,src2/imagenes/flashappliance.png"
+                                                        data-autoplay="true" data-loop="true" data-wf-ignore="true"
+                                                        class="image--card--portfolio w-background-video w-background-video-atom">
+                                                        <video id="e2a444d1-fd4f-4524-c5eb-907b298b8cb6-video"
+                                                            autoplay="" loop=""
+                                                            style="background-image:url(&quot;src2/imagenes/flashappliance.png&quot;)"
+                                                            muted="" playsinline="" data-wf-ignore="true"
+                                                            data-object-fit="cover">
+                                                            <source src="src2/imagenes/flashappliance.png"
+                                                                data-wf-ignore="true" />
+                                                            <source src="src2/imagenes/flashappliance.png"
+                                                                data-wf-ignore="true" />
+                                                        </video>
+                                                    </div>
+                                                    <div class="image-overlap--card--portfolio"></div>
+                                                </div>
+                                                <div class="block--item-wrap--portfolio--description">
+                                                    <div class="heading-wrap is--card--work">
+                                                        <h2 class="heading-xs">Flash Appliance</h2>
+                                                        <div class="icon-wrap--16px is--card--portfolio">
+                                                            <div class="icon w-embed">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                    height="100%" viewBox="0 0 16 17" fill="none"
+                                                                    preserveAspectRatio="xMidYMid meet"
+                                                                    aria-hidden="true" role="img">
+                                                                    <path
+                                                                        d="M9.99999 2.5H14M14 2.5V6.5M14 2.5L6.66666 9.83333"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                    <path
+                                                                        d="M12 9.16667V13.1667C12 13.5203 11.8595 13.8594 11.6095 14.1095C11.3594 14.3595 11.0203 14.5 10.6667 14.5H3.33333C2.97971 14.5 2.64057 14.3595 2.39052 14.1095C2.14048 13.8594 2 13.5203 2 13.1667V5.83333C2 5.47971 2.14048 5.14057 2.39052 4.89052C2.64057 4.64048 2.97971 4.5 3.33333 4.5H7.33333"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-wrap">
+                                                        <div class="caption-m text-color--secondary--white-60">WebSite
+                                                            Development / Custom Code / Preview</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-backgrounds-group">
+                                <div class="background-wrap--item--portfolio">
+                                    <div id="w-node-cc86798a-10f8-ac4f-d5d2-2a0bf8578312-681df34d"
+                                        class="item-wrap--portfolio">
+                                        <div class="w-layout-grid grid--12x">
+                                            <div id="w-node-cc86798a-10f8-ac4f-d5d2-2a0bf8578313-681df34d"
+                                                class="block-wrap--portfolio is--bg">
+                                                <div id="w-node-cc86798a-10f8-ac4f-d5d2-2a0bf8578314-681df34d"
+                                                    class="card--portfolio is--bg">
+                                                    <div id="w-node-a7ff2042-739b-474e-d3e5-3b816793bdd6-681df34d"
+                                                        class="background--card--portfolio"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="w-node-_0678afa2-1b12-5a46-6fae-b94bf3016e19-681df34d"
+                                        class="spacer is--portfolio"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section id="about" class="section is--home--about">
+                <div class="w-layout-blockcontainer container w-container">
+                    <div class="content-wrap is--home--about">
+                        <!--parte letras-->
+                        <div class="w-layout-grid grid--12x is--about">
+                            <div id="w-node-_3102e705-8863-6abf-6711-0a01aea273dc-681df34d"
+                                class="block---home--about--title is--top">
+                                <div class="heading-wrap">
+                                    <h2 id="title--about" class="heading-m">About</h2>
+                                </div>
+                            </div>
+                            <div id="w-node-f2932e3c-3160-f5ec-214d-d99b23e1b5cc-681df34d" class="card--home--about">
+                                <div class="heading-wrap is--card--home--about">
+                                    <h3 class="heading-l is--card--home">1+</h3>
+                                </div>
+                                <div class="paragraph-wrap is--card--home--about">
+                                    <div class="caption-m is--spaced">
+                                        Years<br />of experience
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="w-node-_664beeec-5c81-0a73-b0e3-559fe2fcf9c8-681df34d" class="card--home--about">
+                                <div class="heading-wrap is--card--home--about">
+                                    <h3 class="heading-l is--card--home">17+</h3>
+                                </div>
+                                <div class="paragraph-wrap is--card--home--about">
+                                    <div class="caption-m is--spaced">
+                                        Projects<br />Delivered
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="w-node-_70b74e2f-afe8-f427-5dbc-00ed1a2cc756-681df34d" class="card--home--about">
+                                <div class="heading-wrap is--card--home--about">
+                                    <h3 class="heading-l is--card--home">7+</h3>
+                                </div>
+                                <div class="paragraph-wrap is--card--home--about">
+                                    <div class="caption-m is--spaced">
+                                        Clients<br />local
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-layout-grid grid--12x is--about">
+                            <div id="w-node-_4c0a6cb3-beea-7523-7f8f-caedfe53c4b4-681df34d"
+                                class="block---home--about--title">
+                                <div id="subtitle--about--paragraph"
+                                    class="caption-m is--spaced text-color--secondary--white-60">..<>/who am I?</div>
+                            </div>
+                            <div id="w-node-_1e9593a6-cadf-4ea2-439a-8c3e5a314894-681df34d"
+                                class="paragraph-wrap text-color--main--white">
+                                <p id="paragraph--about" class="caption-l is--about--paragraph">I'm Joel Andrés Ch., a
+                                    Systems Engineering student with an integral focus on software development and
+                                    digital design. I specialize in code development and design using different
+                                    programming languages and modern tools. My experience ranges from Full-Stack
+                                    development to the creation of mobile applications, Windows applications with .NET
+                                    Framework, and web design. In addition, I have strong background in databases,
+                                    object-oriented programming, graphic design, and video rendering.
+                                    My motto, “Efficiency and Modernity”, reflects my commitment to creating innovative,
+                                    high-performance, and stylish solutions. I am constantly honing my skills and
+                                    knowledge to deliver products that seamlessly combine functionality and aesthetics.
+                                    Additionally, I have experience in the field of cybersecurity and electronics, which
+                                    allows me to approach projects in a comprehensive manner, ensuring quality and
+                                    security from every stage of development.</p>
+                            </div>
+                        </div>
+                        <!--parte lenguajes-->
+                        <div class="w-layout-grid grid--12x is--about">
+                            <div id="w-node-_3705fccb-0d01-ac5f-6255-2d8e423e681c-681df34d"
+                                class="block---home--about--title">
+                                <div id="subtitle--about--testimonials"
+                                    class="caption-m is--spaced text-color--secondary--white-60">..<>/Learned
+                                        Comprehensive Digital Development</div>
+                            </div>
+                            <div id="w-node-_74da7fa9-dd9d-2897-b378-ea4937b8de0a-681df34d" class="slider-wrap">
+                                <div class="slider swiper">
+                                    <div class="slider-track swiper-wrapper">
+                                        <div class="slider-slide is--testimonial swiper-slide">
+                                            <div class="card--home--about--testimonial">
+                                                <div class="block--card--testimonial--top">
+                                                    <div class="image-wrap--card--testimonial">
+                                                        <img src="https://code.google.com/images/developers.png"
+                                                            loading="lazy" alt="Gana"
+                                                            class="image--card--testimonial" />
+                                                    </div>
+                                                    <div class="block--card--testimonial--author">
+                                                        <div
+                                                            class="caption-m is--spaced is--bold text-color--main--white">
+                                                            Member of the Google Developer Program</div>
+                                                    </div>
+                                                </div>
+                                                <a href="https://g.dev/ark_dev"
+                                                    class="block--card--testimonial--bottom">
+                                                    <div class="paragraph-wrap is--card--testimonial">
+                                                        <p class="paragraph-xl text-color--main--white">Part of the
+                                                            Google Developer Program, with experience in great trainings
+                                                            and courses, always looking for new opportunities to
+                                                            innovate and grow as a developer.(Click)</p>
+                                                        <div class="icon-wrap--card--testimonial">
+                                                            <div class="icon-wrap--card--home--about--testimonial">
+                                                                <div class="icon w-embed">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                        height="100%" viewBox="0 0 24 24" fill="none"
+                                                                        preserveAspectRatio="xMidYMid meet"
+                                                                        aria-hidden="true" role="img">
+                                                                        <path
+                                                                            d="M10.0524 14.3982V22H0.5V8.78733C0.5 3.80995 2.81855 2 8.0121 2H10.0524V6.70588H5.32258V14.3982H10.0524ZM13.9476 22V8.78733C13.9476 3.80995 16.2661 2 21.4597 2H23.5V6.70588H18.7702V14.3982H23.5V22H13.9476Z"
+                                                                            fill="currentColor" />
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="slider-slide is--testimonial swiper-slide">
+                                            <div class="card--home--about--testimonial">
+                                                <div class="block--card--testimonial--top">
+                                                    <div class="image-wrap--card--testimonial">
+                                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXWiw3EjvbPsE0x8qG6ri2jqNplOgPflSEiA&s"
+                                                            loading="lazy" alt="Thomas"
+                                                            class="image--card--testimonial" />
+                                                    </div>
+                                                    <div class="block--card--testimonial--author">
+                                                        <div
+                                                            class="caption-m is--spaced is--bold text-color--main--white">
+                                                            Microsoft Learn Member</div>
+                                                    </div>
+                                                </div>
+                                                <div class="block--card--testimonial--bottom">
+                                                    <div class="paragraph-wrap is--card--testimonial">
+                                                        <p class="paragraph-xl text-color--main--white">With experience
+                                                            in great trainings and courses, always looking for new
+                                                            opportunities to innovate and grow as a developer.”</p>
+                                                        <div class="icon-wrap--card--testimonial">
+                                                            <div class="icon-wrap--card--home--about--testimonial">
+                                                                <div class="icon w-embed">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                        height="100%" viewBox="0 0 24 24" fill="none"
+                                                                        preserveAspectRatio="xMidYMid meet"
+                                                                        aria-hidden="true" role="img">
+                                                                        <path
+                                                                            d="M10.0524 14.3982V22H0.5V8.78733C0.5 3.80995 2.81855 2 8.0121 2H10.0524V6.70588H5.32258V14.3982H10.0524ZM13.9476 22V8.78733C13.9476 3.80995 16.2661 2 21.4597 2H23.5V6.70588H18.7702V14.3982H23.5V22H13.9476Z"
+                                                                            fill="currentColor" />
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-slide is--testimonial swiper-slide">
+                                            <div class="card--home--about--testimonial">
+                                                <div class="block--card--testimonial--top">
+                                                    <div class="image-wrap--card--testimonial">
+                                                        <img src="https://yt3.googleusercontent.com/ytc/AIdro_kdYfueJyb_NHI9scfNdyRpM84WRhaezpiZ1UNO7cBCsg=s900-c-k-c0x00ffffff-no-rj"
+                                                            loading="lazy" alt="Kamado"
+                                                            class="image--card--testimonial" />
+                                                    </div>
+                                                    <div class="block--card--testimonial--author">
+                                                        <div
+                                                            class="caption-m is--spaced is--bold text-color--main--white">
+                                                            Member of GDG (Google Developer Groups)</div>
+                                                    </div>
+                                                </div>
+                                                <div class="block--card--testimonial--bottom">
+                                                    <div class="paragraph-wrap is--card--testimonial">
+                                                        <p class="paragraph-xl text-color--main--white">Up to date with
+                                                            the latest Google technologies, participating in events and
+                                                            sharing knowledge on cutting-edge innovations and
+                                                            developments.</p>
+                                                        <div class="icon-wrap--card--testimonial">
+                                                            <div class="icon-wrap--card--home--about--testimonial">
+                                                                <div class="icon w-embed">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                        height="100%" viewBox="0 0 24 24" fill="none"
+                                                                        preserveAspectRatio="xMidYMid meet"
+                                                                        aria-hidden="true" role="img">
+                                                                        <path
+                                                                            d="M10.0524 14.3982V22H0.5V8.78733C0.5 3.80995 2.81855 2 8.0121 2H10.0524V6.70588H5.32258V14.3982H10.0524ZM13.9476 22V8.78733C13.9476 3.80995 16.2661 2 21.4597 2H23.5V6.70588H18.7702V14.3982H23.5V22H13.9476Z"
+                                                                            fill="currentColor" />
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider-slide is--testimonial swiper-slide">
+                                            <div class="card--home--about--testimonial">
+                                                <div class="block--card--testimonial--top">
+                                                    <div class="image-wrap--card--testimonial">
+                                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNtivZRtcl0T755JD8x4AUQIbG9GoO3ao6xA&s"
+                                                            loading="lazy" alt="Cristophe"
+                                                            class="image--card--testimonial" />
+                                                    </div>
+                                                    <div class="block--card--testimonial--author">
+                                                        <div
+                                                            class="caption-m is--spaced is--bold text-color--main--white">
+                                                            Miembro de Microsoft Ignite</div>
+                                                    </div>
+                                                </div>
+                                                <div class="block--card--testimonial--bottom">
+                                                    <div class="paragraph-wrap is--card--testimonial">
+                                                        <p class="paragraph-xl text-color--main--white">Always up to
+                                                            date with the latest Microsoft technology innovations,
+                                                            participating in global events and learning from industry
+                                                            leaders.”</p>
+                                                        <div class="icon-wrap--card--testimonial">
+                                                            <div class="icon-wrap--card--home--about--testimonial">
+                                                                <div class="icon w-embed">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                        height="100%" viewBox="0 0 24 24" fill="none"
+                                                                        preserveAspectRatio="xMidYMid meet"
+                                                                        aria-hidden="true" role="img">
+                                                                        <path
+                                                                            d="M10.0524 14.3982V22H0.5V8.78733C0.5 3.80995 2.81855 2 8.0121 2H10.0524V6.70588H5.32258V14.3982H10.0524ZM13.9476 22V8.78733C13.9476 3.80995 16.2661 2 21.4597 2H23.5V6.70588H18.7702V14.3982H23.5V22H13.9476Z"
+                                                                            fill="currentColor" />
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-pagination swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="relative flex flex-col justify-center items-center w-full" style="height: 70%;">
+                    <div class="animated-bg"></div>
+                    <div class="glass-container">
+                        <h1>Welcome to the Cutting-Edge Platform</h1>
+                        <p>Discover our advanced features paired with a sleek and modern design. Click below to explore
+                            my profile and past projects!</p>
+                        <button class="button">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                                    fill="currentColor"></path>
+                            </svg>
+                            <a href="index(old).html">
+                                <span>View Profile</span>
+                            </a>
+                        </button>
+                    </div>
+                    <br>
+                    <div class="glass-container">
+                        <h1>Introducing ARK OS: The Lightweight Operating System</h1>
+                        <p>Experience a powerful new operating system optimized for low-resource devices. Visit our
+                            download page and discover all it has to offer!</p>
+                        <button class="button">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                                    fill="currentColor"></path>
+                            </svg>
+                            <a href="windows.html">
+                                <span>Download Now</span>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <style>
+                    body {
+                        margin: 0;
+                        height: 100vh;
+                        overflow: hidden;
+                    }
+
+                    .animated-bg {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(135deg, #1f1c2c, #928dab);
+                        overflow: hidden;
+                        z-index: -1;
+                    }
+
+                    .animated-bg::before,
+                    .animated-bg::after {
+                        content: '';
+                        position: absolute;
+                        width: 200%;
+                        height: 200%;
+                        top: -50%;
+                        left: -50%;
+                        background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 30%, transparent 70%);
+                        animation: rotate 20s linear infinite;
+                    }
+
+                    .animated-bg::after {
+                        animation-direction: reverse;
+                    }
+
+                    @keyframes rotate {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+                    .glass-container {
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 16px;
+                        backdrop-filter: blur(10px);
+                        -webkit-backdrop-filter: blur(10px);
+                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+                        padding: 2rem;
+                        width: 70%;
+                        max-width: 600px;
+                        text-align: center;
+                        color: white;
+                    }
+
+                    .button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-family: inherit;
+                        cursor: pointer;
+                        font-weight: 500;
+                        font-size: 17px;
+                        padding: 0.8em 1.3em 0.8em 0.9em;
+                        color: white;
+                        background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+                        border: none;
+                        letter-spacing: 0.05em;
+                        border-radius: 16px;
+                        transition: all 0.4s ease-in-out;
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                    }
+
+                    .button svg {
+                        margin-right: 8px;
+                        transform: rotate(30deg);
+                        transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+                    }
+
+                    .button span {
+                        transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+                    }
+
+                    .button:hover svg {
+                        transform: translateX(5px) rotate(90deg);
+                    }
+
+                    .button:hover span {
+                        transform: translateX(7px);
+                    }
+
+                    .button:hover {
+                        background: linear-gradient(to right, #141e30, #243b55);
+                        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+                    }
+                </style>
+                <br>
+                <br>
+            </section>
+            <!--music section-->
+            <section>
+                <div class="heading-wrap is--card--home--about">
+                    <h3 class="heading-l is--card--home">Sound experience of the future</h3>
+                </div>
+                <section id="musicPlayerSection">
+                    <div id="player-container">
+                        <canvas id="effectCanvas"></canvas>
+                        <div class="content">
+                            <div class="flex items-center justify-between space-x-4 mb-4">
+                                <button id="prevTrack"
+                                    class="p-4 bg-blue-500 rounded-full text-white shadow-lg hover:bg-blue-600 transition-all">⏮️</button>
+                                <button id="playPause"
+                                    class="p-4 bg-blue-500 rounded-full text-white shadow-lg hover:bg-blue-600 transition-all">▶️</button>
+                                <button id="nextTrack"
+                                    class="p-4 bg-blue-500 rounded-full text-white shadow-lg hover:bg-blue-600 transition-all">⏭️</button>
+                            </div>
+                            <div class="flex flex-col items-center space-y-2 w-full">
+                                <input id="seekBar" type="range" min="0" max="100" value="0"
+                                    class="w-full appearance-none h-2 bg-gray-600 rounded-full overflow-hidden cursor-pointer">
+                                <span id="currentTime" class="text-gray-400">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        (function () {
+                            const tracks = [
+                                'SACRIFICE.mp3',
+                                'SCXR.mp3',
+                                'musica3.mp3'
+                            ];
+                            let currentTrackIndex = 0;
+                            const audio = new Audio(tracks[currentTrackIndex]);
+                            const playPauseButton = document.getElementById('playPause');
+                            const seekBar = document.getElementById('seekBar');
+                            const currentTimeSpan = document.getElementById('currentTime');
+                            const canvas = document.getElementById('effectCanvas');
+                            const ctx = canvas.getContext('2d');
+                            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                            const analyser = audioCtx.createAnalyser();
+                            const source = audioCtx.createMediaElementSource(audio);
+                            source.connect(analyser);
+                            analyser.connect(audioCtx.destination);
+                            analyser.fftSize = 512;
+                            const bufferLength = analyser.frequencyBinCount;
+                            const dataArray = new Uint8Array(bufferLength);
+                            function resizeCanvas() {
+                                const playerContainer = document.getElementById('player-container');
+                                canvas.width = playerContainer.offsetWidth;
+                                canvas.height = playerContainer.offsetHeight;
+                            }
+                            resizeCanvas();
+                            window.addEventListener('resize', resizeCanvas);
+                            function getColorBasedOnFrequency() {
+                                analyser.getByteFrequencyData(dataArray);
+                                const lowFrequency = dataArray.slice(0, Math.floor(bufferLength / 3));
+                                const midFrequency = dataArray.slice(Math.floor(bufferLength / 3), Math.floor(bufferLength * 2 / 3));
+                                const highFrequency = dataArray.slice(Math.floor(bufferLength * 2 / 3), bufferLength);
+                                const lowAvg = lowFrequency.reduce((a, b) => a + b, 0) / lowFrequency.length;
+                                const midAvg = midFrequency.reduce((a, b) => a + b, 0) / midFrequency.length;
+                                const highAvg = highFrequency.reduce((a, b) => a + b, 0) / highFrequency.length;
+                                if (lowAvg > midAvg && lowAvg > highAvg) {
+                                    return `rgba(255, 255, 255, 0.9)`;
+                                } else if (midAvg > lowAvg && midAvg > highAvg) {
+                                    return `rgba(255, 255, 255, 0.7)`;
+                                } else {
+                                    return `rgba(255, 255, 255, 0.5)`;
+                                }
+                            }
+                            function drawVisualizer() {
+                                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                analyser.getByteFrequencyData(dataArray);
+                                const centerX = canvas.width / 2;
+                                const centerY = canvas.height / 2;
+                                dataArray.forEach((value, i) => {
+                                    const angle = (i / bufferLength) * Math.PI * 2;
+                                    const radius = (value / 255) * (canvas.height / 3);
+                                    const x = centerX + Math.cos(angle) * radius;
+                                    const y = centerY + Math.sin(angle) * radius;
+                                    const hue = (i / bufferLength) * 360;
+                                    ctx.beginPath();
+                                    ctx.moveTo(centerX, centerY);
+                                    ctx.lineTo(x, y);
+                                    ctx.strokeStyle = `hsl(${hue}, 80%, 50%)`;
+                                    ctx.lineWidth = 2;
+                                    ctx.stroke();
+                                });
+                            }
+                            function drawLasers() {
+                                for (let i = 0; i < bufferLength; i += 15) {
+                                    const intensity = dataArray[i];
+                                    if (intensity > 150) {
+                                        const startX = Math.random() * canvas.width;
+                                        const startY = Math.random() * canvas.height;
+                                        const endX = Math.random() * canvas.width;
+                                        const endY = Math.random() * canvas.height;
+                                        ctx.beginPath();
+                                        ctx.moveTo(startX, startY);
+                                        ctx.lineTo(endX, endY);
+                                        ctx.strokeStyle = `rgba(255, ${Math.random() * 255}, 255, 0.8)`;
+                                        ctx.lineWidth = Math.random() * 4 + 2;
+                                        ctx.stroke();
+                                    }
+                                }
+                            }
+                            function drawPulsingCircles() {
+                                analyser.getByteFrequencyData(dataArray);
+                                const intensity = Math.max(...dataArray);
+                                ctx.beginPath();
+                                ctx.arc(canvas.width / 2, canvas.height / 2, (intensity / 255) * 200, 0, Math.PI * 2);
+                                ctx.strokeStyle = `rgba(255, 255, 255, ${Math.min(intensity / 255, 0.8)})`;
+                                ctx.lineWidth = 25;
+                                ctx.stroke();
+                            }
+                            function drawGlowingLines() {
+                                analyser.getByteFrequencyData(dataArray);
+                                for (let i = 0; i < bufferLength; i++) {
+                                    const value = dataArray[i];
+                                    if (value > 120) {
+                                        const x = (i / bufferLength) * canvas.width;
+                                        const y = canvas.height - (value / 255) * canvas.height;
+                                        const glowIntensity = (value / 255) * 3;
+                                        ctx.beginPath();
+                                        ctx.arc(x, y, glowIntensity, 0, Math.PI * 2);
+                                        ctx.fillStyle = `rgba(255, 255, 255, ${glowIntensity * 0.5})`;
+                                        ctx.fill();
+                                    }
+                                }
+                            }
+                            function drawGlowBackground() {
+                                analyser.getByteFrequencyData(dataArray);
+                                const intensity = Math.max(...dataArray);
+                                const glowColor = `rgba(255, 255, 255, 0.5)`;
+                                ctx.fillStyle = glowColor;
+                                ctx.globalCompositeOperation = 'lighter';
+                                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                                ctx.globalCompositeOperation = 'source-over';
+                            }
+                            function animate() {
+                                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                drawGlowBackground();
+                                drawVisualizer();
+                                drawLasers();
+                                drawPulsingCircles();
+                                drawGlowingLines();
+                                document.getElementById('player-container').style.borderColor = getColorBasedOnFrequency();
+                                requestAnimationFrame(animate);
+                            }
+                            playPauseButton.addEventListener('click', () => {
+                                if (audio.paused) {
+                                    audio.play();
+                                    audioCtx.resume();
+                                    animate();
+                                    playPauseButton.textContent = '⏸️';
+                                } else {
+                                    audio.pause();
+                                    playPauseButton.textContent = '▶️';
+                                }
+                            });
+                            seekBar.addEventListener('input', () => {
+                                audio.currentTime = (seekBar.value / 100) * audio.duration;
+                            });
+                            audio.addEventListener('timeupdate', () => {
+                                const progress = (audio.currentTime / audio.duration) * 100;
+                                seekBar.value = progress;
+                                const minutes = Math.floor(audio.currentTime / 60);
+                                const seconds = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
+                                currentTimeSpan.textContent = `${minutes}:${seconds}`;
+                            });
+                            window.addEventListener('resize', resizeCanvas);
+                            audio.addEventListener('ended', () => {
+                                currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+                                audio.src = tracks[currentTrackIndex];
+                                audio.play();
+                                audioCtx.resume();
+                                animate();
+                                playPauseButton.textContent = '⏸️';
+                            });
+                            document.getElementById('prevTrack').addEventListener('click', () => {
+                                currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+                                audio.src = tracks[currentTrackIndex];
+                                audio.play();
+                                audioCtx.resume();
+                                animate();
+                                playPauseButton.textContent = '⏸️';
+                            });
+                            document.getElementById('nextTrack').addEventListener('click', () => {
+                                currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+                                audio.src = tracks[currentTrackIndex];
+                                audio.play();
+                                audioCtx.resume();
+                                animate();
+                                playPauseButton.textContent = '⏸️';
+                            });
+                        })();
+                    </script>
+                    <style>
+                        .flex {
+                            display: flex;
+                        }
+
+                        .items-center {
+                            align-items: center;
+                        }
+
+                        .justify-between {
+                            justify-content: space-between;
+                        }
+
+                        .mb-4 {
+                            margin-bottom: 1rem;
+                        }
+
+                        .space-y-2>*+* {
+                            margin-top: 0.5rem;
+                        }
+
+                        .space-x-4>*+* {
+                            margin-left: 1rem;
+                        }
+
+                        .w-full {
+                            width: 100%;
+                        }
+
+                        #musicPlayerSection {
+                            width: 100%;
+                            height: 70vh;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+                            overflow: hidden;
+                            backdrop-filter: blur(15px);
+                            position: relative;
+                            border: 2px solid rgba(0, 255, 255, 0.5);
+                            border-radius: 20px;
+                            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.3);
+                        }
+
+                        #effectCanvas {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            z-index: 0;
+                            pointer-events: none;
+                            animation: glow 5s infinite;
+                        }
+
+                        @keyframes glow {
+                            0% {
+                                background: linear-gradient(120deg, rgba(0, 255, 255, 0.3), rgba(0, 0, 0, 0.1));
+                            }
+
+                            50% {
+                                background: linear-gradient(120deg, rgba(0, 255, 255, 0.6), rgba(0, 0, 0, 0.3));
+                            }
+
+                            100% {
+                                background: linear-gradient(120deg, rgba(0, 255, 255, 0.3), rgba(0, 0, 0, 0.1));
+                            }
+                        }
+
+                        .content {
+                            position: relative;
+                            z-index: 1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 15px;
+                            border-radius: 15px;
+                            background: rgba(0, 0, 0, 0.1);
+                            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
+                            backdrop-filter: blur(10px);
+                            animation: popIn 1s ease-out;
+                        }
+
+                        @keyframes popIn {
+                            0% {
+                                transform: scale(0.8);
+                                opacity: 0;
+                            }
+
+                            100% {
+                                transform: scale(1);
+                                opacity: 1;
+                            }
+                        }
+
+                        #playPause,
+                        #prevTrack,
+                        #nextTrack {
+                            padding: 15px;
+                            background: radial-gradient(circle, rgba(0, 255, 255, 0.8), rgba(0, 128, 128, 0.8));
+                            border-radius: 50%;
+                            border: none;
+                            color: white;
+                            font-size: 30px;
+                            cursor: pointer;
+                            box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+                            transition: all 0.3s ease, transform 0.3s ease;
+                        }
+
+                        #playPause:hover,
+                        #prevTrack:hover,
+                        #nextTrack:hover {
+                            transform: scale(1.2) rotate(15deg);
+                            background: radial-gradient(circle, rgba(0, 255, 255, 1), rgba(0, 128, 128, 1));
+                            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.7);
+                        }
+
+                        #seekBar {
+                            width: 80%;
+                            height: 8px;
+                            background: linear-gradient(to right, rgba(0, 255, 255, 0.5), rgba(0, 0, 128, 0.5));
+                            border-radius: 10px;
+                            appearance: none;
+                            margin: 20px 0;
+                            cursor: pointer;
+                            outline: none;
+                        }
+
+                        #seekBar::-webkit-slider-thumb {
+                            appearance: none;
+                            width: 20px;
+                            height: 20px;
+                            background: radial-gradient(circle, #00FFFF, #004e92);
+                            border-radius: 50%;
+                            cursor: pointer;
+                            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+                            transition: transform 0.3s ease;
+                        }
+
+                        #seekBar:focus::-webkit-slider-thumb {
+                            transform: scale(1.3);
+                        }
+
+                        #currentTime {
+                            color: #00FFFF;
+                            font-size: 16px;
+                            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+                            animation: fadeText 1.5s infinite;
+                        }
+
+                        @keyframes fadeText {
+
+                            0%,
+                            100% {
+                                opacity: 1;
+                            }
+
+                            50% {
+                                opacity: 0.5;
+                            }
+                        }
+
+                        #player-container {
+                            position: relative;
+                            width: 90%;
+                            height: 90%;
+                            border: 2px solid rgba(0, 255, 255, 0.7);
+                            border-radius: 20px;
+                            overflow: hidden;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    </style>
+                </section>
+            </section>
+         
+            <section id="services" class="section is--home--services">
+                <div class="w-layout-blockcontainer container w-container">
+                    <div class="content-wrap is--home--services">
+                        <div class="w-layout-grid grid--12x is--services">
+                            <div id="w-node-_96ef985a-5ed1-c434-d25a-7e652b50a503-681df34d"
+                                class="block---home--services--title">
+                                <div class="heading-wrap">
+                                    <h2 id="title--services" class="heading-m">SERVICES</h2>
+                                </div>
+                            </div>
+                            <div id="w-node-_61ef70b6-e71d-e6bb-cf28-e8fb5c9bc55c-681df34d"
+                                class="paragraph-wrap is--home--services text-color--secondary--white-60">
+                                <p id="paragraph--services" class="caption-l is--services--paragraph">Innovation and
+                                    automation optimize productivity with artificial intelligence, advanced technology,
+                                    flexibility and efficiency for the future.</p>
+                            </div>
+                        </div>
+                        <div class="w-layout-grid grid--12x is--services">
+                            <div id="w-node-ad3b55c4-acdf-7cbd-1845-9178d53d86fb-681df34d" class="grid-item">
+                                <div id="w-node-_6d180fc8-166d-4757-a6ee-8f276b327ad6-681df34d"
+                                    class="card--home--services">
+                                    <div class="content--card--home--services">
+                                        <div class="block--card--home--services--top">
+                                            <div class="block--card--home--services--price">
+                                                <div class="pill--card--home--services">+20 Projects</div>
+                                            </div>
+                                            <div class="title-wrap--card--home--services">
+                                                <div class="heading-wrap">
+                                                    <h3 class="heading-s">Custom Application Development</h3>
+                                                </div>
+                                                <div class="paragraph-wrap">
+                                                    <p class="paragraph-l">I offer custom application development for
+                                                        companies and individual projects, using technologies such as
+                                                        .NET Framework, C++, Python, and other modern programming
+                                                        languages. This service is designed to adapt to the specific
+                                                        needs of each client, creating scalable and efficient solutions.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="block--card--home--services--middle">
+                                            <div class="block--card--home--services--middle--content">
+                                                <div class="block--card--services--details">
+                                                    <div class="item--card--services--details">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Desktop and mobile application
+                                                            development.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--second">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Use of agile methodologies for a fast
+                                                            and efficient development.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--third">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Integration with databases such as
+                                                            MySQL, SQL Server and PostgreSQL.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Applications adaptable to different
+                                                            platforms (Windows, Android, Web).</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Object-oriented programming and modular
+                                                            design.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Implementation of intuitive and easy to
+                                                            use user interfaces.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Development with security standards and
+                                                            best practices.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Post-launch support and maintenance.
+                                                        </div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Performance optimization and load time
+                                                            reduction.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Project management with tools such as
+                                                            Git and GitHub.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Implementation of automated testing for
+                                                            quality assurance.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Integration of external services such
+                                                            as APIs and cloud services.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="button-wrap">
+                                                    <a href="#contact" class="button w-inline-block">
+                                                        <div class="caption-m is--spaced">Contact me</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="block--card--home--services--bottom">
+                                            <div class="block--card--home--services--bottom--content">
+                                                <div class="button-wrap">
+                                                    <a href="#" class="button is--card--home--services w-inline-block">
+                                                        <div class="caption-m is--spaced">Show More</div>
+                                                        <div class="icon-wrap--16px">
+                                                            <div class="icon w-embed">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                    height="100%" viewBox="0 0 17 16" fill="none"
+                                                                    preserveAspectRatio="xMidYMid meet"
+                                                                    aria-hidden="true" role="img">
+                                                                    <path
+                                                                        d="M8.5 3.33325V12.6666M3.83333 7.99992H13.1667"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="w-node-_8777d4cb-cdc4-ef48-afd0-86086b042290-681df34d" class="grid-item">
+                                <div id="w-node-_8777d4cb-cdc4-ef48-afd0-86086b042291-681df34d"
+                                    class="card--home--services">
+                                    <div class="content--card--home--services">
+                                        <div class="block--card--home--services--top">
+                                            <div class="block--card--home--services--price">
+                                                <div class="pill--card--home--services">+7 Executed</div>
+                                            </div>
+                                            <div class="title-wrap--card--home--services">
+                                                <div class="heading-wrap">
+                                                    <h3 class="heading-s">Cybersecurity Consulting</h3>
+                                                </div>
+                                                <div class="paragraph-wrap">
+                                                    <p class="paragraph-l">I provide cybersecurity consulting to protect
+                                                        computer systems and networks from potential threats. This
+                                                        includes identifying vulnerabilities, implementing security
+                                                        measures, and training internal teams on good security
+                                                        practices.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="block--card--home--services--middle">
+                                            <div class="block--card--home--services--middle--content">
+                                                <div class="block--card--services--details">
+                                                    <div class="item--card--services--details">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Vulnerability assessment of systems and
+                                                            networks.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--second">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Design of secure architectures for IT
+                                                            infrastructures.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--third">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Implementation of firewalls and
+                                                            intrusion detection systems.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Risk analysis and security incident
+                                                            management.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Periodic security audits to ensure
+                                                            compliance.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Employee training on cyber security
+                                                            best practices.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Protection of sensitive data with
+                                                            advanced encryption techniques.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Implementation of access and privilege
+                                                            control policies.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Security incident response and disaster
+                                                            recovery.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Assessment of Wi-Fi networks and
+                                                            communication systems.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Integration of monitoring tools to
+                                                            detect threats.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Advice on compliance with regulations
+                                                            such as GDPR and HIPAA.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="button-wrap">
+                                                    <a href="#contact" class="button w-inline-block">
+                                                        <div class="caption-m is--spaced">Contact me</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="block--card--home--services--bottom">
+                                            <div class="block--card--home--services--bottom--content">
+                                                <div class="button-wrap">
+                                                    <a href="#" class="button w-inline-block">
+                                                        <div class="caption-m is--spaced">Show More</div>
+                                                        <div class="icon-wrap--16px">
+                                                            <div class="icon w-embed">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                    height="100%" viewBox="0 0 17 16" fill="none"
+                                                                    preserveAspectRatio="xMidYMid meet"
+                                                                    aria-hidden="true" role="img">
+                                                                    <path
+                                                                        d="M8.5 3.33325V12.6666M3.83333 7.99992H13.1667"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="w-node-a8e44055-2c96-8854-f0ec-db7d519448e3-681df34d" class="grid-item">
+                                <div id="w-node-a8e44055-2c96-8854-f0ec-db7d519448e4-681df34d"
+                                    class="card--home--services">
+                                    <div class="content--card--home--services">
+                                        <div class="block--card--home--services--top">
+                                            <div class="block--card--home--services--price">
+                                                <div class="pill--card--home--services">+20 Projects</div>
+                                            </div>
+                                            <div class="title-wrap--card--home--services">
+                                                <div class="heading-wrap">
+                                                    <h3 class="heading-s">Electronic Prototyping and IoT Development
+                                                    </h3>
+                                                </div>
+                                                <div class="paragraph-wrap">
+                                                    <p class="paragraph-l">Design and development of electronic
+                                                        prototypes, integrating technologies such as Arduino and IoT
+                                                        platforms to create smart devices. This includes from
+                                                        conceptualization to circuit implementation and hardware
+                                                        programming.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="block--card--home--services--middle">
+                                            <div class="block--card--home--services--middle--content">
+                                                <div class="block--card--services--details">
+                                                    <div class="item--card--services--details">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Design of customized electronic
+                                                            circuits.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--second">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Development of prototypes with
+                                                            platforms such as Arduino and Raspberry Pi.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--third">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Integration of sensors and actuators in
+                                                            IoT systems.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Programming of embedded devices with
+                                                            languages such as C and C++.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Connection and communication of devices
+                                                            using protocols such as MQTT and HTTP.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Implementation of user interfaces to
+                                                            control devices. </div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Development of autonomous systems with
+                                                            data analysis capabilities.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Integration with cloud platforms for
+                                                            remote monitoring.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Prototype testing in real environments
+                                                            to ensure functionality.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Optimization of energy consumption and
+                                                            efficiency in the use of resources.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Implementation of security in
+                                                            communication between devices.</div>
+                                                    </div>
+                                                    <div class="item--card--services--details is--rest">
+                                                        <div class="line--item--card--services--details"></div>
+                                                        <div class="paragraph-m">Training for the use and maintenance of
+                                                            the developed systems.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="button-wrap">
+                                                    <a href="#contact" class="button w-inline-block">
+                                                        <div class="caption-m is--spaced">Contact me</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="block--card--home--services--bottom">
+                                            <div class="block--card--home--services--bottom--content">
+                                                <div class="button-wrap">
+                                                    <a href="#" class="button w-inline-block">
+                                                        <div class="caption-m is--spaced">Show More</div>
+                                                        <div class="icon-wrap--16px">
+                                                            <div class="icon w-embed">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                                    height="100%" viewBox="0 0 17 16" fill="none"
+                                                                    preserveAspectRatio="xMidYMid meet"
+                                                                    aria-hidden="true" role="img">
+                                                                    <path
+                                                                        d="M8.5 3.33325V12.6666M3.83333 7.99992H13.1667"
+                                                                        stroke="currentColor" stroke-width="1.15"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="background-wrap is--main">
+                <div class="background--home"></div>
+            </div>
+            <div class="scene-wrap is--main">
+                <div class="scene-block is--main">
+                    <div class="scene-container">
+                        <div class="scene is--main" data-w-id="743db227-d702-64d7-42c8-b188c2e6be28"
+                            data-animation-type="spline"
+                            data-spline-url="https://prod.spline.design/aaJ4321hYeDvU4A7/scene.splinecode">
+                            <canvas></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-wrap">
+            <div class="nav is--disabled">
+                <a href="#work" class="text-link--menu">Work</a>
+                <a href="#about" class="text-link--menu">About</a>
+                <a href="#services" class="text-link--menu">Services</a>
+                <a href="#contact" class="text-link--menu">Contact</a>
+            </div>
+        </div>
+        <div class="footer-wrap">
+            <div class="spacer is--footer"></div>
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="w-layout-blockcontainer container is---footer w-container">
+                        <div class="content-wrap is--footer">
+                            <div class="block--footer--center">
+                                <div class="block--footer--center--top">
+                                    <div class="block--footer--center--subtitle">
+                                        <div class="paragraph-wrap text-color--main--white">
+                                            <p class="paragraph-xl">We see if we are a good fit for a call.🤓</p>
+                                        </div>
+                                        <div class="icon-wrap--20px text-color--secondary--white-60">
+                                            <div class="icon w-embed">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                                                    viewBox="0 0 20 21" fill="none" preserveAspectRatio="xMidYMid meet"
+                                                    aria-hidden="true" role="img">
+                                                    <path
+                                                        d="M8.33334 12.9997L12.5 17.1663M12.5 17.1663L16.6667 12.9997M12.5 17.1663V7.16634C12.5 6.28229 12.1488 5.43444 11.5237 4.80932C10.8986 4.1842 10.0507 3.83301 9.16668 3.83301H3.33334"
+                                                        stroke="currentColor" stroke-opacity="1" stroke-width="1.5"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="https://cal.com/ark-dev/" target="_blank"
+                                        class="button--footer--book_a_call w-inline-block">
+                                        <div class="content-wrap--button--footer--book_a_call">
+                                            <div class="content--button--footer--book_a_call">
+                                                <div class="slider is--footer--book_a_call splide">
+                                                    <div class="slider-track splide__track">
+                                                        <div class="slider-list splide__list">
+                                                            <div class="slider-slide splide__slide">
+                                                                <div class="heading-xl is--footer">Book a Call</div>
+                                                            </div>
+                                                            <div class="slider-slide splide__slide">
+                                                                <div class="circle-wrap--button--footer--book_a_call">
+                                                                    <div class="circle--button--footer--book_a_call">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="links-wrap is--footer">
+                                    <a href="mailto:hi@ajoeark@gmail.com"
+                                        class="link-block--footer--contact w-inline-block">
+                                        <div>[</div>
+                                        <div class="text--footer--link">ajoeark@gmail.com</div>
+                                        <div class="icon-wrap--16px">
+                                            <div class="icon w-embed">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                                                    viewBox="0 0 16 16" fill="none" preserveAspectRatio="xMidYMid meet"
+                                                    aria-hidden="true" role="img">
+                                                    <path
+                                                        d="M14.6667 3.99996C14.6667 3.26663 14.0667 2.66663 13.3334 2.66663H2.66671C1.93337 2.66663 1.33337 3.26663 1.33337 3.99996M14.6667 3.99996V12C14.6667 12.7333 14.0667 13.3333 13.3334 13.3333H2.66671C1.93337 13.3333 1.33337 12.7333 1.33337 12V3.99996M14.6667 3.99996L8.00004 8.66663L1.33337 3.99996"
+                                                        stroke="currentColor" stroke-width="1.15" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div>]</div>
+                                    </a>
+                                    <a ac="" data-w-id="f9a710ed-e033-bcc4-da25-f43d5c7c1741" href="#"
+                                        class="link-block--footer--contact is--copy w-inline-block">
+                                        <div>[</div>
+                                        <div class="text--footer--link">COPY Email</div>
+                                        <div class="icon-wrap--link-block--footer--contact">
+                                            <div style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                                                class="icon-wrap--16px">
+                                                <div class="icon w-embed">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                                                        viewBox="0 0 16 16" fill="none"
+                                                        preserveAspectRatio="xMidYMid meet" aria-hidden="true"
+                                                        role="img">
+                                                        <g clip-path="url(#clip0_492_1220)">
+                                                            <path
+                                                                d="M13.3333 6H7.33333C6.59695 6 6 6.59695 6 7.33333V13.3333C6 14.0697 6.59695 14.6667 7.33333 14.6667H13.3333C14.0697 14.6667 14.6667 14.0697 14.6667 13.3333V7.33333C14.6667 6.59695 14.0697 6 13.3333 6Z"
+                                                                stroke="currentColor" stroke-width="1.15"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path
+                                                                d="M3.33337 10H2.66671C2.31309 10 1.97395 9.85956 1.7239 9.60952C1.47385 9.35947 1.33337 9.02033 1.33337 8.66671V2.66671C1.33337 2.31309 1.47385 1.97395 1.7239 1.7239C1.97395 1.47385 2.31309 1.33337 2.66671 1.33337H8.66671C9.02033 1.33337 9.35947 1.47385 9.60952 1.7239C9.85956 1.97395 10 2.31309 10 2.66671V3.33337"
+                                                                stroke="currentColor" stroke-width="1.15"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </g>
+                                                        <defs>
+                                                            <clipPath id="clip0_492_1220">
+                                                                <rect width="16" height="16" fill="currentColor" />
+                                                            </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                                                class="icon-wrap--16px">
+                                                <div class="icon w-embed">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                                                        viewBox="0 0 16 16" fill="none"
+                                                        preserveAspectRatio="xMidYMid meet" aria-hidden="true"
+                                                        role="img">
+                                                        <path d="M13.3334 4.3335L6.00008 11.6668L2.66675 8.3335"
+                                                            stroke="currentColor" stroke-width="1.15"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>]</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="block--footer--bottom">
+                                <div class="w-layout-grid grid--12x is--footer">
+                                    <div id="w-node-_3e20d9e7-d19c-b1ce-fbff-acbaade7c2e1-681df34d"
+                                        class="block--footer--bottom--copyright">
+                                        <div class="caption-m is--spaced text-color--secondary--white-60">
+                                            ©2025 ARK DEV.<br />All rights reserved.
+                                        </div>
+                                    </div>
+                                    <div id="w-node-_1c630611-5704-3a71-16b7-10869225ceca-681df34d"
+                                        class="block--footer--bottom--social">
+                                        <a aria-label="Open Linkedin Page Link" href="https://bo.linkedin.com/"
+                                            target="_blank" class="link-block--footer--social w-inline-block">
+                                            <div class="w-layout-vflex animation-wrap--link-block--footer--social">
+                                                <div class="icon-wrap--20px">
+                                                    <div class="icon w-embed">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                            height="100%" viewBox="0 0 20 20" fill="none"
+                                                            preserveAspectRatio="xMidYMid meet" aria-hidden="true"
+                                                            role="img">
+                                                            <g clip-path="url(#clip0_553_128)">
+                                                                <path
+                                                                    d="M0 2.66392C0 2.02042 0.225225 1.48954 0.675676 1.07126C1.12613 0.652985 1.71171 0.443848 2.43243 0.443848C3.14028 0.443848 3.713 0.649768 4.15058 1.06161C4.60103 1.48632 4.82625 2.03973 4.82625 2.72184C4.82625 3.3396 4.60746 3.8544 4.16988 4.26624C3.71943 4.69095 3.12741 4.90331 2.39382 4.90331H2.37452C1.66667 4.90331 1.09395 4.69095 0.656371 4.26624C0.21879 3.84153 0 3.30743 0 2.66392ZM0.250965 19.5558V6.66006H4.53668V19.5558H0.250965ZM6.9112 19.5558H11.1969V12.355C11.1969 11.9046 11.2484 11.5571 11.3514 11.3126C11.5315 10.875 11.805 10.505 12.1718 10.2025C12.5386 9.90009 12.9987 9.74887 13.5521 9.74887C14.9936 9.74887 15.7143 10.7206 15.7143 12.6639V19.5558H20V12.162C20 10.2572 19.5496 8.81257 18.6486 7.82802C17.7477 6.84346 16.5573 6.35118 15.0772 6.35118C13.417 6.35118 12.1236 7.06547 11.1969 8.49404V8.53265H11.1776L11.1969 8.49404V6.66006H6.9112C6.93694 7.0719 6.94981 8.35247 6.94981 10.5018C6.94981 12.6511 6.93694 15.6691 6.9112 19.5558Z"
+                                                                    fill="currentColor" />
+                                                            </g>
+                                                            <defs>
+                                                                <clipPath id="clip0_553_128">
+                                                                    <rect width="20" height="20" fill="white" />
+                                                                </clipPath>
+                                                            </defs>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="icon-wrap--20px">
+                                                    <div class="icon w-embed">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                            height="100%" viewBox="0 0 20 20" fill="none"
+                                                            preserveAspectRatio="xMidYMid meet" aria-hidden="true"
+                                                            role="img">
+                                                            <g clip-path="url(#clip0_553_128)">
+                                                                <path
+                                                                    d="M0 2.66392C0 2.02042 0.225225 1.48954 0.675676 1.07126C1.12613 0.652985 1.71171 0.443848 2.43243 0.443848C3.14028 0.443848 3.713 0.649768 4.15058 1.06161C4.60103 1.48632 4.82625 2.03973 4.82625 2.72184C4.82625 3.3396 4.60746 3.8544 4.16988 4.26624C3.71943 4.69095 3.12741 4.90331 2.39382 4.90331H2.37452C1.66667 4.90331 1.09395 4.69095 0.656371 4.26624C0.21879 3.84153 0 3.30743 0 2.66392ZM0.250965 19.5558V6.66006H4.53668V19.5558H0.250965ZM6.9112 19.5558H11.1969V12.355C11.1969 11.9046 11.2484 11.5571 11.3514 11.3126C11.5315 10.875 11.805 10.505 12.1718 10.2025C12.5386 9.90009 12.9987 9.74887 13.5521 9.74887C14.9936 9.74887 15.7143 10.7206 15.7143 12.6639V19.5558H20V12.162C20 10.2572 19.5496 8.81257 18.6486 7.82802C17.7477 6.84346 16.5573 6.35118 15.0772 6.35118C13.417 6.35118 12.1236 7.06547 11.1969 8.49404V8.53265H11.1776L11.1969 8.49404V6.66006H6.9112C6.93694 7.0719 6.94981 8.35247 6.94981 10.5018C6.94981 12.6511 6.93694 15.6691 6.9112 19.5558Z"
+                                                                    fill="currentColor" />
+                                                            </g>
+                                                            <defs>
+                                                                <clipPath id="clip0_553_128">
+                                                                    <rect width="20" height="20" fill="white" />
+                                                                </clipPath>
+                                                            </defs>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a aria-label="Open Telegram Page Link" href="https://web.telegram.org/"
+                                            target="_blank" class="link-block--footer--social w-inline-block">
+                                            <div class="w-layout-vflex animation-wrap--link-block--footer--social">
+                                                <div class="icon-wrap--20px">
+                                                    <div class="icon w-embed">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                            height="100%" viewBox="0 0 20 20" fill="none"
+                                                            preserveAspectRatio="xMidYMid meet" aria-hidden="true"
+                                                            role="img">
+                                                            <path
+                                                                d="M18.6335 1.71379L0.520997 8.72277C0.510221 8.72692 0.499774 8.73189 0.489747 8.73761C0.342872 8.82082 -0.682128 9.44777 0.763185 10.0099L0.778028 10.0153L5.09092 11.4087C5.12382 11.4194 5.15867 11.4228 5.19301 11.4186C5.22735 11.4144 5.26037 11.4028 5.28975 11.3845L15.987 4.71027C16.0132 4.6939 16.0424 4.68288 16.073 4.67785C16.2218 4.65324 16.6503 4.60715 16.3792 4.95129C16.0726 5.34191 8.76592 11.8896 7.95498 12.6157C7.90822 12.6577 7.87929 12.716 7.87412 12.7786L7.52022 16.9974C7.52017 17.0403 7.53014 17.0827 7.54933 17.1212C7.56851 17.1596 7.5964 17.1931 7.63076 17.2189C7.67952 17.2496 7.73687 17.2638 7.79433 17.2594C7.85179 17.2551 7.90633 17.2324 7.9499 17.1946L10.5124 14.9044C10.5529 14.8682 10.6045 14.847 10.6587 14.8442C10.713 14.8415 10.7665 14.8573 10.8104 14.8892L15.2812 18.1353L15.2956 18.145C15.4038 18.2118 16.5726 18.8919 16.9101 17.3732L19.996 2.69933C20.0003 2.65285 20.0421 2.14191 19.6769 1.83996C19.2933 1.52433 18.7503 1.68371 18.6687 1.7009C18.6566 1.70425 18.6449 1.70856 18.6335 1.71379Z"
+                                                                fill="currentColor" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="icon-wrap--20px">
+                                                    <div class="icon w-embed">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                                            height="100%" viewBox="0 0 20 20" fill="none"
+                                                            preserveAspectRatio="xMidYMid meet" aria-hidden="true"
+                                                            role="img">
+                                                            <path
+                                                                d="M18.6335 1.71379L0.520997 8.72277C0.510221 8.72692 0.499774 8.73189 0.489747 8.73761C0.342872 8.82082 -0.682128 9.44777 0.763185 10.0099L0.778028 10.0153L5.09092 11.4087C5.12382 11.4194 5.15867 11.4228 5.19301 11.4186C5.22735 11.4144 5.26037 11.4028 5.28975 11.3845L15.987 4.71027C16.0132 4.6939 16.0424 4.68288 16.073 4.67785C16.2218 4.65324 16.6503 4.60715 16.3792 4.95129C16.0726 5.34191 8.76592 11.8896 7.95498 12.6157C7.90822 12.6577 7.87929 12.716 7.87412 12.7786L7.52022 16.9974C7.52017 17.0403 7.53014 17.0827 7.54933 17.1212C7.56851 17.1596 7.5964 17.1931 7.63076 17.2189C7.67952 17.2496 7.73687 17.2638 7.79433 17.2594C7.85179 17.2551 7.90633 17.2324 7.9499 17.1946L10.5124 14.9044C10.5529 14.8682 10.6045 14.847 10.6587 14.8442C10.713 14.8415 10.7665 14.8573 10.8104 14.8892L15.2812 18.1353L15.2956 18.145C15.4038 18.2118 16.5726 18.8919 16.9101 17.3732L19.996 2.69933C20.0003 2.65285 20.0421 2.14191 19.6769 1.83996C19.2933 1.52433 18.7503 1.68371 18.6687 1.7009C18.6566 1.70425 18.6449 1.70856 18.6335 1.71379Z"
+                                                                fill="currentColor" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scene-wrap is--footer">
+                    <div class="scene-block">
+                        <div class="scene-container">
+                            <div class="scene is--footer" data-w-id="4ba6e45b-e6de-16bc-1264-1d0e1b78684b"
+                                data-animation-type="spline"
+                                data-spline-url="https://prod.spline.design/aaJ4321hYeDvU4A7/scene.splinecode">
+                                <canvas></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <div id="contact" data-w-id="c50d6bce-00d6-8a14-a6cd-a0586cae0713" class="anchor"></div>
+            <div class="background--footer"></div>
+        </div>
+    </div>
+    <div class="layout-grid-wrap">
+        <div class="w-layout-blockcontainer container w-container">
+            <div class="w-layout-grid layout-grid">
+                <div id="w-node-_35873d5f-2086-1bb9-7de0-fd56a9b5e623-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-_1e2b0441-671b-7976-9bd2-0b3bb001d20d-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-f6271a13-342c-f11a-c76f-d347b03d6bd4-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-_1e4b73fd-070d-ed64-8d11-6b6c985777ae-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-_41496a47-d879-edf6-3ced-a4d81eab0deb-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-a7fdc191-6afb-1a20-0c24-50da406c2354-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-ba084640-cd46-d45a-9a21-aa548473c152-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-_4900efa2-c07a-e332-db42-f97ee011f96f-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-_42168dc7-8ab3-acb6-bc76-244031bb23ef-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-_761ef379-1eb2-10e5-192d-5b7a7e8a47f4-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-_33a44b2a-b975-a633-5be6-523bb10ec5ef-681df34d" class="cell--layout-grid"></div>
+                <div id="w-node-d37f0783-37ae-5e77-4042-7d25e5ab0220-681df34d" class="cell--layout-grid"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=66a68529752ea579681df340"
+        type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.prod.website-files.com/66a68529752ea579681df340/js/webflow.3a2d394d5.js"
+        type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    <script
+        src="https://cdn.prod.website-files.com/66a68529752ea579681df340/66ae271b9339fcc7e53d1bf5_ScrambleTextPlugin.min.txt"></script>
+    <script
+        src="https://cdn.prod.website-files.com/66a68529752ea579681df340/66afca62a1fc948838f27c34_SplitText.min.txt"></script>
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const lenis = new Lenis({
+            lerp: .1
+        });
+        function raf(e) {
+            lenis.raf(e),
+                requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf);
+        const vhRem = e => window.innerHeight * (e / 100) / 16;
+        let scrambleCharset = "!1€5#6*=+-&$=\xa3AF/&234$$2N€O=!"
+            , gsapMatchMedia = gsap.matchMedia();
+        function initiateHeroTitleScrambleTl() {
+            gsap.timeline({
+                repeat: -1,
+                repeatDelay: 2.5
+            }).to("#home--hero--title--top", {
+                duration: 1,
+                scrambleText: {
+                    text: "VISUAL",
+                    chars: scrambleCharset,
+                    speed: 1
+                }
+            }).to("#home--hero--title--bottom", {
+                duration: 1,
+                scrambleText: {
+                    text: "DESIGNER",
+                    chars: scrambleCharset,
+                    speed: 1
+                }
+            }, "<").to("#home--hero--title--top", {
+                duration: 1,
+                scrambleText: {
+                    text: "CODE",
+                    chars: scrambleCharset,
+                    speed: 1
+                }
+            }, ">2.5").to("#home--hero--title--bottom", {
+                duration: 1,
+                scrambleText: {
+                    text: "DEVELOPER",
+                    chars: scrambleCharset,
+                    speed: 1
+                }
+            }, "<")
+        }
+        function initiatePageLoadTl() {
+            let e = gsap.timeline({
+                onStart() {
+                    lenis.stop(),
+                        $(".content-blocker").remove()
+                },
+                onComplete() {
+                    lenis.start(),
+                        $(".nav").removeClass("is--disabled"),
+                        initiateHeroTitleScrambleTl(),
+                        initiateHomeHeroScrollTl(),
+                        initiateHomePortfolioScrollTl(),
+                        initiateHomeAboutScrollTl(),
+                        initiateHomeServicesScrollTl(),
+                        initiateFooterScrollTl()
+                }
+            });
+            gsapMatchMedia.add("(min-width: 992px)", () => {
+                let t = new SplitText("#text--loader-block", {
+                    type: "chars",
+                    tag: "div"
+                });
+                e.clear(),
+                    e.set($(".card--portfolio:eq(0)"), {
+                        width: "63.75rem",
+                        y: "-6rem"
+                    }),
+                    e.set($(".background--card--portfolio"), {
+                        width: "63.75rem",
+                        height: "35.875rem",
+                        boxShadow: "0rem 0rem 0rem 3rem #582fcd",
+                        y: "-6rem"
+                    }, "<"),
+                    e.set($(".loader-block"), {
+                        opacity: 1
+                    }),
+                    e.from(t.chars, {
+                        duration: .25,
+                        stagger: .05,
+                        opacity: 0
+                    }),
+                    e.to(t.chars, {
+                        duration: .75,
+                        stagger: .05,
+                        scrambleText: {
+                            text: "{original}",
+                            chars: scrambleCharset,
+                            speed: 1
+                        }
+                    }, "<"),
+                    e.to($(".loader-block .caption-m.is--dot"), {
+                        duration: .75,
+                        stagger: .05,
+                        opacity: 1,
+                        width: "auto"
+                    }, "-=0.75"),
+                    null !== sessionStorage.getItem("visited") ? e.to($(".loader-block"), {
+                        duration: .125,
+                        opacity: 0
+                    }, "+=1") : e.to($(".loader-block"), {
+                        duration: .125,
+                        opacity: 0
+                    }, "+=5"),
+                    sessionStorage.setItem("visited", "true"),
+                    e.from($(".image--navbar--logo path"), {
+                        delay: .25,
+                        duration: .25,
+                        y: "125%",
+                        stagger: .05,
+                        opacity: 0,
+                        filter: "blur(1rem)",
+                        ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1")
+                    }),
+                    e.from($(".image--navbar--logo"), {
+                        delay: .25,
+                        duration: .75,
+                        transform: "translateY(calc(50vh - 0.625rem - 3rem))",
+                        ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1")
+                    }, ">"),
+                    e.from($(".nav-wrap"), {
+                        duration: .75,
+                        opacity: 0,
+                        transform: "translateY(-200%)",
+                        ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1")
+                    }, "<"),
+                    e.fromTo($(".scene-container"), {
+                        scale: 3,
+                        opacity: 0,
+                        ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1"),
+                        y: "85%"
+                    }, {
+                        duration: .5,
+                        opacity: 1,
+                        scale: 4.5,
+                        y: "170%"
+                    }, "<"),
+                    e.from(".heading-wrap.is--home--hero", {
+                        duration: .5,
+                        filter: "blur(1rem)",
+                        opacity: 0,
+                        scale: .95
+                    }, "-=0.5"),
+                    e.from(".paragraph-wrap.is--home--hero", {
+                        duration: .25,
+                        filter: "blur(0.25rem)",
+                        opacity: 0
+                    }, "-=0.25"),
+                    e.from($(".link-block--portfolio:eq(0)"), {
+                        duration: 1,
+                        transform: "translateY(100vh)",
+                        ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1")
+                    }, "-=0.25"),
+                    e.from($(".block-wrap--portfolio.is--bg"), {
+                        duration: 1,
+                        transform: "translateY(100vh)",
+                        ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1")
+                    }, "<")
+            }
+            ),
+                gsapMatchMedia.add("(max-width: 991px) and (min-width: 479px)", () => {
+                    let t = new SplitText("#text--loader-block", {
+                        type: "chars",
+                        tag: "div"
+                    });
+                    e.clear(),
+                        e.set($(".card--portfolio:eq(0) .image--card--portfolio"), {
+                            width: "calc(100% + 3rem)",
+                            height: "calc(100vh - 11rem)",
+                            borderRadius: "0rem"
+                        }),
+                        e.set($(".card--portfolio:eq(0) .image-overlap--card--portfolio"), {
+                            width: "calc(100% + 3rem)",
+                            height: "calc(100vh - 11rem)",
+                            opacity: 0,
+                            borderRadius: "0rem"
+                        }, "<"),
+                        e.set($(".background--card--portfolio"), {
+                            width: "100vw",
+                            height: "calc(100vh - 11rem)",
+                            boxShadow: "0rem 0rem 0rem 2.5rem #582fcd"
+                        }, "<"),
+                        e.set($(".loader-block"), {
+                            opacity: 1
+                        }),
+                        e.from(t.chars, {
+                            duration: .25,
+                            stagger: .05,
+                            opacity: 0
+                        }),
+                        e.to(t.chars, {
+                            duration: .75,
+                            stagger: .05,
+                            scrambleText: {
+                                text: "{original}",
+                                chars: scrambleCharset,
+                                speed: 1
+                            }
+                        }, "<"),
+                        e.to($(".loader-block .caption-m.is--dot"), {
+                            duration: .75,
+                            stagger: .05,
+                            opacity: 1,
+                            width: "auto"
+                        }, "-=0.75"),
+                        null !== sessionStorage.getItem("visited") ? e.to($(".loader-block"), {
+                            duration: .125,
+                            opacity: 0
+                        }, "+=1") : e.to($(".loader-block"), {
+                            duration: .125,
+                            opacity: 0
+                        }, "+=5"),
+                        sessionStorage.setItem("visited", "true"),
+                        e.from($(".image--navbar--logo path"), {
+                            delay: .25,
+                            duration: .25,
+                            y: "125%",
+                            stagger: .05,
+                            opacity: 0,
+                            filter: "blur(1rem)",
+                            ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1")
+                        }),
+                        e.from($(".image--navbar--logo"), {
+                            delay: .25,
+                            duration: .75,
+                            transform: "translateY(calc(50vh - 0.625rem - 3rem))",
+                            ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1")
+                        }, ">"),
+                        e.from($(".nav-wrap"), {
+                            duration: .75,
+                            opacity: 0,
+                            transform: "translateY(-200%)",
+                            ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1")
+                        }, "<"),
+                        e.fromTo($(".scene-container"), {
+                            scale: 3,
+                            opacity: 0,
+                            ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1"),
+                            y: "85%"
+                        }, {
+                            duration: .5,
+                            opacity: 1,
+                            scale: 4.75,
+                            y: "170%"
+                        }, "<"),
+                        e.from(".heading-wrap.is--home--hero", {
+                            duration: .5,
+                            filter: "blur(1rem)",
+                            opacity: 0,
+                            scale: .95
+                        }, "-=0.5"),
+                        e.from(".paragraph-wrap.is--home--hero", {
+                            duration: .25,
+                            filter: "blur(0.25rem)",
+                            opacity: 0
+                        }, "-=0.25"),
+                        e.from($(".link-block--portfolio:eq(0)"), {
+                            duration: 1,
+                            transform: "translateY(100vh)",
+                            ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1")
+                        }, "-=0.25"),
+                        e.from($(".block-wrap--portfolio.is--bg"), {
+                            duration: 1,
+                            transform: "translateY(100vh)",
+                            ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1")
+                        }, "<")
+                }
+                ),
+                gsapMatchMedia.add("(max-width: 478px) and (min-width: 320px)", () => {
+                    let t = new SplitText("#text--loader-block", {
+                        type: "chars",
+                        tag: "div"
+                    });
+                    e.clear(),
+                        e.set($(".card--portfolio:eq(0) .image--card--portfolio"), {
+                            width: "calc(100% + 2rem)",
+                            height: "calc(100vh - 11rem)",
+                            borderRadius: "0rem"
+                        }),
+                        e.set($(".card--portfolio:eq(0) .image-overlap--card--portfolio"), {
+                            width: "calc(100% + 2rem)",
+                            height: "calc(100vh - 11rem)",
+                            opacity: 0,
+                            borderRadius: "0rem"
+                        }, "<"),
+                        e.set($(".background--card--portfolio"), {
+                            width: "calc(0rem + 2rem + 100%)",
+                            height: "calc(100vh - 11rem)",
+                            boxShadow: "0rem 0rem 0rem 2rem #582fcd"
+                        }, "<"),
+                        e.set($(".loader-block"), {
+                            opacity: 1
+                        }),
+                        e.from(t.chars, {
+                            duration: .25,
+                            stagger: .05,
+                            opacity: 0
+                        }),
+                        e.to(t.chars, {
+                            duration: .75,
+                            stagger: .05,
+                            scrambleText: {
+                                text: "{original}",
+                                chars: scrambleCharset,
+                                speed: 1
+                            }
+                        }, "<"),
+                        e.to($(".loader-block .caption-m.is--dot"), {
+                            duration: .75,
+                            stagger: .05,
+                            opacity: 1,
+                            width: "auto"
+                        }, "-=0.75"),
+                        null !== sessionStorage.getItem("visited") ? e.to($(".loader-block"), {
+                            duration: .125,
+                            opacity: 0
+                        }, "+=1") : e.to($(".loader-block"), {
+                            duration: .125,
+                            opacity: 0
+                        }, "+=5"),
+                        sessionStorage.setItem("visited", "true"),
+                        e.from($(".image--navbar--logo path"), {
+                            delay: .25,
+                            duration: .25,
+                            y: "125%",
+                            stagger: .05,
+                            opacity: 0,
+                            filter: "blur(1rem)",
+                            ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1")
+                        }),
+                        e.from($(".image--navbar--logo"), {
+                            delay: .25,
+                            duration: .75,
+                            transform: "translateY(calc(50vh - 0.625rem - 3rem))",
+                            ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1")
+                        }, ">"),
+                        e.from($(".nav-wrap"), {
+                            duration: .75,
+                            opacity: 0,
+                            transform: "translateY(-200%)",
+                            ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1")
+                        }, "<"),
+                        e.fromTo($(".scene-container"), {
+                            scale: 3,
+                            opacity: 0,
+                            ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1"),
+                            y: "85%"
+                        }, {
+                            duration: .5,
+                            opacity: 1,
+                            scale: 5,
+                            y: "170%"
+                        }, "<"),
+                        e.from(".heading-wrap.is--home--hero", {
+                            duration: .5,
+                            filter: "blur(1rem)",
+                            opacity: 0,
+                            scale: .95
+                        }, "-=0.5"),
+                        e.from(".paragraph-wrap.is--home--hero", {
+                            duration: .25,
+                            filter: "blur(0.25rem)",
+                            opacity: 0
+                        }, "-=0.25"),
+                        e.from($(".link-block--portfolio:eq(0)"), {
+                            duration: 1,
+                            transform: "translateY(100vh)",
+                            ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1")
+                        }, "-=0.25"),
+                        e.from($(".block-wrap--portfolio.is--bg"), {
+                            duration: 1,
+                            transform: "translateY(100vh)",
+                            ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1")
+                        }, "<")
+                }
+                )
+        }
+        function initiateHomeHeroScrollTl() {
+            let e = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".section.is--home--hero",
+                    start: "top top",
+                    end: "75%",
+                    markers: !1,
+                    scrub: !0,
+                    onLeave() {
+                        $(".card--portfolio.is--bg").addClass("is--hidden")
+                    },
+                    onEnterBack() {
+                        $(".card--portfolio.is--bg").removeClass("is--hidden")
+                    }
+                }
+            });
+            gsapMatchMedia.add("(min-width: 992px)", () => {
+                e.clear(),
+                    e.to($(".card--portfolio:eq(0)"), {
+                        width: "100%",
+                        y: "0rem"
+                    }),
+                    e.to($(".background--card--portfolio"), {
+                        width: "calc(0rem + 0rem + 100%)",
+                        height: "calc(0rem + 0rem + 100%)",
+                        boxShadow: "0rem 0rem 0rem 0rem #582fcd",
+                        y: "0rem"
+                    }, "<"),
+                    e.to(".scene-container", {
+                        scale: 2.25,
+                        y: "0%"
+                    }, "<"),
+                    e.to(".heading-wrap.is--home--hero", {
+                        opacity: 0,
+                        scale: .85,
+                        filter: "blur(2rem)",
+                        y: "2.5rem"
+                    }, "<"),
+                    e.to(".paragraph-wrap.is--home--hero", {
+                        scale: .85,
+                        filter: "blur(5rem)",
+                        y: "2.5rem"
+                    }, "<")
+            }
+            ),
+                gsapMatchMedia.add("(max-width: 991px) and (min-width: 479px)", () => {
+                    e.clear(),
+                        e.to($(".card--portfolio:eq(0) .image--card--portfolio"), {
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: ".75rem"
+                        }),
+                        e.to($(".card--portfolio:eq(0) .image-overlap--card--portfolio"), {
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: ".75rem",
+                            opacity: 1
+                        }, "<"),
+                        e.to($(".background--card--portfolio"), {
+                            width: "calc(100vw - 3rem)",
+                            height: "100%",
+                            boxShadow: "0rem 0rem 0rem 0rem #582fcd"
+                        }, "<"),
+                        e.to(".scene-container", {
+                            scale: 3,
+                            y: "0%"
+                        }, "<"),
+                        e.to(".heading-wrap.is--home--hero", {
+                            opacity: 0,
+                            scale: .85,
+                            filter: "blur(2rem)",
+                            y: "2.5rem"
+                        }, "<"),
+                        e.to(".paragraph-wrap.is--home--hero", {
+                            scale: .85,
+                            filter: "blur(5rem)",
+                            y: "2.5rem"
+                        }, "<")
+                }
+                ),
+                gsapMatchMedia.add("(max-width: 478px) and (min-width: 320px)", () => {
+                    e.clear(),
+                        e.to($(".card--portfolio:eq(0) .image--card--portfolio"), {
+                            width: "100%",
+                            height: "calc(0rem + 0rem + 100%)",
+                            borderRadius: ".5rem"
+                        }),
+                        e.to($(".card--portfolio:eq(0) .image-overlap--card--portfolio"), {
+                            width: "100%",
+                            height: "calc(0rem + 0rem + 100%)",
+                            borderRadius: ".5rem",
+                            opacity: 1
+                        }, "<"),
+                        e.to($(".background--card--portfolio"), {
+                            width: "calc(0rem + 0rem + 100%)",
+                            height: "calc(0rem + 0rem + 100%)",
+                            boxShadow: "0rem 0rem 0rem 0rem #582fcd",
+                            transform: "translateY(0vh)"
+                        }, "<"),
+                        e.to(".scene-container", {
+                            scale: 3,
+                            y: "0%"
+                        }, "<"),
+                        e.to(".heading-wrap.is--home--hero", {
+                            opacity: 0,
+                            scale: .85,
+                            opacity: 0,
+                            filter: "blur(2rem)",
+                            y: "2.5rem"
+                        }, "<"),
+                        e.to(".paragraph-wrap.is--home--hero", {
+                            scale: .85,
+                            opacity: 0,
+                            filter: "blur(5rem)",
+                            y: "2.5rem"
+                        }, "<")
+                }
+                )
+        }
+        function initiateHomePortfolioScrollTl() {
+            $(".item-wrap--portfolio").each(function (e) {
+                let t = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: $(this),
+                        start: "-75% top",
+                        end: "50%",
+                        markers: !1,
+                        scrub: !0
+                    }
+                });
+                gsapMatchMedia.add("(min-width: 992px)", () => {
+                    t.clear(),
+                        e > 0 && (t.set($(this).find(".card--portfolio"), {
+                            width: "100%"
+                        }),
+                            $(this).prev().length > 0 && t.to($(this).prev(), {
+                                y: "-2.5rem"
+                            }, "<").to($(this).prev().find(".card--portfolio"), {
+                                width: "calc(100% - 4rem)"
+                            }, "<").to($(this).prev().find(".image--card--portfolio"), {
+                                opacity: .5
+                            }, "<").to($(this).prev().find(".block--item-wrap--portfolio--description"), {
+                                filter: "blur(2rem)",
+                                y: "-1.75rem",
+                                scale: .85,
+                                opacity: 0
+                            }, "<"),
+                            e > 1 && ($(this).prev().prev().length > 0 && t.to($(this).prev().prev(), {
+                                y: "-5rem"
+                            }, "<").to($(this).prev().prev().find(".card--portfolio"), {
+                                width: "calc(100% - 8rem)"
+                            }, "<").to($(this).prev().prev().find(".image--card--portfolio"), {
+                                opacity: .25
+                            }, "<"),
+                                e > 2 && $(this).prev().prev().prev().length > 0 && t.to($(this).prev().prev().prev(), {
+                                    y: "-7.5rem",
+                                    opacity: 0
+                                }, "<").to($(this).prev().prev().prev().find(".card--portfolio"), {
+                                    width: "calc(100% - 12rem)"
+                                }, "<")))
+                }
+                ),
+                    gsapMatchMedia.add("(max-width: 991px) and (min-width: 479px)", () => {
+                        t.clear(),
+                            e > 0 && ($(this).prev().length > 0 && t.to($(this).prev(), {
+                                y: "-2rem"
+                            }, "<").to($(this).prev().find(".card--portfolio"), {
+                                width: "calc(100% - 3rem)"
+                            }, "<").to($(this).prev().find(".image--card--portfolio"), {
+                                opacity: .5
+                            }, "<").to($(this).prev().find(".block--item-wrap--portfolio--description"), {
+                                filter: "blur(2rem)",
+                                y: "-1.75rem",
+                                scale: .85,
+                                opacity: 0
+                            }, "<"),
+                                e > 1 && ($(this).prev().prev().length > 0 && t.to($(this).prev().prev(), {
+                                    y: "-4rem"
+                                }, "<").to($(this).prev().prev().find(".card--portfolio"), {
+                                    width: "calc(100% - 6rem)"
+                                }, "<").to($(this).prev().prev().find(".image--card--portfolio"), {
+                                    opacity: .25
+                                }, "<"),
+                                    e > 2 && $(this).prev().prev().prev().length > 0 && t.to($(this).prev().prev().prev(), {
+                                        y: "-6rem",
+                                        opacity: 0
+                                    }, "<").to($(this).prev().prev().prev().find(".card--portfolio"), {
+                                        width: "calc(100% - 9rem)"
+                                    }, "<")))
+                    }
+                    ),
+                    gsapMatchMedia.add("(max-width: 478px) and (min-width: 320px)", () => {
+                        t.clear(),
+                            e > 0 && ($(this).prev().length > 0 && t.to($(this).prev(), {
+                                y: "-1.25rem"
+                            }, "<").to($(this).prev().find(".card--portfolio"), {
+                                width: "calc(100% - 2rem)"
+                            }, "<").to($(this).prev().find(".image--card--portfolio"), {
+                                opacity: .5
+                            }, "<").to($(this).prev().find(".block--item-wrap--portfolio--description"), {
+                                filter: "blur(2rem)",
+                                y: "-1.75rem",
+                                scale: .85,
+                                opacity: 0
+                            }, "<"),
+                                e > 1 && ($(this).prev().prev().length > 0 && t.to($(this).prev().prev(), {
+                                    y: "-2.5rem"
+                                }, "<").to($(this).prev().prev().find(".card--portfolio"), {
+                                    width: "calc(100% - 4rem)"
+                                }, "<").to($(this).prev().prev().find(".image--card--portfolio"), {
+                                    opacity: .25
+                                }, "<"),
+                                    e > 2 && $(this).prev().prev().prev().length > 0 && t.to($(this).prev().prev().prev(), {
+                                        y: "-3.25rem",
+                                        opacity: 0
+                                    }, "<").to($(this).prev().prev().prev().find(".card--portfolio"), {
+                                        width: "calc(100% - 6rem)"
+                                    }, "<")))
+                    }
+                    )
+            })
+        }
+        function initiateHomeAboutScrollTl() {
+            let e = new SplitText("#title--about", {
+                type: "chars",
+                tag: "span"
+            })
+                , t = new SplitText(".card--home--about .heading-l", {
+                    type: "chars",
+                    tag: "div"
+                })
+                , r = new SplitText(".card--home--about .caption-m", {
+                    type: "lines",
+                    tag: "span"
+                })
+                , a = new SplitText("#subtitle--about--paragraph", {
+                    type: "chars",
+                    tag: "span"
+                })
+                , o = new SplitText("#paragraph--about", {
+                    type: "lines, words",
+                    tag: "span"
+                })
+                , i = new SplitText("#subtitle--about--testimonials", {
+                    type: "chars",
+                    tag: "span"
+                });
+            gsap.utils.toArray(".grid--12x.is--about").forEach((s, c) => {
+                let l = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: s,
+                        start: "top bottom",
+                        end: "bottom",
+                        markers: !1,
+                        scrub: !1
+                    }
+                });
+                0 == c ? l.from(e.chars, {
+                    duration: .25,
+                    stagger: .1,
+                    opacity: 0
+                }).to(e.chars, {
+                    duration: .25,
+                    stagger: .1,
+                    scrambleText: {
+                        text: "{original}",
+                        chars: scrambleCharset,
+                        speed: 1
+                    }
+                }, "<").from(".card--home--about", {
+                    duration: .25,
+                    stagger: .1,
+                    ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1"),
+                    opacity: 0,
+                    y: "25%",
+                    rotateX: -60
+                }, "-=0.5").from(t.chars, {
+                    duration: .25,
+                    stagger: .1,
+                    ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1"),
+                    opacity: 0,
+                    y: "25%"
+                }, "-=0.25").from(r.lines, {
+                    duration: .25,
+                    stagger: .1,
+                    opacity: 0
+                }, "<").to(r.lines, {
+                    duration: .25,
+                    stagger: .1,
+                    scrambleText: {
+                        text: "{original}",
+                        chars: scrambleCharset,
+                        speed: 1
+                    }
+                }, "<") : 1 == c ? l.from(a.chars, {
+                    duration: .25,
+                    stagger: .05,
+                    opacity: 0
+                }).to(a.chars, {
+                    duration: .75,
+                    stagger: .05,
+                    scrambleText: {
+                        text: "{original}",
+                        chars: scrambleCharset,
+                        speed: 1
+                    }
+                }, "<").from(o.lines, {
+                    duration: .25,
+                    stagger: .1,
+                    opacity: 0
+                }, "-=0.75").to(o.words, {
+                    duration: 1,
+                    scrambleText: {
+                        text: "{original}",
+                        chars: scrambleCharset,
+                        speed: 1
+                    }
+                }, "<") : 2 == c && l.from(i.chars, {
+                    duration: .25,
+                    stagger: .05,
+                    opacity: 0
+                }).to(i.chars, {
+                    duration: .75,
+                    stagger: .05,
+                    scrambleText: {
+                        text: "{original}",
+                        chars: scrambleCharset,
+                        speed: 1
+                    }
+                }, "<").from(".card--home--about--testimonial", {
+                    duration: .25,
+                    stagger: .1,
+                    ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1"),
+                    opacity: 0,
+                    x: "2rem"
+                }, "-=0.5").from(".slider-pagination", {
+                    duration: .25,
+                    opacity: 0
+                }, "-=0.5")
+            }
+            )
+        }
+        function initiateHomeServicesScrollTl() {
+            let e = new SplitText("#title--services", {
+                type: "chars",
+                tag: "span"
+            })
+                , t = new SplitText("#paragraph--services", {
+                    type: "lines, words",
+                    tag: "span"
+                });
+            gsap.utils.toArray(".grid--12x.is--services").forEach((r, a) => {
+                let o = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: r,
+                        start: "top bottom",
+                        end: "bottom",
+                        markers: !1,
+                        scrub: !1
+                    }
+                });
+                0 == a ? o.from(e.chars, {
+                    duration: .25,
+                    stagger: .1,
+                    opacity: 0
+                }).from(t.lines, {
+                    duration: .25,
+                    stagger: .1,
+                    opacity: 0
+                }, "-=0.5").to(t.words, {
+                    duration: 1,
+                    scrambleText: {
+                        text: "{original}",
+                        chars: scrambleCharset,
+                        speed: 1
+                    }
+                }, "<") : 1 == a && o.from(".card--home--services", {
+                    delay: .25,
+                    duration: .5,
+                    stagger: .1,
+                    ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1"),
+                    opacity: 0,
+                    y: "25%",
+                    rotateX: -60
+                })
+            }
+            )
+        }
+        function initiateFooterScrollTl() {
+            gsapMatchMedia.add("(max-width: 991px) and (min-width: 479px)", () => {
+                let e = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".anchor",
+                        start: "top bottom",
+                        end: "bottom bottom",
+                        markers: !1,
+                        scrub: !1,
+                        toggleActions: "play none none reverse"
+                    }
+                });
+                e.clear(),
+                    e.to(".nav-wrap", {
+                        duration: .2,
+                        transform: "translateY(-3.375rem)",
+                        ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1")
+                    })
+            }
+            ),
+                gsapMatchMedia.add("(max-width: 478px) and (min-width: 320px)", () => {
+                    let e = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: ".anchor",
+                            start: "top bottom",
+                            end: "bottom bottom",
+                            markers: !1,
+                            scrub: !1,
+                            toggleActions: "play none none reverse"
+                        }
+                    });
+                    e.clear(),
+                        e.to(".nav-wrap", {
+                            duration: .2,
+                            transform: "translateY(-3rem)",
+                            ease: CustomEase.create("easeOutQuint", "0.22, 1, 0.36, 1")
+                        })
+                }
+                )
+        }
+        document.querySelectorAll(".card--home--services").forEach(e => {
+            e.addEventListener("click", () => {
+                setTimeout(() => {
+                    ScrollTrigger.refresh()
+                }
+                    , 500)
+            }
+            )
+        }
+        ),
+            gsap.utils.toArray(".button--footer--book_a_call .content-wrap--button--footer--book_a_call").forEach(e => {
+                e.addEventListener("mouseenter", () => {
+                    gsap.to(e, {
+                        ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1"),
+                        width: "calc(100% - 1rem)",
+                        height: "calc(100% - 1rem)",
+                        boxShadow: "inset 0 0 2rem rgba(248,247,244,0.15)",
+                        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(rgba(248, 247, 244, 0.25), rgba(248, 247, 244, 0.25))"
+                    })
+                }
+                ),
+                    e.addEventListener("mouseleave", () => {
+                        gsap.to(e, {
+                            ease: CustomEase.create("easeOutCubic", "0.33, 1, 0.68, 1"),
+                            width: "calc(100% - 0rem)",
+                            height: "calc(100% - 0rem)",
+                            boxShadow: "inset 0 0 2rem rgba(248,247,244,0)",
+                            backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(rgba(248, 247, 244, 0.15), rgba(248, 247, 244, 0.15))"
+                        })
+                    }
+                    )
+            }
+            ),
+            gsap.utils.toArray(".link-block--footer--social").forEach(e => {
+                e.addEventListener("mouseenter", () => {
+                    gsap.to($(e).find(".icon-wrap--20px"), {
+                        ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1"),
+                        y: "-100%"
+                    })
+                }
+                ),
+                    e.addEventListener("mouseleave", () => {
+                        gsap.to($(e).find(".icon-wrap--20px"), {
+                            ease: CustomEase.create("easeOutQuart", "0.25, 1, 0.5, 1"),
+                            y: "0%"
+                        })
+                    }
+                    )
+            }
+            ),
+            gsap.utils.toArray(".button").forEach(e => {
+                let t = $(e).text();
+                e.addEventListener("mouseenter", () => {
+                    gsap.to($(e).find(".caption-m"), {
+                        duration: .5,
+                        scrambleText: {
+                            text: t,
+                            chars: scrambleCharset,
+                            speed: 1
+                        }
+                    })
+                }
+                )
+            }
+            ),
+            gsap.utils.toArray(".button.is--404").forEach(e => {
+                e.addEventListener("mouseenter", () => {
+                    gsap.to($(e).find(".caption-m"), {
+                        duration: .5,
+                        scrambleText: {
+                            text: "GO HOME",
+                            chars: scrambleCharset,
+                            speed: 1
+                        }
+                    })
+                }
+                ),
+                    e.addEventListener("mouseleave", () => {
+                        gsap.to($(e).find(".caption-m"), {
+                            duration: .5,
+                            scrambleText: {
+                                text: "WAKE UP",
+                                chars: scrambleCharset,
+                                speed: 1
+                            }
+                        })
+                    }
+                    )
+            }
+            ),
+            gsap.utils.toArray(".text-link--menu").forEach(e => {
+                let t = $(e).text();
+                e.addEventListener("mouseenter", () => {
+                    gsap.to(e, {
+                        duration: .5,
+                        scrambleText: {
+                            text: t,
+                            chars: scrambleCharset,
+                            speed: 1
+                        }
+                    })
+                }
+                )
+            }
+            ),
+            gsap.utils.toArray(".link-block--footer--contact").forEach(e => {
+                let t = $(e).find(".text--footer--link").text();
+                e.addEventListener("mouseenter", () => {
+                    gsap.to($(e).find(".text--footer--link"), {
+                        duration: .5,
+                        scrambleText: {
+                            text: t,
+                            chars: scrambleCharset,
+                            speed: 1
+                        }
+                    })
+                }
+                )
+            }
+            ),
+            $(document).ready(function () {
+                0 == lenis.scroll ? initiatePageLoadTl() : lenis.scrollTo(0, {
+                    lock: !0,
+                    force: !0,
+                    duration: .4,
+                    onComplete() {
+                        initiatePageLoadTl()
+                    }
+                })
+            });
+        var swiper = new Swiper(".swiper", {
+            grabCursor: !0,
+            effect: "cards",
+            grabCursor: !0,
+            cardsEffect: {
+                perSlideRotate: 0
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                type: "bullets"
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            new Splide(".slider.is--footer--book_a_call", {
+                type: "loop",
+                gap: "4rem",
+                drag: !1,
+                arrows: !1,
+                pagination: !1,
+                autoWidth: !0,
+                clones: 3,
+                breakpoints: {
+                    991: {
+                        gap: "2rem"
+                    },
+                    767: {
+                        gap: "1.5rem"
+                    }
+                },
+                autoScroll: {
+                    speed: 1,
+                    pauseOnHover: !1,
+                    pauseOnFocus: !1
+                }
+            }).mount(window.splide.Extensions)
+        }),
+            $(".link-block--footer--contact.is--copy").on("click", function () {
+                navigator.clipboard.writeText("ajoeark@gmail.com")
+            });
+    </script>
 </body>
 
 </html>
