@@ -34,31 +34,31 @@
     <!--de aca coemiza el contenido de la pagina -->
     <div id="main-content" class="hidden">
         <a href="index.html" class="btn-start">Home</a>
-    <style>
-         .btn-start {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            padding: 10px 25px;
-            color: white;
-            font-size: 1rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            border-radius: 25px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 100000;
-        }
+        <style>
+            .btn-start {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 2px solid rgba(255, 255, 255, 0.6);
+                padding: 10px 25px;
+                color: white;
+                font-size: 1rem;
+                text-transform: uppercase;
+                font-weight: 700;
+                border-radius: 25px;
+                backdrop-filter: blur(12px);
+                box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+                cursor: pointer;
+                transition: transform 0.3s, box-shadow 0.3s;
+                z-index: 100000;
+            }
 
-        .btn-start:hover {
-            transform: scale(1.2);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.7);
-        }
-    </style>
+            .btn-start:hover {
+                transform: scale(1.2);
+                box-shadow: 0 8px 25px rgba(255, 255, 255, 0.7);
+            }
+        </style>
         <div class="w-full h-auto flex items-center justify-center">
             <video autoplay loop muted class="absolute top-0 left-0 w-full h-full object-cover">
                 <source src="src/Untitled video - Made with Clipchamp.webm" type="video/webm">
@@ -504,57 +504,171 @@
         </div>
 
         <!-- Botón flotante para abrir el popup -->
+         <a href="music.html">
         <button
             class="fixed bottom-8 right-8 bg-dark-transparent text-white p-4 rounded-full shadow-lg hover:bg-dark-transparent-hover focus:outline-none focus:ring-2 focus:ring-dark-transparent focus:ring-opacity-50 z-50 music-button transition-transform transform hover:scale-105 hover:rotate-3 active:dirty-effect">
-            <i class="fas fa-music"></i>
+            <ul class="wave-menu">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </button>
+    </a>
+        <style>
+            .music-button {
+                border: none;
+                background: transparent;
+                padding: 0;
+                margin: 0;
+            }
+            .wave-menu {
+                border: 4px solid #c2c2c4;
+                border-radius: 50px;
+                width: 200px;
+                height: 45px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                margin: 0;
+                cursor: pointer;
+                transition: ease 0.2s;
+                position: relative;
+                background: #6460605b;
+            }
 
-        <div id="music-popup"
-            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm hidden z-40">
-            <div class="absolute inset-0 overflow-hidden z-0">
+            .wave-menu li {
+                list-style: none;
+                height: 30px;
+                width: 4px;
+                border-radius: 10px;
+                background: #bcbcbe;
+                margin: 0 6px;
+                padding: 0;
+                animation-name: wave1;
+                animation-duration: 0.3s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                transition: ease 0.2s;
+            }
 
-            </div>
-            <div
-                class="relative bg-white bg-opacity-30 backdrop-blur-lg border border-white/30 rounded-lg p-6 max-w-md w-full shadow-lg z-10">
-                <button
-                    class="absolute top-4 right-4 text-white bg-gray-700 bg-opacity-70 rounded-full p-2 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 close-popup">
-                    <i class="fas fa-times"></i>
-                </button>
-                <div id="track-name" class="text-center text-white font-semibold text-lg mb-4">
-                    The Chemical Brothers - Hey Boy Hey Girl (ARTBAT Remix)
-                </div>
-                <audio id="audio-player" controls class="w-full mb-4">
-                    <source src="src/music.mp3" type="audio/mpeg">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
-                <canvas id="audio-spectrum" width="600" height="200" class="w-full"></canvas>
-            </div>
-        </div>
+            .wave-menu:hover>li {
+                background: #2f2d2d4f;
+            }
+
+            .wave-menu:hover {
+                background: #bcbcbe;
+            }
+
+            .wave-menu li:nth-child(2) {
+                animation-name: wave2;
+                animation-delay: 0.2s;
+            }
+
+            .wave-menu li:nth-child(3) {
+                animation-name: wave3;
+                animation-delay: 0.23s;
+                animation-duration: 0.4s;
+            }
+
+            .wave-menu li:nth-child(4) {
+                animation-name: wave4;
+                animation-delay: 0.1s;
+                animation-duration: 0.3s;
+            }
+
+            .wave-menu li:nth-child(5) {
+                animation-delay: 0.5s;
+            }
+
+            .wave-menu li:nth-child(6) {
+                animation-name: wave2;
+                animation-duration: 0.5s;
+            }
+
+            .wave-menu li:nth-child(8) {
+                animation-name: wave4;
+                animation-delay: 0.4s;
+                animation-duration: 0.25s;
+            }
+
+            .wave-menu li:nth-child(9) {
+                animation-name: wave3;
+                animation-delay: 0.15s;
+            }
+
+            @keyframes wave1 {
+                from {
+                    transform: scaleY(1);
+                }
+
+                to {
+                    transform: scaleY(0.5);
+                }
+            }
+
+            @keyframes wave2 {
+                from {
+                    transform: scaleY(0.3);
+                }
+
+                to {
+                    transform: scaleY(0.6);
+                }
+            }
+
+            @keyframes wave3 {
+                from {
+                    transform: scaleY(0.6);
+                }
+
+                to {
+                    transform: scaleY(0.8);
+                }
+            }
+
+            @keyframes wave4 {
+                from {
+                    transform: scaleY(0.2);
+                }
+
+                to {
+                    transform: scaleY(0.5);
+                }
+            }
+        </style>
 
         <!-- Overlay para el fondo -->
         <div id="overlay1" class="fixed inset-0 bg-black opacity-70 hidden z-30"></div>
 
         <div class="glass container-3d rounded-lg p-8 shadow-lg mt-8 flex flex-col gap-6 md:flex-row md:gap-12">
             <div id="visitor-counter"
-            class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-blue-500 to-blue-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
-            <h2 class="text-xl font-semibold mb-2">Visitors</h2>
-            <p id="visitor-count" class="text-5xl font-bold animate-blink">1224</p>
-        </div>
-        <div id="project-counter"
-            class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-green-500 to-green-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
-            <h2 class="text-xl font-semibold mb-2">Unreleased Projects</h2>
-            <p id="project-count" class="text-5xl font-bold animate-blink">10</p>
-        </div>
-        <div id="address-message"
-            class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-yellow-500 to-yellow-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
-            <h2 class="text-xl font-semibold mb-2">Address</h2>
-            <p id="address" class="text-lg">Loading...</p>
-        </div>
-        <div id="current-time"
-            class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-red-500 to-red-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
-            <h2 class="text-xl font-semibold mb-2">Current Time</h2>
-            <p id="time" class="text-3xl font-bold"></p>
-        </div>        
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-blue-500 to-blue-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Visitors</h2>
+                <p id="visitor-count" class="text-5xl font-bold animate-blink">1224</p>
+            </div>
+            <div id="project-counter"
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-green-500 to-green-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Unreleased Projects</h2>
+                <p id="project-count" class="text-5xl font-bold animate-blink">10</p>
+            </div>
+            <div id="address-message"
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-yellow-500 to-yellow-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Address</h2>
+                <p id="address" class="text-lg">Loading...</p>
+            </div>
+            <div id="current-time"
+                class="flex-1 flex flex-col items-center text-center bg-gradient-to-r from-red-500 to-red-700 p-6 rounded-lg shadow-lg text-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <h2 class="text-xl font-semibold mb-2">Current Time</h2>
+                <p id="time" class="text-3xl font-bold"></p>
+            </div>
 
         </div>
 
@@ -594,7 +708,8 @@
                     <img src="src/1001136218removebgpreview.png" alt="Ark Developer Logo"
                         class="mx-auto mb-6 w-24 h-24 animate-fadeIn">
                     <h3 class="text-3xl font-semibold mb-6 animate-3d">Contact</h3>
-                    <p class="text-lg mb-6 animate-3d animate-delay-100">You can contact me through my email to get more information or request a physical copy of my CV:</p>
+                    <p class="text-lg mb-6 animate-3d animate-delay-100">You can contact me through my email to get more
+                        information or request a physical copy of my CV:</p>
                     <p class="text-lg mb-6 animate-3d animate-delay-200">
                         <a href="mailto:ajoe_ark@hotmail.com"
                             class="text-blue-500 hover:underline hover:text-blue-300 transition-transform duration-300 hover:scale-105">ajoe_ark@hotmail.com</a>
@@ -603,7 +718,7 @@
                 <div class="bg-gray-800 bg-opacity-80 text-center py-6 mt-12 rounded-lg shadow-lg">
                     <p class="text-gray-400 text-sm">© 2024 ARK Dev. All rights reserved.</p>
                 </div>
-            </div>            
+            </div>
         </footer>
     </div>
 
