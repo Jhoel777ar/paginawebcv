@@ -1,1 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloader Private</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
+    <style>
+        body {
+            background-color: #000000;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            overflow: auto;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.5);
+            animation: moveBackground 30s infinite linear;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-size: 2.5rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        section {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 50px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 800px;
+            margin: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-container label {
+            font-size: 1.3rem;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .input-container select,
+        .input-container input {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #555;
+            padding: 1rem;
+            border-radius: 12px;
+            color: #00ff00;
+            font-size: 1.1rem;
+            transition: 0.3s ease;
+        }
+
+        .input-container input:focus,
+        .input-container select:focus {
+            border-color: #00ff00;
+            outline: none;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .download-button {
+            padding: 1rem 2rem;
+            background-color: #00ff00;
+            color: #121212;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+        }
+
+        .download-button:hover {
+            background-color: #2b6cb0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            font-size: 0.9rem;
+            color: #cbd5e0;
+            margin-top: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .footer a {
+            color: #00ff00;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .footer a:hover {
+            color: #2b6cb0;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 255, 0, 0.5);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+            z-index: 100;
+        }
+
+        .home-button:hover {
+            background: rgba(0, 255, 0, 0.8);
+        }
+
+        input:focus,
+        select:focus,
+        .download-button:focus {
+            outline: none;
+            border-color: #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="particles-js"></div>
+    <div class="background"></div>
+
+    <button class="home-button" onclick="goHome()">Inicio</button>
+
+    <section>
+        <h2>Downloader Private</h2>
+        <p>Una forma fácil y eficiente de agregar la funcionalidad de descarga de videos de YouTube a tu sitio web. Es posible que aparezcan algunos anuncios, pero todas las redirecciones están cuidadosamente monitoreadas para asegurar la seguridad.</p>
+
+        <div class="input-container">
+            <label for="youtubeUrl">Ingresa la URL del video de YouTube:</label>
+            <input id="youtubeUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." class="w-full" />
+
+            <label for="videoFormat">Selecciona el formato:</label>
+            <select id="videoFormat">
+                <option value="mp3">MP3</option>
+                <option value="mp4">MP4</option>
+                <option value="flac">FLAC</option>
+                <option value="ogg">OGG</option>
+                <option value="wav">WAV</option>
+            </select>
+
+            <label for="videoQuality">Selecciona la calidad del video (Si seleccionas un video):</label>
+            <select id="videoQuality">
+                <option value="360">360p</option>
+                <option value="480">480p</option>
+                <option value="720">720p</option>
+                <option value="1080">1080p</option>
+                <option value="4k">4K</option>
+                <option value="8k">8K</option>
+            </select>
+            <button id="loadButton" class="download-button">Descargar</button>
+        </div>
+
+        <div id="buttonContainer" class="text-center"></div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 ARK DEV | Video Private Download. Todos los derechos reservados. <br>
+    </footer>
+
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 150,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00ff00"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.9,
+                    "random": false,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ff00",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false
+                    }
+                }
+            }
+        });
+
+        const loadButton = document.getElementById('loadButton');
+        const youtubeUrlInput = document.getElementById('youtubeUrl');
+        const videoQualitySelect = document.getElementById('videoQuality');
+        const videoFormatSelect = document.getElementById('videoFormat');
+        const buttonContainer = document.getElementById('buttonContainer');
+        loadButton.addEventListener('click', () => {
+            const youtubeUrl = youtubeUrlInput.value.trim();
+            const selectedQuality = videoQualitySelect.value;
+            const selectedFormat = videoFormatSelect.value;
+
+            if (!youtubeUrl) {
+                alert('Por favor, ingresa una URL válida de YouTube.');
+                return;
+            }
+            buttonContainer.innerHTML = '';
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://loader.to/api/button/?url=${encodeURIComponent(youtubeUrl)}&f=${selectedFormat}&color=FF0000&linkUrl=&css=`; 
+            iframe.style = 'width:230px; height:60px; border:0; overflow:hidden;';
+            buttonContainer.appendChild(iframe);
+        });
+
+        function goHome() {
+            window.location.href = "/";
+        }
+    </script>
+
+    <script>
+        const blockedDomains = ["malicious.com", "phishing.com"];
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function (event) {
+                const href = this.getAttribute('href');
+                if (blockedDomains.some(domain => href.includes(domain))) {
+                    event.preventDefault();
+                    alert("Este enlace ha sido bloqueado por razones de seguridad.");
+                }
+            });
+        });
+
+        window.addEventListener("beforeunload", (event) => {
+            event.preventDefault();
+            event.returnValue = ''; 
+        });
+        
+        window.addEventListener('click', function (event) {
+            const target = event.target;
+
+            if (target.tagName.toLowerCase() === 'a') {
+                const href = target.getAttribute('href');
+                if (blockedDomains.some(domain => href.includes(domain))) {
+                    event.preventDefault();
+                    alert("Este enlace ha sido bloqueado por razones de seguridad.");
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
