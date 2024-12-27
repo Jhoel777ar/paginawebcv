@@ -1,1 +1,241 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARK Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
+
+    <style>
+        body {
+            font-family: 'Titillium Web', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .btn-home {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #fff;
+            color: #fff;
+            border-radius: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s ease;
+            z-index: 10;
+        }
+
+        .btn-home:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #00ff99, #ff007f, #00ffff, #ff6600);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradientMove 6s ease infinite, glowing 2s infinite alternate;
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            font-size: 6rem;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes glowing {
+            0% {
+                text-shadow: 0 0 10px rgba(0, 255, 153, 1), 0 0 20px rgba(0, 255, 153, 0.8);
+            }
+
+            100% {
+                text-shadow: 0 0 20px rgba(255, 0, 127, 1), 0 0 30px rgba(255, 0, 127, 0.8);
+            }
+        }
+
+        #chatContainer {
+            width: 100vw;
+            max-width: 1400px;
+            height: 70vh;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            transition: 0.3s ease;
+        }
+
+        #chatContainer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+            background-color: #333;
+            box-shadow: 0 4px 30px rgba(0, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        footer {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            background-color: #111;
+            text-align: center;
+            color: #ccc;
+            z-index: 10;
+            margin-top: 20px;
+            opacity: 0.7;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            transition: opacity 0.3s ease;
+        }
+
+        footer:hover p {
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 5rem;
+            }
+
+            #chatContainer {
+                width: 90vw;
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem;
+                margin-top: 20vh;
+            }
+
+            #chatContainer {
+                width: 90vw;
+                height: 50vh;
+            }
+        }
+
+        .dynamic-text {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            opacity: 1;
+            transition: opacity 1s ease;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+        .fade-in {
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 255, 153, 1), 0 0 20px rgba(0, 255, 153, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js" class="background"></div>
+    <a href="index.html">
+        <div class="btn-home">Home</div>
+    </a>
+    <h1 translate="no" class="glow-text">ARK Intelligence</h1>
+
+    <main>
+        <div id="chatContainer">
+            <iframe
+                src="https://copilotstudio.microsoft.com/environments/Default-cf263038-f11c-49d2-9183-556a34b747e2/bots/cr242_arkIntelligence/webchat?__version__=2"></iframe>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ARK Intelligence. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 6 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+
+</html>
