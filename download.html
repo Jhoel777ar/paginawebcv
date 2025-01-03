@@ -197,8 +197,11 @@
 
     <section>
         <h2>Downloader Private</h2>
-        <p>Una forma fácil y eficiente de agregar la funcionalidad de descarga de videos de YouTube a tu sitio web. Es posible que aparezcan algunos anuncios, pero todas las redirecciones están cuidadosamente monitoreadas para asegurar la seguridad.</p>
-
+        <p>Es posible que aparezcan algunos anuncios, pero todas las redirecciones están cuidadosamente monitoreadas
+            para
+            asegurar la seguridad. En caso de que se abra una nueva pestaña o ventana emergente, debes cerrarla. En PC,
+            simplemente cierra la pestaña, y en el teléfono, utiliza el botón de retroceso (generalmente un triángulo
+            invertido). Tus datos siempre están protegidos.</p>
         <div class="input-container">
             <label for="youtubeUrl">Ingresa la URL del video de YouTube:</label>
             <input id="youtubeUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." class="w-full" />
@@ -306,7 +309,7 @@
             }
             buttonContainer.innerHTML = '';
             const iframe = document.createElement('iframe');
-            iframe.src = `https://loader.to/api/button/?url=${encodeURIComponent(youtubeUrl)}&f=${selectedFormat}&color=FF0000&linkUrl=&css=`; 
+            iframe.src = `https://loader.to/api/button/?url=${encodeURIComponent(youtubeUrl)}&f=${selectedFormat}&color=FF0000&linkUrl=&css=`;
             iframe.style = 'width:230px; height:60px; border:0; overflow:hidden;';
             buttonContainer.appendChild(iframe);
         });
@@ -331,9 +334,9 @@
 
         window.addEventListener("beforeunload", (event) => {
             event.preventDefault();
-            event.returnValue = ''; 
+            event.returnValue = '';
         });
-        
+
         window.addEventListener('click', function (event) {
             const target = event.target;
 
