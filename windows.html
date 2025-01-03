@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@400;800&display=swap"
         rel="stylesheet">
     <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -172,7 +173,7 @@
 <body>
     <div id="particles-js" class="animated-background"></div>
 
-    <a href="index.html" class="btn-start">Home</a>
+    <a href="index.html" class="btn-start"><i class="fas fa-home"></i> Home</a>
 
     <div class="flex flex-col items-center justify-center min-h-screen py-10 px-5">
         <div class="flex space-x-6 logo">
@@ -181,7 +182,7 @@
         </div>
 
         <div class="glass content max-w-4xl mx-auto mt-10 text-center space-y-6">
-            <h1 class="glowing-text">ARK OS Lite</h1>
+            <h1 class="glowing-text" translate="no">ARK OS Lite</h1>
             <p class="text-lg text-gray-300">
                 ARK OS Lite is a modified operating system based on Windows 11, specially designed to offer exceptional
                 performance on low-resource devices. It does not require TPM and can run with as little as 1 GB of RAM,
@@ -205,13 +206,113 @@
 
         <div class="glass content max-w-4xl mx-auto mt-10 text-center space-y-6">
             <a href="https://www.mediafire.com/file/z342jeot3h3qiof/ArkOs_Oficial.iso/file" class="btn-download">
-                Download ARK OS Lite ISO
+                <i class="fas fa-download"></i> Download ARK OS Lite ISO
             </a>
         </div>
+        <div class="glass content max-w-4xl mx-auto mt-10 text-center flex-container">
+            <p class="text-lg text-gray-300">
+                In case the system is not activated, you can download this manual activator.
+                You must download and activate it in Windows by running the activator as an administrator to have ARK OS
+                activated.
+                <br><br>
+                If you see a message like:
+                <em>"Downloads: Activator.bat is not commonly downloaded. Make sure you trust Activator.bat before
+                    opening it."</em>
+                <br>
+                Or:
+                <em>"Microsoft Defender SmartScreen couldn't verify if this file is safe because it is not commonly
+                    downloaded. Make sure you trust the file you are downloading or its source before opening it."</em>
+                <br><br>
+                Name: Activator.bat<br>
+                Publisher: Unknown<br>
+                You can still click to download it anyway.
+            </p>
+            <a href="Activador.bat">
+                <button class="button" type="button">
+                    <span class="button__text">Download</span>
+                    <span class="button__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35"
+                            id="bdd05811-e15d-428c-bb53-8661459f9307" data-name="Layer 2" class="svg">
+                            <path
+                                d="M17.5,22.131a1.249,1.249,0,0,1-1.25-1.25V2.187a1.25,1.25,0,0,1,2.5,0V20.881A1.25,1.25,0,0,1,17.5,22.131Z">
+                            </path>
+                            <path
+                                d="M17.5,22.693a3.189,3.189,0,0,1-2.262-.936L8.487,15.006a1.249,1.249,0,0,1,1.767-1.767l6.751,6.751a.7.7,0,0,0,.99,0l6.751-6.751a1.25,1.25,0,0,1,1.768,1.767l-6.752,6.751A3.191,3.191,0,0,1,17.5,22.693Z">
+                            </path>
+                            <path
+                                d="M31.436,34.063H3.564A3.318,3.318,0,0,1,.25,30.749V22.011a1.25,1.25,0,0,1,2.5,0v8.738a.815.815,0,0,0,.814.814H31.436a.815.815,0,0,0,.814-.814V22.011a1.25,1.25,0,1,1,2.5,0v8.738A3.318,3.318,0,0,1,31.436,34.063Z">
+                            </path>
+                        </svg>
+                    </span>
+                </button>
+            </a>
+        </div>
+        <style>
+            .button {
+                position: relative;
+                width: 150px;
+                height: 40px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                border: 1px solid #17795E;
+                background-color: #209978;
+                overflow: hidden;
+            }
+
+            .button,
+            .button__icon,
+            .button__text {
+                transition: all 0.3s;
+            }
+
+            .button .button__text {
+                transform: translateX(22px);
+                color: #fff;
+                font-weight: 600;
+            }
+
+            .button .button__icon {
+                position: absolute;
+                transform: translateX(109px);
+                height: 100%;
+                width: 39px;
+                background-color: #17795E;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .button .svg {
+                width: 20px;
+                fill: #fff;
+            }
+
+            .button:hover {
+                background: #17795E;
+            }
+
+            .button:hover .button__text {
+                color: transparent;
+            }
+
+            .button:hover .button__icon {
+                width: 148px;
+                transform: translateX(0);
+            }
+
+            .button:active .button__icon {
+                background-color: #146c54;
+            }
+
+            .button:active {
+                border: 1px solid #146c54;
+            }
+        </style>
     </div>
 
-    <footer>
-        <p>© 2024 Ark Dev. Todos los derechos reservados.</p>
+    <footer translate="no">
+        <p>&copy; 2025 ARK Dev. All rights reserved.</p>
     </footer>
 
     <script>
