@@ -108,7 +108,7 @@
             border: 1px solid #555;
             padding: 1rem;
             border-radius: 12px;
-            color: #00ff00;
+            color: #537453;
             font-size: 1.1rem;
             transition: 0.3s ease;
         }
@@ -186,7 +186,26 @@
             border-color: #00ff00;
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 54px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #18d848;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -203,8 +222,20 @@
             asegurar la seguridad. En caso de que se abra una nueva pestaña o ventana emergente, debes cerrarla. En PC,
             simplemente cierra la pestaña, y en el teléfono, utiliza el botón de retroceso (generalmente un triángulo
             invertido). Tus datos siempre están protegidos.</p>
+        <p>Puede Descargar de estos sitios:</p>
         <div class="input-container">
-            <label for="youtubeUrl">Ingresa la URL del video de YouTube:</label>
+            <div class="social-links">
+                <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank" title="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@camilo/video/7417573254141054254?is_from_webapp=1&sender_device=pc&web_id=7457238523977876998"
+                    target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://twitter.com" target="_blank" title="X (antes Twitter)"><i
+                        class="fab fa-x-twitter"></i></a>
+                <a href="https://www.twitch.tv" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
+            </div>
+            <label for="youtubeUrl">Ingresa la URL del video:</label>
             <input id="youtubeUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." class="w-full" />
 
             <label for="videoFormat">Selecciona el formato:</label>
