@@ -148,7 +148,7 @@
                 }
             }
         });
-        const loadButton = document.getElementById('loadButton');
+       const loadButton = document.getElementById('loadButton');
         const youtubeUrlInput = document.getElementById('youtubeUrl');
         const videoQualitySelect = document.getElementById('videoQuality');
         const videoFormatSelect = document.getElementById('videoFormat');
@@ -157,6 +157,7 @@
             const youtubeUrl = youtubeUrlInput.value.trim();
             const selectedQuality = videoQualitySelect.value;
             const selectedFormat = videoFormatSelect.value;
+
             if (!youtubeUrl) {
                 alert('Por favor, ingresa una URL válida de YouTube.');
                 return;
@@ -171,33 +172,6 @@
         function goHome() {
             window.location.href = "/";
         }
-    </script>
-    <script>
-        const blockedDomains = ["malicious.com", "phishing.com"];
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function (event) {
-                const href = this.getAttribute('href');
-                if (blockedDomains.some(domain => href.includes(domain))) {
-                    event.preventDefault();
-                    alert("Este enlace ha sido bloqueado por razones de seguridad.");
-                }
-            });
-        });
-        window.addEventListener("beforeunload", (event) => {
-            event.preventDefault();
-            event.returnValue = '';
-        });
-        window.addEventListener('click', function (event) {
-            const target = event.target;
-
-            if (target.tagName.toLowerCase() === 'a') {
-                const href = target.getAttribute('href');
-                if (blockedDomains.some(domain => href.includes(domain))) {
-                    event.preventDefault();
-                    alert("Este enlace ha sido bloqueado por razones de seguridad.");
-                }
-            }
-        });
     </script>
 </body>
 
