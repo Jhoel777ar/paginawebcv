@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -8,334 +8,224 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@400;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <style>
-        body {
-            margin: 0;
-            font-family: 'Raleway', sans-serif;
-            color: white;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-            overflow-x: hidden;
+        @keyframes holographic-glow {
+            0% {
+                filter: drop-shadow(0 0 10px rgba(0, 255, 135, 0.5));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 30px rgba(96, 239, 255, 0.8));
+            }
+
+            100% {
+                filter: drop-shadow(0 0 10px rgba(0, 97, 255, 0.5));
+            }
         }
 
-        .animated-background {
+        .cyber-border {
+            position: relative;
+            background: linear-gradient(45deg,
+                    rgba(0, 255, 135, 0.2) 0%,
+                    rgba(96, 239, 255, 0.2) 50%,
+                    rgba(0, 97, 255, 0.2) 100%);
+            padding: 1px;
+            clip-path: polygon(0 10px, 10px 0,
+                    calc(100% - 10px) 0, 100% 10px,
+                    100% calc(100% - 10px), calc(100% - 10px) 100%,
+                    10px 100%, 0 calc(100% - 10px));
+        }
+
+        .cyber-inner {
+            background: radial-gradient(circle at center, #0f172a 0%, #1e293b 100%);
+            clip-path: inherit;
+        }
+
+        .neon-hover {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(96, 239, 255, 0.3);
+        }
+
+        .neon-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(96, 239, 255, 0.6),
+                inset 0 0 15px rgba(96, 239, 255, 0.3);
+        }
+
+        .matrix-fall {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent);
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .glass-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            text-align: center;
-            padding: 30px;
-            margin: 50px auto;
-            max-width: 90%;
-            width: 600px;
-            background: rgba(25, 25, 25, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
-            animation: glassFade 1.5s ease;
-        }
-
-        @keyframes glassFade {
-            0% {
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .glowing-text {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #00f0ff, #8000ff, #ff0080);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: glowing 2s infinite alternate;
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
-        @keyframes glowing {
-            0% {
-                filter: brightness(0.8);
-            }
-
-            100% {
-                filter: brightness(1.5);
-            }
-        }
-
-        .btn-download {
-            background: linear-gradient(145deg, #1db954, #1ed760);
-            color: white;
-            padding: 12px 30px;
-            font-size: 1.2rem;
-            border-radius: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            box-shadow: 0 8px 25px rgba(0, 255, 128, 0.7);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-download:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 12px 40px rgba(0, 255, 128, 0.9);
-        }
-
-        .btn-start {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            padding: 10px 25px;
-            color: white;
-            font-size: 1rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            border-radius: 25px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 1000;
-        }
-
-        .btn-start:hover {
-            transform: scale(1.2);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.7);
-        }
-
-        footer {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            padding: 20px;
-            animation: fadeInUp 2s ease;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .glass-container {
-                padding: 20px;
-                width: 90%;
-            }
-
-            .glowing-text {
-                font-size: 2rem;
-            }
-
-            .btn-download {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
-
-            .btn-start {
-                font-size: 0.9rem;
-                padding: 8px 16px;
-            }
+            pointer-events: none;
+            background: repeating-linear-gradient(0deg,
+                    rgba(0, 255, 135, 0.1) 0px,
+                    rgba(0, 255, 135, 0.1) 2px,
+                    transparent 2px,
+                    transparent 4px);
+            mask-image: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 1) 50%,
+                    rgba(0, 0, 0, 0) 100%);
         }
     </style>
-
 </head>
 
-<body>
-    <div id="particles-js" class="animated-background"></div>
-
-    <a href="index.html" class="btn-start"><i class="fas fa-home"></i> Home</a>
-
-    <div class="flex flex-col items-center justify-center min-h-screen py-10 px-5">
-        <div class="flex space-x-6 logo">
-            <img src="src/1001136218removebgpreview.png" alt="ARK OS Logo" class="w-28">
-            <img src="https://img.icons8.com/color/512/windows-11.png" alt="Windows 11 Logo" class="w-28">
-        </div>
-
-        <div class="glass content max-w-4xl mx-auto mt-10 text-center space-y-6">
-            <h1 class="glowing-text" translate="no">ARK OS Lite</h1>
-            <p class="text-lg text-gray-300">
-                ARK OS Lite is a modified operating system based on Windows 11, specially designed to offer exceptional
-                performance on low-resource devices. It does not require TPM and can run with as little as 1 GB of RAM,
-                making it an excellent choice for older or low-performance computers.
-            </p>
-            <p class="text-lg text-gray-300">
-                This system is highly recommended for low-resource virtual machines, as well as for older machines that
-                can
-                no longer efficiently run more modern operating systems. ARK OS Lite is optimized to ensure a fast,
-                lightweight,
-                and functional experience.
-            </p>
-            <p class="text-lg text-gray-300">
-                It is recommended that the system have internet access to make the most of its integrated capabilities
-                and
-                services, but it remains functional in offline environments. An excellent choice for users looking to
-                revive
-                old hardware or create efficient virtual environments.
-            </p>
-        </div>
-
-        <div class="glass content max-w-4xl mx-auto mt-10 text-center space-y-6">
-            <a href="https://www.mediafire.com/file/z342jeot3h3qiof/ArkOs_Oficial.iso/file" class="btn-download">
-                <i class="fas fa-download"></i> Download ARK OS Lite ISO
-            </a>
-        </div>
-        <div class="glass content max-w-4xl mx-auto mt-10 text-center flex-container">
-            <p class="text-lg text-gray-300">
-                In case the system is not activated, you can download this manual activator.
-                You must download and activate it in Windows by running the activator as an administrator to have ARK OS
-                activated.
-                <br><br>
-                If you see a message like:
-                <em>"Downloads: Activator.bat is not commonly downloaded. Make sure you trust Activator.bat before
-                    opening it."</em>
-                <br>
-                Or:
-                <em>"Microsoft Defender SmartScreen couldn't verify if this file is safe because it is not commonly
-                    downloaded. Make sure you trust the file you are downloading or its source before opening it."</em>
-                <br><br>
-                Name: Activator.bat<br>
-                Publisher: Unknown<br>
-                You can still click to download it anyway.
-            </p>
-            <a href="Activador.bat">
-                <button class="button" type="button">
-                    <span class="button__text">Download</span>
-                    <span class="button__icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35"
-                            id="bdd05811-e15d-428c-bb53-8661459f9307" data-name="Layer 2" class="svg">
-                            <path
-                                d="M17.5,22.131a1.249,1.249,0,0,1-1.25-1.25V2.187a1.25,1.25,0,0,1,2.5,0V20.881A1.25,1.25,0,0,1,17.5,22.131Z">
-                            </path>
-                            <path
-                                d="M17.5,22.693a3.189,3.189,0,0,1-2.262-.936L8.487,15.006a1.249,1.249,0,0,1,1.767-1.767l6.751,6.751a.7.7,0,0,0,.99,0l6.751-6.751a1.25,1.25,0,0,1,1.768,1.767l-6.752,6.751A3.191,3.191,0,0,1,17.5,22.693Z">
-                            </path>
-                            <path
-                                d="M31.436,34.063H3.564A3.318,3.318,0,0,1,.25,30.749V22.011a1.25,1.25,0,0,1,2.5,0v8.738a.815.815,0,0,0,.814.814H31.436a.815.815,0,0,0,.814-.814V22.011a1.25,1.25,0,1,1,2.5,0v8.738A3.318,3.318,0,0,1,31.436,34.063Z">
-                            </path>
-                        </svg>
-                    </span>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 font-['Inter'] overflow-x-hidden">
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+    <div class="matrix-fall inset-0 z-0 opacity-20"></div>
+    <a href="index.html" class="fixed top-6 right-6 z-50 group">
+        <div class="relative cyber-border hover:cyber-glow">
+            <div class="cyber-inner px-6 py-3">
+                <button class="flex items-center space-x-2">
+                    <i class="fas fa-home text-blue-400 text-xl"></i>
+                    <span class="text-white font-bold tracking-wider">HOME</span>
                 </button>
-            </a>
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+            </div>
         </div>
-        <style>
-            .button {
-                position: relative;
-                width: 150px;
-                height: 40px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                border: 1px solid #17795E;
-                background-color: #209978;
-                overflow: hidden;
-            }
-
-            .button,
-            .button__icon,
-            .button__text {
-                transition: all 0.3s;
-            }
-
-            .button .button__text {
-                transform: translateX(22px);
-                color: #fff;
-                font-weight: 600;
-            }
-
-            .button .button__icon {
-                position: absolute;
-                transform: translateX(109px);
-                height: 100%;
-                width: 39px;
-                background-color: #17795E;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .button .svg {
-                width: 20px;
-                fill: #fff;
-            }
-
-            .button:hover {
-                background: #17795E;
-            }
-
-            .button:hover .button__text {
-                color: transparent;
-            }
-
-            .button:hover .button__icon {
-                width: 148px;
-                transform: translateX(0);
-            }
-
-            .button:active .button__icon {
-                background-color: #146c54;
-            }
-
-            .button:active {
-                border: 1px solid #146c54;
-            }
-        </style>
+    </a>
+    <div class="relative z-10 container mx-auto px-4 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 max-w-4xl mx-auto">
+            <div class="cyber-border hover:cyber-glow">
+                <div class="cyber-inner p-6">
+                    <img src="src/1001136218removebgpreview.png" alt="ARK OS Logo"
+                        class="w-full h-48 object-contain hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+            <div class="cyber-border hover:cyber-glow">
+                <div class="cyber-inner p-6">
+                    <img src="https://img.icons8.com/color/512/windows-11.png" alt="Windows 11 Logo"
+                        class="w-full h-48 object-contain hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </div>
+        <div class="relative mb-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 blur-3xl opacity-40"></div>
+            <h1 class="text-7xl md:text-8xl font-black text-center mb-8 gradient-text" translate="no"
+                style="text-shadow: 0 0 30px rgba(96,239,255,0.4);">
+                ARK OS LITE
+            </h1>
+        </div>
+        <div class="cyber-border neon-hover mb-16">
+            <div class="cyber-inner p-8 md:p-12 space-y-8">
+                <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                    <p class="p-4 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-lg border border-white/5">
+                        ARK OS Lite es un sistema operativo modificado basado en Windows 11, especialmente diseñado para
+                        ofrecer excepcional
+                        rendimiento en dispositivos de bajos recursos. No requiere TPM y puede funcionar con tan solo 1
+                        GB de RAM.
+                        lo que lo convierte en una excelente opción para computadoras antiguas o de bajo rendimiento.
+                    </p>
+                    <p class="p-4 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-lg border border-white/5">
+                        Este sistema es muy recomendable para máquinas virtuales de bajos recursos, así como para
+                        máquinas más antiguas que
+                        poder
+                        ya no ejecutan eficientemente sistemas operativos más modernos. ARK OS Lite está optimizado para
+                        garantizar una rápida y
+                        ligero,
+                        y experiencia funcional.
+                    </p>
+                    <p class="p-4 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-lg border border-white/5">
+                        Se recomienda que el sistema tenga acceso a Internet para aprovechar al máximo sus capacidades
+                        integradas.
+                        y
+                        servicios, pero sigue siendo funcional en entornos fuera de línea. Una excelente opción para los
+                        usuarios que buscan
+                        reanimar
+                        hardware antiguo o crear entornos virtuales eficientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8 text-center">
+                    <a href="https://www.mediafire.com/file/z342jeot3h3qiof/ArkOs_Oficial.iso/file"
+                        class="inline-block relative group">
+                        <div
+                            class="bg-gradient-to-r from-green-400/20 to-blue-500/20 absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <button class="px-12 py-4 text-xl font-bold text-white relative">
+                            <i class="fas fa-download mr-3 text-blue-400"></i>
+                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+                                DOWNLOAD ISO
+                            </span>
+                            <div
+                                class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8">
+                    <div class="space-y-6">
+                        <p class="text-gray-400 text-sm">In case the system is not activated...</p>
+                        <a href="Activador.bat" class="group relative block">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gray-800/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">ACTIVATOR.EXE</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <footer translate="no">
-        <p>&copy; 2025 ARK Dev. All rights reserved.</p>
+    <footer class="relative z-10 text-center py-8">
+        <div class="cyber-border mx-auto max-w-xs">
+            <div class="cyber-inner px-6 py-3">
+                <p class="text-sm font-mono text-blue-400">&lt;ARK_DEV @ 2025&gt;</p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        gsap.from(".logo img", { duration: 1.5, y: -50, opacity: 0, stagger: 0.3 });
-        gsap.from(".glass", { duration: 1, scale: 0.9, opacity: 0, ease: "power2.out" });
-        gsap.from("footer", { duration: 1, y: 50, opacity: 0, delay: 1.5 });
-
         particlesJS("particles-js", {
             particles: {
-                number: { value: 100, density: { enable: true, value_area: 800 } },
-                color: { value: "#ffffff" },
+                number: { value: 200, density: { enable: true, value_area: 1200 } },
+                color: { value: ["#00ff87", "#60efff", "#0061ff"] },
                 shape: { type: "circle" },
-                opacity: { value: 0.6, random: true },
-                size: { value: 4, random: true },
-                move: { enable: true, speed: 2, direction: "none", out_mode: "out" }
+                opacity: { value: 0.8, random: true },
+                size: { value: 3, random: true },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: "none",
+                    out_mode: "out",
+                    trail: {
+                        enable: true,
+                        length: 10,
+                        fillColor: "#000000"
+                    }
+                }
             },
             interactivity: {
-                detect_on: "canvas",
+                detect_on: "window",
                 events: {
                     onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" }
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
                 }
             }
+        });
+        gsap.to(".cyber-border", {
+            y: 5,
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
         });
     </script>
 </body>
