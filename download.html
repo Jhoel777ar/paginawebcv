@@ -1,150 +1,331 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Downloader Private</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        .neon-text {
-            text-shadow: 0 0 10px #3B82F6, 0 0 20px #3B82F6, 0 0 30px #3B82F6;
+        body {
+            background-color: #000000;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            overflow: auto;
         }
 
-        .cyber-border {
-            border-image: linear-gradient(45deg, #3B82F6, #8B5CF6) 1;
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.5);
+            animation: moveBackground 30s infinite linear;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-size: 2.5rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        section {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 50px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 800px;
+            margin: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-container label {
+            font-size: 1.3rem;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .input-container select,
+        .input-container input {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #555;
+            padding: 1rem;
+            border-radius: 12px;
+            color: #537453;
+            font-size: 1.1rem;
+            transition: 0.3s ease;
+        }
+
+        .input-container input:focus,
+        .input-container select:focus {
+            border-color: #00ff00;
+            outline: none;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .download-button {
+            padding: 1rem 2rem;
+            background-color: #00ff00;
+            color: #121212;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+        }
+
+        .download-button:hover {
+            background-color: #2b6cb0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            font-size: 0.9rem;
+            color: #cbd5e0;
+            margin-top: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .footer a {
+            color: #00ff00;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .footer a:hover {
+            color: #2b6cb0;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 255, 0, 0.5);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+            z-index: 100;
+        }
+
+        .home-button:hover {
+            background: rgba(0, 255, 0, 0.8);
+        }
+
+        input:focus,
+        select:focus,
+        .download-button:focus {
+            outline: none;
+            border-color: #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 54px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #18d848;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen relative overflow-x-hidden">
-    <div id="particles-js" class="absolute inset-0 z-0"></div>
-    <button onclick="goHome()" class="fixed top-6 right-6 z-50 group backdrop-blur-lg bg-gray-900/30 hover:bg-blue-600/20 p-3 rounded-xl border border-white/10 transition-all duration-300 hover:shadow-2xl hover:scale-105">
-        <i class="fas fa-home text-blue-400 group-hover:text-white text-xl"></i>
-    </button>
-    <main class="relative z-10 container mx-auto px-4 py-12">
-        <section
-            class="bg-black/50 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-gray-700/50 max-w-3xl mx-auto"
-            data-aos="zoom-in">
-            <h2 class="text-4xl font-bold text-center mb-6 neon-text text-blue-400 font-orbitron">Downloader Private
-            </h2>
+<body>
 
-            <div class="space-y-6 text-gray-300">
-                <div class="prose prose-invert max-w-none mb-8">
-                    <p class="text-lg">Es posible que aparezcan algunos anuncios, pero todas las redirecciones están
-                        cuidadosamente monitoreadas para asegurar la seguridad. En caso de que se abra una nueva pestaña
-                        o ventana emergente, debes cerrarla. En PC, simplemente cierra la pestaña, y en el teléfono,
-                        utiliza el botón de retroceso (generalmente un triángulo invertido). Tus datos siempre están
-                        protegidos.</p>
-                </div>
+    <div id="particles-js"></div>
+    <div class="background"></div>
 
-                <p class="text-xl font-bold text-blue-400">Puede Descargar de estos sitios:</p>
+    <button class="home-button" onclick="goHome()"><i class="fas fa-home"></i> Inicio</button>
 
-                <div class="grid grid-cols-3 md:grid-cols-6 gap-4 mb-8">
-                    <a href="https://www.youtube.com" target="_blank"
-                        class="p-3 bg-gray-800 hover:bg-blue-600 rounded-lg transition-all duration-300 transform hover:scale-110">
-                        <i class="fab fa-youtube text-2xl text-white mx-auto block text-center"></i>
-                    </a>
-                    <a href="https://www.facebook.com"
-                        class="p-3 bg-gray-800 hover:bg-blue-600 rounded-lg transition-all duration-300 transform hover:scale-110"
-                        target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com"
-                        class="p-3 bg-gray-800 hover:bg-blue-600 rounded-lg transition-all duration-300 transform hover:scale-110"
-                        target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@camilo/video/7417573254141054254?is_from_webapp=1&sender_device=pc&web_id=7457238523977876998"
-                        class="p-3 bg-gray-800 hover:bg-blue-600 rounded-lg transition-all duration-300 transform hover:scale-110"
-                        target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://twitter.com"
-                        class="p-3 bg-gray-800 hover:bg-blue-600 rounded-lg transition-all duration-300 transform hover:scale-110"
-                        target="_blank" title="X (antes Twitter)"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://www.twitch.tv"
-                        class="p-3 bg-gray-800 hover:bg-blue-600 rounded-lg transition-all duration-300 transform hover:scale-110"
-                        target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
-                </div>
-
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-medium text-blue-400 mb-2">Ingresa la URL del video:</label>
-                        <input id="youtubeUrl" type="url" placeholder="https://www.youtube.com/watch?v=..."
-                            class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all">
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium text-blue-400 mb-2">Selecciona el formato:</label>
-                            <select id="videoFormat"
-                                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white custom-select">
-                                <option value="mp3">MP3</option>
-                                <option value="mp4">MP4</option>
-                                <option value="flac">FLAC</option>
-                                <option value="ogg">OGG</option>
-                                <option value="wav">WAV</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-blue-400 mb-2">Calidad del video:</label>
-                            <select id="videoQuality"
-                                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white custom-select">
-                                <option value="360">360p</option>
-                                <option value="480">480p</option>
-                                <option value="720">720p</option>
-                                <option value="1080">1080p</option>
-                                <option value="4k">4K</option>
-                                <option value="8k">8K</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button id="loadButton"
-                        class="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-                        <i class="fas fa-download mr-2"></i>Descargar
-                    </button>
-                </div>
-
-                <p class="text-sm text-gray-400 mt-6">En caso que el botón rojo que aparecerá en la parte inferior no
-                    avance en su porcentaje de procesamiento vuelva a oprimir: Descargar</p>
-
-                <div id="buttonContainer" class="mt-6 flex justify-center"></div>
+    <section>
+        <h2>Downloader Private</h2>
+        <p>Es posible que aparezcan algunos anuncios, pero todas las redirecciones están cuidadosamente monitoreadas
+            para
+            asegurar la seguridad. En caso de que se abra una nueva pestaña o ventana emergente, debes cerrarla. En PC,
+            simplemente cierra la pestaña, y en el teléfono, utiliza el botón de retroceso (generalmente un triángulo
+            invertido). Tus datos siempre están protegidos.</p>
+        <p>Puede Descargar de estos sitios:</p>
+        <div class="input-container">
+            <div class="social-links">
+                <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank" title="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@camilo/video/7417573254141054254?is_from_webapp=1&sender_device=pc&web_id=7457238523977876998"
+                    target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://twitter.com" target="_blank" title="X (antes Twitter)"><i
+                        class="fab fa-x-twitter"></i></a>
+                <a href="https://www.twitch.tv" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
             </div>
-        </section>
-    </main>
+            <label for="youtubeUrl">Ingresa la URL del video:</label>
+            <input id="youtubeUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." class="w-full" />
 
-    <footer class="relative z-10 bg-black/50 backdrop-blur-lg mt-12 py-4 border-t border-gray-700/50">
-        <p class="text-center text-gray-400">&copy; 2025 ARK DEV | Video Private Download. All rights reserved.</p>
+            <label for="videoFormat">Selecciona el formato:</label>
+            <select id="videoFormat">
+                <option value="mp3">MP3</option>
+                <option value="mp4">MP4</option>
+                <option value="flac">FLAC</option>
+                <option value="ogg">OGG</option>
+                <option value="wav">WAV</option>
+            </select>
+
+            <label for="videoQuality">Selecciona la calidad del video (Si seleccionas un video):</label>
+            <select id="videoQuality">
+                <option value="360">360p</option>
+                <option value="480">480p</option>
+                <option value="720">720p</option>
+                <option value="1080">1080p</option>
+                <option value="4k">4K</option>
+                <option value="8k">8K</option>
+            </select>
+            <button id="loadButton" class="download-button"><i class="fas fa-download"></i> Descargar</button>
+        </div>
+        <p>En caso que el boton rojo que aparecera en la parte inferior y no avanza en su porcentaje de procesamiento vuelva a oprimir: Descargar</p>
+        <div id="buttonContainer" class="text-center"></div>
+    </section>
+
+    <footer class="footer" translate="no">
+        <p>&copy; 2025 ARK DEV | Video Private Download. All rights reserved. <br></p>
     </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
         particlesJS("particles-js", {
-            particles: {
-                number: { value: 80 },
-                color: { value: "#3B82F6" },
-                shape: { type: "circle" },
-                opacity: { value: 0.8 },
-                size: { value: 3 },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#3B82F6",
-                    opacity: 0.4,
-                    width: 1
+            "particles": {
+                "number": {
+                    "value": 150,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
                 },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none"
+                "color": {
+                    "value": "#00ff00"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.9,
+                    "random": false,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ff00",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false
+                    }
                 }
             }
         });
-       const loadButton = document.getElementById('loadButton');
+
+        const loadButton = document.getElementById('loadButton');
         const youtubeUrlInput = document.getElementById('youtubeUrl');
         const videoQualitySelect = document.getElementById('videoQuality');
         const videoFormatSelect = document.getElementById('videoFormat');
@@ -169,6 +350,38 @@
             window.location.href = "/";
         }
     </script>
+
+    <script>
+        const blockedDomains = ["malicious.com", "phishing.com"];
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function (event) {
+                const href = this.getAttribute('href');
+                if (blockedDomains.some(domain => href.includes(domain))) {
+                    event.preventDefault();
+                    alert("Este enlace ha sido bloqueado por razones de seguridad.");
+                }
+            });
+        });
+
+        window.addEventListener("beforeunload", (event) => {
+            event.preventDefault();
+            event.returnValue = '';
+        });
+
+        window.addEventListener('click', function (event) {
+            const target = event.target;
+
+            if (target.tagName.toLowerCase() === 'a') {
+                const href = target.getAttribute('href');
+                if (blockedDomains.some(domain => href.includes(domain))) {
+                    event.preventDefault();
+                    alert("Este enlace ha sido bloqueado por razones de seguridad.");
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>
