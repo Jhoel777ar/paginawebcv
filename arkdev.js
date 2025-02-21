@@ -3,49 +3,102 @@
     const ArkDev = Object.freeze({
         version: "4.0.0",
         platform: "Ark Dev | Ecommerce Page Web",
+        developer: "Developed by ArkDev System",
         website: "https://arkdev.pages.dev",
-        timestamp: new Date().toISOString(),
+        contact: "contact@arkdev.pages.dev",
+        timestamp: new Date().toISOString()
     });
     Object.defineProperty(window, 'ArkDev', {
         value: ArkDev,
-        writable: false, 
-        configurable: false, 
-        enumerable: false  
+        writable: false,
+        configurable: false,
+        enumerable: false
     });
     const styles = {
-        main: `
+        header: `
             color: #ffffff;
-            background: linear-gradient(90deg, #000000, #1a1a1a);
-            padding: 8px 12px;
-            font-size: 14px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 12px 18px;
+            font-size: 16px;
             font-weight: bold;
-            border-radius: 4px 0 0 4px;
+            border-radius: 6px 6px 0 0;
+            font-family: monospace;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.2);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        `,
+        info: `
+            color: #00ffcc;
+            background: #1a1a1a;
+            padding: 8px 18px;
+            font-size: 14px;
             font-family: monospace;
         `,
         link: `
             color: #00b7ff;
             background: #1a1a1a;
-            padding: 8px 12px;
+            padding: 8px 18px;
             font-size: 14px;
-            text-decoration: none;
-            border-radius: 0 4px 4px 0;
+            text-decoration: underline;
             font-family: monospace;
+            border-radius: 0 0 6px 6px;
         `
     };
-    function displayBanner() {
+    function displayDeveloperMark() {
         try {
+            console.groupCollapsed(
+                `%c${ArkDev.developer} - v${ArkDev.version}`,
+                styles.header
+            );
             console.log(
-                `%cArk Dev v${ArkDev.version} | Ecommerce Solution%c${ArkDev.website}`,
-                styles.main,
+                `%c${ArkDev.platform}`,
+                styles.info
+            );
+            console.log(
+                `%c🌐 ${ArkDev.website}`,
                 styles.link
             );
-            console.log(`%cInitialized: ${ArkDev.timestamp}`, 'color: #666; font-size: 12px;');
+            console.log(
+                `%c📧 ${ArkDev.contact}`,
+                styles.info
+            );
+            console.log(
+                `%c🕒 ${ArkDev.timestamp}`,
+                styles.info
+            );
+            console.groupEnd();
         } catch (error) {
-            console.warn('ArkDev banner failed to load:', error);
+            console.warn('ArkDev mark failed to display:', error);
         }
     }
-    setTimeout(displayBanner, 1000);
-    if (window._arkDevLoaded) return;
-    window._arkDevLoaded = true;
+    function protectScript() {
+        const scriptElement = document.querySelector('script[src*="arkdev.js"]');
+        if (!scriptElement) {
+            console.error('ArkDev script not detected!');
+            displayDeveloperMark(); 
+            return false;
+        }
+        return true;
+    }
+    if (!window._arkDevLoaded) {
+        window._arkDevLoaded = true;
+        setTimeout(() => {
+            if (protectScript()) {
+                displayDeveloperMark();
+            }
+        }, 1000);
+        const observer = new MutationObserver((mutations) => {
+            if (!document.querySelector('script[src*="arkdev.js"]')) {
+                console.error('ArkDev script was removed!');
+                displayDeveloperMark();
+            }
+        });
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+    }
+    Object.defineProperty(window, 'getArkDevInfo', {
+        value: () => ({ ...ArkDev }),
+        writable: false,
+        configurable: false,
+        enumerable: false
+    });
 
 })();
