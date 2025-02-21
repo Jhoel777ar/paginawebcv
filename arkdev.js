@@ -5,7 +5,7 @@
         platform: "Ark Dev | Ecommerce Page Web",
         developer: "Developed by ArkDev System",
         website: "https://arkdev.pages.dev",
-        contact: "contact@arkdev.pages.dev",
+        contact: "contact@ajoeark@gmail.com",
         timestamp: new Date().toISOString()
     });
     Object.defineProperty(window, 'ArkDev', {
