@@ -1398,7 +1398,7 @@
                 backdrop-filter: blur(16px);
                 background: rgba(255, 255, 255, 0.05);
                 border: 1px solid rgba(255, 255, 255, 0.1);
-                z-index: 12;
+                z-index: 9999;
             }
 
             .animate-gradient-flow {
@@ -1456,8 +1456,8 @@
                 </div>
             </div>
             <div
-                class="glass container-3d bg-[rgba(0,0,0,0.3)] backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-[rgba(255,255,255,0.1)] mt-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                class="glass container-3d bg-[rgba(0,0,0,0.3)] backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-[rgba(255,255,255,0.1)] mt-8" style="position: relative; z-index: 111111;">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" style="position: relative; z-index: 111111;">
                     <div
                         class="bg-gradient-to-br from-violet-600/40 to-indigo-600/40 p-6 rounded-xl border border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.3)] transition-all duration-300 hover:scale-[1.02]">
                         <h2 class="text-xl font-semibold mb-4 text-gray-300">Lista de Reproducción 1</h2>
@@ -1624,6 +1624,7 @@
                     position: relative;
                     overflow: hidden;
                     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    z-index: 9999;
                 }
 
                 .glass-container::before {
