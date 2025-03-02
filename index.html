@@ -219,17 +219,16 @@
                 backdrop-filter: blur(12px);
                 border-radius: 12px;
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-                transform: translateY(-100%);
                 animation: slideIn 0.8s ease-out forwards;
-                transition: all 0.3s ease-in-out;
             }
 
             .container.w-container {
+                max-width: 1200px;
+                width: 90%;
+                margin: 0 auto;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                gap: 20px;
-                width: 100%;
             }
 
             .content-wrap--navbar {
@@ -304,6 +303,60 @@
 
                 100% {
                     transform: scale(1) translateX(100%);
+                }
+            }
+
+            .item-wrap--portfolio {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .card--portfolio {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                overflow: hidden;
+            }
+
+            .image--card--portfolio {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            @media (max-width: 991px) {
+                .navbar {
+                    height: 60px;
+                }
+
+                .card--portfolio {
+                    margin: 0 1rem;
+                }
+            }
+
+            @media (max-width: 478px) {
+                .navbar {
+                    height: 50px;
+                }
+
+                .image--navbar--logo {
+                    width: clamp(80px, 12vw, 100px);
+                }
+
+                .item-wrap--portfolio {
+                    margin-bottom: 1rem;
+                }
+            }
+
+            @keyframes slideIn {
+                from {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
                 }
             }
         </style>
@@ -1593,15 +1646,13 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const lenis = new Lenis({
-            lerp: .1
-        });
-        function raf(e) {
-            lenis.raf(e),
-                requestAnimationFrame(raf)
+        const lenis = new Lenis({ lerp: 0.1 });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
-        const vhRem = e => window.innerHeight * (e / 100) / 16;
+        const vhRem = (vh) => window.innerHeight * (vh / 100) / 16;
         let scrambleCharset = "!1€5#6*=+-&$=\xa3AF/&234$$2N€O=!"
             , gsapMatchMedia = gsap.matchMedia();
         function initiateHeroTitleScrambleTl() {
