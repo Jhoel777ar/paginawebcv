@@ -8,6 +8,10 @@
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="author" content="Ark Dev">
+    <meta name="creator" content="Joel Andres">
+    <meta name="description" content="Creado por Ark Dev2025">
+    <meta name="copyright" content="© 2025 Ark Dev. Todos los derechos reservados.">
     <meta name="google-site-verification" content="x9qG4bBg5ZJ1iwgOkqOSKwyl6VoLbzc66J7Lt6I839o" />
     <link
         href="https://cdn.prod.website-files.com/66a68529752ea579681df340/css/muradov-design-2-0-ui9t47ne.webflow.c7e053b2e.min.css"
@@ -49,6 +53,54 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
             <style>
+                @media (max-width: 991px) {
+                    .navbar {
+                        background: rgba(255, 255, 255, 0.1);
+                        backdrop-filter: none;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .navbar:hover {
+                        background: rgba(255, 255, 255, 0.15);
+                        backdrop-filter: none;
+                        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+                    }
+
+                    .navbar::before {
+                        display: none;
+                    }
+
+                    .image--navbar--logo svg {
+                        width: 120px;
+                    }
+
+                    .card--portfolio {
+                        margin: 0 0.5rem;
+                    }
+
+                    .content-wrap--navbar {
+                        padding: 0 1rem;
+                    }
+                }
+
+                @media (max-width: 478px) {
+                    .navbar {
+                        height: 50px;
+                    }
+
+                    .image--navbar--logo svg {
+                        width: 100px;
+                    }
+
+                    .card--portfolio {
+                        margin: 0;
+                    }
+
+                    .content-wrap--navbar {
+                        padding: 0 0.5rem;
+                    }
+                }
+
                 @media only screen and (min-width: 992px) {
                     html {
                         font-size: clamp(0.5rem, 1.5625vh, 1.115vw);
@@ -1582,7 +1634,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const lenis = new Lenis({ lerp: 0.1 });
+        const lenis = new Lenis({ lerp: 0.08, duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
         function raf(time) {
             lenis.raf(time);
             requestAnimationFrame(raf);
@@ -1968,7 +2020,7 @@
                     start: "top top",
                     end: "75%",
                     markers: !1,
-                    scrub: !0,
+                    scrub: 0.5,
                     onLeave() {
                         $(".card--portfolio.is--bg").addClass("is--hidden")
                     },
@@ -2088,7 +2140,7 @@
                         start: "-75% top",
                         end: "50%",
                         markers: !1,
-                        scrub: !0
+                        scrub: 0.5
                     }
                 });
                 gsapMatchMedia.add("(min-width: 992px)", () => {
