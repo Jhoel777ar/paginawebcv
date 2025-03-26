@@ -450,7 +450,7 @@
                                                 class="block-wrap--portfolio">
                                                 <div class="card--portfolio is--first">
                                                     <div class="image-overlap--card--portfolio"></div>
-                                                    <div class="image--card--portfolio" style="background-image: url('src2/imagenes/biliviatravel.png'); 
+                                                    <div class="image--card--portfolio" style="background-image: url('src2/imagenes/biliviatravel.webp'); 
                                                            background-size: cover; 
                                                            background-position: center; 
                                                            width: 100%; 
@@ -502,7 +502,7 @@
                                                 class="block-wrap--portfolio">
                                                 <div class="card--portfolio">
                                                     <div class="image-overlap--card--portfolio"></div>
-                                                    <div class="image--card--portfolio" style="background-image: url('src2/imagenes/vertex.png'); 
+                                                    <div class="image--card--portfolio" style="background-image: url('src2/imagenes/vertex.webp'); 
                                background-size: cover; 
                                background-position: center; 
                                width: 100%; 
@@ -554,7 +554,7 @@
                                                 class="block-wrap--portfolio">
                                                 <div class="w-layout-vflex card--portfolio-wrap">
                                                     <div class="card--portfolio">
-                                                        <div class="image--card--portfolio" style="background-image: url('src2/imagenes/winui3.jpg'); 
+                                                        <div class="image--card--portfolio" style="background-image: url('src2/imagenes/winui3.webp'); 
                                                                background-size: cover; 
                                                                background-position: center; 
                                                                width: 100%; 
@@ -588,7 +588,7 @@
                                                 class="block-wrap--portfolio">
                                                 <div class="w-layout-vflex card--portfolio-wrap">
                                                     <div class="card--portfolio">
-                                                        <div class="image--card--portfolio" style="background-image: url('src/polimericosdial.png'); 
+                                                        <div class="image--card--portfolio" style="background-image: url('src/polimericosdial.webp'); 
                                    background-size: cover; 
                                    background-position: center; 
                                    width: 100%; 
@@ -622,7 +622,7 @@
                                                 class="block-wrap--portfolio">
                                                 <div class="w-layout-vflex card--portfolio-wrap">
                                                     <div class="card--portfolio">
-                                                        <div class="image--card--portfolio" style="background-image: url('src2/imagenes/winui3.jpg'); 
+                                                        <div class="image--card--portfolio" style="background-image: url('src2/imagenes/winui3.webp'); 
                                                                background-size: cover; 
                                                                background-position: center; 
                                                                width: 100%; 
@@ -2610,6 +2610,27 @@
             $(".link-block--footer--contact.is--copy").on("click", function () {
                 navigator.clipboard.writeText("ajoeark@gmail.com")
             });
+
+        function loadSplineScene(sceneElement, splineUrl) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        sceneElement.setAttribute("data-spline-url", splineUrl);
+                        observer.unobserve(sceneElement);
+                    }
+                });
+            });
+            observer.observe(sceneElement);
+        }
+        const mainScene = document.querySelector(".scene.is--main");
+        const footerScene = document.querySelector(".scene.is--footer");
+
+        if (mainScene) {
+            loadSplineScene(mainScene, "https://prod.spline.design/aaJ4321hYeDvU4A7/scene.splinecode");
+        }
+        if (footerScene) {
+            loadSplineScene(footerScene, "https://prod.spline.design/aaJ4321hYeDvU4A7/scene.splinecode");
+        }
     </script>
 </body>
 
