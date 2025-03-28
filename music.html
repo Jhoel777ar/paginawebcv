@@ -97,6 +97,21 @@
             clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 15% 100%, 0 75%);
             transform: translateY(-2px);
         }
+
+             .glow-container {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(6, 182, 212, 0.15));
+            box-shadow: 0 0 25px rgba(147, 51, 234, 0.25), inset 0 0 15px rgba(6, 182, 212, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .glow-container:hover {
+            box-shadow: 0 0 40px rgba(147, 51, 234, 0.4), 0 0 80px rgba(6, 182, 212, 0.3), inset 0 0 20px rgba(236, 72, 153, 0.2);
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(147, 51, 234, 0.8), 0 0 20px rgba(6, 182, 212, 0.6);
+        }
     </style>
 </head>
 
@@ -484,14 +499,82 @@
                 }
             </style>
         </section>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZFoU_58AksU?si=10x5w8meKFE0ykY8&amp;start=8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/sG93laDgbog?si=Bc4at8ZIaBu5ce0H&amp;start=12" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        
-        <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&autoplay=1&feed=%2FUMFradio%2Fumf-radio-793-deorro%2F" frameborder="0" ></iframe>
-        <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&autoplay=1&feed=%2FUMFradio%2Fumf-radio-756-green-lantern%2F" frameborder="0" ></iframe>
-        <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FUMFradio%2Fumf-radio-778-ti%25C3%25ABsto%2F" frameborder="0" ></iframe>
-        <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FUMFradio%2Fumf-radio-754-andrew-rayel%2F" frameborder="0" ></iframe>
-        <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FUMFradio%2Fumf-radio-762-ww%2F" frameborder="0" ></iframe>
+<section class="space-y-14 relative">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                <div class="glow-container rounded-3xl p-6 border border-purple-600/30">
+                    <div class="relative aspect-video overflow-hidden rounded-2xl shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZFoU_58AksU?start=8"
+                            title="YouTube video player" allowfullscreen loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="glow-container rounded-3xl p-6 border border-purple-600/30">
+                    <div class="relative aspect-video overflow-hidden rounded-2xl shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/sG93laDgbog?start=12"
+                            title="YouTube video player" allowfullscreen loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="glow-container rounded-3xl p-6 border border-purple-600/30">
+                    <div class="relative aspect-video overflow-hidden rounded-2xl shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/t7ipaEQyTG0?start=10"
+                            title="YouTube video player" allowfullscreen loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="glow-container rounded-3xl p-6 border border-purple-600/30">
+                    <div class="relative aspect-video overflow-hidden rounded-2xl shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Z2nydAQKE6U?start=08"
+                            title="YouTube video player" allowfullscreen loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-14 relative">
+            <div class="space-y-8">
+                <div class="glow-container rounded-3xl p-6 border border-cyan-600/30">
+                    <div class="relative w-full h-32 overflow-hidden rounded-2xl shadow-2xl">
+                        <iframe class="w-full h-full"
+                            src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&autoplay=1&feed=%2FUMFradio%2Fumf-radio-793-deorro%2F"
+                            frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="glow-container rounded-3xl p-6 border border-cyan-600/30">
+                    <div class="relative w-full h-32 overflow-hidden rounded-2xl shadow-2xl">
+                        <iframe class="w-full h-full"
+                            src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&autoplay=1&feed=%2FUMFradio%2Fumf-radio-756-green-lantern%2F"
+                            frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="glow-container rounded-3xl p-6 border border-cyan-600/30">
+                    <div class="relative w-full h-32 overflow-hidden rounded-2xl shadow-2xl">
+                        <iframe class="w-full h-full"
+                            src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FUMFradio%2Fumf-radio-778-ti%25C3%25ABsto%2F"
+                            frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="glow-container rounded-3xl p-6 border border-cyan-600/30">
+                    <div class="relative w-full h-32 overflow-hidden rounded-2xl shadow-2xl">
+                        <iframe class="w-full h-full"
+                            src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FUMFradio%2Fumf-radio-754-andrew-rayel%2F"
+                            frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="glow-container rounded-3xl p-6 border border-cyan-600/30">
+                    <div class="relative w-full h-32 overflow-hidden rounded-2xl shadow-2xl">
+                        <iframe class="w-full h-full"
+                            src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FUMFradio%2Fumf-radio-762-ww%2F"
+                            frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="glass container-3d bg-[rgba(0,0,0,0.3)] backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-[rgba(255,255,255,0.1)] mt-8"
                 style="position: relative; z-index: 111111;">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
