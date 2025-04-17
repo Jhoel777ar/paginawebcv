@@ -16,103 +16,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-        @keyframes hologram-pulse {
-            0% {
-                opacity: 0.3;
-                transform: scale(0.98);
-            }
-
-            50% {
-                opacity: 0.6;
-                transform: scale(1.02);
-            }
-
-            100% {
-                opacity: 0.3;
-                transform: scale(0.98);
-            }
-        }
-
-        .cyber-grid {
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        .hologram-effect {
-            position: relative;
-            overflow: hidden;
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: linear-gradient(45deg,
-                        transparent 25%,
-                        rgba(0, 255, 255, 0.1) 45%,
-                        transparent 70%);
-                animation: scan 6s infinite linear;
-            }
-        }
-
-        @keyframes scan {
-            0% {
-                transform: translate(-30%, -30%) rotate(45deg);
-            }
-
-            100% {
-                transform: translate(30%, 30%) rotate(45deg);
-            }
-        }
-
-        .neon-text {
-            text-shadow:
-                0 0 8px rgba(0, 255, 255, 0.5),
-                0 0 20px rgba(0, 255, 255, 0.3),
-                0 0 30px rgba(0, 100, 255, 0.2);
-        }
-
-        .cyber-button {
-            clip-path: polygon(15% 0, 100% 0, 100% 75%, 85% 100%, 0 100%, 0 25%);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            background:
-                linear-gradient(45deg,
-                    #00ffff 0%,
-                    #7028e4 50%,
-                    #ff00ff 100%) border-box;
-            mask:
-                linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-        }
-
-        .cyber-button:hover {
-            clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 15% 100%, 0 75%);
-            transform: translateY(-2px);
-        }
-
-        .glow-container {
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(6, 182, 212, 0.15));
-            box-shadow: 0 0 25px rgba(147, 51, 234, 0.25), inset 0 0 15px rgba(6, 182, 212, 0.1);
-            transition: all 0.5s ease;
-        }
-
-        .glow-container:hover {
-            box-shadow: 0 0 40px rgba(147, 51, 234, 0.4), 0 0 80px rgba(6, 182, 212, 0.3), inset 0 0 20px rgba(236, 72, 153, 0.2);
-            transform: translateY(-5px) scale(1.02);
-        }
-
-        .neon-text {
-            text-shadow: 0 0 10px rgba(147, 51, 234, 0.8), 0 0 20px rgba(6, 182, 212, 0.6);
-        }
-    </style>
 </head>
 
 <body class="min-h-full bg-[#0a0a12] overflow-x-hidden">
@@ -136,7 +39,7 @@
                         <div class="track-info">
                             <h2 id="trackTitle" class="neon-text glitch">ARK DEV</h2>
                         </div>
-                        <div class="flex items-center justify-center space-x-6 mb-8">
+                        <div class="control-buttons flex items-center justify-center space-x-6 mb-6">
                             <button id="prevTrack" class="cyber-button">
                                 <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -161,15 +64,15 @@
                                 </svg>
                             </button>
                         </div>
-
                         <div class="progress-container">
-                            <div class="time-display">
-                                <span id="currentTime" class="neon-text">0:00</span>
-                                <span id="totalTime" class="neon-text">0:00</span>
-                            </div>
                             <div class="seek-bar-wrapper">
                                 <input id="seekBar" type="range" min="0" max="100" value="0" class="hyper-slider">
                             </div>
+                            <div class="time-display flex justify-between mt-3">
+                                <span id="currentTime" class="neon-text">0:00</span>
+                                <span id="totalTime" class="neon-text">0:00</span>
+                            </div>
+                            <div id="loadingIndicator" class="loading-indicator hidden">Loading...</div>
                         </div>
                     </div>
                 </div>
@@ -189,7 +92,8 @@
                     ];
 
                     let currentTrackIndex = 0;
-                    const audio = new Audio(tracks[currentTrackIndex].file);
+                    const audio = new Audio();
+                    const preloadAudios = [];
                     const playPauseButton = document.getElementById('playPause');
                     const seekBar = document.getElementById('seekBar');
                     const currentTimeSpan = document.getElementById('currentTime');
@@ -197,8 +101,9 @@
                     const trackTitle = document.getElementById('trackTitle');
                     const playIcon = playPauseButton.querySelector('.play-icon');
                     const pauseIcon = playPauseButton.querySelector('.pause-icon');
+                    const loadingIndicator = document.getElementById('loadingIndicator');
                     const canvas = document.getElementById('effectCanvas');
-                    const ctx = canvas.getContext('2d');
+                    const ctx = canvas.getContext('2d', { alpha: true });
                     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                     const analyser = audioCtx.createAnalyser();
                     const source = audioCtx.createMediaElementSource(audio);
@@ -209,17 +114,60 @@
                     const dataArray = new Uint8Array(bufferLength);
                     let trackChangeTime = 0;
                     let lastStrobeTime = 0;
+                    let particles = [];
+                    let shards = [];
+                    let clickParticles = [];
+
+                    async function preloadTracks() {
+                        loadingIndicator.classList.remove('hidden');
+                        try {
+                            await Promise.all(tracks.map((track, index) => {
+                                return new Promise((resolve, reject) => {
+                                    const preloadAudio = new Audio(track.file);
+                                    preloadAudio.preload = 'auto';
+                                    preloadAudio.addEventListener('canplaythrough', () => {
+                                        preloadAudios[index] = preloadAudio;
+                                        resolve();
+                                    });
+                                    preloadAudio.addEventListener('error', reject);
+                                });
+                            }));
+                            loadingIndicator.classList.add('hidden');
+                        } catch (err) {
+                            console.error('Preload error:', err);
+                            loadingIndicator.textContent = 'Error loading tracks';
+                        }
+                    }
+
+                    function debounce(func, wait) {
+                        let timeout;
+                        return function executedFunction(...args) {
+                            const later = () => {
+                                clearTimeout(timeout);
+                                func(...args);
+                            };
+                            clearTimeout(timeout);
+                            timeout = setTimeout(later, wait);
+                        };
+                    }
 
                     function resizeCanvas() {
                         const playerContainer = document.getElementById('player-container');
-                        canvas.width = playerContainer.offsetWidth;
-                        canvas.height = playerContainer.offsetHeight;
+                        canvas.width = playerContainer.offsetWidth * window.devicePixelRatio;
+                        canvas.height = playerContainer.offsetHeight * window.devicePixelRatio;
+                        canvas.style.width = playerContainer.offsetWidth + 'px';
+                        canvas.style.height = playerContainer.offsetHeight + 'px';
+                        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+                        initParticles();
+                        initShards();
                     }
 
+                    const debouncedResize = debounce(resizeCanvas, 100);
                     resizeCanvas();
-                    window.addEventListener('resize', resizeCanvas);
+                    window.addEventListener('resize', debouncedResize);
 
                     function formatTime(seconds) {
+                        if (isNaN(seconds)) return '0:00';
                         const minutes = Math.floor(seconds / 60);
                         const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
                         return `${minutes}:${secs}`;
@@ -240,19 +188,62 @@
 
                     function getLaserColor(intensity) {
                         const colors = [
-                            'rgba(0, 255, 255, 0.9)', // Cyan
-                            'rgba(255, 0, 255, 0.9)', // Magenta
-                            'rgba(255, 255, 0, 0.9)', // Yellow
-                            'rgba(0, 255, 0, 0.9)'   // Green
+                            'rgba(0, 255, 255, 0.9)',
+                            'rgba(255, 0, 255, 0.9)',
+                            'rgba(255, 255, 0, 0.9)',
+                            'rgba(0, 255, 0, 0.9)'
                         ];
                         return colors[Math.floor((intensity / 255) * colors.length) % colors.length];
                     }
 
+                    function initParticles() {
+                        particles = [];
+                        for (let i = 0; i < 30; i++) {
+                            particles.push({
+                                x: Math.random() * canvas.width / window.devicePixelRatio,
+                                y: Math.random() * canvas.height / window.devicePixelRatio,
+                                size: Math.random() * 4 + 2,
+                                speedX: (Math.random() - 0.5) * 1.5,
+                                speedY: (Math.random() - 0.5) * 1.5,
+                                color: `hsla(${Math.random() * 360}, 80%, 60%, 0.8)`
+                            });
+                        }
+                    }
+
+                    function initShards() {
+                        shards = [];
+                        for (let i = 0; i < 10; i++) {
+                            shards.push({
+                                x: canvas.width / 2 / window.devicePixelRatio,
+                                y: canvas.height / 2 / window.devicePixelRatio,
+                                size: Math.random() * 10 + 5,
+                                angle: Math.random() * Math.PI * 2,
+                                speed: Math.random() * 2 + 1,
+                                opacity: 0
+                            });
+                        }
+                    }
+
+                    function initClickParticles(x, y) {
+                        const { highAvg } = getFrequencyData();
+                        for (let i = 0; i < 5; i++) {
+                            clickParticles.push({
+                                x: x,
+                                y: y,
+                                size: Math.random() * 3 + 1,
+                                speedX: (Math.random() - 0.5) * 3 * (highAvg / 255),
+                                speedY: (Math.random() - 0.5) * 3 * (highAvg / 255),
+                                opacity: 1,
+                                color: getLaserColor(highAvg)
+                            });
+                        }
+                    }
+
                     function drawVisualizer() {
-                        const { lowAvg, midAvg, highAvg } = getFrequencyData();
-                        const centerX = canvas.width / 2;
-                        const centerY = canvas.height / 2;
-                        const maxRadius = Math.min(canvas.width, canvas.height) / 2.5;
+                        const { lowAvg, midAvg } = getFrequencyData();
+                        const centerX = canvas.width / 2 / window.devicePixelRatio;
+                        const centerY = canvas.height / 2 / window.devicePixelRatio;
+                        const maxRadius = Math.min(canvas.width, canvas.height) / 6;
                         dataArray.forEach((value, i) => {
                             const angle = (i / bufferLength) * Math.PI * 2;
                             const radius = (value / 255) * maxRadius * (midAvg / 255);
@@ -262,29 +253,29 @@
                             ctx.beginPath();
                             ctx.moveTo(centerX, centerY);
                             ctx.lineTo(x, y);
-                            ctx.strokeStyle = `hsla(${hue}, 90%, 60%, 0.7)`;
-                            ctx.lineWidth = 2;
+                            ctx.strokeStyle = `hsla(${hue}, 90%, 60%, 0.6)`;
+                            ctx.lineWidth = 1.5;
                             ctx.stroke();
                             ctx.beginPath();
-                            ctx.arc(x, y, 4, 0, Math.PI * 2);
-                            ctx.fillStyle = `hsla(${hue}, 90%, 70%, 0.6)`;
+                            ctx.arc(x, y, 3, 0, Math.PI * 2);
+                            ctx.fillStyle = `hsla(${hue}, 90%, 70%, 0.7)`;
                             ctx.fill();
                         });
                     }
 
                     function drawLasers() {
                         const { maxIntensity } = getFrequencyData();
-                        if (maxIntensity > 180) {
+                        if (maxIntensity > 170) {
                             for (let i = 0; i < 2; i++) {
-                                const startX = Math.random() * canvas.width;
-                                const startY = Math.random() * canvas.height;
-                                const endX = Math.random() * canvas.width;
-                                const endY = Math.random() * canvas.height;
+                                const startX = Math.random() * canvas.width / window.devicePixelRatio;
+                                const startY = Math.random() * canvas.height / window.devicePixelRatio;
+                                const endX = Math.random() * canvas.width / window.devicePixelRatio;
+                                const endY = Math.random() * canvas.height / window.devicePixelRatio;
                                 ctx.beginPath();
                                 ctx.moveTo(startX, startY);
                                 ctx.lineTo(endX, endY);
                                 ctx.strokeStyle = getLaserColor(maxIntensity);
-                                ctx.lineWidth = (maxIntensity / 255) * 1 + 1;
+                                ctx.lineWidth = (maxIntensity / 255) * 1.5 + 1;
                                 ctx.shadowBlur = 15;
                                 ctx.shadowColor = ctx.strokeStyle;
                                 ctx.stroke();
@@ -293,26 +284,82 @@
                         }
                     }
 
-                    function drawLightFlares() {
+                    function drawPulsatingOrbs() {
                         const { lowAvg } = getFrequencyData();
-                        if (lowAvg > 120) {
-                            const radius = (lowAvg / 255) * 100;
-                            ctx.beginPath();
-                            ctx.arc(canvas.width / 2, canvas.height / 2, radius, 0, Math.PI * 2);
-                            ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(lowAvg / 255, 0.3)})`;
-                            ctx.shadowBlur = 30;
-                            ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
-                            ctx.fill();
+                        const centerX = canvas.width / 2 / window.devicePixelRatio;
+                        const centerY = canvas.height / 2 / window.devicePixelRatio;
+                        const pulse = Math.sin(Date.now() * 0.003) * (lowAvg / 255) * 40 + 40;
+                        ctx.beginPath();
+                        ctx.arc(centerX, centerY, pulse, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(0, 255, 255, ${Math.min(lowAvg / 255, 0.3)})`;
+                        ctx.shadowBlur = 25;
+                        ctx.shadowColor = 'rgba(0, 255, 255, 0.5)';
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
+
+                    function drawHolographicGlitch() {
+                        const { highAvg } = getFrequencyData();
+                        if (highAvg > 140) {
+                            ctx.font = 'bold 20px "Orbitron", sans-serif';
+                            ctx.textAlign = 'center';
+                            ctx.fillStyle = `rgba(255, 0, 255, ${Math.min(highAvg / 255, 0.4)})`;
+                            ctx.shadowBlur = 10;
+                            ctx.shadowColor = 'rgba(255, 0, 255, 0.6)';
+                            for (let i = 0; i < 2; i++) {
+                                ctx.fillText(
+                                    tracks[currentTrackIndex].title,
+                                    canvas.width / 2 / window.devicePixelRatio + (Math.random() - 0.5) * 8,
+                                    canvas.height / 3.5 / window.devicePixelRatio + (Math.random() - 0.5) * 8
+                                );
+                            }
                             ctx.shadowBlur = 0;
                         }
                     }
 
+                    function drawParticleTrails() {
+                        const { highAvg } = getFrequencyData();
+                        particles.forEach(p => {
+                            p.x += p.speedX * (highAvg / 255);
+                            p.y += p.speedY * (highAvg / 255);
+                            if (p.x < 0 || p.x > canvas.width / window.devicePixelRatio || p.y < 0 || p.y > canvas.height / window.devicePixelRatio) {
+                                p.x = canvas.width / 2 / window.devicePixelRatio;
+                                p.y = canvas.height / 2 / window.devicePixelRatio;
+                                p.speedX = (Math.random() - 0.5) * 1.5;
+                                p.speedY = (Math.random() - 0.5) * 1.5;
+                            }
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p.x - p.speedX * 5, p.y - p.speedY * 5);
+                            ctx.strokeStyle = p.color;
+                            ctx.lineWidth = p.size * (highAvg / 255);
+                            ctx.stroke();
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.size * (highAvg / 255), 0, Math.PI * 2);
+                            ctx.fillStyle = p.color;
+                            ctx.fill();
+                        });
+                    }
+
+                    function drawClickParticles() {
+                        clickParticles.forEach(p => {
+                            p.x += p.speedX;
+                            p.y += p.speedY;
+                            p.opacity -= 0.05;
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                            ctx.fillStyle = p.color.replace('0.9', p.opacity);
+                            ctx.fill();
+                        });
+                        clickParticles = clickParticles.filter(p => p.opacity > 0);
+                    }
+
                     function drawNeonRings() {
                         const { midAvg } = getFrequencyData();
-                        if (midAvg > 130) {
-                            const radius = (midAvg / 255) * 150;
+                        if (midAvg > 120) {
+                            const radius = (midAvg / 255) * 120;
                             ctx.beginPath();
-                            ctx.arc(canvas.width / 2, canvas.height / 2, radius, 0, Math.PI * 2);
+                            ctx.arc(canvas.width / 2 / window.devicePixelRatio, canvas.height / 2 / window.devicePixelRatio, radius, 0, Math.PI * 2);
                             ctx.strokeStyle = getLaserColor(midAvg);
                             ctx.lineWidth = 3;
                             ctx.globalAlpha = Math.min(midAvg / 255, 0.4);
@@ -327,22 +374,22 @@
                     function drawStrobeFlashes() {
                         const { maxIntensity } = getFrequencyData();
                         const now = Date.now();
-                        if (maxIntensity > 200 && now - lastStrobeTime > 500) {
-                            ctx.fillStyle = getLaserColor(maxIntensity).replace('0.9', '0.2');
-                            ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        if (maxIntensity > 190 && now - lastStrobeTime > 350) {
+                            ctx.fillStyle = getLaserColor(maxIntensity).replace('0.9', '0.25');
+                            ctx.fillRect(0, 0, canvas.width / window.devicePixelRatio, canvas.height / window.devicePixelRatio);
                             lastStrobeTime = now;
                         }
                     }
 
                     function drawDynamicWaves() {
                         const { midAvg } = getFrequencyData();
-                        const waveHeight = canvas.height / 2 * (midAvg / 255);
+                        const waveHeight = canvas.height / 5 / window.devicePixelRatio * (midAvg / 255);
                         ctx.beginPath();
-                        ctx.moveTo(0, canvas.height / 2);
+                        ctx.moveTo(0, canvas.height / 2 / window.devicePixelRatio);
                         for (let i = 0; i < bufferLength; i++) {
                             const value = dataArray[i];
-                            const x = (i / bufferLength) * canvas.width;
-                            const y = canvas.height / 2 + (value / 255) * waveHeight * Math.sin(i * 0.05 + Date.now() * 0.002);
+                            const x = (i / bufferLength) * canvas.width / window.devicePixelRatio;
+                            const y = canvas.height / 2 / window.devicePixelRatio + (value / 255) * waveHeight * Math.sin(i * 0.04 + Date.now() * 0.0025);
                             ctx.lineTo(x, y);
                         }
                         ctx.strokeStyle = `rgba(255, 0, 255, ${Math.min(midAvg / 255, 0.7)})`;
@@ -353,74 +400,91 @@
                         ctx.shadowBlur = 0;
                     }
 
-                    function drawParticles() {
-                        const { highAvg } = getFrequencyData();
-                        if (highAvg > 140) {
-                            ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(highAvg / 255, 0.8)})`;
-                            for (let i = 0; i < bufferLength; i += 2) {
-                                const value = dataArray[i];
-                                if (value > 160) {
-                                    const x = Math.random() * canvas.width;
-                                    const y = Math.random() * canvas.height;
-                                    const size = (value / 255) * 8;
-                                    ctx.beginPath();
-                                    ctx.arc(x, y, size, 0, Math.PI * 2);
-                                    ctx.shadowBlur = 10;
-                                    ctx.shadowColor = `rgba(255, 255, 255, 0.6)`;
-                                    ctx.fill();
-                                    ctx.shadowBlur = 0;
-                                }
-                            }
-                        }
-                    }
-
-                    function drawFog() {
+                    function drawGridPulse() {
                         const { lowAvg } = getFrequencyData();
-                        ctx.globalAlpha = Math.min(lowAvg / 255, 0.2);
-                        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-                        for (let i = 0; i < 30; i++) {
-                            const x = Math.random() * canvas.width;
-                            const y = canvas.height - (Date.now() % 10000) / 10000 * canvas.height;
-                            const size = Math.random() * 50 + 30;
-                            ctx.beginPath();
-                            ctx.arc(x, y, size, 0, Math.PI * 2);
-                            ctx.fill();
-                        }
-                        ctx.globalAlpha = 1;
-                    }
-
-                    function drawGrid() {
-                        const { midAvg } = getFrequencyData();
-                        const gridSize = 50;
-                        ctx.strokeStyle = `rgba(0, 255, 255, ${Math.min(midAvg / 255, 0.2)})`;
-                        ctx.lineWidth = 1;
+                        const gridSize = 40;
+                        ctx.strokeStyle = `rgba(0, 255, 255, ${Math.min(lowAvg / 255, 0.15)})`;
+                        ctx.lineWidth = 0.5;
                         ctx.shadowBlur = 5;
-                        ctx.shadowColor = `rgba(0, 255, 255, 0.3)`;
-                        for (let x = 0; x < canvas.width; x += gridSize) {
+                        ctx.shadowColor = `rgba(0, 255, 255, 0.2)`;
+                        const scale = 1 + (lowAvg / 255) * 0.1;
+                        ctx.save();
+                        ctx.translate(canvas.width / 2 / window.devicePixelRatio, canvas.height / 2 / window.devicePixelRatio);
+                        ctx.scale(scale, scale);
+                        ctx.translate(-canvas.width / 2 / window.devicePixelRatio, -canvas.height / 2 / window.devicePixelRatio);
+                        for (let x = 0; x < canvas.width / window.devicePixelRatio; x += gridSize) {
                             ctx.beginPath();
                             ctx.moveTo(x, 0);
-                            ctx.lineTo(x, canvas.height);
+                            ctx.lineTo(x, canvas.height / window.devicePixelRatio);
                             ctx.stroke();
                         }
-                        for (let y = 0; y < canvas.height; y += gridSize) {
+                        for (let y = 0; y < canvas.height / window.devicePixelRatio; y += gridSize) {
                             ctx.beginPath();
                             ctx.moveTo(0, y);
-                            ctx.lineTo(canvas.width, y);
+                            ctx.lineTo(canvas.width / window.devicePixelRatio, y);
                             ctx.stroke();
                         }
+                        ctx.restore();
                         ctx.shadowBlur = 0;
+                    }
+
+                    function drawHolographicShards() {
+                        const { highAvg } = getFrequencyData();
+                        if (highAvg > 160) {
+                            shards.forEach(shard => {
+                                shard.opacity = Math.min(shard.opacity + 0.05, 0.7);
+                                shard.x += Math.cos(shard.angle) * shard.speed * (highAvg / 255);
+                                shard.y += Math.sin(shard.angle) * shard.speed * (highAvg / 255);
+                                ctx.beginPath();
+                                ctx.moveTo(shard.x, shard.y);
+                                ctx.lineTo(shard.x + shard.size, shard.y + shard.size);
+                                ctx.lineTo(shard.x - shard.size, shard.y + shard.size);
+                                ctx.closePath();
+                                ctx.fillStyle = `rgba(0, 255, 255, ${shard.opacity})`;
+                                ctx.fill();
+                            });
+                        } else {
+                            shards.forEach(shard => {
+                                shard.opacity = Math.max(shard.opacity - 0.02, 0);
+                            });
+                        }
+                        shards = shards.filter(shard => shard.opacity > 0 || highAvg > 160);
+                        if (shards.length < 10 && highAvg > 160) {
+                            shards.push({
+                                x: canvas.width / 2 / window.devicePixelRatio,
+                                y: canvas.height / 2 / window.devicePixelRatio,
+                                size: Math.random() * 10 + 5,
+                                angle: Math.random() * Math.PI * 2,
+                                speed: Math.random() * 2 + 1,
+                                opacity: 0
+                            });
+                        }
+                    }
+
+                    function drawLensFlares() {
+                        const { midAvg } = getFrequencyData();
+                        if (midAvg > 110) {
+                            const flareSize = (midAvg / 255) * 80;
+                            ctx.beginPath();
+                            ctx.arc(canvas.width / 4 / window.devicePixelRatio, canvas.height / 4 / window.devicePixelRatio, flareSize, 0, Math.PI * 2);
+                            ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(midAvg / 255, 0.2)})`;
+                            ctx.shadowBlur = 30;
+                            ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
+                            ctx.fill();
+                            ctx.shadowBlur = 0;
+                        }
                     }
 
                     function drawBackgroundGradient() {
                         const { lowAvg } = getFrequencyData();
                         const gradient = ctx.createRadialGradient(
-                            canvas.width / 2, canvas.height / 2, 0,
-                            canvas.width / 2, canvas.height / 2, Math.max(canvas.width, canvas.height)
+                            canvas.width / 2 / window.devicePixelRatio, canvas.height / 2 / window.devicePixelRatio, 0,
+                            canvas.width / 2 / window.devicePixelRatio, canvas.height / 2 / window.devicePixelRatio, Math.max(canvas.width, canvas.height) / window.devicePixelRatio
                         );
-                        gradient.addColorStop(0, `rgba(10, 10, 20, ${Math.min(lowAvg / 255, 0.9)})`);
-                        gradient.addColorStop(1, `rgba(0, 0, 10, ${Math.min(lowAvg / 255, 0.95)})`);
+                        gradient.addColorStop(0, `rgba(15, 15, 30, ${Math.min(lowAvg / 255, 0.9)})`);
+                        gradient.addColorStop(1, `rgba(0, 0, 15, ${Math.min(lowAvg / 255, 0.95)})`);
                         ctx.fillStyle = gradient;
-                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        ctx.fillRect(0, 0, canvas.width / window.devicePixelRatio, canvas.height / window.devicePixelRatio);
                     }
 
                     function drawTrackAnnouncement() {
@@ -430,27 +494,32 @@
                             ctx.font = 'bold 36px "Orbitron", sans-serif';
                             ctx.textAlign = 'center';
                             ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-                            ctx.shadowBlur = 10;
-                            ctx.shadowColor = 'rgba(255, 255, 255, 0.6)';
-                            ctx.fillText(tracks[currentTrackIndex].title, canvas.width / 2, canvas.height / 4);
+                            ctx.shadowBlur = 12;
+                            ctx.shadowColor = 'rgba(0, 255, 255, 0.6)';
+                            ctx.fillText(tracks[currentTrackIndex].title, canvas.width / 2 / window.devicePixelRatio, canvas.height / 4 / window.devicePixelRatio);
                             ctx.shadowBlur = 0;
                         }
                     }
 
                     function animate() {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        ctx.clearRect(0, 0, canvas.width / window.devicePixelRatio, canvas.height / window.devicePixelRatio);
                         drawBackgroundGradient();
-                        drawGrid();
-                        drawFog();
-                        drawLightFlares();
+                        drawGridPulse();
+                        drawPulsatingOrbs();
                         drawVisualizer();
                         drawLasers();
                         drawNeonRings();
                         drawDynamicWaves();
-                        drawParticles();
+                        drawParticleTrails();
+                        drawHolographicGlitch();
+                        drawHolographicShards();
+                        drawLensFlares();
                         drawStrobeFlashes();
+                        drawClickParticles();
                         drawTrackAnnouncement();
-                        document.getElementById('player-container').style.borderColor = getLaserColor(getFrequencyData().maxIntensity);
+                        const { maxIntensity } = getFrequencyData();
+                        document.getElementById('player-container').style.borderColor = getLaserColor(maxIntensity);
+                        document.querySelector('.controls-container').style.borderColor = getLaserColor(maxIntensity);
                         requestAnimationFrame(animate);
                     }
 
@@ -459,16 +528,29 @@
                         trackChangeTime = Date.now();
                     }
 
-                    function playTrack() {
-                        audio.play().then(() => {
+                    async function playTrack() {
+                        try {
+                            audio.src = tracks[currentTrackIndex].file;
+                            await audio.play();
                             audioCtx.resume();
                             animate();
                             playIcon.classList.add('hidden');
                             pauseIcon.classList.remove('hidden');
-                        }).catch(err => console.error('Playback error:', err));
+                        } catch (err) {
+                            console.error('Playback error:', err);
+                            loadingIndicator.textContent = 'Playback failed';
+                            loadingIndicator.classList.remove('hidden');
+                        }
                     }
 
-                    playPauseButton.addEventListener('click', () => {
+                    function handleButtonClick(e) {
+                        const rect = canvas.getBoundingClientRect();
+                        const x = (e.clientX - rect.left) / (rect.width / canvas.width) * window.devicePixelRatio;
+                        const y = (e.clientY - rect.top) / (rect.height / canvas.height) * window.devicePixelRatio;
+                        initClickParticles(x, y);
+                    }
+
+                    playPauseButton.addEventListener('click', (e) => {
                         if (audio.paused) {
                             playTrack();
                         } else {
@@ -476,18 +558,37 @@
                             playIcon.classList.remove('hidden');
                             pauseIcon.classList.add('hidden');
                         }
+                        handleButtonClick(e);
+                    });
+
+                    document.getElementById('prevTrack').addEventListener('click', (e) => {
+                        currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+                        updateTrackInfo();
+                        playTrack();
+                        handleButtonClick(e);
+                    });
+
+                    document.getElementById('nextTrack').addEventListener('click', (e) => {
+                        currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+                        updateTrackInfo();
+                        playTrack();
+                        handleButtonClick(e);
                     });
 
                     seekBar.addEventListener('input', () => {
-                        audio.currentTime = (seekBar.value / 100) * audio.duration;
+                        if (audio.duration) {
+                            audio.currentTime = (seekBar.value / 100) * audio.duration;
+                        }
                     });
 
                     audio.addEventListener('timeupdate', () => {
-                        const progress = (audio.currentTime / audio.duration) * 100;
-                        seekBar.value = progress;
-                        seekBar.style.backgroundSize = `${progress}% 100%`;
-                        currentTimeSpan.textContent = formatTime(audio.currentTime);
-                        totalTimeSpan.textContent = formatTime(audio.duration);
+                        if (audio.duration) {
+                            const progress = (audio.currentTime / audio.duration) * 100;
+                            seekBar.value = progress;
+                            seekBar.style.backgroundSize = `${progress}% 100%`;
+                            currentTimeSpan.textContent = formatTime(audio.currentTime);
+                            totalTimeSpan.textContent = formatTime(audio.duration);
+                        }
                     });
 
                     audio.addEventListener('loadedmetadata', () => {
@@ -496,27 +597,23 @@
 
                     audio.addEventListener('ended', () => {
                         currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-                        audio.src = tracks[currentTrackIndex].file;
                         updateTrackInfo();
                         playTrack();
                     });
 
-                    document.getElementById('prevTrack').addEventListener('click', () => {
-                        currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-                        audio.src = tracks[currentTrackIndex].file;
+                    try {
+                        initParticles();
+                        initShards();
                         updateTrackInfo();
-                        playTrack();
-                    });
-
-                    document.getElementById('nextTrack').addEventListener('click', () => {
-                        currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-                        audio.src = tracks[currentTrackIndex].file;
-                        updateTrackInfo();
-                        playTrack();
-                    });
-                    updateTrackInfo();
-                    audio.load();
-                    playTrack();
+                        preloadTracks().then(() => {
+                            audio.load();
+                            playTrack();
+                        });
+                    } catch (err) {
+                        console.error('Initialization error:', err);
+                        loadingIndicator.textContent = 'Initialization failed';
+                        loadingIndicator.classList.remove('hidden');
+                    }
                 })();
             </script>
 
@@ -556,12 +653,10 @@
                     align-items: center;
                     background: rgba(0, 0, 0, 0.3);
                     backdrop-filter: blur(5px);
+                    position: relative;
                 }
 
                 #effectCanvas {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
                     width: 100%;
                     height: 100%;
                     z-index: 0;
@@ -569,7 +664,10 @@
                 }
 
                 .content {
-                    position: relative;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
                     z-index: 1;
                     display: flex;
                     flex-direction: column;
@@ -584,12 +682,12 @@
 
                 @keyframes popIn {
                     0% {
-                        transform: scale(0.9);
+                        transform: scale(0.9) translate(-50%, -50%);
                         opacity: 0;
                     }
 
                     100% {
-                        transform: scale(1);
+                        transform: scale(1) translate(-50%, -50%);
                         opacity: 1;
                     }
                 }
@@ -834,6 +932,15 @@
                         margin-left: 1rem;
                     }
                 }
+
+                .loading-indicator {
+                    color: #ffff00;
+                    font-family: 'Roboto Mono', monospace;
+                    font-size: 0.9rem;
+                    text-align: center;
+                    margin-top: 0.6rem;
+                    text-shadow: #ffff00;
+                }
             </style>
         </section>
         <section class="space-y-14 relative">
@@ -971,7 +1078,7 @@
                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
                         <span class="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                            INITIATE SEQUENCE
+                            Download Music
                         </span>
                     </a>
                 </div>
@@ -1005,7 +1112,7 @@
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                         <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                            ACCESS NEURAL NET
+                            ARK IA
                         </span>
                     </a>
                 </div>
@@ -1034,7 +1141,7 @@
                                 d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
                         <span class="bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
-                            BOOT SYSTEM
+                            ARK OS
                         </span>
                     </a>
                 </div>
