@@ -173,16 +173,16 @@
 
         .social-links {
             display: flex;
-            flex-wrap: wrap;
+            gap: 15px;
             justify-content: center;
-            gap: 1.5rem;
-            max-width: 100%;
+            align-items: center;
         }
 
         .social-links a {
-            font-size: 2.5rem;
-            color: rgba(255, 255, 255, 0.7);
-            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 54px;
+            color: #333;
+            transition: color 0.3s;
         }
 
         .social-links a:hover {
@@ -254,7 +254,6 @@
 
             .glassmorphism {
                 padding: 1.5rem;
-                margin-top: 6rem;
             }
 
             .input-container input,
@@ -263,14 +262,10 @@
                 padding: 0.7rem;
             }
 
-            .download-button {
+            .download-button,
+            .nav-button {
                 font-size: 1rem;
                 padding: 0.7rem 1.5rem;
-            }
-
-            .nav-button {
-                font-size: 0.9rem;
-                padding: 0.5rem 1rem;
             }
 
             .social-links a {
@@ -283,11 +278,7 @@
             }
 
             .nav-container {
-                top: 0.5rem;
-                left: 0.5rem;
-                right: auto;
-                flex-direction: row;
-                flex-wrap: wrap;
+                flex-direction: column;
                 gap: 0.5rem;
             }
         }
@@ -299,7 +290,6 @@
 
             .glassmorphism {
                 padding: 1rem;
-                margin-top: 7rem;
             }
 
             .input-container {
@@ -310,14 +300,10 @@
                 font-size: 1rem;
             }
 
-            .download-button {
+            .download-button,
+            .nav-button {
                 font-size: 0.9rem;
                 padding: 0.6rem 1.2rem;
-            }
-
-            .nav-button {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
             }
 
             .social-links a {
@@ -326,11 +312,6 @@
 
             #cardApiIframe {
                 height: 160px;
-            }
-
-            .nav-container {
-                flex-direction: column;
-                gap: 0.3rem;
             }
         }
     </style>
@@ -352,13 +333,17 @@
             anuncios pueden aparecer; cierra cualquier pestaña emergente para continuar.</p>
         <p class="text-center mb-6">Plataformas soportadas:</p>
         <div class="social-links mb-8">
-            <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@camilo/video/7417573254141054254?is_from_webapp=1&sender_device=pc&web_id=7457238523977876998"
-                target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://twitter.com" target="_blank" title="X (antes Twitter)"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.twitch.tv" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
+            <div class="social-links">
+                <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank" title="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@camilo/video/7417573254141054254?is_from_webapp=1&sender_device=pc&web_id=7457238523977876998"
+                    target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://twitter.com" target="_blank" title="X (antes Twitter)"><i
+                        class="fab fa-x-twitter"></i></a>
+                <a href="https://www.twitch.tv" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
+            </div>
         </div>
         <div class="input-container flex flex-col gap-5 max-w-2xl mx-auto">
             <label for="youtubeUrl" class="text-xl">Ingresa la URL del video:</label>
