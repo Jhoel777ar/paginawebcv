@@ -44,82 +44,186 @@
             display: flex;
         }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body class="body">
     <div class="page-wrap">
         <div class="code-embed--global w-embed">
-            <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
             <style>
-                @media (max-width: 991px) {
-                    .navbar {
-                        background: rgba(255, 255, 255, 0.1);
-                        backdrop-filter: none;
-                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                    }
-
-                    .navbar:hover {
-                        background: rgba(255, 255, 255, 0.15);
-                        backdrop-filter: none;
-                        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-                    }
-
-                    .navbar::before {
-                        display: none;
-                    }
-
-                    .image--navbar--logo svg {
-                        width: 120px;
-                    }
-
-                    .card--portfolio {
-                        margin: 0 0.5rem;
-                    }
-
-                    .content-wrap--navbar {
-                        padding: 0 1rem;
-                    }
+                :root {
+                    --primary-bg: linear-gradient(145deg, #0f0f1a 0%, #1c2526 100%);
+                    --shadow-glow: 0 0 14px rgba(0, 247, 255, 0.7);
+                    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.25);
+                    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    --selection-bg: linear-gradient(90deg, #00f7ff, #ff007a);
+                    --accent-neon: #00f7ff;
+                    --accent-secondary: #ffffff2e;
+                    --main-white: #f3f4f6;
+                    --secondary-white-15: rgba(243, 244, 246, 0.15);
+                    --glass-bg: rgba(255, 255, 255, 0.06);
+                    --border-radius: 14px;
                 }
 
-                @media (max-width: 478px) {
-                    .navbar {
-                        height: 50px;
-                    }
-
-                    .image--navbar--logo svg {
-                        width: 100px;
-                    }
-
-                    .card--portfolio {
-                        margin: 0;
-                    }
-
-                    .content-wrap--navbar {
-                        padding: 0 0.5rem;
-                    }
-                }
-
-                @media only screen and (min-width: 992px) {
-                    html {
-                        font-size: clamp(0.5rem, 1.5625vh, 1.115vw);
-                    }
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
                 }
 
                 ::selection {
-                    color: white;
-                    background-color: rgb(88, 47, 205);
+                    color: #ffffff;
+                    background: var(--selection-bg);
+                    text-shadow: 0 0 4px rgba(0, 247, 255, 0.7);
                 }
-            </style>
-            <style>
+
                 html {
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                    background: var(--primary-bg);
+                    color: var(--main-white);
+                    scroll-behavior: smooth;
                     -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-size: clamp(14px, 2.5vw, 16px);
                 }
 
                 .scene canvas {
-                    height: 100% !important;
                     width: 100% !important;
+                    height: 100% !important;
+                    display: block;
+                }
+
+                .navbar {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: clamp(50px, 8vh, 70px);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 1000;
+                    background: var(--glass-bg);
+                    backdrop-filter: blur(14px);
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--shadow-soft);
+                    border: 1px solid rgba(0, 247, 255, 0.25);
+                    animation: slideIn 0.8s ease-out forwards;
+                    transition: var(--transition);
+                }
+
+                .navbar:hover {
+                    background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(0, 247, 255, 0.12));
+                    backdrop-filter: blur(22px);
+                    box-shadow: var(--shadow-glow);
+                    transform: translateY(-2px);
+                }
+
+                .navbar::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: radial-gradient(circle at center, rgba(0, 247, 255, 0.35) 0%, rgba(255, 255, 255, 0.12) 60%, transparent 80%);
+                    animation: pulseEffect 4s ease-in-out infinite;
+                    z-index: 2;
+                    opacity: 0.5;
+                }
+
+                @keyframes pulseEffect {
+
+                    0%,
+                    100% {
+                        transform: scale(1);
+                        opacity: 0.5;
+                    }
+
+                    50% {
+                        transform: scale(1.2);
+                        opacity: 0.85;
+                    }
+                }
+
+                .container.w-container {
+                    max-width: 1200px;
+                    width: 90%;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .content-wrap--navbar {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0 clamp(0.5rem, 2vw, 1rem);
+                }
+
+                .image--navbar--logo svg {
+                    width: clamp(100px, 15vw, 150px);
+                    height: auto;
+                    fill: var(--main-white);
+                    transition: var(--transition);
+                    cursor: pointer;
+                }
+
+                .image--navbar--logo svg:hover {
+                    transform: scale(1.1) translateY(-4px);
+                    filter: var(--shadow-glow);
+                    animation: logoHover 1.5s ease-in-out infinite;
+                }
+
+                .image--navbar--logo path {
+                    will-change: filter, opacity, transform;
+                    transition: var(--transition);
+                    fill: var(--main-white);
+                }
+
+                .image--navbar--logo:hover path {
+                    fill: var(--accent-neon);
+                    filter: var(--shadow-glow);
+                }
+
+                @keyframes logoHover {
+
+                    0%,
+                    100% {
+                        transform: scale(1.1) translateY(0);
+                    }
+
+                    50% {
+                        transform: scale(1.1) translateY(-6px);
+                    }
+                }
+
+                @keyframes slideIn {
+                    from {
+                        transform: translateY(-100%);
+                        opacity: 0;
+                    }
+
+                    to {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+
+                .text-link--menu {
+                    position: relative;
+                    color: var(--main-white);
+                    text-decoration: none;
+                    transition: var(--transition);
+                }
+
+                .text-link--menu:hover {
+                    color: var(--accent-neon);
+                    transform: translateY(-1px);
                 }
 
                 .text-link--menu:before {
@@ -127,12 +231,12 @@
                     position: absolute;
                     height: 0.25rem;
                     width: 0.25rem;
-                    background: var(--main--white);
-                    border-radius: 100%;
+                    background: var(--accent-neon);
+                    border-radius: 50%;
                     bottom: -1.25rem;
-                    box-shadow: 0rem -0.25rem 1rem var(--main--white);
+                    box-shadow: var(--shadow-glow);
                     opacity: 0;
-                    transition: all .1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+                    transition: var(--transition);
                 }
 
                 .text-link--menu.w--current:before {
@@ -140,8 +244,13 @@
                     opacity: 1;
                 }
 
+                .text-link--menu:focus {
+                    outline: 2px solid var(--accent-neon);
+                    outline-offset: 2px;
+                }
+
                 .block--card--services--details .item--card--services--details:last-child {
-                    border: 0;
+                    border: none;
                 }
 
                 .caption-l.is--about--paragraph span,
@@ -150,10 +259,13 @@
                 }
 
                 .heading-m span {
-                    display: inline-block !important;
+                    display: inline-block;
+                    background: linear-gradient(90deg, var(--accent-neon), var(--accent-secondary));
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    color: transparent;
                 }
 
-                /* SPLIDE */
                 .splide {
                     visibility: visible;
                 }
@@ -162,21 +274,26 @@
                     overflow: visible;
                 }
 
-                .image--navbar--logo path {
-                    will-change: filter, opacity, transform;
-                }
-
-                /* SWIPER */
                 .swiper {
                     overflow: visible;
+                    padding: clamp(0.5rem, 2vw, 1rem);
                 }
 
                 .swiper-slide {
                     display: flex;
-                    -webkit-backface-visibility: visible;
                     backface-visibility: visible;
                     overflow: visible;
-                    height: auto !important;
+                    height: auto;
+                    background: var(--glass-bg);
+                    border: 1px solid rgba(255, 255, 255, 0.12);
+                    border-radius: 12px;
+                    backdrop-filter: blur(12px);
+                    transition: var(--transition);
+                }
+
+                .swiper-slide:hover {
+                    transform: translateY(-5px);
+                    box-shadow: var(--shadow-glow);
                 }
 
                 .swiper-3d .swiper-wrapper {
@@ -191,30 +308,167 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    bottom: -1.75rem;
-                    top: auto;
+                    bottom: -2rem;
+                    gap: 0.5rem;
                 }
 
                 .swiper-pagination-bullet {
                     width: 0.5rem;
                     height: 0.5rem;
                     opacity: 1;
-                }
-
-                .swiper-pagination-bullet {
                     margin: 0 0.25rem;
-                    background: var(--secondary--white-15);
-                    filter: drop-shadow(0rem 0.25rem 1rem rgba(255, 255, 255, 0));
-                    transition: .2s ease all;
+                    background: var(--secondary-white-15);
+                    border: 1px solid var(--accent-neon);
+                    transition: var(--transition);
                 }
 
                 .swiper-pagination-bullet-active {
-                    background: var(--main--white) !important;
-                    filter: drop-shadow(0rem 0.25rem 0.5rem rgba(255, 255, 255, 1));
+                    background: var(--accent-neon);
+                    box-shadow: var(--shadow-glow);
+                    transform: scale(1.2);
                 }
 
                 .swiper-3d .swiper-slide-shadow {
                     background: none;
+                }
+
+                .item-wrap--portfolio {
+                    width: 100%;
+                    margin-bottom: 2rem;
+                }
+
+                .card--portfolio {
+                    width: 100%;
+                    max-width: 100%;
+                    height: auto;
+                    overflow: hidden;
+                    background: var(--glass-bg);
+                    border-radius: var(--border-radius);
+                    border: 1px solid rgba(0, 247, 255, 0.25);
+                    transition: var(--transition);
+                    box-shadow: var(--shadow-soft);
+                }
+
+                .card--portfolio:hover {
+                    transform: translateY(-8px) scale(1.02);
+                    box-shadow: var(--shadow-glow);
+                    border-color: var(--accent-neon);
+                }
+
+                .image--card--portfolio {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    transition: var(--transition);
+                }
+
+                .image--card--portfolio:hover {
+                    transform: scale(1.05);
+                    filter: brightness(1.1);
+                }
+
+                @media (max-width: 991px) {
+                    .navbar {
+                        height: 60px;
+                        border-radius: 12px;
+                        background: var(--glass-bg);
+                        backdrop-filter: blur(12px);
+                        box-shadow: var(--shadow-soft);
+                        transition: var(--transition);
+                    }
+
+                    .navbar:hover {
+                        background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(0, 247, 255, 0.12));
+                        box-shadow: var(--shadow-glow);
+                        transform: translateY(-2px);
+                    }
+
+                    .navbar::before {
+                        display: none;
+                    }
+
+                    .image--navbar--logo svg {
+                        width: clamp(100px, 12vw, 120px);
+                    }
+
+                    .image--navbar--logo svg:hover {
+                        filter: var(--shadow-glow);
+                        transform: scale(1.05);
+                    }
+
+                    .card--portfolio {
+                        margin: 0 0.5rem;
+                    }
+
+                    .content-wrap--navbar {
+                        padding: 0 1rem;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .swiper {
+                        padding: 0.5rem;
+                    }
+
+                    .swiper-slide {
+                        border-radius: 8px;
+                    }
+
+                    .slider-pagination.swiper-pagination {
+                        bottom: -1.5rem;
+                    }
+
+                    .text-link--menu:before {
+                        height: 0.2rem;
+                        width: 0.2rem;
+                        bottom: -1rem;
+                    }
+
+                    .text-link--menu.w--current:before {
+                        bottom: -0.6rem;
+                    }
+                }
+
+                @media (max-width: 478px) {
+                    .navbar {
+                        height: 50px;
+                        border-radius: 10px;
+                        background: var(--glass-bg);
+                        backdrop-filter: blur(10px);
+                        box-shadow: var(--shadow-soft);
+                    }
+
+                    .image--navbar--logo svg {
+                        width: clamp(80px, 12vw, 100px);
+                    }
+
+                    .card--portfolio {
+                        margin: 0;
+                        border-radius: 10px;
+                    }
+
+                    .content-wrap--navbar {
+                        padding: 0 0.5rem;
+                    }
+
+                    .item-wrap--portfolio {
+                        margin-bottom: 1rem;
+                    }
+
+                    .swiper-pagination-bullet {
+                        width: 0.4rem;
+                        height: 0.4rem;
+                    }
+
+                    .slider-pagination.swiper-pagination {
+                        gap: 0.3rem;
+                    }
+                }
+
+                @media (min-width: 992px) {
+                    html {
+                        font-size: clamp(0.5rem, 1.5625vh, 1.115vw);
+                    }
                 }
             </style>
         </div>
@@ -256,162 +510,6 @@
                 </div>
             </div>
         </div>
-        <style>
-            .navbar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 70px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 1000;
-                background: rgba(255, 255, 255, 0.15);
-                backdrop-filter: blur(12px);
-                border-radius: 12px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-                animation: slideIn 0.8s ease-out forwards;
-            }
-
-            .container.w-container {
-                max-width: 1200px;
-                width: 90%;
-                margin: 0 auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .content-wrap--navbar {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .image--navbar--logo svg {
-                width: 150px;
-                height: auto;
-                transition: transform 0.3s ease, filter 0.3s ease;
-                cursor: pointer;
-            }
-
-            .image--navbar--logo svg:hover {
-                transform: scale(1.1);
-                filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
-            }
-
-            @keyframes logoHover {
-
-                0%,
-                100% {
-                    transform: translateY(0);
-                }
-
-                50% {
-                    transform: translateY(-8px);
-                }
-            }
-
-            @keyframes slideIn {
-                0% {
-                    transform: translateY(-100%);
-                    opacity: 0;
-                }
-
-                100% {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-            }
-
-            .navbar:hover {
-                background: rgba(255, 255, 255, 0.2);
-                backdrop-filter: blur(20px);
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            }
-
-            .navbar::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0) 80%);
-                animation: loadingEffect 3s ease-in-out infinite;
-                z-index: -1;
-                pointer-events: none;
-            }
-
-            @keyframes loadingEffect {
-                0% {
-                    transform: scale(1) translateX(-100%);
-                }
-
-                50% {
-                    transform: scale(1.1) translateX(0);
-                }
-
-                100% {
-                    transform: scale(1) translateX(100%);
-                }
-            }
-
-            .item-wrap--portfolio {
-                width: 100%;
-                margin-bottom: 2rem;
-            }
-
-            .card--portfolio {
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                overflow: hidden;
-            }
-
-            .image--card--portfolio {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-
-            @media (max-width: 991px) {
-                .navbar {
-                    height: 60px;
-                }
-
-                .card--portfolio {
-                    margin: 0 1rem;
-                }
-            }
-
-            @media (max-width: 478px) {
-                .navbar {
-                    height: 50px;
-                }
-
-                .image--navbar--logo {
-                    width: clamp(80px, 12vw, 100px);
-                }
-
-                .item-wrap--portfolio {
-                    margin-bottom: 1rem;
-                }
-            }
-
-            @keyframes slideIn {
-                from {
-                    transform: translateY(-100%);
-                    opacity: 0;
-                }
-
-                to {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-            }
-        </style>
 
         <div class="main">
             <div id="work" class="sections-wrap">
@@ -645,8 +743,6 @@
                                         </a>
                                     </div>
                                 </div>
-
-
                             </div>
                             <div class="card-backgrounds-group">
                                 <div class="background-wrap--item--portfolio">
@@ -675,39 +771,52 @@
                 <div class="w-layout-blockcontainer container w-container">
                     <div class="content-wrap is--home--about">
                         <!--parte letras-->
-                        <div class="w-layout-grid grid--12x is--about">
+                        <div
+                            class="w-layout-grid grid--12x is--about grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 md:p-6 lg:p-8 max-w-7xl mx-auto">
                             <div id="w-node-_3102e705-8863-6abf-6711-0a01aea273dc-681df34d"
-                                class="block---home--about--title is--top">
+                                class="block---home--about--title is--top flex items-center justify-center lg:justify-start">
                                 <div class="heading-wrap" translate="no">
-                                    <h2 id="title--about" class="heading-m">About</h2>
+                                    <h2 id="title--about"
+                                        class="heading-m text-3xl md:text-4xl lg:text-5xl font-bold text-white bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent animate-slide-in">
+                                        About
+                                    </h2>
                                 </div>
                             </div>
-                            <div id="w-node-f2932e3c-3160-f5ec-214d-d99b23e1b5cc-681df34d" class="card--home--about">
+                            <div id="w-node-f2932e3c-3160-f5ec-214d-d99b23e1b5cc-681df34d"
+                                class="card--home--about bg-white/5 backdrop-blur-lg border border-cyan-500/30 rounded-2xl p-6 hover:shadow-glow hover:-translate-y-1 transition-all duration-300">
                                 <div class="heading-wrap is--card--home--about">
-                                    <h3 class="heading-l is--card--home">1+</h3>
+                                    <h3
+                                        class="heading-l is--card--home text-4xl md:text-5xl font-extrabold text-cyan-400">
+                                        1+</h3>
                                 </div>
-                                <div class="paragraph-wrap is--card--home--about">
-                                    <div class="caption-m is--spaced">
+                                <div class="paragraph-wrap is--card--home--about mt-4">
+                                    <div class="caption-m is--spaced text-lg md:text-xl text-gray-200 leading-relaxed">
                                         Años<br />de experiencia
                                     </div>
                                 </div>
                             </div>
-                            <div id="w-node-_664beeec-5c81-0a73-b0e3-559fe2fcf9c8-681df34d" class="card--home--about">
+                            <div id="w-node-_664beeec-5c81-0a73-b0e3-559fe2fcf9c8-681df34d"
+                                class="card--home--about bg-white/5 backdrop-blur-lg border border-cyan-500/30 rounded-2xl p-6 hover:shadow-glow hover:-translate-y-1 transition-all duration-300">
                                 <div class="heading-wrap is--card--home--about">
-                                    <h3 class="heading-l is--card--home">17+</h3>
+                                    <h3
+                                        class="heading-l is--card--home text-4xl md:text-5xl font-extrabold text-cyan-400">
+                                        27+</h3>
                                 </div>
-                                <div class="paragraph-wrap is--card--home--about">
-                                    <div class="caption-m is--spaced">
+                                <div class="paragraph-wrap is--card--home--about mt-4">
+                                    <div class="caption-m is--spaced text-lg md:text-xl text-gray-200 leading-relaxed">
                                         Proyectos<br />Entregados
                                     </div>
                                 </div>
                             </div>
-                            <div id="w-node-_70b74e2f-afe8-f427-5dbc-00ed1a2cc756-681df34d" class="card--home--about">
+                            <div id="w-node-_70b74e2f-afe8-f427-5dbc-00ed1a2cc756-681df34d"
+                                class="card--home--about bg-white/5 backdrop-blur-lg border border-cyan-500/30 rounded-2xl p-6 hover:shadow-glow hover:-translate-y-1 transition-all duration-300">
                                 <div class="heading-wrap is--card--home--about">
-                                    <h3 class="heading-l is--card--home">7+</h3>
+                                    <h3
+                                        class="heading-l is--card--home text-4xl md:text-5xl font-extrabold text-cyan-400">
+                                        17+</h3>
                                 </div>
-                                <div class="paragraph-wrap is--card--home--about">
-                                    <div class="caption-m is--spaced">
+                                <div class="paragraph-wrap is--card--home--about mt-4">
+                                    <div class="caption-m is--spaced text-lg md:text-xl text-gray-200 leading-relaxed">
                                         Clientes<br />locales
                                     </div>
                                 </div>
@@ -722,25 +831,15 @@
                             </div>
                             <div id="w-node-_1e9593a6-cadf-4ea2-439a-8c3e5a314894-681df34d"
                                 class="paragraph-wrap text-color--main--white">
-                                <p id="paragraph--about" class="caption-l is--about--paragraph">Soy Joel Andrés, un
-                                    estudiante de Ingeniería de Sistemas con enfoque integral en desarrollo de software
-                                    y
-                                    diseño digital. Me especializo en el desarrollo y diseño de código utilizando
-                                    diferentes
-                                    lenguajes de programación y herramientas modernas. Mi experiencia abarca desde el
-                                    desarrollo Full-Stack
-                                    aplicaciones móviles, aplicaciones Windows con .NET Framework y diseño web.
-                                    Framework, y diseño web. Además, tengo una sólida formación en bases de datos
-                                    programación orientada a objetos, diseño gráfico y renderización de vídeo.
-                                    Mi lema, «Eficiencia y Modernidad», refleja mi compromiso con la creación de
-                                    aplicaciones innovadoras,
-                                    innovadoras, de alto rendimiento y con estilo. Estoy constantemente perfeccionando
-                                    mis
-                                    conocimientos para ofrecer productos que combinen a la perfección funcionalidad y
-                                    estética.
-                                    Además, tengo experiencia en el campo de la ciberseguridad y la electrónica, lo que
-                                    me permite abordar los proyectos de forma integral, garantizando la calidad y la
-                                    calidad y seguridad en todas las fases de desarrollo.</p>
+                                <p id="paragraph--about" class="caption-l is--about--paragraph">Soy Joel Andrés,
+                                    fundador de Ark Dev, un equipo dedicado a crear soluciones tecnológicas modernas,
+                                    eficientes y seguras.
+                                    Estudiante de Ingeniería de Sistemas con enfoque en desarrollo Full-Stack,
+                                    aplicaciones .NET, diseño web, bases de datos y ciberseguridad.
+                                    Combino tecnología, diseño y funcionalidad para desarrollar productos con alto
+                                    rendimiento y estilo.
+                                    En Ark Dev, trabajamos con pasión e innovación para llevar cada proyecto al
+                                    siguiente nivel.</p>
                             </div>
                             <button class="button">
                                 <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -751,17 +850,6 @@
                                 </svg>
                                 <a href="cv.html">
                                     <span>Mi Perfil</span>
-                                </a>
-                            </button>
-                            <button class="button">
-                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 0h24v24H0z" fill="none"></path>
-                                    <path
-                                        d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
-                                        fill="currentColor"></path>
-                                </svg>
-                                <a href="windows.html">
-                                    <span>Nuevo ArkOS</span>
                                 </a>
                             </button>
                             <style>
@@ -782,8 +870,7 @@
                                 class="block---home--about--title">
                                 <div id="subtitle--about--testimonials"
                                     class="caption-m is--spaced text-color--secondary--white-60" translate="no">..<>
-                                        /Aprendizaje
-                                        Desarrollo digital integral</div>
+                                        /Learning...</div>
                             </div>
                             <div id="w-node-_74da7fa9-dd9d-2897-b378-ea4937b8de0a-681df34d" class="slider-wrap">
                                 <div class="slider swiper">
@@ -963,10 +1050,9 @@
                             <div id="w-node-_61ef70b6-e71d-e6bb-cf28-e8fb5c9bc55c-681df34d"
                                 class="paragraph-wrap is--home--services text-color--secondary--white-60"
                                 translate="no">
-                                <p id="paragraph--services" class="caption-l is--services--paragraph">La innovación y la
-                                    automatización optimizan la productividad con inteligencia artificial, tecnología
-                                    avanzada
-                                    flexibilidad y eficiencia para el futuro.</p>
+                                <p id="paragraph--services" class="caption-l is--services--paragraph">Impulsamos el
+                                    futuro con innovación, automatización e inteligencia artificial para una
+                                    productividad ágil, eficiente y moderna.</p>
                             </div>
                         </div>
                         <div class="w-layout-grid grid--12x is--services">
@@ -1367,7 +1453,7 @@
         </div>
         <div class="nav-wrap" translate="no">
             <div class="nav is--disabled">
-                <a href="/cv.html" class="text-link--menu">Perfil
+                <a href="/cv.html" class="text-link--menu">Profile
                 </a>
                 <a href="#work" class="text-link--menu">Work</a>
                 <a href="#about" class="text-link--menu">About</a>
