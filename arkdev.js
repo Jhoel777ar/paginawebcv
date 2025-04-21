@@ -1,104 +1,243 @@
 (function () {
     'use strict';
+
+    /**
+     * ArkDev configuration object
+     * @typedef {Object} ArkDevConfig
+     * @property {string} version - Version of the script
+     * @property {string} platform - Platform description
+     * @property {string} developer - Developer name
+     * @property {string} website - Developer website
+     * @property {string} contact - Contact email
+     * @property {string} timestamp - ISO timestamp
+     * @property {string} hash - Script integrity hash
+     */
     const ArkDev = Object.freeze({
-        version: "4.0.0",
-        platform: "Ark Dev | Ecommerce Page Web",
-        developer: "Developed by ArkDev System",
-        website: "https://arkdev.pages.dev",
-        contact: "contact@ajoeark@gmail.com",
-        timestamp: new Date().toISOString()
+        version: '5.0.0',
+        platform: 'ArkDev | Advanced Ecommerce Solutions',
+        developer: 'Developed by ArkDev System',
+        website: 'https://arkdev.pages.dev',
+        contact: 'contact@ajoeark@gmail.com',
+        timestamp: new Date().toISOString(),
+        hash: 'sha256-arkdev-5.0.0' 
     });
+    // Define ArkDev as a non-writable, non-configurable global property
     Object.defineProperty(window, 'ArkDev', {
         value: ArkDev,
         writable: false,
         configurable: false,
         enumerable: false
     });
-    const styles = {
+    // Console styles for watermark
+    const consoleStyles = {
         header: `
             color: #ffffff;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 12px 18px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 14px 20px;
             font-size: 16px;
-            font-weight: bold;
-            border-radius: 6px 6px 0 0;
-            font-family: monospace;
-            text-shadow: 0 1px 3px rgba(255,255,255,0.2);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+            border-radius: 8px 8px 0 0;
+            font-family: 'Inter', monospace;
+            text-shadow: 0 1px 4px rgba(255,255,255,0.3);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4);
         `,
         info: `
-            color: #00ffcc;
-            background: #1a1a1a;
-            padding: 8px 18px;
+            color: #a5f3fc;
+            background: #1e1e1e;
+            padding: 10px 20px;
             font-size: 14px;
-            font-family: monospace;
+            font-family: 'Inter', monospace;
         `,
         link: `
-            color: #00b7ff;
-            background: #1a1a1a;
-            padding: 8px 18px;
+            color: #3b82f6;
+            background: #1e1e1e;
+            padding: 10px 20px;
             font-size: 14px;
             text-decoration: underline;
-            font-family: monospace;
-            border-radius: 0 0 6px 6px;
+            font-family: 'Inter', monospace;
+            border-radius: 0 0 8px 8px;
+        `,
+        warning: `
+            color: #f87171;
+            background: #1e1e1e;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-family: 'Inter', monospace;
         `
     };
-    function displayDeveloperMark() {
+
+    // UI watermark styles (Tailwind CSS classes)
+    const uiWatermarkStyles = `
+        fixed bottom-4 right-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white
+        px-4 py-2 rounded-lg shadow-lg text-sm font-semibold
+        transition-all duration-300 hover:scale-105 z-50
+        dark:from-gray-800 dark:to-gray-900 dark:text-gray-200
+    `;
+    /**
+     * Displays the developer watermark in the console
+     */
+    function displayConsoleWatermark() {
         try {
             console.groupCollapsed(
                 `%c${ArkDev.developer} - v${ArkDev.version}`,
-                styles.header
+                consoleStyles.header
             );
-            console.log(
-                `%c${ArkDev.platform}`,
-                styles.info
-            );
-            console.log(
-                `%c🌐 ${ArkDev.website}`,
-                styles.link
-            );
-            console.log(
-                `%c📧 ${ArkDev.contact}`,
-                styles.info
-            );
-            console.log(
-                `%c🕒 ${ArkDev.timestamp}`,
-                styles.info
-            );
+            console.log(`%c${ArkDev.platform}`, consoleStyles.info);
+            console.log(`%c🌐 ${ArkDev.website}`, consoleStyles.link);
+            console.log(`%c📧 ${ArkDev.contact}`, consoleStyles.info);
+            console.log(`%c🕒 ${ArkDev.timestamp}`, consoleStyles.info);
             console.groupEnd();
         } catch (error) {
-            console.warn('ArkDev mark failed to display:', error);
+            console.warn('ArkDev watermark failed to display:', error);
         }
     }
-    function protectScript() {
+
+    /**
+     * Injects a UI watermark badge into the DOM
+     */
+    function injectUIWatermark() {
+        if (document.getElementById('arkdev-watermark')) return;
+
+        const watermark = document.createElement('a');
+        watermark.id = 'arkdev-watermark';
+        watermark.href = ArkDev.website;
+        watermark.target = '_blank';
+        watermark.className = uiWatermarkStyles;
+        watermark.textContent = `Built by ${ArkDev.developer}`;
+        watermark.title = `ArkDev v${ArkDev.version}`;
+        document.body.appendChild(watermark);
+        watermark.style.opacity = '0';
+        setTimeout(() => {
+            watermark.style.opacity = '1';
+        }, 100);
+    }
+
+    /**
+     * Verifies script integrity
+     * @returns {boolean} True if script is intact
+     */
+    function verifyScriptIntegrity() {
         const scriptElement = document.querySelector('script[src*="arkdev.js"]');
         if (!scriptElement) {
-            console.error('ArkDev script not detected!');
-            displayDeveloperMark(); 
+            console.error('%cArkDev script not detected!', consoleStyles.warning);
+            displayConsoleWatermark();
+            injectUIWatermark();
             return false;
         }
+        // Placeholder for hash verification (requires server-side hash generation)
         return true;
     }
-    if (!window._arkDevLoaded) {
+
+    /**
+     * Detects developer tools usage
+     */
+    function detectDevTools() {
+        let devToolsOpen = false;
+        const threshold = 160;
+
+        const checkDevTools = () => {
+            if (
+                window.outerWidth - window.innerWidth > threshold ||
+                window.outerHeight - window.innerHeight > threshold
+            ) {
+                if (!devToolsOpen) {
+                    devToolsOpen = true;
+                    console.warn(
+                        '%cArkDev: Developer tools detected. Respect the watermark!',
+                        consoleStyles.warning
+                    );
+                    injectUIWatermark();
+                }
+            } else {
+                devToolsOpen = false;
+            }
+        };
+
+        window.addEventListener('resize', checkDevTools);
+        checkDevTools();
+    }
+    /**
+     * Tracks usage analytics (in-memory, no file I/O)
+     */
+    const analytics = {
+        pageLoads: 0,
+        tamperAttempts: 0,
+        lastLoad: Date.now(),
+        incrementPageLoad() {
+            this.pageLoads++;
+            this.lastLoad = Date.now();
+        },
+        incrementTamperAttempt() {
+            this.tamperAttempts++;
+            console.warn(
+                `%cArkDev: Tamper attempt detected (${this.tamperAttempts})`,
+                consoleStyles.warning
+            );
+        },
+        getStats() {
+            return {
+                pageLoads: this.pageLoads,
+                tamperAttempts: this.tamperAttempts,
+                lastLoad: new Date(this.lastLoad).toISOString()
+            };
+        }
+    };
+    /**
+     * Debounced mutation observer to detect script removal
+     */
+    function setupTamperProtection() {
+        let timeout;
+        const observer = new MutationObserver((mutations) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                if (!document.querySelector('script[src*="arkdev.js"]')) {
+                    analytics.incrementTamperAttempt();
+                    console.error('%cArkDev script was removed!', consoleStyles.warning);
+                    displayConsoleWatermark();
+                    injectUIWatermark();
+                }
+            }, 500);
+        });
+
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+        });
+
+        return observer;
+    }
+    /**
+     * Initializes the ArkDev script
+     */
+    function initialize() {
+        if (window._arkDevLoaded) return;
         window._arkDevLoaded = true;
+
+        analytics.incrementPageLoad();
         setTimeout(() => {
-            if (protectScript()) {
-                displayDeveloperMark();
+            if (verifyScriptIntegrity()) {
+                displayConsoleWatermark();
+                injectUIWatermark();
+                detectDevTools();
+                setupTamperProtection();
             }
         }, 1000);
-        const observer = new MutationObserver((mutations) => {
-            if (!document.querySelector('script[src*="arkdev.js"]')) {
-                console.error('ArkDev script was removed!');
-                displayDeveloperMark();
-            }
-        });
-        observer.observe(document.documentElement, { childList: true, subtree: true });
     }
     Object.defineProperty(window, 'getArkDevInfo', {
-        value: () => ({ ...ArkDev }),
+        value: () => ({
+            ...ArkDev,
+            analytics: analytics.getStats(),
+            customizeWatermark: (options) => {
+                const watermark = document.getElementById('arkdev-watermark');
+                if (watermark && options) {
+                    if (options.text) watermark.textContent = options.text;
+                    if (options.classes) watermark.className = options.classes;
+                }
+            }
+        }),
         writable: false,
         configurable: false,
         enumerable: false
     });
-
+    initialize();
 })();
