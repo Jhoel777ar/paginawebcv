@@ -102,44 +102,44 @@
         // Apply Tailwind CSS classes for styling and animations
         watermark.className = `
             fixed bottom-4 right-4 z-50
-            text-white text-lg font-bold font-['Inter']
-            px-6 py-3 rounded-xl
-            bg-gradient-to-r from-white/10 to-white/5
-            backdrop-blur-md border border-white/20
-            shadow-[0_4px_15px_rgba(255,255,255,0.1)]
-            animate-fade-in
-            sm:text-base sm:px-4 sm:py-2
-            md:text-lg md:px-6 md:py-3
+            text-white text-sm font-bold font-['Orbitron']
+            px-4 py-1.5 rounded-lg
+            bg-white/10 backdrop-blur-md
+            border border-white/20
+            shadow-[0_2px_10px_rgba(255,255,255,0.05)]
+            animate-slide-in
+            sm:text-xs sm:px-3 sm:py-1
+            md:text-sm md:px-4 md:py-1.5
         `;
 
         // Append to body
         document.body.appendChild(watermark);
 
-        // Fade out and remove after 3 seconds
+        // Slide out and remove after 2 seconds
         setTimeout(() => {
-            watermark.classList.remove('animate-fade-in');
-            watermark.classList.add('animate-fade-out');
+            watermark.classList.remove('animate-slide-in');
+            watermark.classList.add('animate-slide-out');
             setTimeout(() => {
                 watermark.remove();
-            }, 500); // Match fade-out duration
-        }, 3000);
+            }, 400); // Match slide-out duration
+        }, 2000);
 
         // Add keyframes for animations
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(10px); }
-                to { opacity: 1; transform: translateY(0); }
+            @keyframes slideIn {
+                from { opacity: 0; transform: translateX(20px); }
+                to { opacity: 1; transform: translateX(0); }
             }
-            @keyframes fadeOut {
-                from { opacity: 1; transform: translateY(0); }
-                to { opacity: 0; transform: translateY(10px); }
+            @keyframes slideOut {
+                from { opacity: 1; transform: translateX(0); }
+                to { opacity: 0; transform: translateX(20px); }
             }
-            .animate-fade-in {
-                animation: fadeIn 0.5s ease-out forwards;
+            .animate-slide-in {
+                animation: slideIn 0.4s ease-out forwards;
             }
-            .animate-fade-out {
-                animation: fadeOut 0.5s ease-out forwards;
+            .animate-slide-out {
+                animation: slideOut 0.4s ease-out forwards;
             }
         `;
         document.head.appendChild(style);
