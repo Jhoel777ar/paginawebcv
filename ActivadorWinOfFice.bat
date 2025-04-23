@@ -42,16 +42,6 @@
 ::  If you want to better understand script, read from MAS separate files version. 
 
 
-
-::============================================================================
-::
-::   Homepage: mass<>grave<.>dev
-::      Email: mas.help@outlook.com
-::
-::============================================================================
-
-
-
 ::========================================================================================================================================
 
 ::  Set environment variables, it helps if they are misconfigured in the system
