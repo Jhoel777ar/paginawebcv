@@ -396,8 +396,8 @@
                     }
 
                     function drawLasers() {
-    const { maxIntensity } = getFrequencyData();
-    if (maxIntensity > 254) {
+    const { lowAvg } = getFrequencyData();
+    if (lowAvg > 120) { 
         const startX = Math.random() * canvas.width / window.devicePixelRatio;
         const startY = Math.random() * canvas.height / window.devicePixelRatio;
         const endX = Math.random() * canvas.width / window.devicePixelRatio;
@@ -405,14 +405,15 @@
         ctx.beginPath();
         ctx.moveTo(startX, startY);
         ctx.lineTo(endX, endY);
-        ctx.strokeStyle = getLaserColor(maxIntensity);
-        ctx.lineWidth = (maxIntensity / 255) * 1.5 + 1;
+        ctx.strokeStyle = getLaserColor(lowAvg); 
+        ctx.lineWidth = (lowAvg / 255) * 1.5 + 1; 
         ctx.shadowBlur = 15;
         ctx.shadowColor = ctx.strokeStyle;
         ctx.stroke();
         ctx.shadowBlur = 0;
     }
-} 
+}
+                    
                     function drawPulsatingOrbs() {
                         const { lowAvg } = getFrequencyData();
                         const centerX = canvas.width / 2 / window.devicePixelRatio;
