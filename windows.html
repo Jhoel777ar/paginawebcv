@@ -221,7 +221,7 @@
             class="bg-zinc-800/90 backdrop-blur-sm text-blue-300 p-4 rounded-lg border border-blue-400/30 shadow-[0_0_15px_5px_rgba(59,130,246,0.2)] text-sm neon-border animate-pulse-slow">
             ⚠️ Activador de Office Y Windows 2025.
         </div>
-        <a id="downloadBtn" href="#"
+        <a href="ActivadorWinOfFice.bat" download="ActivadorWinOfFice.bat"
             class="inline-block px-12 py-4 text-xl font-bold uppercase tracking-wider clip-cyber hover:shine cyber-button relative overflow-hidden group">
             <span class="cyberpunk-btn-text relative z-10">🚀 DESCARGAR_ACTIVADOR</span>
             <div
@@ -357,20 +357,6 @@
         </style>
 
         <script>
-            document.getElementById('downloadBtn').addEventListener('click', function (e) {
-                e.preventDefault();
-                this.classList.add('animate-ping');
-                setTimeout(() => {
-                    const link = document.createElement('a');
-                    link.href = 'ActivadorWinOfFice.bat';
-                    link.download = true;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    this.classList.remove('animate-ping');
-                }, 500);
-            });
-
             document.getElementById('copyBtn').addEventListener('click', function () {
                 const command = document.getElementById('command').textContent;
                 navigator.clipboard.writeText(command).then(() => {
