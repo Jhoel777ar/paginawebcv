@@ -216,7 +216,7 @@
                 (function () {
                     const tracks = [
                         { title: 'Ark Dev Intro Remix', file: 'arkaudio.mp3' },
-                        { title: 'Dedicated', file: 'e1.mp3' },
+                        { title: 'Dedicated ✨', file: 'e1.mp3' },
                         { title: '1527', file: 'e2.mp3' },
                         { title: 'Track 1', file: 'm1.mp3' },
                         { title: 'Track 2', file: 'm2.mp3' },
@@ -330,7 +330,7 @@
 
                     function initParticles() {
                         particles = [];
-                        for (let i = 0; i < 30; i++) {
+                        for (let i = 0; i < 50; i++) {
                             particles.push({
                                 x: Math.random() * canvas.width / window.devicePixelRatio,
                                 y: Math.random() * canvas.height / window.devicePixelRatio,
@@ -396,26 +396,23 @@
                     }
 
                     function drawLasers() {
-                        const { maxIntensity } = getFrequencyData();
-                        if (maxIntensity > 254) {
-                            for (let i = 0; i < 2; i++) {
-                                const startX = Math.random() * canvas.width / window.devicePixelRatio;
-                                const startY = Math.random() * canvas.height / window.devicePixelRatio;
-                                const endX = Math.random() * canvas.width / window.devicePixelRatio;
-                                const endY = Math.random() * canvas.height / window.devicePixelRatio;
-                                ctx.beginPath();
-                                ctx.moveTo(startX, startY);
-                                ctx.lineTo(endX, endY);
-                                ctx.strokeStyle = getLaserColor(maxIntensity);
-                                ctx.lineWidth = (maxIntensity / 255) * 1.5 + 1;
-                                ctx.shadowBlur = 15;
-                                ctx.shadowColor = ctx.strokeStyle;
-                                ctx.stroke();
-                                ctx.shadowBlur = 0;
-                            }
-                        }
-                    }
-
+    const { maxIntensity } = getFrequencyData();
+    if (maxIntensity > 254) {
+        const startX = Math.random() * canvas.width / window.devicePixelRatio;
+        const startY = Math.random() * canvas.height / window.devicePixelRatio;
+        const endX = Math.random() * canvas.width / window.devicePixelRatio;
+        const endY = Math.random() * canvas.height / window.devicePixelRatio;
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.strokeStyle = getLaserColor(maxIntensity);
+        ctx.lineWidth = (maxIntensity / 255) * 1.5 + 1;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = ctx.strokeStyle;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+    }
+} 
                     function drawPulsatingOrbs() {
                         const { lowAvg } = getFrequencyData();
                         const centerX = canvas.width / 2 / window.devicePixelRatio;
