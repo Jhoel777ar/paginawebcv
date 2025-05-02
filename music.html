@@ -17,6 +17,7 @@
     <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 
 <body class="min-h-full bg-[#0a0a12] overflow-x-hidden">
@@ -170,6 +171,7 @@
         <section id="musicPlayerSection" class="cyberpunk-gradient">
             <div id="player-container" class="holographic-border">
                 <canvas id="effectCanvas"></canvas>
+                <div id="particles-js" class="particles-container"></div>
                 <div class="content cyberpunk-panel">
                     <div class="controls-container">
                         <div class="track-info">
@@ -212,6 +214,7 @@
                     </div>
                 </div>
             </div>
+            <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
             <script>
                 (function () {
                     const tracks = [
@@ -249,6 +252,72 @@
                     let particles = [];
                     let shards = [];
                     let clickParticles = [];
+                    function initParticlesJS() {
+                        particlesJS('particles-js', {
+                            particles: {
+                                number: { value: 80, density: { enable: true, value_area: 800 } },
+                                color: { value: "#ffffff" }, 
+                                shape: { type: ["circle", "edge"] },
+                                opacity: { value: 0.3, random: true }, 
+                                size: { value: 4, random: true },
+                                line_linked: {
+                                    enable: true,
+                                    distance: 100,
+                                    color: "#ffffff",
+                                    opacity: 0.2, 
+                                    width: 1
+                                },
+                                move: {
+                                    enable: true,
+                                    speed: 0.5,
+                                    direction: "none",
+                                    random: true,
+                                    out_mode: "bounce"
+                                }
+                            },
+                            interactivity: {
+                                events: {
+                                    onhover: { enable: true, mode: "grab" },
+                                    onclick: { enable: true, mode: "push" }
+                                },
+                                modes: {
+                                    grab: { distance: 120, line_linked: { opacity: 0.4 } },
+                                    push: { particles_nb: 2 }
+                                }
+                            },
+                            retina_detect: true
+                        });
+
+                        setInterval(() => {
+                            const { lowAvg } = getFrequencyData();
+                            const bassThreshold = 150; 
+                            let speed = 0.5; 
+                            let size = 4;
+                            let opacity = 0;
+                            let color = "#ffffff";
+                            let lineColor = "#ffffff";
+                            let lineOpacity = 0.2;
+
+                            if (lowAvg > bassThreshold) {
+                                speed = 2 + (lowAvg / 255) * 8; 
+                                size = 4 + (lowAvg / 255) * 4; 
+                                opacity = 0.3 + (lowAvg / 255) * 0.3; 
+                                color = lowAvg > 200 ? "#d1d5db" : "#ffffff";
+                                lineColor = lowAvg > 200 ? "#d1d5db" : "#ffffff";
+                                lineOpacity = 0.2 + (lowAvg / 255) * 0.2;
+                            }
+
+                            if (pJSDom && pJSDom[0] && pJSDom[0].pJS) {
+                                pJSDom[0].pJS.particles.move.speed = speed;
+                                pJSDom[0].pJS.particles.size.value = size;
+                                pJSDom[0].pJS.particles.opacity.value = opacity;
+                                pJSDom[0].pJS.particles.color.value = color;
+                                pJSDom[0].pJS.particles.line_linked.color = lineColor;
+                                pJSDom[0].pJS.particles.line_linked.opacity = lineOpacity;
+                                pJSDom[0].pJS.fn.particlesRefresh();
+                            }
+                        }, 100);
+                    }
 
                     async function preloadTracks() {
                         loadingIndicator.classList.remove('hidden');
@@ -285,10 +354,10 @@
 
                     function resizeCanvas() {
                         const playerContainer = document.getElementById('player-container');
-                        canvas.width = playerContainer.offsetWidth * window.devicePixelRatio;
-                        canvas.height = playerContainer.offsetHeight * window.devicePixelRatio;
-                        canvas.style.width = playerContainer.offsetWidth + 'px';
-                        canvas.style.height = playerContainer.offsetHeight + 'px';
+                        canvas.width = window.innerWidth * window.devicePixelRatio;
+                        canvas.height = window.innerHeight * window.devicePixelRatio;
+                        canvas.style.width = window.innerWidth + 'px';
+                        canvas.style.height = window.innerHeight + 'px';
                         ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
                         initParticles();
                         initShards();
@@ -396,24 +465,24 @@
                     }
 
                     function drawLasers() {
-    const { lowAvg } = getFrequencyData();
-    if (lowAvg > 150) { 
-        const startX = Math.random() * canvas.width / window.devicePixelRatio;
-        const startY = Math.random() * canvas.height / window.devicePixelRatio;
-        const endX = Math.random() * canvas.width / window.devicePixelRatio;
-        const endY = Math.random() * canvas.height / window.devicePixelRatio;
-        ctx.beginPath();
-        ctx.moveTo(startX, startY);
-        ctx.lineTo(endX, endY);
-        ctx.strokeStyle = getLaserColor(lowAvg); 
-        ctx.lineWidth = (lowAvg / 255) * 1.5 + 1; 
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = ctx.strokeStyle;
-        ctx.stroke();
-        ctx.shadowBlur = 0;
-    }
-}
-                    
+                        const { lowAvg } = getFrequencyData();
+                        if (lowAvg > 167) {
+                            const startX = Math.random() * canvas.width / window.devicePixelRatio;
+                            const startY = Math.random() * canvas.height / window.devicePixelRatio;
+                            const endX = Math.random() * canvas.width / window.devicePixelRatio;
+                            const endY = Math.random() * canvas.height / window.devicePixelRatio;
+                            ctx.beginPath();
+                            ctx.moveTo(startX, startY);
+                            ctx.lineTo(endX, endY);
+                            ctx.strokeStyle = getLaserColor(lowAvg);
+                            ctx.lineWidth = (lowAvg / 255) * 1.5 + 1;
+                            ctx.shadowBlur = 15;
+                            ctx.shadowColor = ctx.strokeStyle;
+                            ctx.stroke();
+                            ctx.shadowBlur = 0;
+                        }
+                    }
+
                     function drawPulsatingOrbs() {
                         const { lowAvg } = getFrequencyData();
                         const centerX = canvas.width / 2 / window.devicePixelRatio;
@@ -605,6 +674,18 @@
                         }
                     }
 
+                    function drawDynamicGlow() {
+                        const { lowAvg } = getFrequencyData();
+                        const glowIntensity = Math.min(lowAvg / 255, 0.5);
+                        document.querySelectorAll('.cyber-button').forEach(button => {
+                            button.style.boxShadow = `0 0 ${20 * glowIntensity}px rgba(0, 255, 255, ${glowIntensity}),
+                                              0 0 ${40 * glowIntensity}px rgba(255, 0, 255, ${glowIntensity * 0.7})`;
+                        });
+                        const controlsContainer = document.querySelector('.controls-container');
+                        controlsContainer.style.boxShadow = `0 0 ${30 * glowIntensity}px rgba(0, 255, 255, ${glowIntensity}),
+                                                    inset 0 0 ${15 * glowIntensity}px rgba(0, 255, 255, ${glowIntensity * 0.5})`;
+                    }
+
                     function drawBackgroundGradient() {
                         const { lowAvg } = getFrequencyData();
                         const gradient = ctx.createRadialGradient(
@@ -647,6 +728,7 @@
                         drawStrobeFlashes();
                         drawClickParticles();
                         drawTrackAnnouncement();
+                        drawDynamicGlow();
                         const { maxIntensity } = getFrequencyData();
                         document.getElementById('player-container').style.borderColor = getLaserColor(maxIntensity);
                         document.querySelector('.controls-container').style.borderColor = getLaserColor(maxIntensity);
@@ -734,6 +816,7 @@
                     try {
                         initParticles();
                         initShards();
+                        initParticlesJS();
                         updateTrackInfo();
                         preloadTracks().then(() => {
                             audio.load();
@@ -751,39 +834,33 @@
                 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
                 .cyberpunk-gradient {
-                    width: 100%;
-                    height: 80vh;
+                    width: 100vw;
+                    height: 100vh;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     background: radial-gradient(circle at center,
-                            rgba(10, 10, 20, 0.95) 0%,
-                            rgba(0, 0, 10, 0.98) 70%,
+                            rgba(10, 10, 30, 0.85) 0%,
+                            rgba(0, 0, 20, 0.9) 60%,
                             rgba(0, 0, 0, 1) 100%);
                     overflow: hidden;
                     position: relative;
-                    border-radius: 16px;
-                    box-shadow: 0 0 50px rgba(0, 255, 255, 0.1);
+                    margin: 0;
+                    padding: 0;
+                    box-shadow: 0 0 60px rgba(0, 255, 255, 0.15), 0 0 30px rgba(255, 0, 255, 0.1);
                 }
 
                 .holographic-border {
                     position: relative;
-                    width: 90%;
-                    max-width: 1200px;
-                    height: 90%;
-                    border: 2px solid rgba(0, 255, 255, 0.4);
-                    border-radius: 16px;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
                     overflow: hidden;
-                    box-shadow:
-                        0 0 20px rgba(0, 255, 255, 0.3),
-                        0 0 40px rgba(255, 0, 255, 0.2),
-                        inset 0 0 15px rgba(0, 255, 255, 0.2);
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: rgba(0, 0, 0, 0.3);
-                    backdrop-filter: blur(5px);
-                    position: relative;
+                    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+                    backdrop-filter: blur(8px);
                 }
 
                 #effectCanvas {
@@ -791,6 +868,19 @@
                     height: 100%;
                     z-index: 0;
                     pointer-events: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                .particles-container {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                    pointer-events: auto;
+                    top: 0;
+                    left: 0;
                 }
 
                 .content {
@@ -798,21 +888,24 @@
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    z-index: 1;
+                    z-index: 2;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    padding: 1.5rem;
-                    border-radius: 12px;
-                    background: rgba(0, 0, 0, 0.1);
-                    backdrop-filter: blur(12px);
+                    padding: 2rem;
+                    border-radius: 16px;
+                    background: rgba(0, 0, 0, 0.05);
+                    backdrop-filter: blur(15px);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
                     animation: popIn 0.8s ease-out;
+                    max-width: 90%;
+                    width: 600px;
                 }
 
                 @keyframes popIn {
                     0% {
-                        transform: scale(0.9) translate(-50%, -50%);
+                        transform: scale(0.85) translate(-50%, -50%);
                         opacity: 0;
                     }
 
@@ -824,39 +917,44 @@
 
                 .controls-container {
                     width: 100%;
-                    max-width: 600px;
+                    padding: 1.5rem;
+                    border: 2px solid rgba(0, 255, 255, 0.3);
+                    border-radius: 12px;
+                    background: rgba(0, 0, 0, 0.1);
+                    backdrop-filter: blur(10px);
+                    transition: box-shadow 0.2s ease;
                 }
 
                 .track-info {
-                    position: relative;
                     margin-bottom: 1.5rem;
                     padding: 0.8rem;
-                    border-bottom: 2px solid rgba(255, 0, 255, 0.2);
+                    border-bottom: 2px solid rgba(255, 0, 255, 0.25);
                     text-align: center;
                 }
 
                 .neon-text {
                     color: #ffffff;
                     font-family: 'Orbitron', sans-serif;
+                    font-size: 1.5rem;
                     text-shadow:
-                        0 0 8px rgba(0, 255, 255, 0.9),
-                        0 0 16px rgba(255, 0, 255, 0.7),
-                        0 0 24px rgba(0, 255, 255, 0.5);
-                    animation: text-glow 1.5s ease-in-out infinite alternate;
+                        0 0 10px rgba(0, 255, 255, 1),
+                        0 0 20px rgba(255, 0, 255, 0.8),
+                        0 0 30px rgba(0, 255, 255, 0.6);
+                    animation: text-glow 1.2s ease-in-out infinite alternate;
                 }
 
                 @keyframes text-glow {
                     from {
-                        text-shadow: 0 0 8px rgba(0, 255, 255, 0.9), 0 0 16px rgba(255, 0, 255, 0.7);
+                        text-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(255, 0, 255, 0.8);
                     }
 
                     to {
-                        text-shadow: 0 0 12px rgba(0, 255, 255, 1), 0 0 24px rgba(255, 0, 255, 0.9);
+                        text-shadow: 0 0 15px rgba(0, 255, 255, 1), 0 0 30px rgba(255, 0, 255, 0.9);
                     }
                 }
 
                 .glitch {
-                    animation: glitch-effect 2.5s infinite;
+                    animation: glitch-effect 2s infinite;
                 }
 
                 @keyframes glitch-effect {
@@ -865,11 +963,11 @@
                     }
 
                     10% {
-                        transform: translate(-1px, 1px);
+                        transform: translate(-2px, 2px);
                     }
 
                     20% {
-                        transform: translate(1px, -1px);
+                        transform: translate(2px, -2px);
                     }
 
                     30% {
@@ -881,28 +979,14 @@
                     }
                 }
 
-                .visualizer-mode {
-                    position: absolute;
-                    right: 1rem;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    padding: 6px 12px;
-                    background: rgba(255, 0, 255, 0.15);
-                    border-radius: 4px;
-                    border: 1px solid rgba(255, 0, 255, 0.4);
-                    color: #ffffff;
-                    font-family: 'Orbitron', sans-serif;
-                    font-size: 0.875rem;
-                }
-
                 .cyber-button {
                     padding: 1.2rem;
                     background: linear-gradient(145deg,
-                            rgba(0, 255, 255, 0.2) 0%,
-                            rgba(255, 0, 255, 0.2) 100%);
-                    border: 2px solid rgba(0, 255, 255, 0.4);
-                    border-radius: 10px;
-                    backdrop-filter: blur(8px);
+                            rgba(0, 255, 255, 0.25) 0%,
+                            rgba(255, 0, 255, 0.25) 100%);
+                    border: 2px solid rgba(0, 255, 255, 0.5);
+                    border-radius: 12px;
+                    backdrop-filter: blur(10px);
                     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     position: relative;
                     overflow: hidden;
@@ -910,20 +994,20 @@
                 }
 
                 .cyber-button:hover {
-                    transform: scale(1.05);
+                    transform: scale(1.08);
                     background: linear-gradient(145deg,
-                            rgba(0, 255, 255, 0.4) 0%,
-                            rgba(255, 0, 255, 0.4) 100%);
+                            rgba(0, 255, 255, 0.5) 0%,
+                            rgba(255, 0, 255, 0.5) 100%);
                     box-shadow:
-                        0 0 15px rgba(0, 255, 255, 0.5),
-                        0 0 30px rgba(255, 0, 255, 0.4);
+                        0 0 20px rgba(0, 255, 255, 0.6),
+                        0 0 40px rgba(255, 0, 255, 0.5);
                 }
 
                 .play-button {
-                    transform: scale(1.1);
+                    transform: scale(1.15);
                     background: linear-gradient(145deg,
-                            rgba(0, 255, 255, 0.3) 0%,
-                            rgba(255, 0, 255, 0.3) 100%);
+                            rgba(0, 255, 255, 0.4) 0%,
+                            rgba(255, 0, 255, 0.4) 100%);
                 }
 
                 .icon {
@@ -931,7 +1015,7 @@
                     height: 28px;
                     stroke-width: 1.5;
                     stroke: #ffffff;
-                    filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.9));
+                    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 1));
                 }
 
                 .progress-container {
@@ -955,12 +1039,12 @@
                 .hyper-slider {
                     -webkit-appearance: none;
                     width: 100%;
-                    height: 6px;
-                    background: rgba(255, 255, 255, 0.15);
-                    border-radius: 8px;
+                    height: 8px;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 10px;
                     background-image: linear-gradient(to right,
-                            rgba(0, 255, 255, 0.9),
-                            rgba(255, 0, 255, 0.9));
+                            rgba(0, 255, 255, 1),
+                            rgba(255, 0, 255, 1));
                     background-size: 0% 100%;
                     background-repeat: no-repeat;
                     transition: background 0.3s ease;
@@ -968,19 +1052,19 @@
 
                 .hyper-slider::-webkit-slider-thumb {
                     -webkit-appearance: none;
-                    width: 16px;
-                    height: 16px;
+                    width: 18px;
+                    height: 18px;
                     background: #ffffff;
                     border-radius: 50%;
                     box-shadow:
-                        0 0 12px rgba(0, 255, 255, 0.9),
-                        0 0 24px rgba(255, 0, 255, 0.7);
+                        0 0 15px rgba(0, 255, 255, 1),
+                        0 0 30px rgba(255, 0, 255, 0.8);
                     cursor: pointer;
                     transition: transform 0.2s ease;
                 }
 
                 .hyper-slider::-webkit-slider-thumb:hover {
-                    transform: scale(1.1);
+                    transform: scale(1.15);
                 }
 
                 .hidden {
@@ -1008,17 +1092,10 @@
                 }
 
                 @media (max-width: 768px) {
-                    .cyberpunk-gradient {
-                        height: 90vh;
-                    }
-
-                    .holographic-border {
-                        width: 95%;
-                        height: 95%;
-                    }
-
                     .content {
-                        padding: 1rem;
+                        padding: 1.5rem;
+                        width: 90%;
+                        max-width: 500px;
                     }
 
                     .cyber-button {
@@ -1034,13 +1111,18 @@
                         font-size: 1.2rem;
                     }
 
-                    .visualizer-mode {
-                        font-size: 0.75rem;
-                        padding: 4px 8px;
+                    .controls-container {
+                        padding: 1rem;
                     }
                 }
 
                 @media (max-width: 480px) {
+                    .content {
+                        padding: 1rem;
+                        width: 95%;
+                        max-width: 400px;
+                    }
+
                     .cyber-button {
                         padding: 0.8rem;
                     }
@@ -1061,6 +1143,10 @@
                     .space-x-6>*+* {
                         margin-left: 1rem;
                     }
+
+                    .controls-container {
+                        padding: 0.8rem;
+                    }
                 }
 
                 .loading-indicator {
@@ -1069,7 +1155,7 @@
                     font-size: 0.9rem;
                     text-align: center;
                     margin-top: 0.6rem;
-                    text-shadow: #ffff00;
+                    text-shadow: 0 0 5px #ffff00;
                 }
             </style>
         </section>
