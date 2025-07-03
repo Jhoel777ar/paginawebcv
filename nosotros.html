@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Ark Dev">
     <meta name="creator" content="Joel Andres">
-    <meta name="description"
-        content="Ark Dev - Innovación tecnológica desde La Paz, Bolivia. Desarrollo de software, ciberseguridad y soluciones modernas.">
+    <meta name="description" content="Ark Dev - Innovación tecnológica desde La Paz, Bolivia. Desarrollo de software, ciberseguridad y soluciones modernas.">
     <meta name="copyright" content="© 2025 Ark Dev. Todos los derechos reservados.">
     <title>Ark Dev - Innovación Tecnológica</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,38 +15,44 @@
             theme: {
                 extend: {
                     colors: {
-                        cyber: '#00cc88',
-                        plasma: '#5b00cc',
-                        dark: '#0d0d0d',
-                        neon: '#b8ff00',
-                        accent: '#1a1a1a',
+                        primary: '#050505',
+                        secondary: '#d0d0d0',
+                        accent: '#00b7ff',
+                        neutral: '#121212',
+                        highlight: '#f5f5f5',
+                        crystal: 'rgba(255, 255, 255, 0.08)',
                     },
                     fontFamily: {
-                        orbitron: ['Orbitron', 'sans-serif'],
-                        greatvibes: ['Great Vibes', 'cursive'],
+                        inter: ['Inter', 'sans-serif'],
                         roboto: ['Roboto', 'sans-serif'],
                     },
-                    backdropBlur: {
-                        '4xl': '72px',
-                        '5xl': '96px',
-                    },
                     animation: {
-                        'neon-pulse': 'neonPulse 2s ease-in-out infinite',
-                        'float': 'float 4s ease-in-out infinite',
-                        'fade-in': 'fadeIn 1s ease-out',
+                        'fade-in': 'fadeIn 1.2s ease-out',
+                        'float': 'float 2.8s ease-in-out infinite',
+                        'slide-in': 'slideIn 0.9s ease-out',
+                        'crystal-glow': 'crystalGlow 3s ease-in-out infinite',
+                        'pulse-scale': 'pulseScale 2s ease-in-out infinite',
                     },
                     keyframes: {
-                        neonPulse: {
-                            '0%, 100%': { opacity: '1', filter: 'brightness(100%)' },
-                            '50%': { opacity: '0.85', filter: 'brightness(130%)' },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(25px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
+                            '50%': { transform: 'translateY(-12px)' },
                         },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        slideIn: {
+                            '0%': { opacity: '0', transform: 'translateX(-25px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        crystalGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(0, 183, 255, 0.3)' },
+                            '50%': { boxShadow: '0 0 30px rgba(0, 183, 255, 0.5)' },
+                        },
+                        pulseScale: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
                         },
                     },
                 },
@@ -58,395 +62,226 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Great+Vibes&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .gradient-border {
-            background: linear-gradient(45deg, #0d0d0d, #0d0d0d) padding-box,
-                linear-gradient(90deg, #00cc88, #5b00cc, #b8ff00) border-box;
-            border: 2px solid transparent;
+        body {
+            background: #050505;
+            color: #d0d0d0;
+            overflow-x: hidden;
         }
-
-        .glass-effect {
-            background: rgba(13, 13, 13, 0.2);
-            backdrop-filter: blur(60px);
-            -webkit-backdrop-filter: blur(60px);
+        .crystal-effect {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 20px rgba(0, 183, 255, 0.2);
         }
-
-        .neon-glow {
-            box-shadow: 0 0 20px rgba(0, 204, 136, 0.4), 0 0 40px rgba(91, 0, 204, 0.2);
-        }
-
-        .particle-network {
-            background: radial-gradient(circle at center, rgba(91, 0, 204, 0.15) 0%, transparent 75%);
-        }
-
         .nav-bar {
-            background: rgba(13, 13, 13, 0.15);
-            backdrop-filter: blur(80px);
-            -webkit-backdrop-filter: blur(80px);
-            border-radius: 40px;
-            padding: 12px 24px;
-            box-shadow: 0 4px 25px rgba(0, 204, 136, 0.3);
+            background: rgba(5, 5, 5, 0.92);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 24px;
+            padding: 14px 28px;
+            box-shadow: 0 6px 25px rgba(0, 183, 255, 0.25);
         }
-
-        .video-wrapper {
-            transform: rotateY(4deg) rotateX(2deg);
-            transform-style: preserve-3d;
-            transition: transform 0.6s ease;
+        .card-hover {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-
-        .card-3d:hover {
-            transform: translateZ(40px) rotateY(8deg) scale(1.03);
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 183, 255, 0.4);
         }
-
-        @media (max-width: 768px) {
-            .video-wrapper {
-                transform: none;
-            }
-
-            .nav-bar {
-                flex-direction: column;
-                padding: 12px;
-                border-radius: 24px;
-            }
-
-            .nav-button {
-                margin: 6px 0;
-            }
+        .text-accent {
+            color: #00b7ff;
         }
-
-        @keyframes hologram {
-            0% {
-                filter: hue-rotate(0deg) brightness(100%);
-            }
-
-            50% {
-                filter: hue-rotate(90deg) brightness(120%);
-            }
-
-            100% {
-                filter: hue-rotate(0deg) brightness(100%);
-            }
+        .section-bg {
+            background: linear-gradient(180deg, #050505 0%, #121212 100%);
         }
-
-        .hologram-text {
-            animation: hologram 6s infinite linear;
+        .parallax-bg {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
-
+        .video-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+        .video-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 183, 255, 0.1), rgba(245, 245, 245, 0.05));
+            pointer-events: none;
+        }
         canvas {
             position: fixed;
             top: 0;
             left: 0;
             z-index: -1;
-            opacity: 0.7;
+            opacity: 0.4;
+        }
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                padding: 12px;
+                border-radius: 20px;
+            }
+            .nav-button {
+                margin: 5px 0;
+            }
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+        }
+        @supports (-webkit-touch-callout: none) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
         }
     </style>
 </head>
-
-<body class="bg-dark overflow-x-hidden font-roboto">
-    <div id="welcome-modal" class="fixed inset-0 flex items-center justify-center z-50 bg-black/90 backdrop-blur-5xl">
-        <div
-            class="glass-effect gradient-border p-12 rounded-3xl text-center max-w-md animate-fade-in space-y-6 neon-glow">
-            <h2
-                class="text-3xl font-orbitron bg-gradient-to-r from-cyber to-plasma bg-clip-text text-transparent hologram-text">
-                Bienvenido a Ark Dev</h2>
-            <p class="text-gray-300 text-sm">Elige tu experiencia:</p>
-            <div class="flex justify-center gap-4">
-                <button id="header-audio-on"
-                    class="px-6 py-3 rounded-full bg-gradient-to-br from-cyber/40 to-plasma/40 hover:from-cyber/60 hover:to-plasma/60 transition-all duration-300 neon-glow">
-                    <span
-                        class="bg-gradient-to-r from-cyber to-neon bg-clip-text text-transparent text-base font-orbitron">Con
-                        audio</span>
-                </button>
-                <button id="header-audio-off"
-                    class="px-6 py-3 rounded-full bg-gradient-to-br from-dark/40 to-dark/60 hover:from-dark/50 hover:to-dark/70 transition-all duration-300 border border-cyber/50">
-                    <span class="text-gray-200 text-base font-orbitron">Sin audio</span>
-                </button>
+<body class="font-inter">
+    <canvas id="particle-canvas"></canvas>
+    <div id="welcome-modal" class="fixed inset-0 flex items-center justify-center z-50 bg-primary/98">
+        <div class="crystal-effect p-12 rounded-3xl text-center max-w-lg animate-fade-in space-y-8 animate-crystal-glow">
+            <h2 class="text-4xl font-bold text-highlight">Bienvenido a Ark Dev</h2>
+            <p class="text-secondary text-base">Sumérgete en la innovación:</p>
+            <div class="flex justify-center gap-6">
+                <button id="header-audio-on" class="px-8 py-4 rounded-xl bg-accent/85 hover:bg-accent transition-all duration-400 text-primary font-semibold text-lg animate-pulse-scale">Con audio</button>
+                <button id="header-audio-off" class="px-8 py-4 rounded-xl bg-neutral hover:bg-neutral/85 transition-all duration-400 text-secondary font-semibold text-lg">Sin audio</button>
             </div>
         </div>
     </div>
-    <header class="relative h-screen overflow-hidden particle-network">
-        <video id="headerVideo" class="absolute inset-0 w-full h-full object-cover opacity-80" autoplay muted loop
-            playsinline>
+    <header class="relative h-screen overflow-hidden section-bg parallax-bg" style="background-image: url('src/header-bg.jpg');">
+        <video id="headerVideo" class="absolute inset-0 w-full h-full object-cover opacity-85 video-overlay" autoplay muted loop playsinline>
             <source src="src/videoarknwe.webm" type="video/webm">
         </video>
-        <div class="absolute bottom-12 right-12 z-30 flex gap-4">
-            <button id="header-audio-toggle"
-                class="audio-control hidden px-4 py-2 glass-effect rounded-full text-cyber neon-glow text-sm">🔇
-                Header</button>
-            <button id="promo-audio-toggle"
-                class="audio-control hidden px-4 py-2 glass-effect rounded-full text-cyber neon-glow text-sm">🔇
-                Promo</button>
+        <div class="absolute bottom-12 right-12 z-30 flex gap-6">
+            <button id="header-audio-toggle" class="audio-control hidden px-5 py-3 crystal-effect rounded-xl text-accent text-base animate-crystal-glow">🔇 Header</button>
+            <button id="promo-audio-toggle" class="audio-control hidden px-5 py-3 crystal-effect rounded-xl text-accent text-base animate-crystal-glow">🔇 Promo</button>
         </div>
     </header>
-    <nav
-        class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 nav-bar flex items-center justify-between max-w-4xl w-[95%] mx-auto">
-        <img src="https://arkdev.pages.dev/src/1001136218removebgpreview.png" alt="Ark Dev Logo"
-            class="w-16 filter drop-shadow-[0_0_12px_rgba(0,204,136,0.6)]">
-        <div class="flex gap-3">
-            <a href="index.html" class="group nav-button">
-                <button
-                    class="px-5 py-2 rounded-full bg-gradient-to-r from-cyber/15 to-plasma/15 group-hover:from-cyber/35 group-hover:to-plasma/35 transition-all duration-400 neon-glow">
-                    <span
-                        class="font-orbitron bg-gradient-to-r from-cyber to-neon bg-clip-text text-transparent text-sm">Inicio</span>
-                </button>
+    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 nav-bar flex items-center justify-between max-w-5xl w-[90%] mx-auto animate-crystal-glow">
+        <img src="https://arkdev.pages.dev/src/1001136218removebgpreview.png" alt="Ark Dev Logo" class="w-16">
+        <div class="flex gap-4">
+            <a href="index.html" class="nav-button">
+                <button class="px-6 py-3 rounded-xl bg-neutral hover:bg-accent/85 transition-all duration-400 text-secondary font-semibold text-base">Inicio</button>
             </a>
-            <a href="cv.html" class="group nav-button">
-                <button
-                    class="px-5 py-2 rounded-full bg-gradient-to-r from-cyber/15 to-plasma/15 group-hover:from-cyber/35 group-hover:to-plasma/35 transition-all duration-400 neon-glow">
-                    <span
-                        class="font-orbitron bg-gradient-to-r from-cyber to-neon bg-clip-text text-transparent text-sm">Perfil</span>
-                </button>
+            <a href="cv.html" class="nav-button">
+                <button class="px-6 py-3 rounded-xl bg-neutral hover:bg-accent/85 transition-all duration-400 text-secondary font-semibold text-base">Perfil</button>
             </a>
-            <a href="music.html" class="group nav-button">
-                <button
-                    class="px-5 py-2 rounded-full bg-gradient-to-r from-cyber/15 to-plasma/15 group-hover:from-cyber/35 group-hover:to-plasma/35 transition-all duration-400 neon-glow">
-                    <span
-                        class="font-orbitron bg-gradient-to-r from-cyber to-neon bg-clip-text text-transparent text-sm">Funciones</span>
-                </button>
+            <a href="music.html" class="nav-button">
+                <button class="px-6 py-3 rounded-xl bg-neutral hover:bg-accent/85 transition-all duration-400 text-secondary font-semibold text-base">Funciones</button>
             </a>
         </div>
     </nav>
     <main class="relative z-10 space-y-32">
-        <section class="min-h-screen px-8 relative">
-            <div class="absolute inset-0 bg-gradient-to-b from-dark/80 to-dark/20"></div>
-            <div class="flex items-center justify-center h-[calc(100vh-120px)]">
-                <div
-                    class="gradient-border glass-effect rounded-3xl p-3 backdrop-blur-4xl video-wrapper neon-glow animate-float">
-                    <video id="promo-video" autoplay loop muted
-                        class="w-full h-auto rounded-2xl max-h-[85vh] object-cover" onclick="toggleFullscreen(this)">
+        <section class="min-h-screen px-8 section-bg">
+            <div class="flex items-center justify-center h-[calc(100vh-100px)]">
+                <div class="crystal-effect rounded-3xl p-3 card-hover transition-all duration-400 video-overlay animate-crystal-glow">
+                    <video id="promo-video" autoplay loop muted class="w-full h-auto rounded-2xl max-h-[85vh] object-cover" onclick="toggleFullscreen(this)">
                         <source src="src/arkvideo.webm" type="video/webm">
                     </video>
                 </div>
             </div>
-            <p class="text-center text-gray-400 mt-8 font-orbitron text-base animate-neon-pulse">*Video promocional de
-                Ark Dev - Innovación en acción*</p>
+            <p class="text-center text-secondary mt-8 font-roboto text-lg animate-slide-in">*Video promocional de Ark Dev - Innovación en acción*</p>
         </section>
         <section class="py-32 px-8">
-            <div class="max-w-5xl mx-auto text-center space-y-12">
-                <h2
-                    class="text-4xl md:text-5xl font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-cyber to-plasma hologram-text mb-8">
-                    Nuestra Historia</h2>
-                <p class="text-base md:text-lg text-gray-300 leading-relaxed font-roboto">
-                    Fundada en abril de 2024 en <span class="font-semibold text-cyber">Santiago, Chile</span>, <span
-                        class="font-semibold text-cyber">Ark Dev</span> nació con la visión de revolucionar el panorama
-                    tecnológico a través de la innovación y la excelencia. Desde sus inicios, la empresa se destacó por
-                    su enfoque en soluciones personalizadas, integrando tecnología de punta para modernizar sistemas
-                    digitales. En 2025, Ark Dev trasladó su sede principal a <span class="font-semibold text-cyber">La
-                        Paz, Bolivia</span>, consolidando su presencia en el mercado latinoamericano y expandiendo su
-                    impacto a nivel global.
+            <div class="max-w-6xl mx-auto text-center space-y-16">
+                <h2 class="text-5xl md:text-6xl font-bold text-highlight animate-slide-in">Nuestra Historia</h2>
+                <p class="text-lg md:text-xl text-secondary leading-relaxed font-roboto">
+                    Fundada en abril de 2024 en <span class="font-semibold text-accent">Santiago, Chile</span>, <span class="font-semibold text-accent">Ark Dev</span> surgió para redefinir la innovación tecnológica. En 2025, trasladamos nuestra sede a <span class="font-semibold text-accent">La Paz, Bolivia</span>, consolidando nuestro impacto global.
                 </p>
-                <p class="text-base md:text-lg text-gray-300 leading-relaxed font-roboto">
-                    Hoy, desde La Paz, lideramos proyectos de desarrollo de software a medida, mantenimiento avanzado de
-                    sistemas y soporte técnico especializado. Nuestra área de trabajo abarca desde startups locales
-                    hasta corporaciones internacionales, ofreciendo soluciones que combinan creatividad, eficiencia y
-                    tecnología de vanguardia. En Ark Dev, cada proyecto es una oportunidad para transformar ideas en
-                    realidades digitales que impulsan el éxito de nuestros clientes.
+                <p class="text-lg md:text-xl text-secondary leading-relaxed font-roboto">
+                    Desde La Paz, lideramos proyectos de software a medida, mantenimiento avanzado y soporte técnico, transformando ideas en soluciones de alto impacto para startups y corporaciones internacionales.
                 </p>
-                <p class="text-2xl md:text-3xl font-bold text-plasma italic font-orbitron hologram-text">"Innovación sin
-                    límites, resultados sin precedentes"</p>
+                <p class="text-3xl md:text-4xl font-bold text-accent italic font-roboto">"Innovación con propósito, resultados con impacto"</p>
             </div>
         </section>
-        <section class="py-32 px-8 bg-gradient-to-b from-dark/90 to-dark/50">
-            <div class="max-w-5xl mx-auto text-center space-y-12">
-                <h2
-                    class="text-4xl md:text-5xl font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-cyber to-plasma hologram-text mb-8">
-                    Misión y Visión</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="gradient-border glass-effect p-8 rounded-3xl neon-glow animate-float">
-                        <h3 class="text-2xl font-orbitron text-cyber mb-4 hologram-text">Misión</h3>
-                        <p class="text-gray-300 text-base font-roboto">
-                            Desarrollar soluciones tecnológicas innovadoras que empoderen a nuestros clientes,
-                            optimizando sus procesos y potenciando su crecimiento en un mundo digital en constante
-                            evolución. En Ark Dev, nos comprometemos a entregar resultados excepcionales con rapidez,
-                            confiabilidad y un enfoque centrado en el cliente.
-                        </p>
+        <section class="py-32 px-8 section-bg parallax-bg" style="background-image: url('src/mission-bg.jpg');">
+            <div class="max-w-6xl mx-auto text-center space-y-16">
+                <h2 class="text-5xl md:text-6xl font-bold text-highlight animate-slide-in">Misión y Visión</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="crystal-effect p-10 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow">
+                        <h3 class="text-3xl font-semibold text-accent mb-6">Misión</h3>
+                        <p class="text-secondary text-lg font-roboto">Desarrollar soluciones tecnológicas que optimicen procesos y potencien el crecimiento de nuestros clientes con rapidez, confiabilidad y enfoque en el usuario.</p>
                     </div>
-                    <div class="gradient-border glass-effect p-8 rounded-3xl neon-glow animate-float"
-                        style="animation-delay: 0.2s">
-                        <h3 class="text-2xl font-orbitron text-cyber mb-4 hologram-text">Visión</h3>
-                        <p class="text-gray-300 text-base font-roboto">
-                            Ser el referente global en innovación tecnológica desde Bolivia, transformando el futuro
-                            digital mediante soluciones que integren creatividad, tecnología avanzada y un impacto
-                            positivo en la sociedad. Aspiramos a liderar el cambio, conectando ideas con resultados
-                            extraordinarios.
-                        </p>
+                    <div class="crystal-effect p-10 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow" style="animation-delay: 0.2s">
+                        <h3 class="text-3xl font-semibold text-accent mb-6">Visión</h3>
+                        <p class="text-secondary text-lg font-roboto">Ser líderes globales en innovación tecnológica desde Bolivia, creando soluciones que transformen el futuro digital con creatividad y excelencia.</p>
                     </div>
                 </div>
             </div>
         </section>
         <section class="py-32 px-8">
-            <div class="max-w-5xl mx-auto text-center space-y-12">
-                <h2
-                    class="text-4xl md:text-5xl font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-cyber to-plasma hologram-text mb-8">
-                    Nuestros Servicios</h2>
-                <p class="text-base md:text-lg text-gray-300 leading-relaxed font-roboto">
-                    En Ark Dev, ofrecemos soluciones tecnológicas integrales que abarcan desde el desarrollo de software
-                    hasta la ciberseguridad y el soporte técnico. Nuestro enfoque estratégico nos permite adaptarnos a
-                    las necesidades de cada cliente, garantizando resultados de clase mundial.
+            <div class="max-w-6xl mx-auto text-center space-y-16">
+                <h2 class="text-5xl md:text-6xl font-bold text-highlight animate-slide-in">Nuestros Servicios</h2>
+                <p class="text-lg md:text-xl text-secondary leading-relaxed font-roboto">
+                    Ofrecemos soluciones tecnológicas integrales, desde desarrollo de software hasta ciberseguridad, diseñadas para adaptarse a cada cliente con resultados excepcionales.
                 </p>
-                <ul class="text-gray-400 text-left max-w-2xl mx-auto space-y-4">
-                    <li class="flex items-center animate-float"><span class="text-cyber mr-3 text-xl">✔</span>
-                        Desarrollo de software personalizado</li>
-                    <li class="flex items-center animate-float" style="animation-delay: 0.2s"><span
-                            class="text-cyber mr-3 text-xl">✔</span> Mantenimiento y optimización de sistemas</li>
-                    <li class="flex items-center animate-float" style="animation-delay: 0.4s"><span
-                            class="text-cyber mr-3 text-xl">✔</span> Soporte técnico 24/7</li>
-                    <li class="flex items-center animate-float" style="animation-delay: 0.6s"><span
-                            class="text-cyber mr-3 text-xl">✔</span> Soluciones de ciberseguridad avanzadas</li>
+                <ul class="text-secondary text-left max-w-3xl mx-auto space-y-6">
+                    <li class="flex items-center animate-float"><span class="text-accent mr-4 text-2xl">✔</span> Desarrollo de software personalizado</li>
+                    <li class="flex items-center animate-float" style="animation-delay: 0.2s"><span class="text-accent mr-4 text-2xl">✔</span> Mantenimiento y optimización de sistemas</li>
+                    <li class="flex items-center animate-float" style="animation-delay: 0.4s"><span class="text-accent mr-4 text-2xl">✔</span> Soporte técnico 24/7</li>
+                    <li class="flex items-center animate-float" style="animation-delay: 0.6s"><span class="text-accent mr-4 text-2xl">✔</span> Soluciones de ciberseguridad avanzadas</li>
                 </ul>
-                <button
-                    class="px-8 py-4 rounded-full bg-gradient-to-br from-cyber/40 to-plasma/40 hover:from-cyber/60 hover:to-plasma/60 transition-all duration-400 neon-glow"
-                    onclick="location.href='https://cal.com/ark-dev'">
-                    <span
-                        class="bg-gradient-to-r from-cyber to-neon bg-clip-text text-transparent text-lg font-orbitron">¡Contáctanos
-                        ahora!</span>
-                </button>
-                <p class="text-gray-400 text-base font-roboto mt-6">
-                    Creador y visionario: <span class="text-white font-semibold">Joel Andrés</span>
+                <button class="px-10 py-5 rounded-xl bg-accent hover:bg-accent/90 transition-all duration-400 text-primary font-semibold text-xl animate-pulse-scale" onclick="location.href='https://cal.com/ark-dev'">Contáctanos ahora</button>
+                <p class="text-secondary text-lg font-roboto mt-8">
+                    Creador y visionario: <span class="text-highlight font-semibold">Joel Andrés</span>
                 </p>
                 <div class="flex justify-center">
-                    <img src="src/image (1).png" alt="Firma de Joel Andrés"
-                        class="digital-signature mx-auto max-w-xs h-auto">
+                    <img src="src/image (1).png" alt="Firma de Joel Andrés" class="mx-auto max-w-sm h-auto animate-crystal-glow">
                 </div>
             </div>
         </section>
-        <section class="py-32 px-8">
-            <h2
-                class="text-4xl md:text-5xl font-orbitron text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyber to-plasma hologram-text">
-                Submarcas de Ark Dev</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <div class="gradient-border glass-effect p-10 rounded-3xl card-3d neon-glow animate-float">
-                    <div class="logo-container mb-6">
-                        <img src="src/arkdevsystem.png" alt="Ark Dev System Logo" class="w-32 h-32 object-contain">
+        <section class="py-32 px-8 section-bg parallax-bg" style="background-image: url('src/subbrands-bg.jpg');">
+            <h2 class="text-5xl md:text-6xl font-bold text-highlight text-center mb-20 animate-slide-in">Submarcas de Ark Dev</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
+                <div class="crystal-effect p-12 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow">
+                    <div class="mb-8">
+                        <img src="src/arkdevsystem.png" alt="Ark Dev System Logo" class="w-32 h-32 object-contain mx-auto">
                     </div>
-                    <h3 class="text-xl font-orbitron text-cyber text-center hologram-text">Ark Dev System</h3>
-                    <p class="text-gray-300 mt-3 text-center font-roboto text-sm">Líder en desarrollo de software
-                        avanzado: aplicaciones móviles, plataformas web y sistemas personalizados de alta eficiencia.
-                    </p>
+                    <h3 class="text-2xl font-semibold text-accent text-center">Ark Dev System</h3>
+                    <p class="text-secondary mt-4 text-center font-roboto text-base">Líder en desarrollo de software: apps móviles, plataformas web y sistemas personalizados.</p>
                 </div>
-                <div class="gradient-border glass-effect p-10 rounded-3xl card-3d neon-glow animate-float"
-                    style="animation-delay: 0.2s">
-                    <div class="logo-container mb-6">
-                        <img src="src/arkdevsolutions.png" alt="Ark Dev Solutions Logo"
-                            class="w-32 h-32 object-contain">
+                <div class="crystal-effect p-12 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow" style="animation-delay: 0.2s">
+                    <div class="mb-8">
+                        <img src="src/arkdevsolutions.png" alt="Ark Dev Solutions Logo" class="w-32 h-32 object-contain mx-auto">
                     </div>
-                    <h3 class="text-xl font-orbitron text-cyber text-center hologram-text">Ark Dev Solutions</h3>
-                    <p class="text-gray-300 mt-3 text-center font-roboto text-sm">Especialistas en mantenimiento de
-                        hardware, diagnósticos precisos y optimización de equipos tecnológicos.</p>
-                    <div class="mt-6 flex justify-center">
-                        <a href="Ark-Dev-Solutions.exe" download
-                            class="download-btn group relative font-roboto px-8 py-4 rounded-lg text-sm font-bold uppercase tracking-wider transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                            <span
-                                class="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-                                Descargar Ark Dev Solutions Pc Free
-                            </span>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg animate-pulse opacity-20">
-                            </div>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-purple-500/30 rounded-lg blur-md group-hover:opacity-100 opacity-0 transition-opacity">
-                            </div>
-                        </a>
+                    <h3 class="text-2xl font-semibold text-accent text-center">Ark Dev Solutions</h3>
+                    <p class="text-secondary mt-4 text-center font-roboto text-base">Especialistas en mantenimiento de hardware y optimización de equipos tecnológicos.</p>
+                    <div class="mt-8 flex justify-center">
+                        <a href="Ark-Dev-Solutions.exe" download class="px-8 py-4 rounded-xl bg-accent hover:bg-accent/90 transition-all duration-400 text-primary font-semibold text-base animate-pulse-scale">Descargar Ark Dev Solutions</a>
                     </div>
                 </div>
-                <div class="gradient-border glass-effect p-10 rounded-3xl card-3d neon-glow animate-float"
-                    style="animation-delay: 0.4s">
-                    <div class="logo-container mb-6">
-                        <img src="src/arksecure.png" alt="Ark Secure Logo" class="w-32 h-32 object-contain">
+                <div class="crystal-effect p-12 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow" style="animation-delay: 0.4s">
+                    <div class="mb-8">
+                        <img src="src/arksecure.png" alt="Ark Secure Logo" class="w-32 h-32 object-contain mx-auto">
                     </div>
-                    <h3 class="text-xl font-orbitron text-cyber text-center hologram-text">Ark Secure</h3>
-                    <p class="text-gray-300 mt-3 text-center font-roboto text-sm">Protección avanzada contra ataques
-                        cibernéticos, soluciones de ciberseguridad y seguridad integral.</p>
-                    <div class="mt-6 flex justify-center">
-                        <a href="Ark-Secure.exe" download
-                            class="download-btn group relative font-roboto px-8 py-4 rounded-lg text-sm font-bold uppercase tracking-wider transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                            <span
-                                class="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-                                Descargar Ark Secure Pc Free
-                            </span>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg animate-pulse opacity-20">
-                            </div>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-purple-500/30 rounded-lg blur-md group-hover:opacity-100 opacity-0 transition-opacity">
-                            </div>
-                        </a>
+                    <h3 class="text-2xl font-semibold text-accent text-center">Ark Secure</h3>
+                    <p class="text-secondary mt-4 text-center font-roboto text-base">Soluciones avanzadas de ciberseguridad y protección contra amenazas digitales.</p>
+                    <div class="mt-8 flex justify-center">
+                        <a href="Ark-Secure.exe" download class="px-8 py-4 rounded-xl bg-accent hover:bg-accent/90 transition-all duration-400 text-primary font-semibold text-base animate-pulse-scale">Descargar Ark Secure</a>
                     </div>
                 </div>
-                <div class="gradient-border glass-effect p-10 rounded-3xl card-3d neon-glow animate-float"
-                    style="animation-delay: 0.6s">
-                    <div class="logo-container mb-6">
-                        <img src="src/arkbio.png" alt="Ark Bio Logo" class="w-32 h-32 object-contain">
+                <div class="crystal-effect p-12 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow" style="animation-delay: 0.6s">
+                    <div class="mb-8">
+                        <img src="src/arkbio.png" alt="Ark Bio Logo" class="w-32 h-32 object-contain mx-auto">
                     </div>
-                    <h3 class="text-xl font-orbitron text-cyber text-center hologram-text">Ark Bio</h3>
-                    <p class="text-gray-300 mt-3 text-center font-roboto text-sm">(Próximamente) Innovación en sistemas
-                        médicos modernos para transformar la medicina con tecnología de punta.</p>
-                    <h4 class="text-lg font-semibold text-cyber hologram-text mt-4">Microsoft Dragon Copilot</h4>
-                    <p class="text-gray-300 mt-2 font-roboto text-sm">
-                        Un asistente inteligente diseñado para el sector médico, optimizando la gestión de historiales y
-                        mejorando la precisión en diagnósticos mediante IA.
-                    </p>
-                    <img src="https://pub-c2c1d9230f0b4abb9b0d2d95e06fd4ef.r2.dev/2025/03/DragonCopilot-Image2.png"
-                        alt="Microsoft Dragon Copilot" class="rounded-lg shadow-lg w-full max-w-sm mt-4">
+                    <h3 class="text-2xl font-semibold text-accent text-center">Ark Bio</h3>
+                    <p class="text-secondary mt-4 text-center font-roboto text-base">(Próximamente) Innovación en sistemas médicos con tecnología de vanguardia.</p>
+                    <h4 class="text-xl font-semibold text-accent mt-6 text-center">Microsoft Dragon Copilot</h4>
+                    <p class="text-secondary mt-3 text-center font-roboto text-base">Asistente inteligente para el sector médico, optimizando gestión y diagnósticos.</p>
+                    <img src="https://pub-c2c1d9230f0b4abb9b0d2d95e06fd4ef.r2.dev/2025/03/DragonCopilot-Image2.png" alt="Microsoft Dragon Copilot" class="rounded-2xl w-full max-w-md mt-6 mx-auto">
                 </div>
             </div>
-            <style>
-                @layer components {
-                    .download-btn {
-                        background: linear-gradient(45deg, theme('colors.gray.900'), theme('colors.gray.800'));
-                        clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 25%, 100% 75%, calc(100% - 15px) 100%, 15px 100%, 0 75%, 0 25%);
-                    }
-
-                    .download-btn::before {
-                        content: '';
-                        @apply absolute inset-[1px] bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg -z-10;
-                        clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 25%, 100% 75%, calc(100% - 15px) 100%, 15px 100%, 0 75%, 0 25%);
-                    }
-                }
-
-                @keyframes glitch {
-                    0% {
-                        transform: translate(0)
-                    }
-
-                    20% {
-                        transform: translate(-2px, 2px)
-                    }
-
-                    40% {
-                        transform: translate(-2px, -2px)
-                    }
-
-                    60% {
-                        transform: translate(2px, 2px)
-                    }
-
-                    80% {
-                        transform: translate(2px, -2px)
-                    }
-
-                    100% {
-                        transform: translate(0)
-                    }
-                }
-
-                .animate-glitch {
-                    animation: glitch 0.3s linear infinite;
-                    text-shadow: 2px 2px theme('colors.cyan.400'), -2px -2px theme('colors.purple.500');
-                }
-
-                .animate-pulse {
-                    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                }
-            </style>
         </section>
-        <footer class="text-center py-16 glass-effect gradient-border mx-8 rounded-3xl neon-glow">
-            <p class="text-gray-200 text-lg font-roboto">Marcas registradas y protegidas por SENAPI Bolivia.</p>
-            <p class="text-gray-300 mt-4 text-base font-orbitron hologram-text">© 2025 Ark Dev - Todos los derechos
-                reservados</p>
+        <footer class="text-center py-16 crystal-effect rounded-3xl mx-8 animate-crystal-glow">
+            <p class="text-secondary text-xl font-roboto">Marcas registradas y protegidas por SENAPI Bolivia.</p>
+            <p class="text-secondary mt-6 text-lg font-roboto">© 2025 Ark Dev - Todos los derechos reservados</p>
         </footer>
     </main>
     <script>
@@ -471,13 +306,13 @@
         document.getElementById('header-audio-toggle').addEventListener('click', function () {
             headerVideo.muted = !headerVideo.muted;
             this.textContent = headerVideo.muted ? '🔇 Header' : '🔊 Header';
-            gsap.to(this, { scale: 1.2, duration: 0.2, ease: 'bounce.out', yoyo: true, repeat: 1 });
+            gsap.to(this, { scale: 1.3, duration: 0.2, ease: 'bounce.out', yoyo: true, repeat: 1 });
         });
 
         document.getElementById('promo-audio-toggle').addEventListener('click', function () {
             promoVideo.muted = !promoVideo.muted;
             this.textContent = promoVideo.muted ? '🔇 Promo' : '🔊 Promo';
-            gsap.to(this, { scale: 1.2, duration: 0.2, ease: 'bounce.out', yoyo: true, repeat: 1 });
+            gsap.to(this, { scale: 1.3, duration: 0.2, ease: 'bounce.out', yoyo: true, repeat: 1 });
         });
 
         promoVideo.addEventListener('play', () => {
@@ -500,87 +335,69 @@
                 if (entry.isIntersecting) promoVideo.play();
                 else promoVideo.pause();
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.6 });
         observer.observe(promoVideo);
 
-        gsap.utils.toArray('.card-3d').forEach(card => {
-            gsap.set(card, { transformPerspective: 1000 });
+        gsap.utils.toArray('.card-hover').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = (e.clientX - rect.left) / rect.width - 0.5;
                 const y = (e.clientY - rect.top) / rect.height - 0.5;
                 gsap.to(card, {
-                    duration: 0.4,
-                    rotationY: x * 25,
-                    rotationX: y * -25,
+                    duration: 0.3,
+                    rotationY: x * 15,
+                    rotationX: y * -15,
                     ease: 'power2.out',
-                    boxShadow: '0 0 30px rgba(0, 204, 136, 0.6)'
+                    transformPerspective: 1000,
                 });
             });
             card.addEventListener('mouseleave', () => {
                 gsap.to(card, {
-                    duration: 0.7,
+                    duration: 0.6,
                     rotationY: 0,
                     rotationX: 0,
                     ease: 'elastic.out(1, 0.4)',
-                    boxShadow: '0 0 20px rgba(0, 204, 136, 0.4), 0 0 40px rgba(91, 0, 204, 0.2)'
                 });
             });
         });
 
-        function handleResize() {
-            if (window.innerWidth < 768) {
-                gsap.set('.video-wrapper', { rotationY: 0, rotationX: 0 });
-                gsap.set('.nav-button', { margin: '6px 0' });
-            } else {
-                gsap.set('.video-wrapper', { rotationY: 4, rotationX: 2 });
-                gsap.set('.nav-button', { margin: '0' });
-            }
-        }
-        window.addEventListener('resize', handleResize);
-        handleResize();
-
-        const initParticles = () => {
+        function initParticles() {
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('particle-canvas'), alpha: true, antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.domElement.style.position = 'fixed';
-            renderer.domElement.style.top = '0';
-            renderer.domElement.style.zIndex = '-1';
-            document.body.appendChild(renderer.domElement);
 
             const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(6000 * 3);
-            const colors = new Float32Array(6000 * 3);
-            for (let i = 0; i < 6000 * 3; i += 3) {
-                positions[i] = (Math.random() - 0.5) * 12;
-                positions[i + 1] = (Math.random() - 0.5) * 12;
-                positions[i + 2] = (Math.random() - 0.5) * 12;
-                colors[i] = 0.2 + Math.random() * 0.5;
-                colors[i + 1] = 0.2 + Math.random() * 0.5;
+            const positions = new Float32Array(5000 * 3);
+            const colors = new Float32Array(5000 * 3);
+            for (let i = 0; i < 5000 * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 10;
+                positions[i + 1] = (Math.random() - 0.5) * 10;
+                positions[i + 2] = (Math.random() - 0.5) * 10;
+                colors[i] = 0.1 + Math.random() * 0.4;
+                colors[i + 1] = 0.5 + Math.random() * 0.5;
                 colors[i + 2] = 1;
             }
             geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
             const material = new THREE.PointsMaterial({
-                size: 0.05,
+                size: 0.03,
                 vertexColors: true,
                 transparent: true,
-                opacity: 0.7,
+                opacity: 0.6,
                 sizeAttenuation: true,
                 blending: THREE.AdditiveBlending,
             });
 
             const particles = new THREE.Points(geometry, material);
             scene.add(particles);
-            camera.position.z = 6;
+            camera.position.z = 5;
 
             const animate = () => {
                 requestAnimationFrame(animate);
-                particles.rotation.x += 0.001;
-                particles.rotation.y += 0.0015;
+                particles.rotation.y += 0.001;
+                particles.rotation.x += 0.0005;
                 renderer.render(scene, camera);
             };
             animate();
@@ -590,8 +407,9 @@
                 camera.updateProjectionMatrix();
                 renderer.setSize(window.innerWidth, window.innerHeight);
             });
-        };
+        }
         initParticles();
+
         function toggleFullscreen(element) {
             if (!document.fullscreenElement) {
                 element.requestFullscreen();
@@ -599,21 +417,38 @@
                 document.exitFullscreen();
             }
         }
+
         gsap.utils.toArray('section').forEach((section, i) => {
             gsap.from(section, {
                 scrollTrigger: {
                     trigger: section,
-                    start: 'top 85%',
+                    start: 'top 80%',
                     toggleActions: 'play none none reverse',
                 },
                 opacity: 0,
-                y: 40,
-                duration: 1.2,
+                y: 30,
+                duration: 1,
                 ease: 'power3.out',
-                delay: i * 0.15,
+                delay: i * 0.12,
             });
         });
-    </script>
-</body>
 
-</html>
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            gsap.to('.parallax-bg', {
+                backgroundPositionY: scrollY * 0.3,
+                duration: 0,
+            });
+        });
+
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('.card-hover').forEach(card => {
+                card.addEventListener('touchstart', () => {
+                    gsap.to(card, { scale: 1.03, duration: 0.2, ease: 'power2.out' });
+                });
+                card.addEventListener('touchend', () => {
+                    gsap.to(card, { scale: 1, duration: 0.2, ease: 'power2.out' });
+                });
+            });
+        }
+    </script>
