@@ -1,454 +1,2857 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html data-wf-domain="arkdev.pages.dev" lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Ark Dev">
-    <meta name="creator" content="Joel Andres">
-    <meta name="description" content="Ark Dev - Innovación tecnológica desde La Paz, Bolivia. Desarrollo de software, ciberseguridad y soluciones modernas.">
-    <meta name="copyright" content="© 2025 Ark Dev. Todos los derechos reservados.">
-    <title>Ark Dev - Innovación Tecnológica</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#050505',
-                        secondary: '#d0d0d0',
-                        accent: '#00b7ff',
-                        neutral: '#121212',
-                        highlight: '#f5f5f5',
-                        crystal: 'rgba(255, 255, 255, 0.08)',
-                    },
-                    fontFamily: {
-                        inter: ['Inter', 'sans-serif'],
-                        roboto: ['Roboto', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 1.2s ease-out',
-                        'float': 'float 2.8s ease-in-out infinite',
-                        'slide-in': 'slideIn 0.9s ease-out',
-                        'crystal-glow': 'crystalGlow 3s ease-in-out infinite',
-                        'pulse-scale': 'pulseScale 2s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(25px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-12px)' },
-                        },
-                        slideIn: {
-                            '0%': { opacity: '0', transform: 'translateX(-25px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        },
-                        crystalGlow: {
-                            '0%, 100%': { boxShadow: '0 0 15px rgba(0, 183, 255, 0.3)' },
-                            '50%': { boxShadow: '0 0 30px rgba(0, 183, 255, 0.5)' },
-                        },
-                        pulseScale: {
-                            '0%, 100%': { transform: 'scale(1)' },
-                            '50%': { transform: 'scale(1.05)' },
-                        },
-                    },
-                },
-            },
-        };
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: #050505;
-            color: #d0d0d0;
-            overflow-x: hidden;
+  <meta charset="utf-8" />
+  <title>ARK DEV Nostros</title>
+  <!-- SEO Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Ark Dev: Soluciones tecnológicas personalizadas, ciberseguridad avanzada y soporte técnico desde Bolivia para startups y corporaciones globales." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ark Dev | Innovación tecnológica con propósito" />
+  <meta property="og:description"
+    content="Desde La Paz, Bolivia, lideramos proyectos de software a medida, soporte técnico y soluciones de ciberseguridad para transformar el futuro digital." />
+  <meta property="og:image" content="src/1001136218removebgpreview.png" />
+  <meta property="og:url" content="https://arkdev.pages.dev" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ark Dev | Innovación tecnológica con propósito" />
+  <meta name="twitter:description"
+    content="Soluciones de software personalizadas, mantenimiento avanzado y ciberseguridad de alto nivel desde Bolivia para el mundo." />
+  <meta name="twitter:image" content="src/1001136218removebgpreview.png" />
+
+  <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
+
+  <link href="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/css/eliot-25.shared.ccafc63a5.min.css"
+    rel="stylesheet" type="text/css" />
+  <script
+    type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NL2XKT2S1E"></script>
+  <script
+    type="text/javascript">window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('set', 'developer_id.dZGVlNj', true); gtag('config', 'G-NL2XKT2S1E');</script>
+  <style>
+    [data-hidden] {
+      visibility: hidden;
+    }
+
+    /* will-change: width */
+    .h-hero_work {
+      will-change: width;
+    }
+
+    /* CSS For Hero Section - Home */
+    @media (min-width: 991px) {
+      .work_embed {
+        opacity: 0;
+        transition: opacity 0.1s;
+      }
+
+      .work_card:hover .work_embed {
+        opacity: 1;
+      }
+
+      .h-hero_work {
+        transform: translate3d(0, 0, 0);
+        transition: width 0.5s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .h-hero_work.sibling-far4 {
+        width: 120%;
+      }
+
+      .h-hero_work.sibling-far3 {
+        width: 140%;
+      }
+
+      .h-hero_work.sibling-far2 {
+        width: 160%;
+      }
+
+      .h-hero_work.sibling-far1 {
+        width: 180%;
+      }
+
+      .h-hero_work.hover {
+        width: 260%;
+      }
+
+      .h-hero_work .txt-size-xs {
+        opacity: 0.6;
+        transition: opacity 0.4s cubic-bezier(.16, 1, .3, 1),
+      }
+
+      .h-hero_work:hover .txt-size-xs {
+        opacity: 1;
+      }
+
+      .h-hero_work .work_label-hover {
+        opacity: 0;
+        transform: translateX(-2em);
+        transition: opacity 0.4s cubic-bezier(.16, 1, .3, 1),
+          transform 0.4s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .h-hero_work:hover .work_label-hover {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* CSS For Work Section - Home */
+
+    .h-work_item {
+      opacity: 1;
+      transition: opacity 0.2s cubic-bezier(.16, 1, .3, 1);
+      position: relative;
+    }
+
+    @media (min-width: 991px) {
+
+      .h-work_item:not(:hover) .h-work_asset {
+        opacity: 0;
+        transform: scale(0.4);
+      }
+
+      .h-work_item .tag-xs {
+        opacity: 0;
+        transform: translateY(75%);
+        transition:
+          transform 0.4s cubic-bezier(.16, 1, .3, 1),
+          opacity 0.4s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .h-work_asset {
+        opacity: 0;
+        transform: scale(0.4);
+        transition: opacity 0.4s cubic-bezier(.16, 1, .3, 1),
+          transform 0.4s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .h-work_asset>* {
+        transform: scale(1.25);
+        transition: transform 0.4s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .h-work_item {
+        transition: opacity 0.2s,
+          margin-bottom 0.4s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .h-work_list:hover .h-work_item {
+        opacity: 0.1;
+      }
+
+      .h-work_item:hover {
+        opacity: 1 !important;
+        margin-bottom: -2em;
+      }
+
+      .h-work_item .h-work_name-c {
+        padding-left: 0em;
+        transition: padding 0.4s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .h-work_item:hover .h-work_name-c {
+        padding-left: 1em;
+      }
+
+      .h-work_title {
+        transition: font-size 0.4s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .h-work_item:hover .h-work_title {
+        font-size: 10em;
+      }
+
+      .h-work_item:hover .tag-xs {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+
+      .h-work_item:hover .tag-xs:nth-child(1) {
+        transition-delay: 0.05s;
+        /* Apply delay to both transform and opacity */
+      }
+
+      .h-work_item:hover .tag-xs:nth-child(2) {
+        transition-delay: 0.1s;
+        /* Apply delay to both transform and opacity */
+      }
+
+      .h-work_item:hover .h-work_asset {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .h-work_item:hover .h-work_asset>*:nth-child(1) {
+        transition-delay: 0.0s;
+      }
+
+      .h-work_item:hover .h-work_asset>*:nth-child(2) {
+        transition-delay: 0.05s;
+      }
+
+      .h-work_item:hover .h-work_asset>*:nth-child(3) {
+        transition-delay: 0.1s;
+      }
+
+      .h-work_item:hover .h-work_asset>*:nth-child(4) {
+        transition-delay: 0.15s;
+      }
+
+      .h-work_item:hover .h-work_asset>* {
+        transform: scale(1);
+      }
+
+      .h-work_item:hover .h-work_asset:nth-child(1) {
+        transition-delay: 0s;
+      }
+
+      .h-work_item:hover .h-work_asset:nth-child(2) {
+        transition-delay: 0.05s;
+      }
+
+      .h-work_item:hover .h-work_asset:nth-child(3) {
+        transition-delay: 0.10s;
+      }
+
+      .h-work_item:hover .h-work_asset:nth-child(4) {
+        transition-delay: 0.15s;
+      }
+    }
+
+    /* CSS For Template Section */
+
+    .template_slide {
+      will-change: transform;
+      transition: transform 0.4s;
+    }
+
+    .template_slide .tag-template {
+      opacity: 0;
+      transition:
+        transform 0.4s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.4s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .template_slide .tag-template:nth-child(1) {
+      transform: translateX(2em);
+    }
+
+    .template_slide .tag-template:nth-child(2) {
+      transform: translateX(-2em);
+    }
+
+    .template_slide.child2 .tag-template {
+      opacity: 1;
+      transform: translateX(0em);
+    }
+
+    .template_slide.child2 .tag-template:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+
+    .template_slide.child2 .tag-template:nth-child(2) {
+      transition-delay: 0.05s;
+    }
+
+    .template_slide.child1 {
+      z-index: 6;
+      transform: scale(0.9) rotateX(-20deg) translateY(45em);
+      opacity: 1;
+    }
+
+    .template_slide.child2 {
+      z-index: 5;
+      transform: scale(1) rotateX(0deg) translateY(-1em);
+    }
+
+    .template_slide.child3 {
+      z-index: 4;
+      transform: scale(0.96) rotateX(0deg) translateY(-2em);
+    }
+
+    .template_slide.child4 {
+      z-index: 3;
+      transform: scale(0.92) rotateX(0deg) translateY(-3em);
+    }
+
+    .template_slide.child5 {
+      z-index: 2;
+      transform: scale(0.88) rotateX(0deg) translateY(-4em);
+    }
+
+    .template_slide.child6 {
+      z-index: 1;
+      transform: scale(0.84) rotateX(0deg) translateY(-5em);
+    }
+
+    .template_slider-arrow-prev,
+    .template_slider-arrow-next {
+      transition: border-color 0.2s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .template_slider-arrow-prev:hover,
+    .template_slider-arrow-next:hover {
+      border-color: #505050;
+    }
+
+    .template_slider-arrow-prev .slider-arrow-icon-ab {
+      transform: translateY(150%);
+      opacity: 0;
+      filter: blur(4px);
+      transition:
+        transform 0s cubic-bezier(.16, 1, .3, 1),
+        filter 0s cubic-bezier(.16, 1, .3, 1),
+        opacity 0s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .template_slider-arrow-prev:hover .slider-arrow-icon-ab {
+      transform: translateY(0%);
+      opacity: 1;
+      filter: blur(0px);
+      transition:
+        transform 0.5s cubic-bezier(.16, 1, .3, 1),
+        filter 0.5s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.5s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .template_slider-arrow-prev .slider-arrow-icon {
+      transform: translateY(0%);
+      opacity: 1;
+      filter: blur(0px);
+      transition:
+        transform 0s cubic-bezier(.16, 1, .3, 1),
+        filter 0s cubic-bezier(.16, 1, .3, 1),
+        opacity 0s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .template_slider-arrow-prev:hover .slider-arrow-icon {
+      transform: translateY(-150%);
+      opacity: 0;
+      filter: blur(4px);
+      transition:
+        transform 0.5s cubic-bezier(.16, 1, .3, 1),
+        filter 0.5s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.5s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .template_slider-arrow-next .slider-arrow-icon-ab {
+      transform: translateY(-150%);
+      opacity: 0;
+      filter: blur(4px);
+      transition:
+        transform 0s cubic-bezier(.16, 1, .3, 1),
+        filter 0s cubic-bezier(.16, 1, .3, 1),
+        opacity 0s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .template_slider-arrow-next:hover .slider-arrow-icon-ab {
+      transform: translateY(0%);
+      opacity: 1;
+      filter: blur(0px);
+      transition:
+        transform 0.5s cubic-bezier(.16, 1, .3, 1),
+        filter 0.5s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.5s cubic-bezier(.16, 1, .3, 1);
+
+    }
+
+    .template_slider-arrow-next .slider-arrow-icon {
+      transform: translateY(0%);
+      opacity: 1;
+      filter: blur(0px);
+      transition:
+        transform 0s cubic-bezier(.16, 1, .3, 1),
+        filter 0s cubic-bezier(.16, 1, .3, 1),
+        opacity 0s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .template_slider-arrow-next:hover .slider-arrow-icon {
+      transform: translateY(150%);
+      opacity: 0;
+      filter: blur(4px);
+      transition:
+        transform 0.5s cubic-bezier(.16, 1, .3, 1),
+        filter 0.5s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.5s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    /* CSS for Footer Links */
+    .footer_social-link .social-link-tag {
+      transform: scale(0.4) translateY(2em);
+      opacity: 0;
+      transition:
+        transform 0.3s cubic-bezier(.16, 1, .3, 1.15),
+        opacity 0.3s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .template_slide-inner:hover .template_slide-ui-c {
+      transform: scale(0.95);
+    }
+
+    .template_slide-ui-c {
+      transition: transform 0.5s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .swiper-button-disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+
+      .work_card-infos-hover {
+        transition: opacity 0.4s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .work_card-img-w {
+        transition: transform 0.6s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .swiper-slide.swiper-slide-active .work_card-img-w {
+        transform: scale(1);
+      }
+
+      .swiper-slide .work_card-img-w {
+        transform: scale(0.9);
+      }
+
+      .swiper-slide.swiper-slide-active .work_card-infos-hover {
+        opacity: 1;
+      }
+
+      .swiper-slide .work_card-infos-hover {
+        opacity: 0;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('background-audio');
+      let audioPlayed = false;
+
+      function playAudio() {
+        if (!audioPlayed) {
+          audio.play().then(() => {
+            audioPlayed = true;
+            document.getElementById('audio-alert')?.remove();
+            removeAllListeners();
+          }).catch(() => {
+          });
         }
-        .crystal-effect {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 4px 20px rgba(0, 183, 255, 0.2);
-        }
-        .nav-bar {
-            background: rgba(5, 5, 5, 0.92);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border-radius: 24px;
-            padding: 14px 28px;
-            box-shadow: 0 6px 25px rgba(0, 183, 255, 0.25);
-        }
-        .card-hover {
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 12px 25px rgba(0, 183, 255, 0.4);
-        }
-        .text-accent {
-            color: #00b7ff;
-        }
-        .section-bg {
-            background: linear-gradient(180deg, #050505 0%, #121212 100%);
-        }
-        .parallax-bg {
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
-        .video-overlay {
-            position: relative;
-            overflow: hidden;
-        }
-        .video-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 183, 255, 0.1), rgba(245, 245, 245, 0.05));
-            pointer-events: none;
-        }
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            opacity: 0.4;
-        }
-        @media (max-width: 768px) {
-            .nav-bar {
-                flex-direction: column;
-                padding: 12px;
-                border-radius: 20px;
+      }
+      function addAllListeners() {
+        document.addEventListener('click', playAudio, { once: true });
+        document.addEventListener('touchstart', playAudio, { once: true });
+        document.addEventListener('scroll', playAudio, { once: true });
+        document.addEventListener('mousemove', playAudio, { once: true });
+        document.addEventListener('keydown', playAudio, { once: true });
+        document.addEventListener('wheel', playAudio, { once: true });
+      }
+
+      function removeAllListeners() {
+        document.removeEventListener('click', playAudio, { once: true });
+        document.removeEventListener('touchstart', playAudio, { once: true });
+        document.removeEventListener('scroll', playAudio, { once: true });
+        document.removeEventListener('mousemove', playAudio, { once: true });
+        document.removeEventListener('keydown', playAudio, { once: true });
+        document.removeEventListener('wheel', playAudio, { once: true });
+      }
+
+      addAllListeners();
+
+      if (window.gsap) {
+        document.fonts.ready.then(() => {
+          setTimeout(() => {
+            playAudio();
+          }, 1500);
+        });
+      }
+
+      setTimeout(() => {
+        playAudio();
+        setTimeout(() => {
+          if (!audioPlayed) {
+            if (!document.getElementById('audio-alert')) {
+              const alert = document.createElement('div');
+              alert.id = 'audio-alert';
+              alert.style = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 24px;border-radius:8px;z-index:9999;box-shadow:0 2px 8px #0003;cursor:pointer;';
+              alert.innerText = 'Haz click, mueve el mouse o desplázate para activar el sonido 🎵';
+              alert.onclick = () => { playAudio(); alert.remove(); };
+              document.body.appendChild(alert);
             }
-            .nav-button {
-                margin: 5px 0;
-            }
-            .parallax-bg {
-                background-attachment: scroll;
-            }
-        }
-        @supports (-webkit-touch-callout: none) {
-            .parallax-bg {
-                background-attachment: scroll;
-            }
-        }
-    </style>
+          }
+        }, 500);
+      }, 3000);
+    });
+  </script>
 </head>
-<body class="font-inter">
-    <canvas id="particle-canvas"></canvas>
-    <div id="welcome-modal" class="fixed inset-0 flex items-center justify-center z-50 bg-primary/98">
-        <div class="crystal-effect p-12 rounded-3xl text-center max-w-lg animate-fade-in space-y-8 animate-crystal-glow">
-            <h2 class="text-4xl font-bold text-highlight">Bienvenido a Ark Dev</h2>
-            <p class="text-secondary text-base">Sumérgete en la innovación:</p>
-            <div class="flex justify-center gap-6">
-                <button id="header-audio-on" class="px-8 py-4 rounded-xl bg-accent/85 hover:bg-accent transition-all duration-400 text-primary font-semibold text-lg animate-pulse-scale">Con audio</button>
-                <button id="header-audio-off" class="px-8 py-4 rounded-xl bg-neutral hover:bg-neutral/85 transition-all duration-400 text-secondary font-semibold text-lg">Sin audio</button>
-            </div>
-        </div>
+
+<body>
+  <audio id="background-audio" loop>
+    <source src="https://arkdev.pages.dev/music/nosotros.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+  <div class="cursor hide-tablet">
+    <p>label</p>
+    <div class="cursor_icon">
+      <div class="svg-icon w-embed"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M3.46055 12.139L10.3852 5.21434H4.52121V4.21445H12.0922V11.7855H11.0923V5.92145L4.16766 12.8461L3.46055 12.139Z"
+            fill="#FAFAFA" />
+        </svg></div>
     </div>
-    <header class="relative h-screen overflow-hidden section-bg parallax-bg" style="background-image: url('src/header-bg.jpg');">
-        <video id="headerVideo" class="absolute inset-0 w-full h-full object-cover opacity-85 video-overlay" autoplay muted loop playsinline>
-            <source src="src/videoarknwe.webm" type="video/webm">
-        </video>
-        <div class="absolute bottom-12 right-12 z-30 flex gap-6">
-            <button id="header-audio-toggle" class="audio-control hidden px-5 py-3 crystal-effect rounded-xl text-accent text-base animate-crystal-glow">🔇 Header</button>
-            <button id="promo-audio-toggle" class="audio-control hidden px-5 py-3 crystal-effect rounded-xl text-accent text-base animate-crystal-glow">🔇 Promo</button>
+  </div>
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="https://arkdev.pages.dev/src/videoarknwe.webm" type="video/webm">
+      Tu navegador no soporta videos en formato webm.
+    </video>
+  </div>
+  <style>
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      /* detrás de todo */
+      overflow: hidden;
+    }
+
+    .video-background video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0.70;
+      filter: brightness(0.7);
+    }
+  </style>
+
+  <menu data-hidden="" class="menu">
+    <div class="menu_inner"><a aria-label="Go to homepage" id="w-node-bd053704-fb67-3f28-b2d5-4e71e37d6052-e37d6050"
+        data-w-id="bd053704-fb67-3f28-b2d5-4e71e37d6052" href="/" aria-current="page"
+        class="menu_logo-link w-inline-block w--current">
+        <div class="menu_logo-embed w-embed">
+          <img src="https://arkdev.pages.dev/src2/we001136218removebgpreview.png" alt="Ark Dev Logo"
+            style="width:100%; height:auto;">
         </div>
-    </header>
-    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 nav-bar flex items-center justify-between max-w-5xl w-[90%] mx-auto animate-crystal-glow">
-        <img src="https://arkdev.pages.dev/src/1001136218removebgpreview.png" alt="Ark Dev Logo" class="w-16">
-        <div class="flex gap-4">
-            <a href="index.html" class="nav-button">
-                <button class="px-6 py-3 rounded-xl bg-neutral hover:bg-accent/85 transition-all duration-400 text-secondary font-semibold text-base">Inicio</button>
-            </a>
-            <a href="cv.html" class="nav-button">
-                <button class="px-6 py-3 rounded-xl bg-neutral hover:bg-accent/85 transition-all duration-400 text-secondary font-semibold text-base">Perfil</button>
-            </a>
-            <a href="music.html" class="nav-button">
-                <button class="px-6 py-3 rounded-xl bg-neutral hover:bg-accent/85 transition-all duration-400 text-secondary font-semibold text-base">Funciones</button>
-            </a>
+        <div data-is-ix2-target="1" class="menu_logo-lottie" data-w-id="bd053704-fb67-3f28-b2d5-4e71e37d6054"
+          data-animation-type="lottie"
+          data-src="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67e2da4fcd20f511c6061796_Menu%20Logo.json"
+          data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="0"
+          data-duration="1.1">
         </div>
-    </nav>
-    <main class="relative z-10 space-y-32">
-        <section class="min-h-screen px-8 section-bg">
-            <div class="flex items-center justify-center h-[calc(100vh-100px)]">
-                <div class="crystal-effect rounded-3xl p-3 card-hover transition-all duration-400 video-overlay animate-crystal-glow">
-                    <video id="promo-video" autoplay loop muted class="w-full h-auto rounded-2xl max-h-[85vh] object-cover" onclick="toggleFullscreen(this)">
-                        <source src="src/arkvideo.webm" type="video/webm">
-                    </video>
+      </a>
+      <div class="menu_links hide-mobile-l"><a href="/" aria-current="page" class="menu_link w-inline-block w--current">
+          <p class="txt-size-s">Inicio</p>
+        </a><a href="/cv" class="menu_link w-inline-block">
+          <p class="txt-size-s">CV</p>
+        </a><a href="/music" class="menu_link w-inline-block">
+          <p class="txt-size-s">Next Level</p>
+        </a><a href="/ia" class="menu_link w-inline-block">
+          <p class="txt-size-s">IA</p>
+        </a></div>
+      <div class="menu_main-inner">
+        <div class="menu_button-w">
+          <a href="https://cal.com/ark-dev" target="_blank" class="button-dark w-inline-block">
+            <div class="button_bg-dark"></div>
+            <div class="button_in is-lottie">
+              <div data-is-ix2-target="1" class="button_lottie" data-w-id="bd053704-fb67-3f28-b2d5-4e71e37d6067"
+                data-animation-type="lottie"
+                data-src="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67d02290066d5ae0097618bc_Contact%20V4.json"
+                data-loop="1" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="0"
+                data-duration="1.25"></div>
+              <div class="button_labels-wrap">
+                <div class="button_label-relative">
+                  <div class="txt-button">Contáctanos</div>
                 </div>
+              </div>
             </div>
-            <p class="text-center text-secondary mt-8 font-roboto text-lg animate-slide-in">*Video promocional de Ark Dev - Innovación en acción*</p>
-        </section>
-        <section class="py-32 px-8">
-            <div class="max-w-6xl mx-auto text-center space-y-16">
-                <h2 class="text-5xl md:text-6xl font-bold text-highlight animate-slide-in">Nuestra Historia</h2>
-                <p class="text-lg md:text-xl text-secondary leading-relaxed font-roboto">
-                    Fundada en abril de 2024 en <span class="font-semibold text-accent">Santiago, Chile</span>, <span class="font-semibold text-accent">Ark Dev</span> surgió para redefinir la innovación tecnológica. En 2025, trasladamos nuestra sede a <span class="font-semibold text-accent">La Paz, Bolivia</span>, consolidando nuestro impacto global.
-                </p>
-                <p class="text-lg md:text-xl text-secondary leading-relaxed font-roboto">
-                    Desde La Paz, lideramos proyectos de software a medida, mantenimiento avanzado y soporte técnico, transformando ideas en soluciones de alto impacto para startups y corporaciones internacionales.
-                </p>
-                <p class="text-3xl md:text-4xl font-bold text-accent italic font-roboto">"Innovación con propósito, resultados con impacto"</p>
+          </a>
+        </div>
+      </div>
+      <div data-scroll="toggle" data-w-id="bd053704-fb67-3f28-b2d5-4e71e37d606f" class="menu_burger">
+        <div data-is-ix2-target="1" class="menu_burger-lottie" data-w-id="bd053704-fb67-3f28-b2d5-4e71e37d6070"
+          data-animation-type="lottie"
+          data-src="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67e6c0538c06f9b6ac4743c3_a97c2a6d56756ebedf32a01f63edb633_Menu%20Burger.json"
+          data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="1"
+          data-duration="0"></div>
+      </div>
+    </div>
+    </div>
+    <div class="menu_overlay"></div>
+    <div class="menu_full">
+      <div class="menu_full-w txt-color-dark">
+        <div class="menu_full-links">
+          <a href="/" aria-current="page" class="menu_full-link w--current">Inicio</a>
+          <a href="/cv" class="menu_full-link">CV</a>
+          <a href="/music" class="menu_full-link">Next Level</a>
+          <a href="/ia" class="menu_full-link">IA</a>
+          <a href="https://cal.com/ark-dev" target="_blank" class="menu_full-link">Agenda una cita</a>
+        </div>
+        <div class="menu_full-social-links">
+          <a href="mailto:ajoeark@gmail.com" class="footer_social-link w-inline-block">
+            <div class="icon_embed20">
+              <div class="svg-icon w-embed">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M2.5 6.20885V15.5H17.5V6.20888L11.2149 11.0151C10.4978 11.5635 9.50223 11.5635 8.78512 11.0151L2.5 6.20885ZM17.2654 4.5H2.73468L9.6963 9.82359C9.87557 9.96068 10.1245 9.96068 10.3037 9.82359L17.2654 4.5ZM1 4C1 3.44772 1.44772 3 2 3H18C18.5523 3 19 3.44772 19 4V16C19 16.5523 18.5523 17 18 17H2C1.44772 17 1 16.5523 1 16V4Z"
+                    fill="#171717" />
+                </svg>
+              </div>
             </div>
-        </section>
-        <section class="py-32 px-8 section-bg parallax-bg" style="background-image: url('src/mission-bg.jpg');">
-            <div class="max-w-6xl mx-auto text-center space-y-16">
-                <h2 class="text-5xl md:text-6xl font-bold text-highlight animate-slide-in">Misión y Visión</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="crystal-effect p-10 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow">
-                        <h3 class="text-3xl font-semibold text-accent mb-6">Misión</h3>
-                        <p class="text-secondary text-lg font-roboto">Desarrollar soluciones tecnológicas que optimicen procesos y potencien el crecimiento de nuestros clientes con rapidez, confiabilidad y enfoque en el usuario.</p>
-                    </div>
-                    <div class="crystal-effect p-10 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow" style="animation-delay: 0.2s">
-                        <h3 class="text-3xl font-semibold text-accent mb-6">Visión</h3>
-                        <p class="text-secondary text-lg font-roboto">Ser líderes globales en innovación tecnológica desde Bolivia, creando soluciones que transformen el futuro digital con creatividad y excelencia.</p>
-                    </div>
-                </div>
+            <div class="social_link-tag-w">
+              <div class="social-link-tag">
+                <p>Email</p>
+              </div>
             </div>
-        </section>
-        <section class="py-32 px-8">
-            <div class="max-w-6xl mx-auto text-center space-y-16">
-                <h2 class="text-5xl md:text-6xl font-bold text-highlight animate-slide-in">Nuestros Servicios</h2>
-                <p class="text-lg md:text-xl text-secondary leading-relaxed font-roboto">
-                    Ofrecemos soluciones tecnológicas integrales, desde desarrollo de software hasta ciberseguridad, diseñadas para adaptarse a cada cliente con resultados excepcionales.
-                </p>
-                <ul class="text-secondary text-left max-w-3xl mx-auto space-y-6">
-                    <li class="flex items-center animate-float"><span class="text-accent mr-4 text-2xl">✔</span> Desarrollo de software personalizado</li>
-                    <li class="flex items-center animate-float" style="animation-delay: 0.2s"><span class="text-accent mr-4 text-2xl">✔</span> Mantenimiento y optimización de sistemas</li>
-                    <li class="flex items-center animate-float" style="animation-delay: 0.4s"><span class="text-accent mr-4 text-2xl">✔</span> Soporte técnico 24/7</li>
-                    <li class="flex items-center animate-float" style="animation-delay: 0.6s"><span class="text-accent mr-4 text-2xl">✔</span> Soluciones de ciberseguridad avanzadas</li>
-                </ul>
-                <button class="px-10 py-5 rounded-xl bg-accent hover:bg-accent/90 transition-all duration-400 text-primary font-semibold text-xl animate-pulse-scale" onclick="location.href='https://cal.com/ark-dev'">Contáctanos ahora</button>
-                <p class="text-secondary text-lg font-roboto mt-8">
-                    Creador y visionario: <span class="text-highlight font-semibold">Joel Andrés</span>
-                </p>
-                <div class="flex justify-center">
-                    <img src="src/image (1).png" alt="Firma de Joel Andrés" class="mx-auto max-w-sm h-auto animate-crystal-glow">
-                </div>
+          </a>
+          <a href="https://github.com/Jhoel777ar" target="_blank" class="footer_social-link w-inline-block">
+            <div class="icon_embed20">
+              <div class="svg-icon w-embed">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M10 0.5C4.75 0.5 0.5 4.75 0.5 10C0.5 14.4 3.4375 18.1 7.4375 19.5C7.9375 19.6 8.125 19.3 8.125 19.05V17.35C5.25 17.95 4.625 15.9 4.625 15.9C4.1875 14.75 3.5625 14.45 3.5625 14.45C2.6875 13.85 3.625 13.85 3.625 13.85C4.5625 13.9 5.0625 14.8 5.0625 14.8C5.875 16.2 7.25 15.8 7.8125 15.55C7.9375 14.95 8.1875 14.55 8.4375 14.3C6.125 14.05 3.75 13.2 3.75 9.6C3.75 8.55 4.125 7.75 4.75 7.15C4.625 6.9 4.25 5.825 4.875 4.45C4.875 4.45 5.75 4.175 8.125 5.55C8.9375 5.325 9.8125 5.225 10.6875 5.225C11.5625 5.225 12.4375 5.325 13.25 5.55C15.625 4.175 16.5 4.45 16.5 4.45C17.125 5.825 16.75 6.9 16.625 7.15C17.25 7.75 17.625 8.55 17.625 9.6C17.625 13.225 15.25 14.05 12.9375 14.3C13.25 14.6 13.5625 15.2 13.5625 16.1V19.05C13.5625 19.3 13.75 19.6 14.25 19.5C18.25 18.1 21.1875 14.4 21.1875 10C21.1875 4.75 16.9375 0.5 10 0.5Z"
+                    fill="#171717" />
+                </svg>
+              </div>
             </div>
-        </section>
-        <section class="py-32 px-8 section-bg parallax-bg" style="background-image: url('src/subbrands-bg.jpg');">
-            <h2 class="text-5xl md:text-6xl font-bold text-highlight text-center mb-20 animate-slide-in">Submarcas de Ark Dev</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
-                <div class="crystal-effect p-12 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow">
-                    <div class="mb-8">
-                        <img src="src/arkdevsystem.png" alt="Ark Dev System Logo" class="w-32 h-32 object-contain mx-auto">
-                    </div>
-                    <h3 class="text-2xl font-semibold text-accent text-center">Ark Dev System</h3>
-                    <p class="text-secondary mt-4 text-center font-roboto text-base">Líder en desarrollo de software: apps móviles, plataformas web y sistemas personalizados.</p>
-                </div>
-                <div class="crystal-effect p-12 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow" style="animation-delay: 0.2s">
-                    <div class="mb-8">
-                        <img src="src/arkdevsolutions.png" alt="Ark Dev Solutions Logo" class="w-32 h-32 object-contain mx-auto">
-                    </div>
-                    <h3 class="text-2xl font-semibold text-accent text-center">Ark Dev Solutions</h3>
-                    <p class="text-secondary mt-4 text-center font-roboto text-base">Especialistas en mantenimiento de hardware y optimización de equipos tecnológicos.</p>
-                    <div class="mt-8 flex justify-center">
-                        <a href="Ark-Dev-Solutions.exe" download class="px-8 py-4 rounded-xl bg-accent hover:bg-accent/90 transition-all duration-400 text-primary font-semibold text-base animate-pulse-scale">Descargar Ark Dev Solutions</a>
-                    </div>
-                </div>
-                <div class="crystal-effect p-12 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow" style="animation-delay: 0.4s">
-                    <div class="mb-8">
-                        <img src="src/arksecure.png" alt="Ark Secure Logo" class="w-32 h-32 object-contain mx-auto">
-                    </div>
-                    <h3 class="text-2xl font-semibold text-accent text-center">Ark Secure</h3>
-                    <p class="text-secondary mt-4 text-center font-roboto text-base">Soluciones avanzadas de ciberseguridad y protección contra amenazas digitales.</p>
-                    <div class="mt-8 flex justify-center">
-                        <a href="Ark-Secure.exe" download class="px-8 py-4 rounded-xl bg-accent hover:bg-accent/90 transition-all duration-400 text-primary font-semibold text-base animate-pulse-scale">Descargar Ark Secure</a>
-                    </div>
-                </div>
-                <div class="crystal-effect p-12 rounded-3xl card-hover transition-all duration-400 animate-float animate-crystal-glow" style="animation-delay: 0.6s">
-                    <div class="mb-8">
-                        <img src="src/arkbio.png" alt="Ark Bio Logo" class="w-32 h-32 object-contain mx-auto">
-                    </div>
-                    <h3 class="text-2xl font-semibold text-accent text-center">Ark Bio</h3>
-                    <p class="text-secondary mt-4 text-center font-roboto text-base">(Próximamente) Innovación en sistemas médicos con tecnología de vanguardia.</p>
-                    <h4 class="text-xl font-semibold text-accent mt-6 text-center">Microsoft Dragon Copilot</h4>
-                    <p class="text-secondary mt-3 text-center font-roboto text-base">Asistente inteligente para el sector médico, optimizando gestión y diagnósticos.</p>
-                    <img src="https://pub-c2c1d9230f0b4abb9b0d2d95e06fd4ef.r2.dev/2025/03/DragonCopilot-Image2.png" alt="Microsoft Dragon Copilot" class="rounded-2xl w-full max-w-md mt-6 mx-auto">
-                </div>
+            <div class="social_link-tag-w">
+              <div class="social-link-tag">
+                <p>GitHub</p>
+              </div>
             </div>
-        </section>
-        <footer class="text-center py-16 crystal-effect rounded-3xl mx-8 animate-crystal-glow">
-            <p class="text-secondary text-xl font-roboto">Marcas registradas y protegidas por SENAPI Bolivia.</p>
-            <p class="text-secondary mt-6 text-lg font-roboto">© 2025 Ark Dev - Todos los derechos reservados</p>
-        </footer>
-    </main>
-    <script>
-        const headerVideo = document.getElementById('headerVideo');
-        const promoVideo = document.getElementById('promo-video');
-        let isHeaderAudioEnabled = false;
+          </a>
+        </div>
+      </div>
+    </div>
+  </menu>
 
-        document.getElementById('header-audio-on').addEventListener('click', () => {
-            headerVideo.muted = false;
-            document.getElementById('header-audio-toggle').classList.remove('hidden');
-            document.getElementById('welcome-modal').classList.add('hidden');
-            isHeaderAudioEnabled = true;
-            gsap.to('#welcome-modal', { opacity: 0, duration: 0.6, ease: 'power2.out' });
-        });
-
-        document.getElementById('header-audio-off').addEventListener('click', () => {
-            headerVideo.muted = true;
-            document.getElementById('welcome-modal').classList.add('hidden');
-            gsap.to('#welcome-modal', { opacity: 0, duration: 0.6, ease: 'power2.out' });
-        });
-
-        document.getElementById('header-audio-toggle').addEventListener('click', function () {
-            headerVideo.muted = !headerVideo.muted;
-            this.textContent = headerVideo.muted ? '🔇 Header' : '🔊 Header';
-            gsap.to(this, { scale: 1.3, duration: 0.2, ease: 'bounce.out', yoyo: true, repeat: 1 });
-        });
-
-        document.getElementById('promo-audio-toggle').addEventListener('click', function () {
-            promoVideo.muted = !promoVideo.muted;
-            this.textContent = promoVideo.muted ? '🔇 Promo' : '🔊 Promo';
-            gsap.to(this, { scale: 1.3, duration: 0.2, ease: 'bounce.out', yoyo: true, repeat: 1 });
-        });
-
-        promoVideo.addEventListener('play', () => {
-            if (isHeaderAudioEnabled) {
-                headerVideo.muted = true;
-                document.getElementById('header-audio-toggle').textContent = '🔇 Header';
-            }
-            document.getElementById('promo-audio-toggle').classList.remove('hidden');
-        });
-
-        promoVideo.addEventListener('pause', () => {
-            if (isHeaderAudioEnabled) {
-                headerVideo.muted = false;
-                document.getElementById('header-audio-toggle').textContent = '🔊 Header';
-            }
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) promoVideo.play();
-                else promoVideo.pause();
-            });
-        }, { threshold: 0.6 });
-        observer.observe(promoVideo);
-
-        gsap.utils.toArray('.card-hover').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                gsap.to(card, {
-                    duration: 0.3,
-                    rotationY: x * 15,
-                    rotationX: y * -15,
-                    ease: 'power2.out',
-                    transformPerspective: 1000,
-                });
-            });
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, {
-                    duration: 0.6,
-                    rotationY: 0,
-                    rotationX: 0,
-                    ease: 'elastic.out(1, 0.4)',
-                });
-            });
-        });
-
-        function initParticles() {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('particle-canvas'), alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(5000 * 3);
-            const colors = new Float32Array(5000 * 3);
-            for (let i = 0; i < 5000 * 3; i += 3) {
-                positions[i] = (Math.random() - 0.5) * 10;
-                positions[i + 1] = (Math.random() - 0.5) * 10;
-                positions[i + 2] = (Math.random() - 0.5) * 10;
-                colors[i] = 0.1 + Math.random() * 0.4;
-                colors[i + 1] = 0.5 + Math.random() * 0.5;
-                colors[i + 2] = 1;
-            }
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({
-                size: 0.03,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.6,
-                sizeAttenuation: true,
-                blending: THREE.AdditiveBlending,
-            });
-
-            const particles = new THREE.Points(geometry, material);
-            scene.add(particles);
-            camera.position.z = 5;
-
-            const animate = () => {
-                requestAnimationFrame(animate);
-                particles.rotation.y += 0.001;
-                particles.rotation.x += 0.0005;
-                renderer.render(scene, camera);
-            };
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-        initParticles();
-
-        function toggleFullscreen(element) {
-            if (!document.fullscreenElement) {
-                element.requestFullscreen();
-            } else {
-                document.exitFullscreen();
-            }
+  <div class="global_styles">
+    <div class="w-embed">
+      <style>
+        * {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
         }
 
-        gsap.utils.toArray('section').forEach((section, i) => {
-            gsap.from(section, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse',
-                },
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                ease: 'power3.out',
-                delay: i * 0.12,
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            gsap.to('.parallax-bg', {
-                backgroundPositionY: scrollY * 0.3,
-                duration: 0,
-            });
-        });
-
-        if ('ontouchstart' in window) {
-            document.querySelectorAll('.card-hover').forEach(card => {
-                card.addEventListener('touchstart', () => {
-                    gsap.to(card, { scale: 1.03, duration: 0.2, ease: 'power2.out' });
-                });
-                card.addEventListener('touchend', () => {
-                    gsap.to(card, { scale: 1, duration: 0.2, ease: 'power2.out' });
-                });
-            });
+        html {
+          font-size: calc(0.4375rem + 0.625vw);
         }
+
+        @media screen and (min-width: 1800px) {
+          html {
+            font-size: 1.125rem;
+          }
+        }
+
+        @media screen and (min-width: 1600px) {
+          html {
+            font-size: 1vw;
+          }
+        }
+
+        @media screen and (min-width: 1800px) {
+          html {
+            font-size: 1.125rem;
+          }
+        }
+
+        @media screen and (max-width: 992px) {
+          html {
+            font-size: 1rem;
+          }
+        }
+
+        @media screen and (max-width: 479px) {
+          html {
+            font-size: 1rem;
+          }
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        .w-select {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+        }
+
+        [class*="svg-icon"] svg {
+          width: 100% !important;
+          height: 100% !important;
+        }
+
+        [class*="svg-icon"] * {
+          fill: currentColor !important;
+        }
+
+        body:has([data-cursor]:hover) .cursor {
+          opacity: 1;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+          background-color: transparent !important;
+          color: inherit;
+        }
+      </style>
+    </div>
+  </div>
+
+  <main class="page_w">
+    <section class="h-hero_section">
+      <div data-hidden="" class="h-hero_work-divider hide-tablet">
+        <div class="txt-size-xs opacity60 txt-caps">Moderno - Elegante y ++++</div>
+      </div>
+      <div data-hidden="" class="h-hero_works hide-tablet">
+        <div class="w is-h-hero">
+          <div class="h-hero_works-cms w-dyn-list">
+            <div role="list" class="h-hero_works-grid w-dyn-items">
+              <div data-hidden="" role="listitem" class="h-hero_work w-dyn-item">
+                <a aria-label="Open project" class="work_card w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed"><video muted loop preload="none" playsinline
+                        style="width: 100%; height: 100%; object-fit: cover;" class="work_embed">
+                        <source
+                          src="https://www.ionos.at/digitalguide/fileadmin/DigitalGuide/Screenshots_2024/deejo-homepage-screenshot.png"
+                          type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video></div><img
+                      src="https://www.ionos.es/digitalguide/fileadmin/DigitalGuide/Gifs/My-Deejo-interaktive-3D-praesentation.gif"
+                      loading="lazy" alt="" class="work_card-img" />
+                    <div class="work_card-loader">
+                      <div
+                        data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67e69f7d2f7b4856ae92e20b_d3281b71cdf24f341f636776f907d0ea_loader.json"
+                        class="loader-lottie"></div>
+                    </div>
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps shrink-none">Efecto 3D Interactivo</div>
+                    <div class="work_label-hover shrink-none">Webdesign + Webflow</div>
+                  </div>
+                </a>
+              </div>
+              <div data-hidden="" role="listitem" class="h-hero_work w-dyn-item">
+                <a aria-label="Open project" class="work_card w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed"><video muted loop preload="none" playsinline
+                        style="width: 100%; height: 100%; object-fit: cover;" class="work_embed">
+                        <source
+                          src="https://cdn.dribbble.com/userupload/42052258/file/original-e6d715afcc99d66094b677a279180a92.gif"
+                          type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video></div><img
+                      src="https://cdn.dribbble.com/userupload/42052258/file/original-e6d715afcc99d66094b677a279180a92.gif"
+                      loading="lazy" alt="" class="work_card-img" />
+                    <div class="work_card-loader">
+                      <div
+                        data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67e69f7d2f7b4856ae92e20b_d3281b71cdf24f341f636776f907d0ea_loader.json"
+                        class="loader-lottie"></div>
+                    </div>
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps shrink-none">Animaciones y Efectos</div>
+                    <div class="work_label-hover shrink-none">Modern</div>
+                  </div>
+                </a>
+              </div>
+              <div data-hidden="" role="listitem" class="h-hero_work w-dyn-item">
+                <a aria-label="Open project" class="work_card w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed"><video muted loop preload="none" playsinline
+                        style="width: 100%; height: 100%; object-fit: cover;" class="work_embed">
+                        <source
+                          src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/e8160767817393.5b472244e5149.gif"
+                          type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video></div><img
+                      src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/e8160767817393.5b472244e5149.gif"
+                      loading="lazy" alt="" sizes="100vw"
+                      srcset="https://mir-s3-cdn-cf.behance.net/project_modules/hd/e8160767817393.5b472244e5149.gif 500w, https://mir-s3-cdn-cf.behance.net/project_modules/hd/e8160767817393.5b472244e5149.gif 800w, https://mir-s3-cdn-cf.behance.net/project_modules/hd/e8160767817393.5b472244e5149.gif 960w"
+                      class="work_card-img" />
+                    <div class="work_card-loader">
+                      <div
+                        data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67e69f7d2f7b4856ae92e20b_d3281b71cdf24f341f636776f907d0ea_loader.json"
+                        class="loader-lottie"></div>
+                    </div>
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps shrink-none">Efecto Elegantes</div>
+                    <div class="work_label-hover shrink-none">Reactive + Webflow</div>
+                  </div>
+                </a>
+              </div>
+              <div data-hidden="" role="listitem" class="h-hero_work w-dyn-item"><a aria-label="Open project"
+                  class="work_card w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed"><video muted loop preload="none" playsinline
+                        style="width: 100%; height: 100%; object-fit: cover;" class="work_embed">
+                        <source src="https://eliotbesson.b-cdn.net/Akrolab/AKROLAB%20-%20Hero.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video></div><img
+                      src="https://cdn.prod.website-files.com/677fb4d34764579513f06e12/67bc449929765d0e69ce01d4_home-card-akrolab.webp"
+                      loading="lazy" alt="" class="work_card-img" />
+                    <div class="work_card-loader">
+                      <div
+                        data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67e69f7d2f7b4856ae92e20b_d3281b71cdf24f341f636776f907d0ea_loader.json"
+                        class="loader-lottie"></div>
+                    </div>
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps shrink-none">100% Responcive</div>
+                    <div class="work_label-hover shrink-none">Modern Effect</div>
+                  </div>
+                </a></div>
+              <div data-hidden="" role="listitem" class="h-hero_work w-dyn-item"><a aria-label="Open project"
+                  class="work_card w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed"><video muted loop preload="none" playsinline
+                        style="width: 100%; height: 100%; object-fit: cover;" class="work_embed">
+                        <source src="https://i.pinimg.com/originals/78/58/ba/7858ba97ff1aa06173f0517aeb002b01.gif"
+                          type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video></div><img
+                      src="https://i.pinimg.com/originals/78/58/ba/7858ba97ff1aa06173f0517aeb002b01.gif" loading="lazy"
+                      alt="" sizes="100vw"
+                      srcset="https://i.pinimg.com/originals/78/58/ba/7858ba97ff1aa06173f0517aeb002b01.gif 500w, https://i.pinimg.com/originals/78/58/ba/7858ba97ff1aa06173f0517aeb002b01.gif 747w"
+                      class="work_card-img" />
+                    <div class="work_card-loader">
+                      <div
+                        data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67e69f7d2f7b4856ae92e20b_d3281b71cdf24f341f636776f907d0ea_loader.json"
+                        class="loader-lottie"></div>
+                    </div>
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps shrink-none">Dinamic Desing</div>
+                    <div class="work_label-hover shrink-none">Modern Effects</div>
+                  </div>
+                </a></div>
+              <div data-hidden="" role="listitem" class="h-hero_work w-dyn-item"><a aria-label="Open project"
+                  class="work_card w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed"><video muted loop preload="none" playsinline
+                        style="width: 100%; height: 100%; object-fit: cover;" class="work_embed">
+                        <source src="https://i.pinimg.com/originals/6b/57/87/6b5787ff3501f9a45afdade14b9d48bd.gif"
+                          type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video></div><img
+                      src="https://i.pinimg.com/originals/6b/57/87/6b5787ff3501f9a45afdade14b9d48bd.gif" loading="lazy"
+                      alt="" class="work_card-img" />
+                    <div class="work_card-loader">
+                      <div
+                        data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67e69f7d2f7b4856ae92e20b_d3281b71cdf24f341f636776f907d0ea_loader.json"
+                        class="loader-lottie"></div>
+                    </div>
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps shrink-none">Multiplataforma</div>
+                    <div class="work_label-hover shrink-none">Modern Desing</div>
+                  </div>
+                </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w div-relative">
+        <div class="w-layout-grid grid">
+          <PIs id="w-node-f1b6db6f-d215-9651-b2cd-aa92d73dd5b0-720a94b1"
+            class="h-hero_content-wrap txt-align-center div-relative">
+            <div class="h-hero_title-w">
+              <div class="h-hero_title-guide hide-mobile-l"> ARK DEV </div>
+              <h1 data-hidden="" class="title-l_h-hero"> ARK DEV </h1>
+            </div>
+            <div class="h-hero_subtitle-wrap">
+              <p data-hidden="" class="txt-color-light-60o txt-size-s">
+                Somos líderes en desarrollo de aplicaciones móviles, plataformas web y sistemas personalizados de alto
+                rendimiento.<br />
+                Impulsamos tu negocio con tecnología innovadora y APIs de desarrollo propio.
+              </p>
+            </div>
+        </div>
+      </div>
+      </div>
+      <div data-hidden="" class="h-hero_works-mob">
+        <div class="w is-h-hero">
+          <div class="txt-size-xs opacity60 txt-caps txt-align-center">Moderno - Elegante y ++++</div>
+          <div class="swiper h_works w-dyn-list">
+            <div role="list" class="swiper-wrapper h_works w-dyn-items">
+
+              <div data-hidden="" role="listitem" class="swiper-slide h_works w-dyn-item">
+                <a aria-label="see project" href="#" class="work_card-mob w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed">
+                      <video muted loop preload="none" playsinline style="width: 100%; height: 100%; object-fit: cover;"
+                        class="work_embed">
+                        <source
+                          src="https://www.ionos.at/digitalguide/fileadmin/DigitalGuide/Screenshots_2024/deejo-homepage-screenshot.png"
+                          type="video/mp4">
+                      </video>
+                    </div>
+                    <img
+                      src="https://www.ionos.es/digitalguide/fileadmin/DigitalGuide/Gifs/My-Deejo-interaktive-3D-praesentation.gif"
+                      loading="lazy" alt="" class="work_card-img" />
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps txt-align-center">Efecto 3D Interactivo</div>
+                    <div class="txt-size-xs txt-caps txt-align-center opacity60">Webdesign + Webflow</div>
+                  </div>
+                </a>
+              </div>
+              <div data-hidden="" role="listitem" class="swiper-slide h_works w-dyn-item">
+                <a aria-label="see project" href="#" class="work_card-mob w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed">
+                      <video muted loop preload="none" playsinline style="width: 100%; height: 100%; object-fit: cover;"
+                        class="work_embed">
+                        <source
+                          src="https://cdn.dribbble.com/userupload/42052258/file/original-e6d715afcc99d66094b677a279180a92.gif"
+                          type="video/mp4">
+                      </video>
+                    </div>
+                    <img
+                      src="https://cdn.dribbble.com/userupload/42052258/file/original-e6d715afcc99d66094b677a279180a92.gif"
+                      loading="lazy" alt="" class="work_card-img" />
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps txt-align-center">Animaciones y Efectos</div>
+                    <div class="txt-size-xs txt-caps txt-align-center opacity60">Modern</div>
+                  </div>
+                </a>
+              </div>
+              <div data-hidden="" role="listitem" class="swiper-slide h_works w-dyn-item">
+                <a aria-label="see project" href="#" class="work_card-mob w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed">
+                      <video muted loop preload="none" playsinline style="width: 100%; height: 100%; object-fit: cover;"
+                        class="work_embed">
+                        <source
+                          src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/e8160767817393.5b472244e5149.gif"
+                          type="video/mp4">
+                      </video>
+                    </div>
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/e8160767817393.5b472244e5149.gif"
+                      loading="lazy" alt="" class="work_card-img" />
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps txt-align-center">Efecto Elegantes</div>
+                    <div class="txt-size-xs txt-caps txt-align-center opacity60">Reactive + Webflow</div>
+                  </div>
+                </a>
+              </div>
+              <div data-hidden="" role="listitem" class="swiper-slide h_works w-dyn-item">
+                <a aria-label="see project" href="#" class="work_card-mob w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed">
+                      <video muted loop preload="none" playsinline style="width: 100%; height: 100%; object-fit: cover;"
+                        class="work_embed">
+                        <source src="https://eliotbesson.b-cdn.net/Akrolab/AKROLAB%20-%20Hero.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <img
+                      src="https://cdn.prod.website-files.com/677fb4d34764579513f06e12/67bc449929765d0e69ce01d4_home-card-akrolab.webp"
+                      loading="lazy" alt="" class="work_card-img" />
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps txt-align-center">100% Responsive</div>
+                    <div class="txt-size-xs txt-caps txt-align-center opacity60">Modern Effect</div>
+                  </div>
+                </a>
+              </div>
+              <div data-hidden="" role="listitem" class="swiper-slide h_works w-dyn-item">
+                <a aria-label="see project" href="#" class="work_card-mob w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed">
+                      <video muted loop preload="none" playsinline style="width: 100%; height: 100%; object-fit: cover;"
+                        class="work_embed">
+                        <source src="https://i.pinimg.com/originals/78/58/ba/7858ba97ff1aa06173f0517aeb002b01.gif"
+                          type="video/mp4">
+                      </video>
+                    </div>
+                    <img src="https://i.pinimg.com/originals/78/58/ba/7858ba97ff1aa06173f0517aeb002b01.gif"
+                      loading="lazy" alt="" class="work_card-img" />
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps txt-align-center">Dinamic Desing</div>
+                    <div class="txt-size-xs txt-caps txt-align-center opacity60">Modern Effects</div>
+                  </div>
+                </a>
+              </div>
+              <div data-hidden="" role="listitem" class="swiper-slide h_works w-dyn-item">
+                <a aria-label="see project" href="#" class="work_card-mob w-inline-block">
+                  <div class="work_card-img-w">
+                    <div class="work_embed w-embed">
+                      <video muted loop preload="none" playsinline style="width: 100%; height: 100%; object-fit: cover;"
+                        class="work_embed">
+                        <source src="https://i.pinimg.com/originals/6b/57/87/6b5787ff3501f9a45afdade14b9d48bd.gif"
+                          type="video/mp4">
+                      </video>
+                    </div>
+                    <img src="https://i.pinimg.com/originals/6b/57/87/6b5787ff3501f9a45afdade14b9d48bd.gif"
+                      loading="lazy" alt="" class="work_card-img" />
+                  </div>
+                  <div class="work_card-infos-hover">
+                    <div class="txt-size-xs txt-caps txt-align-center">Multiplataforma</div>
+                    <div class="txt-size-xs txt-caps txt-align-center opacity60">Modern Design</div>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <div class="swiper-nav"><a aria-label="previous work" data-w-id="1a34e56d-4a57-82a5-2703-a2d3e1df7c05"
+              href="#" class="swiper-arrow_prev w-inline-block">
+              <div class="icon_embed24 w-embed"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8.46963 12.8839C7.98148 12.3957 7.98148 11.6043 8.46963 11.1161L13.2929 6.29289C13.6834 5.90237 14.3165 5.90237 14.7071 6.29289C15.0976 6.68342 15.0976 7.31658 14.7071 7.70711L10.4142 12L14.7071 16.2929C15.0976 16.6834 15.0976 17.3166 14.7071 17.7071C14.3165 18.0976 13.6834 18.0976 13.2929 17.7071L8.46963 12.8839Z"
+                    fill="#FAFAFA" />
+                </svg></div>
+            </a><a aria-label="next work" data-w-id="1a34e56d-4a57-82a5-2703-a2d3e1df7c0b" href="#"
+              class="swiper-arrow_next w-inline-block">
+              <div class="icon_embed24 w-embed"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M15.5303 12.8839C16.0185 12.3957 16.0185 11.6043 15.5303 11.1161L10.7071 6.29289C10.3166 5.90237 9.68342 5.90237 9.29289 6.29289C8.90237 6.68342 8.90237 7.31658 9.29289 7.70711L13.5858 12L9.29289 16.2929C8.90237 16.6834 8.90237 17.3166 9.29289 17.7071C9.68342 18.0976 10.3166 18.0976 10.7071 17.7071L15.5303 12.8839Z"
+                    fill="#FAFAFA" />
+                </svg></div>
+            </a></div>
+        </div>
+      </div>
+      <div class="h-hero_loader">
+        <div
+          data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67d2e4a64cac3c5e7af06197_LogoMoves%20(1).json"
+          class="h-hero_loader-lottie"></div>
+      </div>
+    </section>
+
+    <section class="h-intro_section">
+      <div class="w div-relative">
+        <div class="h-intro_sticky-marquee">
+          <div class="h-intro_sticky-c">
+            <div class="w-layout-grid grid">
+              <div id="w-node-_12e52ff4-ac56-7214-2c91-11c64dee53d0-720a94b1">
+                <h2 class="txt-align-center">
+                  <div>Innovamos, desarrollamos y transformamos ideas con:</div>
+                </h2>
+              </div>
+            </div>
+            <div class="circles_scroll-c">
+              <div class="circle_scroll-parent left">
+                <div class="circle_scroll">
+                  <div
+                    data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/678e5d5bfd1f50099e1700d0_e638d844f81708ca81bcca3af9b3c507_Circle%20Line%20%283%29.json"
+                    class="circle_lottie-line"></div>
+                  <div class="circle_scroll-inner">
+                    <div class="circle_lottie-w">
+                      <div
+                        data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/678e49822cfd07ecabd095bf_1ffa86094af1297c46d4f83dcb9fe485_PF%20-%20Ovals%20Thin.json"
+                        class="circle_lottie-icon"></div>
+                    </div>
+                    <div class="txt-align-center txt-caps">Confiabilidad</div>
+                  </div>
+                </div>
+              </div>
+              <div class="circle_scroll-parent">
+                <div class="circle_scroll center">
+                  <div
+                    data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/678e5d5bfd1f50099e1700d0_e638d844f81708ca81bcca3af9b3c507_Circle%20Line%20%283%29.json"
+                    class="circle_lottie-line"></div>
+                  <div class="circle_scroll-inner">
+                    <div class="circle_lottie-w">
+                      <div
+                        data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/678e461f283a2fefa73f8e95_7a6fef756c7bbff3b796f5edc27efa73_PF%20-%20Performance.json"
+                        class="circle_lottie-icon"></div>
+                    </div>
+                    <div class="txt-align-center txt-caps">Eficiencia</div>
+                  </div>
+                </div>
+              </div>
+              <div class="circle_scroll-parent right">
+                <div class="circle_scroll right">
+                  <div
+                    data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/678e5d5bfd1f50099e1700d0_e638d844f81708ca81bcca3af9b3c507_Circle%20Line%20%283%29.json"
+                    class="circle_lottie-line"></div>
+                  <div class="circle_scroll-inner">
+                    <div class="circle_lottie-w">
+                      <div
+                        data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/678e461ecf612e66d1113eb5_5f84ffd74292b581e41f1f0683c12b6f_PF%20-%20Strategy.json"
+                        class="circle_lottie-icon"></div>
+                    </div>
+                    <div class="txt-align-center txt-caps">Modernidad</div>
+                  </div>
+                </div>
+              </div>
+              <div class="circle_shape-intersect-w"><img
+                  src="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67d4075ace25276ca5db0c0a_circle-intersect.svg"
+                  loading="lazy" data-cursor="Your Project" alt="" class="shape_intersect" /></div>
+            </div>
+            <div class="h-intro_scroll-indicator-w">
+              <div class="h-intro_scroll-indicator-bg">
+                <div class="h-intro_scroll-indicator"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="h-about_section">
+      <div class="w">
+        <div class="w-layout-grid grid">
+          <div id="w-node-_6a791763-17b2-c51a-d1c7-c64bd8fbfdae-720a94b1" class="h-about_title-track">
+            <div class="h-about_content-sticky">
+              <h3 data-lottie-text="" class="h-about_content txt-align-center">
+                <div class="title-m txt-inline">Trabajo con personas</div>
+                <div class="icon_lottie-element">
+                  <div class="icon_lottie-bg"></div>
+                  <div
+                    data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67c5dabc82e923ed6e1bdf53_PF%20-%20People%20-%20160.json"
+                    class="icon_lottie"></div>
+                </div>
+                <div class="title-m txt-inline">estudios creativos</div>
+                <div class="icon_lottie-element">
+                  <div class="icon_lottie-bg"></div>
+                  <div
+                    data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67c5e3837628d7c1077f6e66_PF%20-%20Ovals%20Large%20-%20160.json"
+                    class="icon_lottie"></div>
+                </div>
+                <div class="title-m txt-inline">y empresas</div>
+                <div class="icon_lottie-element">
+                  <div class="icon_lottie-bg"></div>
+                  <div
+                    data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67c5e38382e923ed6e24b516_PF%20-%20Building%20-%20200.json"
+                    class="icon_lottie"></div>
+                </div>
+                <div class="title-m txt-inline">para convertir su visión en software innovador y personalizado</div>
+                <div class="icon_lottie-element">
+                  <div class="icon_lottie-bg"></div>
+                  <div
+                    data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67c5e383905870e1e8261303_PF%20-%20Globe%20-%20180.json"
+                    class="icon_lottie"></div>
+                </div>
+              </h3>
+              <div id="w-node-_791a0c35-5de3-9529-681f-26d0c4596b63-720a94b1" class="h-about_desc"><a href="/cv"
+                  class="button-dark w-inline-block">
+                  <div class="button_bg-dark"></div>
+                  <div class="button_in is-lottie">
+                    <div data-is-ix2-target="1" class="button_lottie" data-w-id="92c05a7b-a5b8-b3a6-15bb-7ae15911a42a"
+                      data-animation-type="lottie"
+                      data-src="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67d039a8ad0da35264fad49c_2d561dda5bccb42587ebad26cf2e59e4_profile.json"
+                      data-loop="1" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="0"
+                      data-duration="1.25"></div>
+                    <div class="button_labels-wrap">
+                      <div class="button_label-relative">
+                        <div class="txt-button">Sobre mi</div>
+                      </div>
+                      <div class="button_label-absolute">
+                        <div class="txt-button">Sobre mi</div>
+                      </div>
+                    </div>
+                  </div>
+                </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <style>
+      .h-work_item {
+        display: block;
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: all 0.3s ease;
+        margin-bottom: 40px;
+      }
+
+      .h-work_item:hover {
+        opacity: 1;
+        filter: none;
+        transform: none;
+      }
+    </style>
+    <section class="h-work_section div-hide">
+      <div class="w">
+        <div class="w-layout-grid grid">
+          <h3 class="h-work_head">
+            <div class="title-m txt-inline">Misión y Visión</div>
+            <div class="icon_lottie-element">
+              <div class="icon_lottie-bg"></div>
+              <div
+                data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67d16870bbf30590983b5bac_works.json"
+                class="icon_lottie"></div>
+            </div>
+          </h3>
+        </div>
+        <div class="h-work_cms">
+          <div class="h-work_list">
+            <div class="h-work_item">
+              <div class="h-work_name-w">
+                <div class="h-work_name-c">
+                  <h2 class="h-work_title">Misión</h2>
+                  <p class="txt-description">Desarrollar soluciones tecnológicas que optimicen procesos y potencien el
+                    crecimiento de nuestros clientes con rapidez, confiabilidad y enfoque en el usuario.</p>
+                </div>
+              </div>
+            </div>
+            <div class="h-work_item">
+              <div class="h-work_name-w">
+                <div class="h-work_name-c">
+                  <h2 class="h-work_title">Visión</h2>
+                  <p class="txt-description">Ser líderes globales en innovación tecnológica desde Bolivia, creando
+                    soluciones que transformen el futuro digital con creatividad y excelencia.</p>
+                </div>
+              </div>
+            </div>
+            <div class="h-work_item">
+              <div class="h-work_name-w">
+                <div class="h-work_name-c">
+                  <h2 class="h-work_title">Nuestros Servicios</h2>
+                  <ul class="txt-description">
+                    <li>✔ Desarrollo de software personalizado</li>
+                    <li>✔ Mantenimiento y optimización de sistemas</li>
+                    <li>✔ Soporte técnico 24/7</li>
+                    <li>✔ Soluciones de ciberseguridad avanzadas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="h-work_item">
+              <div class="h-work_name-w">
+                <div class="h-work_name-c">
+                  <h2 class="h-work_title">Submarcas de Ark Dev</h2>
+                  <div class="txt-description">
+                    <p><strong>Ark Dev System:</strong> Líder en desarrollo de apps móviles, plataformas web y sistemas
+                      personalizados.</p>
+                    <p><strong>Ark Dev Solutions:</strong> Especialistas en mantenimiento de hardware y optimización de
+                      equipos.</p>
+                    <p><strong>Ark Secure:</strong> Soluciones avanzadas de ciberseguridad y protección digital.</p>
+                    <p><strong>Ark Bio:</strong> (Próximamente) Sistemas médicos con tecnología de vanguardia.</p>
+                    <p><strong>Microsoft Dragon Copilot:</strong> Asistente inteligente para gestión y diagnósticos
+                      médicos.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="h-work_callout">
+          <div class="w-layout-grid grid">
+            <div class="div-flex">
+              <a href="https://cal.com/ark-dev" class="button-dark w-inline-block">
+                <div class="button_bg-dark"></div>
+                <div class="button_in is-lottie">
+                  <div data-is-ix2-target="1" class="button_lottie" data-animation-type="lottie"
+                    data-src="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67d16870bbf30590983b5bac_works.json"
+                    data-loop="1" data-direction="1" data-autoplay="0"></div>
+                  <div class="button_labels-wrap">
+                    <div class="button_label-relative">
+                      <div class="txt-button">Contáctanos ahora</div>
+                    </div>
+                    <div class="button_label-absolute">
+                      <div class="txt-button">Contáctanos ahora</div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="h-work_section div-hide">
+      <div class="w">
+        <div class="w-layout-grid grid">
+          <h3 class="h-work_head">
+            <div class="title-m txt-inline">Historia</div>
+            <div class="icon_lottie-element">
+              <div class="icon_lottie-bg"></div>
+              <div
+                data-lottie-path="https://cdn.prod.website-files.com/677fb4d34764579513f06df6/67d16870bbf30590983b5bac_works.json"
+                class="icon_lottie"></div>
+            </div>
+          </h3>
+        </div>
+
+        <div class="templates_c" style="text-align:center; margin-top:1rem;">
+          <p class="txt-description" style="max-width: 700px; margin: 0 auto;">
+            Fundada en abril de 2024 en Santiago, Chile, Ark Dev surgió para redefinir la innovación tecnológica. En
+            2025, trasladamos nuestra sede a La Paz, Bolivia, consolidando nuestro impacto global. Desde La Paz,
+            lideramos proyectos de software a medida, mantenimiento avanzado y soporte técnico, transformando ideas en
+            soluciones de alto impacto para startups y corporaciones internacionales.
+          </p>
+
+          <div style="margin-top: 2rem; text-align: center;">
+            <p class="text-secondary text-lg font-roboto" style="margin-bottom:1rem; font-weight: 500;">
+              Creador y visionario: <span class="text-highlight font-semibold" style="font-weight:700;">Joel
+                Andrés</span>
+            </p>
+            <img src="https://arkdev.pages.dev/src/image (1).png" alt="Firma de Joel Andrés"
+              style="max-width: 280px; height: auto; animation: crystalGlow 4s infinite alternate; margin: 0 auto; display: block;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" style="
+    background: rgba(0,0,0,0.85);
+    color: #eee;
+    font-family: 'Aeonik', sans-serif;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  ">
+      <div style="
+      display: flex;
+      gap: 3rem; 
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 480px;
+    ">
+        <a href="mailto:ajoeark@gmail.com" class="footer_social-link w-inline-block" style="
+        color:#eee;
+        display:flex;
+        align-items:center;
+        gap:0.5rem;
+        text-decoration:none;
+        font-weight: 500;
+        font-size: 0.95rem;
+      ">
+          <div class="icon_embed20" style="display:flex; align-items:center;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+              style="fill:#eee;">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M2.5 6.20885V15.5H17.5V6.20888L11.2149 11.0151C10.4978 11.5635 9.50223 11.5635 8.78512 11.0151L2.5 6.20885ZM17.2654 4.5H2.73468L9.6963 9.82359C9.87557 9.96068 10.1245 9.96068 10.3037 9.82359L17.2654 4.5ZM1 4C1 3.44772 1.44772 3 2 3H18C18.5523 3 19 3.44772 19 4V16C19 16.5523 18.5523 17 18 17H2C1.44772 17 1 16.5523 1 16V4Z" />
+            </svg>
+          </div>
+          <span>Email</span>
+        </a>
+        <a href="https://github.com/Jhoel777ar" target="_blank" class="footer_social-link w-inline-block" style="
+        color:#eee;
+        display:flex;
+        align-items:center;
+        gap:0.5rem;
+        text-decoration:none;
+        font-weight: 500;
+        font-size: 0.95rem;
+      ">
+          <div class="icon_embed20" style="display:flex; align-items:center;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+              style="fill:#eee;">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M10 0.5C4.75 0.5 0.5 4.75 0.5 10C0.5 14.4 3.4375 18.1 7.4375 19.5C7.9375 19.6 8.125 19.3 8.125 19.05V17.35C5.25 17.95 4.625 15.9 4.625 15.9C4.1875 14.75 3.5625 14.45 3.5625 14.45C2.6875 13.85 3.625 13.85 3.625 13.85C4.5625 13.9 5.0625 14.8 5.0625 14.8C5.875 16.2 7.25 15.8 7.8125 15.55C7.9375 14.95 8.1875 14.55 8.4375 14.3C6.125 14.05 3.75 13.2 3.75 9.6C3.75 8.55 4.125 7.75 4.75 7.15C4.625 6.9 4.25 5.825 4.875 4.45C4.875 4.45 5.75 4.175 8.125 5.55C8.9375 5.325 9.8125 5.225 10.6875 5.225C11.5625 5.225 12.4375 5.325 13.25 5.55C15.625 4.175 16.5 4.45 16.5 4.45C17.125 5.825 16.75 6.9 16.625 7.15C17.25 7.75 17.625 8.55 17.625 9.6C17.625 13.225 15.25 14.05 12.9375 14.3C13.25 14.6 13.5625 15.2 13.5625 16.1V19.05C13.5625 19.3 13.75 19.6 14.25 19.5C18.25 18.1 21.1875 14.4 21.1875 10C21.1875 4.75 16.9375 0.5 10 0.5Z" />
+            </svg>
+          </div>
+          <span>GitHub</span>
+        </a>
+        <a href="https://cal.com/ark-dev" target="_blank" class="footer_social-link w-inline-block" style="
+        color:#eee;
+        display:flex;
+        align-items:center;
+        gap:0.5rem;
+        text-decoration:none;
+        font-weight: 500;
+        font-size: 0.95rem;
+      ">
+          <div class="icon_embed20"
+            style="display:flex; align-items:center; font-weight:bold; font-size: 20px; color:#eee;">
+
+          </div>
+          <span>Cal.com</span>
+        </a>
+      </div>
+      <div style="
+      text-align:center;
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-top: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      max-width: 480px;
+    ">
+        Marcas registradas y protegidas por SENAPI Bolivia.<br />
+        © 2024 - 2025 Ark Dev - Todos los derechos reservados.
+      </div>
+    </footer>
+
+  </main>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=677fb4d34764579513f06df6"
+    type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/timothydesign/script/split-type.js"></script>
+
+  <script defer
+    src="https://cdn.prod.website-files.com/645e0e1ff7fdb6dc8c85f3a2/64a5544a813c7253b90f2f50_lenis-offbrand.txt"
+    data-id-scroll data-autoinit="true" data-duration="0.8" data-orientation="vertical" data-smoothWheel="true"
+    data-smoothTouch="false" data-touchMultiplier="1" data-easing="(t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t))"
+    data-useOverscroll="true" data-useControls="true" data-useAnchor="true" data-useRaf="true" data-infinite="false">
     </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      // Footer Callout Splitted Text
+      const staggerCallouts = document.querySelectorAll(".footer_callout");
+
+      staggerCallouts.forEach((callout) => {
+        const defaultText = callout.querySelector(".footer_callout-txt.default");
+        const absoluteText = callout.querySelector(".footer_callout-txt.absolute");
+
+        let allWordsDefault = [];
+        let allWordsAbsolute = [];
+
+        if (defaultText) {
+          let splitDefault = new SplitType(defaultText, { types: "words" });
+          allWordsDefault = splitDefault.words;
+        }
+
+        if (absoluteText) {
+          let splitAbsolute = new SplitType(absoluteText, { types: "words" });
+          allWordsAbsolute = splitAbsolute.words;
+
+          // Set initial position of absolute words to 1em
+          gsap.set(allWordsAbsolute, { y: "1em" });
+        }
+
+        callout.addEventListener("mouseenter", function () {
+          gsap.to(allWordsDefault, {
+            y: "-1em",
+            duration: 0.55,
+            ease: "expo.out", // Replaced with expo.out
+            stagger: { each: 0.03, from: "start" },
+          });
+
+          gsap.to(allWordsAbsolute, {
+            y: "0em",
+            duration: 0.55,
+            ease: "expo.out", // Replaced with expo.out
+            stagger: { each: 0.03, from: "start" },
+          });
+        });
+
+        callout.addEventListener("mouseleave", function () {
+          gsap.to(allWordsDefault, {
+            y: "0em",
+            duration: 0.5, // Smooth return
+            ease: "expo.out",
+            stagger: { each: 0.03, from: "start" },
+
+          });
+
+          gsap.to(allWordsAbsolute, {
+            y: "1em",
+            duration: 0.5, // Smooth return
+            ease: "expo.out",
+            stagger: { each: 0.03, from: "start" },
+
+          });
+        });
+      });
+
+      // Play/Pause video based on viewport
+      function initPlayPauseVideoScroll() {
+        const videos = gsap.utils.toArray('[data-video="playpause"]');
+
+        videos.forEach(el => {
+          const video = el.querySelector('video');
+          if (!video) return;
+
+          ScrollTrigger.create({
+            trigger: el,
+            start: '0% 100%',
+            end: '100% 0%',
+            onEnter: () => video.play(),
+            onEnterBack: () => video.play(),
+            onLeave: () => video.pause(),
+            onLeaveBack: () => video.pause(),
+          });
+        });
+      }
+
+      initPlayPauseVideoScroll();
+
+      // Menu Show & Hide on Scroll
+      var lastScrollTop = 0;
+      $(window).on('scroll', function () {
+        var st = $(this).scrollTop();
+        var windowHeight = $(window).height();
+        var documentHeight = $(document).height();
+
+        if (st <= 0) {
+          $('.menu').css('transform', 'translateY(0%)');
+        }
+        else if (st + windowHeight >= documentHeight) {
+          // Reached the bottom
+          $('.menu').css('transform', 'translateY(-100%)');
+        }
+        else if (st > lastScrollTop) {
+          // Scrolling down
+          $('.menu').css('transform', 'translateY(-100%)');
+        } else {
+          // Scrolling up
+          $('.menu').css('transform', 'translateY(0%)');
+        }
+
+        lastScrollTop = st;
+      });
+
+      // Fade In Small Animation
+      document.querySelectorAll('[fade-in]').forEach((el) => {
+        gsap.fromTo(el, { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "expo.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              toggleActions: "play none none none"
+            }
+          });
+      });
+
+      //Play Form Lottie on Hover
+      function initLottieHover() {
+        document.querySelectorAll(".form-field_component").forEach(component => {
+          const lottieContainer = component.querySelector(".field_label .field_lottie");
+          const lottiePath = lottieContainer?.dataset?.lottiePath;
+
+          if (lottiePath && !lottieContainer.dataset.lottieInitialized) {
+            const anim = lottie.loadAnimation({
+              container: lottieContainer,
+              renderer: "svg",
+              loop: false,
+              autoplay: false,
+              path: lottiePath,
+            });
+
+            component.addEventListener("mouseenter", () => {
+              anim.setDirection(1);
+              anim.play();
+            });
+
+            component.addEventListener("mouseleave", () => {
+              anim.setDirection(-1);
+              anim.play();
+            });
+
+            lottieContainer.dataset.lottieInitialized = "true";
+          }
+        });
+      }
+
+      // Footer Open Credits
+      const creditsTrigger = document.querySelector("[open-credits]");
+      const creditItems = document.querySelectorAll(".footer_credits .txt-size-xs");
+
+      gsap.set(creditItems, { x: -40, opacity: 0 });
+
+      let isCreditsOpen = false;
+
+      const openTl = gsap.timeline({ paused: true })
+        .to(creditItems, {
+          x: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power4.out",
+          stagger: 0.05
+        });
+
+      const closeTl = gsap.timeline({
+        paused: true,
+        onComplete: () => {
+          gsap.set(creditItems, { x: 40, opacity: 0 });
+        }
+      }).to(creditItems, {
+        x: 40,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power4.out",
+        stagger: 0.05
+      });
+
+      creditsTrigger.addEventListener("click", () => {
+        if (!isCreditsOpen) {
+          closeTl.pause(0);
+          openTl.restart();
+        } else {
+          openTl.pause(0);
+          closeTl.restart();
+        }
+        isCreditsOpen = !isCreditsOpen;
+      });
+
+      // Page transition
+      gsap.fromTo(
+        [".page_w", ".menu_inner"], { opacity: 0 }, {
+        opacity: 1,
+        duration: 0.2,
+        ease: "ease"
+      }
+      );
+
+      // Code that runs on click of a link
+      $("a").on("click", function (e) {
+        if (
+          $(this).prop("hostname") === window.location.host &&
+          $(this).attr("href").indexOf("#") === -1 &&
+          $(this).attr("target") !== "_blank"
+        ) {
+          e.preventDefault();
+          $("body").css("cursor", "progress");
+
+          const destination = $(this).attr("href");
+          gsap.to([".page_w", ".menu_inner", ".cursor"], {
+            opacity: 0,
+            duration: 0.2,
+            ease: "ease",
+            onComplete: () => {
+              window.location = destination;
+            }
+          });
+        }
+      });
+
+      // On click of the back button
+      window.onpageshow = function (event) {
+        if (event.persisted) {
+          window.location.reload();
+        }
+      };
+    });
+  </script>
+
+  <style>
+    @media (min-width: 992px) {
+
+      /* Footer Links Hover */
+      .footer_social-link:hover .social-link-tag {
+        transform: scale(1) translateY(0em);
+        opacity: 1;
+      }
+
+      .footer_social-link:hover {
+        border-color: rgba(23, 23, 23, 0.48);
+      }
+
+      .footer_social-link {
+        transition: border-color 0.3s cubic-bezier(.16, 1, .3, 1.15);
+      }
+
+      .footer_next-overlay {
+        transition: transform 0.5s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .footer_next .footer_next-overlay {
+        transform: scaleY(0);
+      }
+
+      .footer_next:hover .footer_next-overlay {
+        transform: scaleY(1);
+      }
+
+      .footer_next .footer_next-title-w {
+        transition: transform 0.4s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .footer_next:hover .footer_next-title-w {
+        transform: translateX(1em);
+      }
+
+      .footer_callout:hover .footer_callout-hover-w {
+        margin-left: 2.5em;
+      }
+
+      .footer_callout .footer_next-overlay {
+        transform: scaleY(0);
+      }
+
+      .footer_callout:hover .footer_next-overlay {
+        transform: scaleY(1);
+      }
+
+      .footer_callout-hover-w {
+        transition: margin-left 0.5s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      /* CSS for Footer Links */
+      .footer_social-link .social-link-tag {
+        transform: scale(0.4) translateY(2em);
+        opacity: 0;
+        transition:
+          transform 0.3s cubic-bezier(.16, 1, .3, 1.15),
+          opacity 0.3s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      /* Footer & Menu Links Hover */
+      .menu_link:hover~.menu_link:not(:hover),
+      .menu_link:not(:hover):has(~ .menu_link:hover) {
+        opacity: 0.4;
+      }
+
+      .footer_link:hover~.footer_link:not(:hover),
+      .footer_link:not(:hover):has(~ .footer_link:hover) {
+        opacity: 0.4;
+      }
+
+      /* Contact Form Hover Styles */
+      .field_input {
+        text-decoration: none;
+        transition: 0.2s border-color ease;
+      }
+
+      .field_input:hover {
+        border-color: rgba(250, 250, 250, 0.24);
+      }
+
+      .field_radio-button {
+        transition: 0.2s border-color ease;
+      }
+
+      .field_radio-button:hover {
+        border-color: rgba(250, 250, 250, 0.24);
+      }
+
+      .field_radio-button .txt-color-light-60o {
+        transition: 0.2s color ease;
+      }
+
+      .field_radio-button:hover .txt-color-light-60o {
+        color: var(--light--main);
+      }
+
+      .contact_close-btn {
+        transition: 0.2s border-color ease;
+      }
+
+      .contact_close-btn .icon_embed20 {
+        transition: 0.3s opacity ease;
+      }
+
+      .contact_close-btn:hover {
+        border-color: rgba(250, 250, 250, 0.24);
+      }
+
+      .contact_close-btn:hover .icon_embed20 {
+        opacity: 0.6;
+      }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 992px)", () => {
+        document.fonts.ready.then(() => {
+          gsap.set("[data-hidden]", { visibility: "visible" });
+
+          const titleSplit = new SplitType(".title-l_h-hero", { types: "words, lines" });
+          const subtitleSplit = new SplitType(
+            ".h-hero_subtitle-wrap .txt-color-light-60o", { types: "words, lines" });
+
+          titleSplit.lines.forEach(line => {
+            gsap.set(line, { overflow: "hidden", display: "inline-block" });
+          });
+
+          const tl = gsap.timeline();
+
+          tl.fromTo(".title-l_h-hero", { fontSize: "12em", opacity: 0.2 }, {
+            fontSize: "4em",
+            opacity: 1,
+            duration: 1.6,
+            ease: "expo.inOut"
+          }, 0.6)
+
+            .from(titleSplit.words, {
+              y: "100%",
+              duration: 1,
+              ease: "expo.out",
+              stagger: 0.15
+            }, 0)
+
+            .from(subtitleSplit.lines, {
+              y: "100%",
+              opacity: 0,
+              duration: 0.8,
+              ease: "power4.out",
+              stagger: 0.1,
+            }, 1.6)
+
+            .from(".arrow_lottie", {
+              opacity: 0,
+              y: "100%",
+              duration: 0.8,
+              ease: "power4.out"
+            }, 1.5)
+
+            .from(".h-hero_work-divider", {
+              scale: 0.6,
+              filter: 'blur(12px)',
+              opacity: 0,
+              duration: 0.8,
+              ease: "expo.out",
+            }, 1.6)
+
+            .from(".menu_logo-link", {
+              x: "-50vw",
+              scale: 1.2,
+              opacity: 0,
+              duration: 1.2,
+              ease: "expo.out",
+            }, 1.4)
+
+            .from(".menu_links .menu_link", {
+              y: "-10vw",
+              duration: 1.2,
+              ease: "expo.out",
+              stagger: {
+                each: 0.05,
+                from: "start"
+              }
+            }, 1.4)
+
+            .from(".menu_main-inner", {
+              x: "50vw",
+              scale: 1.2,
+              opacity: 0,
+              duration: 1.2,
+              ease: "expo.out",
+            }, 1.4)
+
+            .from(".work_card .work_card-img-w", {
+              scale: 0.2,
+              opacity: 0,
+              duration: 1,
+              ease: "expo.out",
+              stagger: {
+                amount: 0.2,
+                from: "center"
+              }
+            }, 1.2)
+
+            .from(".work_card", {
+              y: "200%",
+              filter: 'blur(12px)',
+              duration: 1,
+              ease: "expo.out",
+              stagger: {
+                amount: 0.2,
+                from: "center"
+              }
+            }, 1.2)
+
+            .set(".h-hero_section", { cursor: "auto" }, 2.2)
+            .set(".h-hero_work", { pointerEvents: "auto" }, 2);
+        });
+
+        return () => gsap.killTweensOf("*");
+      });
+
+      mm.add("(max-width: 991px)", () => {
+        document.fonts.ready.then(() => {
+          gsap.set("[data-hidden]", { visibility: "visible" });
+
+          const titleSplit = new SplitType(".title-l_h-hero", { types: "words, lines" });
+          const subtitleSplit = new SplitType(
+            ".h-hero_subtitle-wrap .txt-color-light-60o", { types: "words, lines" });
+
+          titleSplit.lines.forEach(line => {
+            gsap.set(line, { overflow: "hidden", display: "inline-block" });
+          });
+
+          const tl = gsap.timeline();
+
+          tl.from(titleSplit.words, {
+            y: "100%",
+            duration: 1,
+            ease: "expo.out",
+            stagger: 0.15
+          }, 0)
+
+            .from(subtitleSplit.lines, {
+              y: "100%",
+              opacity: 0,
+              duration: 0.8,
+              ease: "power4.out",
+              stagger: 0.1,
+            }, 1.6)
+
+            .from(".h-hero_title-w", {
+              y: "25vh",
+              opacity: 0.2,
+              duration: 1,
+              ease: "expo.inOut",
+            }, 0.8)
+
+            .from(".h-hero_works-mob .txt-size-xs", {
+              scale: 0.6,
+              filter: 'blur(12px)',
+              opacity: 0,
+              duration: 0.8,
+              ease: "expo.out",
+            }, 1.6)
+
+            .from(".menu_logo-link", {
+              scale: 1.2,
+              x: "-50vw",
+              opacity: 0,
+              duration: 1.2,
+              ease: "expo.out",
+            }, 1.4)
+
+            .from(".menu_main-inner", {
+              scale: 1.2,
+              x: "50vw",
+              opacity: 0,
+              duration: 1.2,
+              ease: "expo.out",
+            }, 1.4)
+
+            .from(".work_card-mob", {
+              x: "-100vw",
+              opacity: 0,
+              scale: 0.4,
+              filter: 'blur(12px)',
+              duration: 1,
+              ease: "expo.out",
+              stagger: {
+                each: 0.05,
+                from: "end"
+              }
+            }, 1.2)
+
+            .from(".swiper-nav .swiper-arrow_prev", {
+              x: "-100%",
+              scale: 0,
+              duration: 0.9,
+              ease: "expo.out",
+            }, 1.2)
+
+            .from(".swiper-nav .swiper-arrow_next", {
+              x: "100%",
+              scale: 0,
+              duration: 0.9,
+              ease: "expo.out",
+            }, 1.3);
+
+        });
+
+        return () => gsap.killTweensOf("*");
+      });
+
+      // Hero Swiper Slider
+      var swiper = new Swiper(".swiper.h_works", {
+        slidesPerView: 1.2,
+        spaceBetween: 0,
+        centeredSlides: true,
+        a11y: {
+          slideRole: 'listitem'
+        },
+        navigation: {
+          nextEl: ".swiper-arrow_next",
+          prevEl: ".swiper-arrow_prev",
+        },
+
+        on: {
+          transitionStart: function () {
+            // Pause all videos when transitioning
+            document.querySelectorAll(".swiper-slide video").forEach((video) => {
+              video.pause();
+            });
+          },
+
+          transitionEnd: function () {
+            // Get the active slide and its video
+            var activeIndex = this.activeIndex;
+            var activeSlide = document.getElementsByClassName("swiper-slide")[activeIndex];
+            var activeVideo = activeSlide?.querySelector(".work_embed video");
+
+            if (activeVideo) {
+              activeVideo.muted = true; // Fix autoplay restrictions
+              activeVideo.setAttribute("playsinline", ""); // Mobile support
+              activeVideo.play().catch(() => { });
+            }
+          },
+        },
+      });
+
+      // ✅ Pause videos when Swiper is not in view & resume when it's back
+      gsap.registerPlugin(ScrollTrigger);
+
+      ScrollTrigger.create({
+        trigger: ".swiper.h_works",
+        start: "top bottom", // When Swiper fully enters viewport
+        end: "bottom top", // When Swiper fully leaves viewport
+        onLeave: () => {
+          document.querySelectorAll(".swiper-slide video").forEach((video) => {
+            video.pause(); // ✅ Pause video but keep progress
+          });
+        },
+        onEnterBack: () => {
+          // ✅ Resume playing only the active slide's video when Swiper is back in view
+          var activeSlide = document.querySelector(".swiper-slide.h_works.swiper-slide-active");
+          var activeVideo = activeSlide?.querySelector(".work_embed video");
+
+          if (activeVideo) {
+            activeVideo.play().catch(() => { });
+          }
+        },
+      });
+
+      // ✅ Pause all videos when Swiper is not visible in viewport
+      gsap.registerPlugin(ScrollTrigger);
+
+      ScrollTrigger.create({
+        trigger: ".swiper.h_works",
+        start: "top bottom", // When Swiper fully enters viewport
+        end: "bottom top", // When Swiper fully leaves viewport
+        onLeave: () => {
+          document.querySelectorAll(".swiper-slide video").forEach((video) => {
+            video.pause();
+            video.currentTime = 0; // Reset video when Swiper is out of view
+          });
+        },
+      });
+
+      mm.add("(min-width: 992px)", () => {
+        const workCards = document.querySelectorAll('.work_card');
+
+        workCards.forEach(card => {
+          card.addEventListener('mouseenter', () => {
+            const video = card.querySelector('.work_embed video');
+            if (video) {
+              video.play().catch(() => { });
+            }
+          });
+
+          card.addEventListener('mouseleave', () => {
+            const video = card.querySelector('.work_embed video');
+            if (video) {
+              video.pause();
+            }
+          });
+        });
+
+        const workLinks = document.querySelectorAll('.h-work_link');
+        workLinks.forEach(link => {
+          link.addEventListener('mouseenter', () => {
+            const videos = link.querySelectorAll('video.h-work_embed');
+            videos.forEach(video => {
+              video.play().catch(() => { });
+            });
+          });
+
+          link.addEventListener('mouseleave', () => {
+            const videos = link.querySelectorAll('video.h-work_embed');
+            videos.forEach(video => {
+              video.pause();
+            });
+          });
+        });
+
+        return () => {
+          // Cleanup: Remove event listeners when screen is resized below 992px
+          workCards.forEach(card => {
+            card.removeEventListener('mouseenter', () => { });
+            card.removeEventListener('mouseleave', () => { });
+          });
+
+          workLinks.forEach(link => {
+            link.removeEventListener('mouseenter', () => { });
+            link.removeEventListener('mouseleave', () => { });
+          });
+        };
+      });
+
+      mm.add("(min-width: 992px)", () => {
+        // Hero Interaction
+        const navItems = document.querySelectorAll('.h-hero_work');
+
+        const toggleSiblingClass = (items, index, offset, className, add) => {
+          const sibling = items[index + offset];
+          if (sibling) {
+            sibling.classList.toggle(className, add);
+          }
+        };
+
+        navItems.forEach((item, index) => {
+          item.addEventListener('mouseenter', () => {
+            item.classList.add('hover');
+
+            toggleSiblingClass(navItems, index, -1, 'sibling-far1', true);
+            toggleSiblingClass(navItems, index, 1, 'sibling-far1', true);
+            toggleSiblingClass(navItems, index, -2, 'sibling-far2', true);
+            toggleSiblingClass(navItems, index, 2, 'sibling-far2', true);
+            toggleSiblingClass(navItems, index, -3, 'sibling-far3', true);
+            toggleSiblingClass(navItems, index, 3, 'sibling-far3', true);
+            toggleSiblingClass(navItems, index, -4, 'sibling-far4', true);
+            toggleSiblingClass(navItems, index, 4, 'sibling-far4', true);
+          });
+
+          item.addEventListener('mouseleave', () => {
+            item.classList.remove('hover');
+            toggleSiblingClass(navItems, index, -1, 'sibling-far1', false);
+            toggleSiblingClass(navItems, index, 1, 'sibling-far1', false);
+            toggleSiblingClass(navItems, index, -2, 'sibling-far2', false);
+            toggleSiblingClass(navItems, index, 2, 'sibling-far2', false);
+            toggleSiblingClass(navItems, index, -3, 'sibling-far3', false);
+            toggleSiblingClass(navItems, index, 3, 'sibling-far3', false);
+            toggleSiblingClass(navItems, index, -4, 'sibling-far4', false);
+            toggleSiblingClass(navItems, index, 4, 'sibling-far4', false);
+          });
+        });
+
+        $(".h-hero_work").hover(
+          function () {
+            $(".h-hero_content-wrap").css({
+              "opacity": "0.2",
+              "transform": "scale(0.9)",
+              "transition": "opacity 0.4s cubic-bezier(.16, 1, .3, 1), transform 0.4s cubic-bezier(.16, 1, .3, 1)"
+            });
+
+            $(".h-hero_arrow").css({
+              "opacity": "0",
+              "transition": "opacity 0.4s cubic-bezier(.16, 1, .3, 1)"
+            });
+
+            $(".h-hero_work-divider").css({
+              "opacity": "0",
+              "transition": "opacity 0.2s cubic-bezier(.16, 1, .3, 1)"
+            });
+
+          },
+          function () {
+            $(".h-hero_content-wrap").css({
+              "opacity": "1",
+              "transform": "scale(1)"
+            });
+
+            $(".h-hero_arrow").css({
+              "opacity": "1"
+            });
+
+            $(".h-hero_work-divider").css({
+              "opacity": "1"
+            });
+          }
+        );
+
+        let worksHeight = $(".h-hero_works").outerHeight(); // Get height including padding
+        $(".h-hero_work-divider").css("margin-bottom", `calc(${worksHeight}px)`);
+
+        // Cursor Follow mouse
+        let cursorItem = document.querySelector(".cursor");
+        let cursorParagraph = cursorItem.querySelector("p");
+        let cursorArrow = cursorItem.querySelector(".cursor_icon");
+        let targets = document.querySelectorAll("[data-cursor]");
+        let xOffset = 10;
+        let yOffset = 40;
+        let currentTarget = null;
+        let lastText = '';
+
+        gsap.set(cursorItem, { xPercent: xOffset, yPercent: yOffset });
+
+        let xTo = gsap.quickTo(cursorItem, "x", { ease: "power3" });
+        let yTo = gsap.quickTo(cursorItem, "y", { ease: "power3" });
+
+        window.addEventListener("mousemove", e => {
+          let scrollY = window.scrollY;
+          let cursorX = e.clientX;
+          let cursorY = e.clientY + scrollY;
+
+          gsap.to(cursorItem, {
+            xPercent: xOffset,
+            yPercent: yOffset,
+            duration: 0.3,
+            ease: "power3"
+          });
+
+          xTo(cursorX);
+          yTo(cursorY - scrollY);
+        });
+
+        // Mouse enter handling
+        targets.forEach(target => {
+          target.addEventListener("mouseenter", () => {
+            currentTarget = target;
+            let newText = target.getAttribute("data-cursor");
+
+            if (newText !== lastText) {
+              cursorParagraph.innerHTML = newText;
+              lastText = newText;
+            }
+
+            // Show or hide the icon based on presence of data-cursor-arrow
+            if (target.matches("[data-cursor][data-cursor-arrow]")) {
+              cursorArrow.style.display = "flex";
+            } else {
+              cursorArrow.style.display = "none";
+            }
+          });
+        });
+
+        // Optional: mouse leave resets the icon (optional behavior)
+        targets.forEach(target => {
+          target.addEventListener("mouseleave", () => {
+            cursorArrow.style.display = "none";
+          });
+        });
+
+        return () => {
+          targets.forEach(item => {
+            item.removeEventListener("mouseenter");
+            item.removeEventListener("mouseleave");
+          });
+
+          window.removeEventListener("mousemove");
+        };
+
+      });
+
+      // 3 Circles on Scroll Interaction
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.fromTo(
+        '.h-intro_sticky-c .grid',
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          scrollTrigger: {
+            trigger: '.h-intro_sticky-c',
+            start: 'top 90%',
+            end: 'top 40%',
+            scrub: 0.5,
+            toggleActions: 'play none none none',
+            markers: false
+          }
+        }
+      );
+
+      mm.add("(min-width: 991px)", () => {
+        gsap.from('.h-intro_scroll-indicator', {
+          scaleY: 0,
+          scrollTrigger: {
+            trigger: '.h-intro_sticky-marquee',
+            start: 'top 10%',
+            end: 'bottom 70%',
+            scrub: 0.5,
+            toggleActions: 'play none none none',
+            markers: false,
+          },
+        });
+
+        const circleScrollElements = document.querySelectorAll('.circle_scroll');
+
+        circleScrollElements.forEach((circle, index) => {
+          const textElement = circle.querySelector('.txt-align-center');
+          const lottieWrapper = circle.querySelector('.circle_lottie-w');
+          const lottieElement = circle.querySelector('.circle_lottie-icon');
+
+          if (!lottieElement) return;
+
+          const lottiePath = lottieElement.getAttribute('data-lottie-path');
+          const lottieInstance = lottie.loadAnimation({
+            container: lottieElement,
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            path: lottiePath,
+          });
+
+          function playLottieLoop() {
+            lottieInstance.setDirection(1);
+            lottieInstance.play();
+
+            lottieInstance.addEventListener('complete', () => {
+              lottieInstance.setDirection(lottieInstance.playDirection === 1 ? -1 : 1);
+              lottieInstance.play();
+            });
+          }
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: circle,
+              start: `top ${90 + index * -20}%`,
+              toggleActions: 'play none none none',
+              markers: false,
+            },
+          });
+
+          tl.from(circle, { y: '100%', duration: 1.2, ease: 'power4.out' }, 0);
+          tl.from(lottieWrapper, { scale: 0, duration: 0.8, ease: 'power3.out' }, 0);
+          tl.from(textElement, { opacity: 0, y: 40, duration: 0.6, ease: 'power3.out' }, 0.2);
+          tl.add(() => { playLottieLoop(); }, 0.4);
+        });
+
+        const lottieElements = document.querySelectorAll('.circle_lottie-line');
+
+        lottieElements.forEach((lottieElement, index) => {
+          const reverseIndex = lottieElements.length - 1 - index;
+          const lottiePath = lottieElement.getAttribute('data-lottie-path');
+          const lottieInstance = lottie.loadAnimation({
+            container: lottieElement,
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            path: lottiePath,
+          });
+
+          lottieInstance.goToAndStop(0, true);
+
+          ScrollTrigger.create({
+            trigger: lottieElement,
+            start: `top ${10 + reverseIndex * 10}%`,
+            end: `top ${-50 + reverseIndex * 10}%`,
+            scrub: 0.5,
+            markers: false,
+            onUpdate: (self) => {
+              const progress = self.progress * lottieInstance.totalFrames;
+              lottieInstance.goToAndStop(progress, true);
+            },
+          });
+        });
+
+        const scrollInnerElements = document.querySelectorAll('.circle_scroll-inner');
+
+        scrollInnerElements.forEach((innerElement, index) => {
+          gsap.fromTo(
+            innerElement, { opacity: 0, y: '150%', filter: 'blur(12px)' },
+            {
+              opacity: 1,
+              y: '0%',
+              filter: 'blur(0px)',
+              scrollTrigger: {
+                trigger: innerElement.closest('.circle_scroll'),
+                start: `top ${90 - index * 10}%`,
+                end: `top ${60 - index * 10}%`,
+                scrub: 0.5,
+                markers: false,
+              },
+            }
+          );
+        });
+
+        const movingDownElements = document.querySelectorAll(
+          '.circle_scroll-parent.left, .circle_scroll-parent.right');
+
+        movingDownElements.forEach((element) => {
+          gsap.to(element, {
+            y: '11em',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: '.h-intro_sticky-marquee',
+              start: 'bottom 180%',
+              end: 'bottom 120%',
+              scrub: 0.5,
+              markers: false,
+            },
+          });
+        });
+
+        const movingLeftElements = document.querySelectorAll('.circle_scroll-parent.left');
+
+        movingLeftElements.forEach((element) => {
+          gsap.to(element, {
+            x: '9em',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: '.h-intro_sticky-marquee',
+              start: 'bottom 150%',
+              end: 'bottom 120%',
+              scrub: 0.5,
+              markers: false,
+            },
+          });
+        });
+
+        const movingRightElements = document.querySelectorAll('.circle_scroll-parent.right');
+
+        movingRightElements.forEach((element) => {
+          gsap.to(element, {
+            x: '-9em',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: '.h-intro_sticky-marquee',
+              start: 'bottom 150%',
+              end: 'bottom 120%',
+              scrub: 0.5,
+              markers: false,
+            },
+          });
+        });
+
+        const fadeIntersectShape = document.querySelectorAll('.shape_intersect');
+
+        fadeIntersectShape.forEach((element) => {
+          gsap.from(element, {
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: '.h-intro_sticky-marquee',
+              start: 'bottom 115%',
+              end: 'bottom 110%',
+              scrub: 0.75,
+              markers: false,
+            },
+          });
+        });
+
+        return () => {
+          // Cleanup function to kill animations when breakpoint changes
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+      });
+
+      mm.add("(max-width: 991px)", () => {
+        const circlesScrollC = document.querySelectorAll('.circles_scroll-c');
+        const shapeIntersect = document.querySelector('.shape_intersect'); // ✅ Global Selection
+
+        circlesScrollC.forEach((circle) => {
+          const parentElements = circle.querySelectorAll('.circle_scroll-parent');
+
+          parentElements.forEach((parent, index) => {
+            const textElement = parent.querySelector('.txt-align-center');
+            const lottieWrapper = parent.querySelector('.circle_lottie-w');
+            const lottieIcon = parent.querySelector('.circle_lottie-icon');
+            const lottieLine = parent.querySelector('.circle_lottie-line');
+
+            // Initialize GSAP Timeline
+            const tl = gsap.timeline({
+              scrollTrigger: {
+                trigger: circlesScrollC, // ✅ Keep `.circles_scroll-c` as trigger
+                start: "top 90%",
+                toggleActions: "play none none none",
+                markers: false,
+              },
+            });
+
+            tl.from(lottieWrapper, { scale: 0, duration: 0.8, ease: "power4.out" }, 0);
+            tl.from(lottieLine, { scale: 0, opacity: 0, duration: 1.2, ease: "power4.out" },
+              0.1);
+            tl.from(textElement, { opacity: 0, y: 40, duration: 0.6, ease: "power4.out" },
+              0.2);
+
+            // Lottie Icon (Looping Animation)
+            const lottiePathIcon = lottieIcon.getAttribute("data-lottie-path");
+            const lottieInstanceIcon = lottie.loadAnimation({
+              container: lottieIcon,
+              renderer: "svg",
+              loop: false,
+              autoplay: false,
+              path: lottiePathIcon,
+            });
+
+            function playLottieLoop() {
+              let direction = 1; // Track current direction
+
+              lottieInstanceIcon.setDirection(direction);
+              lottieInstanceIcon.play();
+
+              lottieInstanceIcon.addEventListener("complete", () => {
+                direction *= -1; // Toggle direction
+                lottieInstanceIcon.setDirection(direction);
+                lottieInstanceIcon.play();
+              });
+            }
+
+            tl.add(() => playLottieLoop(), 0.4);
+          });
+        });
+
+        gsap.from(".shape_intersect", {
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          delay: 0.6,
+          scrollTrigger: {
+            trigger: circlesScrollC,
+            start: "top 70%",
+            toggleActions: "play none none none",
+            markers: false,
+          },
+        });
+
+        return () => {
+          // Cleanup function when matchMedia condition is no longer met
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+      });
+
+      // About Section Scroll Home
+      let splitTextWords = new SplitType("[data-lottie-text]", { types: "words", tagName: "span" });
+
+      $("[data-lottie-text]").find("span, .title-m").css("display", "inline");
+      $("[data-lottie-text]")
+        .find(".word").css("display", "inline-block");
+
+      $(".h-about_content-sticky").each(function () {
+        const container = $(this);
+        const elements = container.find(
+          ".word, .icon_lottie-element, .h-about_desc"
+        );
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".h-about_title-track",
+            start: "top 85%",
+            end: "bottom 70%",
+            scrub: 1,
+            markers: false
+          }
+        });
+
+        tl.set(container, { visibility: "visible" });
+
+        tl.from(elements, {
+          opacity: 0,
+          y: 20,
+          filter: 'blur(4px)',
+          duration: 0.6,
+          ease: "power4.out",
+          stagger: { each: 0.07 }
+        });
+
+        elements.each(function () {
+          const element = $(this);
+
+          if (element.hasClass("icon_lottie-element")) {
+            const lottieElement = element.find(".icon_lottie");
+            const lottiePath = lottieElement.attr("data-lottie-path");
+
+            const lottieInstance = lottie.loadAnimation({
+              container: lottieElement[0],
+              renderer: "svg",
+              loop: false,
+              autoplay: false,
+              path: lottiePath
+            });
+
+            lottieInstance.goToAndStop(0, true);
+            tl.add(() => {
+              if (!lottieInstance.isPlaying) {
+                playLottieLoop();
+              }
+            }, "<");
+
+            function playLottieLoop() {
+              lottieInstance.setDirection(1);
+              lottieInstance.play();
+
+              lottieInstance.removeEventListener("complete", toggleDirection);
+              lottieInstance.addEventListener("complete", toggleDirection);
+            }
+
+            function toggleDirection() {
+              lottieInstance.setDirection(lottieInstance.playDirection === 1 ? -1 : 1);
+              lottieInstance.play();
+            }
+          }
+        });
+      });
+
+      // Work Section Home Scrolls in View
+      $('.h-work_section .w').each(function () {
+        const gridContainer = $(this);
+        const gridElements = gridContainer.find('.h-work_head [data-lottie-text]');
+        const lottieElements = gridContainer.find(
+          '.icon_lottie-element .icon_lottie');
+
+        new SplitType(gridElements, { types: 'words', tagName: 'span' });
+
+        let gridTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: gridContainer,
+            start: 'top 85%',
+            markers: false,
+          },
+        });
+
+        gridTl
+          .from(gridContainer.find('.word, .icon_lottie-element'), {
+            opacity: 0,
+            y: 20,
+            filter: 'blur(4px)',
+            duration: 0.8,
+            ease: 'power4.out',
+            stagger: { each: 0.04 },
+          })
+          .from(gridContainer.find('.h-work_subtitle'), {
+            opacity: 0,
+            y: "100%",
+            duration: 1,
+            ease: 'power4.out'
+          }, 0.25)
+          .from(".h-work_section .h-work_link", {
+            x: 300,
+            filter: "blur(8px)",
+            opacity: 0,
+            duration: 0.9,
+            ease: "power4.out",
+            stagger: 0.1,
+            clearProps: "opacity"
+          }, 0.4);
+
+        // Lottie Animation with Infinite Looping for each lottieElement
+        lottieElements.each(function () {
+          const currentElement = $(this);
+          const lottiePath = currentElement.attr('data-lottie-path');
+
+          const lottieInstance = lottie.loadAnimation({
+            container: currentElement[0],
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            path: lottiePath,
+          });
+
+          lottieInstance.goToAndStop(0, true);
+
+          gridTl.add(() => {
+            if (!lottieInstance.isPlaying) {
+              playLottieLoop(lottieInstance);
+            }
+          }, "<");
+
+          function playLottieLoop(instance) {
+            instance.setDirection(1);
+            instance.play();
+
+            instance.removeEventListener('complete', toggleDirection);
+            instance.addEventListener('complete', toggleDirection);
+          }
+
+          function toggleDirection() {
+            lottieInstance.setDirection(lottieInstance.playDirection === 1 ? -1 : 1);
+            lottieInstance.play();
+          }
+        });
+      });
+
+      // Templates Section Scrolls in View
+      $('.templates_section .w').each(function () {
+        const gridContainer = $(this);
+        const gridElements = gridContainer.find('.templates_title-w [data-lottie-text]');
+        const lottieElements = gridContainer.find('.icon_lottie-element .icon_lottie');
+
+        // Initialize SplitType and ensure the elements are split into words
+        new SplitType(gridElements, { types: 'words', tagName: 'span' });
+
+        $("[data-lottie-text]").find("span, .title-m").css("display", "inline");
+        $("[data-lottie-text]").find(".word").css("display", "inline-block");
+
+        let gridTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: gridContainer,
+            start: 'top 90%',
+          },
+        });
+
+        gridTl
+          .from(gridContainer.find('.word, .icon_lottie-element'), {
+            opacity: 0,
+            y: 20,
+            filter: 'blur(4px)',
+            duration: 0.8,
+            ease: 'power4.out',
+            stagger: { amount: 0.5 },
+          })
+          .from('.templates_btn-w', {
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            ease: 'power4.out',
+          }, 0.45);
+
+        mm.add(
+          {
+            isDesktop: "(min-width: 992px)", // Desktop (992px and up)
+            isMobile: "(max-width: 991px)", // Mobile (991px and below)
+          },
+          (context) => {
+            let { isDesktop, isMobile } = context.conditions;
+
+            gsap.from($('.templates_slider-nav').children(), {
+              scrollTrigger: {
+                trigger: '.templates_slider-nav',
+                start: isDesktop ? 'top 40%' : 'top 90%',
+                markers: false,
+              },
+              opacity: 0,
+              x: 80,
+              duration: 0.7,
+              ease: 'power4.out',
+              stagger: { each: 0.1 },
+            });
+          }
+        );
+
+        // Lottie Animation with Infinite Looping for each lottieElement
+        lottieElements.each(function () {
+          const currentElement = $(this);
+          const lottiePath = currentElement.attr('data-lottie-path');
+
+          const lottieInstance = lottie.loadAnimation({
+            container: currentElement[0],
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            path: lottiePath,
+          });
+
+          lottieInstance.goToAndStop(0, true);
+
+          gridTl.add(() => {
+            if (!lottieInstance.isPlaying) {
+              playLottieLoop(lottieInstance);
+            }
+          }, 0.2);
+
+          function playLottieLoop(instance) {
+            instance.setDirection(1);
+            instance.play();
+
+            instance.removeEventListener('complete', toggleDirection);
+            instance.addEventListener('complete', () => toggleDirection(instance));
+          }
+
+          function toggleDirection(instance) {
+            instance.setDirection(instance.playDirection === 1 ? -1 : 1);
+            instance.play();
+          }
+        });
+      });
+
+      // Templates Slider Scrolls in View
+      const tempContainer = $('.templates_slider-c');
+
+      gsap.context(() => {
+        let tempTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: tempContainer[0],
+            start: 'top 90%',
+            markers: false,
+          },
+        });
+
+        tempTl
+          .from('.template_slide-inner', {
+            scale: 0.2,
+            y: "70%",
+            duration: 1,
+            stagger: { each: 0.08, from: "end" },
+            ease: 'power4.out',
+          }, 0.15);
+      }, tempContainer[0]);
+
+      // Template Slider Section Code
+      function updateClasses(reverse = false) {
+        const staggerDelayNext = 0.05; // Stagger delay for "next" button
+        const staggerDelayPrev = 0.00; // Stagger delay for "prev" button
+        const $slides = $('.template_slide');
+        const totalSlides = $slides.length;
+
+        $slides.each(function (index) {
+          $(this).attr('class', 'template_slide child' + (index + 1));
+
+          // Choose the stagger delay based on the direction
+          const delay = reverse ?
+            (totalSlides - index - 1) * staggerDelayPrev // Reverse stagger for "prev"
+            :
+            index * staggerDelayNext; // Normal stagger for "next"
+
+          $(this).css({
+            'transition-delay': delay + 's'
+          });
+        });
+      }
+
+      function resetTransition() {
+        $('.template_slide').css({
+          'transition': 'none',
+          'transition-delay': '0s'
+        });
+
+        // Force reflow
+        $('.template_slide')[0].offsetHeight;
+
+        // Restore transition only for the transform animation
+        $('.template_slide').css({
+          'transition': 'transform 0.4s'
+        });
+      }
+
+      function slideNext() {
+        resetTransition();
+
+        // Apply a snappy easing curve for "next" transitions
+        $('.template_slide').css({
+          'transition-timing-function': 'cubic-bezier(.16, 1, .3, 1.2)',
+          'transition-duration': '0.5s'
+        });
+
+        const $firstSlide = $('.template_slide').first();
+        $firstSlide.parent().append($firstSlide);
+
+        // Apply normal stagger for "next" button
+        updateClasses(false);
+      }
+
+      function slidePrev() {
+        resetTransition();
+
+        // Apply a different easing and longer duration for "prev" transitions
+        $('.template_slide').css({
+          'transition-timing-function': 'cubic-bezier(.16, 1, .3, 1)',
+          'transition-duration': '0.35s'
+        });
+
+        const $lastSlide = $('.template_slide').last();
+        $lastSlide.parent().prepend($lastSlide);
+
+        // Apply reverse stagger for "prev" button
+        updateClasses(true);
+      }
+
+      // Event listeners for navigation buttons
+      $('.template_slider-arrow-next').on('click', slideNext);
+      $('.template_slider-arrow-prev').on(
+        'click', slidePrev);
+
+      updateClasses();
+    });
+
+  </script>
+</body>
+
+</html>
