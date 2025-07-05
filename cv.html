@@ -706,32 +706,46 @@
       </style>
     </div>
   </div>
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="https://arkdev.pages.dev/src/Untitled%20video%20-%20Made%20with%20Clipchamp.webm" type="video/webm">
+      Tu navegador no soporta videos en formato webm.
+    </video>
+  </div>
+  <style>
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0.70;
+      filter: brightness(0.7);
+    }
+  </style>
   <div class="page_w">
     <section class="hero-about_section">
-      <div class="hero-about_img">
-        <div class="hero-about_overlay"></div>
-        <div style="text-align: center;">
-          <video class="hide-mobile-l" width="100%" height="auto" autoplay muted loop playsinline
-            src="https://arkdev.pages.dev/src/Untitled%20video%20-%20Made%20with%20Clipchamp.webm" type="video/webm"
-            aria-label="Video presentación" loading="eager">
-            Tu navegador no soporta el video.
-          </video>
-        </div>
-        <div style="text-align: center;">
-          <video class="show-mobile-l" width="1080" height="auto" autoplay muted loop playsinline
-            src="https://arkdev.pages.dev/src/v3.mp4" type="video/mp4" aria-label="Video presentación móvil"
-            loading="eager">
-            Tu navegador no soporta el video.
-          </video>
-        </div>
-      </div>
       <div class="hero-about_w">
         <div class="hero-about_content">
           <H1 data-hidden="" class="hero-about_title title-l">
-            <div class="title-line">Soy Jhoel, aspirante a </div>
+            <div class="title-line">Soy Joel, aspirante a </div>
             <div class="title-line">desarrollador </div>
-            <div class="title-line"> Full-Stack</div>
-            <div class="title-line">Creador de ARK DEV</div>
+            <div class="title-line"> Full-Stack </div>
+            <div class="title-line">y Creador de ARK DEV</div>
           </H1>
           <div data-hidden="" id="w-node-_30daf77c-9785-d2c9-95b1-6ed0b0f58c18-3870c491" class="hero-about_button"><a
               href="#services" class="button-ghost w-inline-block">
