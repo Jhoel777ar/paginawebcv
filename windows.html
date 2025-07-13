@@ -1,82 +1,244 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="es" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ARK OS Lite: Sistema operativo optimizado basado en Windows 11 para dispositivos de bajos recursos. Descarga la ISO, activadores, y herramientas como ARK Dev Solutions y ARK Secure para mantenimiento y seguridad.">
+    <meta name="keywords"
+        content="ARK OS Lite, Windows 11 optimizado, sistema operativo ligero, activadores Windows, ARK Dev Solutions, ARK Secure, bajo consumo, máquinas virtuales, mantenimiento PC, seguridad sistema">
+    <meta name="robots" content="index, follow">
     <title>ARK OS Lite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="icon" href="src/1001136218removebgpreview.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
     <style>
-        @keyframes holographic-glow {
+        body {
+            background: linear-gradient(135deg, #0a0f1e 0%, #1a2540 100%);
+            overflow-x: hidden;
+        }
+
+        .crystal-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), transparent 70%);
+            animation: crystal-shift 15s infinite linear;
+        }
+
+        @keyframes crystal-shift {
             0% {
-                filter: drop-shadow(0 0 10px rgba(0, 255, 135, 0.5));
+                transform: translate(0, 0) scale(1);
+                opacity: 0.6;
             }
 
             50% {
-                filter: drop-shadow(0 0 30px rgba(96, 239, 255, 0.8));
+                transform: translate(50px, -50px) scale(1.1);
+                opacity: 0.8;
             }
 
             100% {
-                filter: drop-shadow(0 0 10px rgba(0, 97, 255, 0.5));
+                transform: translate(0, 0) scale(1);
+                opacity: 0.6;
             }
-        }
-
-        .cyber-border {
-            position: relative;
-            background: linear-gradient(45deg,
-                    rgba(0, 255, 135, 0.2) 0%,
-                    rgba(96, 239, 255, 0.2) 50%,
-                    rgba(0, 97, 255, 0.2) 100%);
-            padding: 1px;
-            clip-path: polygon(0 10px, 10px 0,
-                    calc(100% - 10px) 0, 100% 10px,
-                    100% calc(100% - 10px), calc(100% - 10px) 100%,
-                    10px 100%, 0 calc(100% - 10px));
-        }
-
-        .cyber-inner {
-            background: radial-gradient(circle at center, #0f172a 0%, #1e293b 100%);
-            clip-path: inherit;
-        }
-
-        .neon-hover {
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(96, 239, 255, 0.3);
-        }
-
-        .neon-hover:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(96, 239, 255, 0.6),
-                inset 0 0 15px rgba(96, 239, 255, 0.3);
         }
 
         .matrix-fall {
             position: fixed;
             pointer-events: none;
-            background: repeating-linear-gradient(0deg,
-                    rgba(0, 255, 135, 0.1) 0px,
-                    rgba(0, 255, 135, 0.1) 2px,
-                    transparent 2px,
-                    transparent 4px);
-            mask-image: linear-gradient(to bottom,
-                    rgba(0, 0, 0, 1) 50%,
-                    rgba(0, 0, 0, 0) 100%);
+            background: repeating-linear-gradient(0deg, rgba(59, 130, 246, 0.1) 0px, rgba(59, 130, 246, 0.1) 2px, transparent 2px, transparent 4px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.25;
+            animation: matrix-flow 20s linear infinite;
+        }
+
+        @keyframes matrix-flow {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .moving-object {
+            position: fixed;
+            z-index: -1;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.5), transparent);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(20vw, 30vh);
+            }
+
+            50% {
+                transform: translate(40vw, 10vh);
+            }
+
+            75% {
+                transform: translate(60vw, 40vh);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes crystal-glow {
+            0% {
+                filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 25px rgba(147, 197, 253, 0.9));
+            }
+
+            100% {
+                filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+            }
+        }
+
+        .cyber-border {
+            position: relative;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.4), rgba(147, 197, 253, 0.4));
+            padding: 2px;
+            clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+            transition: all 0.3s ease;
+        }
+
+        .cyber-border:hover {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 0 25px rgba(147, 197, 253, 0.7));
+        }
+
+        .cyber-inner {
+            background: linear-gradient(135deg, #1a2540 0%, #0a0f1e 100%);
+            clip-path: inherit;
+            border-radius: 4px;
+        }
+
+        .neon-hover {
+            transition: all 0.4s ease;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        .neon-hover:hover {
+            transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 0 35px rgba(147, 197, 253, 0.8), inset 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #93c5fd, #1e3a8a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% 100%;
+            animation: gradient-flow 6s linear infinite;
+        }
+
+        @keyframes gradient-flow {
+            0% {
+                background-position: 0% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .cyber-button {
+            position: relative;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .cyber-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 20%, rgba(255, 255, 255, 0.3) 50%, transparent 80%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        .cyber-terminal:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.15) 50%);
+            background-size: 100% 3px;
+            pointer-events: none;
+        }
+
+        .terminal-cursor {
+            animation: cursor-blink 1s infinite;
+        }
+
+        @keyframes cursor-blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
     </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 font-['Inter'] overflow-x-hidden">
+<body class="min-h-screen font-['Inter']">
+    <div class="crystal-bg"></div>
+    <div class="moving-object"></div>
     <div id="particles-js" class="fixed inset-0 z-0"></div>
-    <div class="matrix-fall inset-0 z-0 opacity-20"></div>
-    <div class="fixed top-6 right-6 z-50 flex space-x-4">
+    <div class="matrix-fall inset-0 z-0"></div>
+    <nav class="fixed top-6 right-6 z-50 flex space-x-4">
         <a href="index.html" class="group">
-            <div class="relative cyber-border hover:cyber-glow">
+            <div class="cyber-border">
                 <div class="cyber-inner px-6 py-3">
                     <button class="flex items-center space-x-2">
                         <i class="fas fa-home text-blue-400 text-xl"></i>
@@ -84,12 +246,12 @@
                     </button>
                 </div>
                 <div
-                    class="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                    class="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-0 group-hover:opacity-25 transition-opacity duration-300">
                 </div>
             </div>
         </a>
         <a href="nosotros.html" class="group">
-            <div class="relative cyber-border hover:cyber-glow">
+            <div class="cyber-border">
                 <div class="cyber-inner px-6 py-3">
                     <button class="flex items-center space-x-2">
                         <i class="fas fa-info-circle text-blue-400 text-xl"></i>
@@ -97,79 +259,79 @@
                     </button>
                 </div>
                 <div
-                    class="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                    class="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-0 group-hover:opacity-25 transition-opacity duration-300">
                 </div>
             </div>
         </a>
-    </div>
+        <a href="funciones.html" class="group">
+            <div class="cyber-border">
+                <div class="cyber-inner px-6 py-3">
+                    <button class="flex items-center space-x-2">
+                        <i class="fas fa-cogs text-blue-400 text-xl"></i>
+                        <span class="text-white font-bold tracking-wider">Funciones</span>
+                    </button>
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-0 group-hover:opacity-25 transition-opacity duration-300">
+                </div>
+            </div>
+        </a>
+    </nav>
     <div class="relative z-10 container mx-auto px-4 py-20">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 max-w-4xl mx-auto">
-            <div class="cyber-border hover:cyber-glow">
+            <div class="cyber-border neon-hover">
                 <div class="cyber-inner p-6">
-                    <img src="src/1001136218removebgpreview.png" alt="ARK OS Logo"
+                    <img src="https://arkdev.pages.dev/src/1001136218removebgpreview.png" alt="Logo de ARK OS"
                         class="w-full h-48 object-contain hover:scale-105 transition-transform duration-300">
                 </div>
             </div>
-            <div class="cyber-border hover:cyber-glow">
+            <div class="cyber-border neon-hover">
                 <div class="cyber-inner p-6">
-                    <img src="https://img.icons8.com/color/512/windows-11.png" alt="Windows 11 Logo"
+                    <img src="https://img.icons8.com/color/512/windows-11.png" alt="Logo de Windows 11"
                         class="w-full h-48 object-contain hover:scale-105 transition-transform duration-300">
                 </div>
             </div>
         </div>
         <div class="relative mb-20">
-            <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 blur-3xl opacity-40"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-indigo-500/20 blur-3xl opacity-50"></div>
             <h1 class="text-7xl md:text-8xl font-black text-center mb-8 gradient-text" translate="no"
-                style="text-shadow: 0 0 30px rgba(96,239,255,0.4);">
-                ARK OS LITE
-            </h1>
+                style="text-shadow: 0 0 35px rgba(59, 130, 246, 0.5);">ARK OS LITE</h1>
         </div>
         <div class="cyber-border neon-hover mb-16">
             <div class="cyber-inner p-8 md:p-12 space-y-8">
                 <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
-                    <p class="p-4 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-lg border border-white/5">
-                        ARK OS Lite es un sistema operativo modificado basado en Windows 11, especialmente diseñado para
-                        ofrecer excepcional
-                        rendimiento en dispositivos de bajos recursos. No requiere TPM y puede funcionar con tan solo 1
-                        GB de RAM.
-                        lo que lo convierte en una excelente opción para computadoras antiguas o de bajo rendimiento.
+                    <p
+                        class="p-4 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-lg border border-white/900/30 rounded-lg border border-white/5">
+                        ARK OS Lite es un sistema operativo basado en Windows 11, optimizado para dispositivos de bajos
+                        recursos. Sin requerimientos de TPM y funcional con solo 1 GB de RAM, es ideal para equipos
+                        antiguos o de bajo rendimiento.
                     </p>
                     <p class="p-4 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-lg border border-white/5">
-                        Este sistema es muy recomendable para máquinas virtuales de bajos recursos, así como para
-                        máquinas más antiguas que
-                        poder
-                        ya no ejecutan eficientemente sistemas operativos más modernos. ARK OS Lite está optimizado para
-                        garantizar una rápida y
-                        ligero,
-                        y experiencia funcional.
+                        Perfecto para máquinas virtuales y hardware antiguo, ARK OS Lite ofrece una experiencia rápida,
+                        ligera y eficiente, revitalizando equipos que no soportan sistemas modernos.
                     </p>
                     <p class="p-4 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-lg border border-white/5">
-                        Se recomienda que el sistema tenga acceso a Internet para aprovechar al máximo sus capacidades
-                        integradas.
-                        y
-                        servicios, pero sigue siendo funcional en entornos fuera de línea. Una excelente opción para los
-                        usuarios que buscan
-                        reanimar
-                        hardware antiguo o crear entornos virtuales eficientes.
+                        Recomendado con conexión a internet para maximizar sus funciones, aunque también es funcional
+                        sin conexión. Una solución ideal para entornos virtuales y hardware legado.
                     </p>
                 </div>
             </div>
         </div>
-        <div class="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+        <div class="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
             <div class="cyber-border neon-hover">
                 <div class="cyber-inner p-8 text-center">
                     <a href="https://www.mediafire.com/file/z342jeot3h3qiof/ArkOs_Oficial.iso/file"
                         class="inline-block relative group">
                         <div
-                            class="bg-gradient-to-r from-green-400/20 to-blue-500/20 absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
+                            class="bg-gradient-to-r from-blue-400/20 to-indigo-500/20 absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
                         </div>
                         <button class="px-12 py-4 text-xl font-bold text-white relative">
                             <i class="fas fa-download mr-3 text-blue-400"></i>
-                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-                                DOWNLOAD ISO
-                            </span>
+                            <span
+                                class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">DESCARGAR
+                                ISO</span>
                             <div
-                                class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                                class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity">
                             </div>
                         </button>
                     </a>
@@ -178,21 +340,63 @@
             <div class="cyber-border neon-hover">
                 <div class="cyber-inner p-8">
                     <div class="space-y-6">
-                        <p class="text-gray-400 text-sm">En caso de que el sistema no esté activado, puedes descargar
-                            este activador manual.
-                            Debes descargarlo y activarlo en Windows ejecutando el activador como administrador para
-                            tener ARK OS
-                            activado.
-                            Si ve un mensaje como: "Descargas: Activator.bat no se descarga comúnmente. Asegúrese de
-                            confiar en Activator.bat antes
-                            abriéndolo." "Microsoft Defender SmartScreen no pudo verificar si este archivo es seguro
-                            porque no es comúnmente
-                            descargado. Asegúrate de confiar en el archivo que estás descargando o en su fuente antes de
-                            abrirlo".</p>
+                        <p class="text-gray-400 text-sm">Si el sistema no está activado, descarga este activador.
+                            Ejecútalo como administrador en Windows para activar ARK OS. Ignora advertencias de
+                            Microsoft Defender SmartScreen.</p>
                         <a href="Activador.bat" class="group relative block">
                             <div
-                                class="flex justify-between items-center px-6 py-4 bg-gray-800/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
-                                <span class="text-white font-medium tracking-wide">ACTIVATOR.EXE</span>
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">ACTIVADOR.EXE</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8">
+                    <div class="space-y-6">
+                        <img src="https://arkdev.pages.dev/src/arkdevsolutions.png" alt="Logo de ARK Dev Solutions"
+                            class="w-full h-24 object-contain mx-auto">
+                        <p class="text-gray-400 text-sm">ARK Dev Solutions: Optimiza tu PC con herramientas avanzadas de
+                            mantenimiento. Ejecuta este programa como administrador para mejorar el rendimiento y
+                            estabilidad de tu sistema.</p>
+                        <a href="https://arkdev.pages.dev/Ark-Dev-Solutions.exe" class="group relative block">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">ARK DEV SOLUTIONS</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8">
+                    <div class="space-y-6">
+                        <img src="https://arkdev.pages.dev/src/arksecure.png" alt="Logo de ARK Secure"
+                            class="w-full h-24 object-contain mx-auto">
+                        <p class="text-gray-400 text-sm">ARK Secure: Verifica la integridad de tu sistema y protégelo
+                            contra malware de forma gratuita. Ejecuta este programa para garantizar la seguridad de tu
+                            equipo.</p>
+                        <a href="https://arkdev.pages.dev/Ark-Secure.exe" class="group relative block">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">ARK SECURE</span>
                                 <div
                                     class="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-all">
                                     <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
@@ -208,25 +412,20 @@
             </div>
         </div>
     </div>
-    <!-- Main Container -->
     <section class="text-center space-y-8 p-8 max-w-2xl w-full mx-auto relative z-10 cyber-section">
-        <div
-            class="absolute inset-0 rounded-xl bg-gradient-to-tr from-blue-500/10 via-pink-500/10 to-purple-600/10 animate-holographic">
+        <div class="absolute inset-0 rounded-xl bg-gradient-to-tr from-blue-500/10 to-indigo-600/10 animate-pulse-slow">
         </div>
         <h1
-            class="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-pink-400 to-purple-400 animate-glitch">
-            <span class="cyberpunk-text">ACTIVATORES</span>
-        </h1>
+            class="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
+            ACTIVADORES</h1>
         <div
             class="bg-zinc-800/90 backdrop-blur-sm text-blue-300 p-4 rounded-lg border border-blue-400/30 shadow-[0_0_15px_5px_rgba(59,130,246,0.2)] text-sm neon-border animate-pulse-slow">
-            ⚠️ Activador de Office Y Windows 2025.
+            ⚠️ Activador para Windows y Office 2025.
         </div>
         <a href="ActivadorWinOfFice.bat" download="ActivadorWinOfFice.bat"
-            class="inline-block px-12 py-4 text-xl font-bold uppercase tracking-wider clip-cyber hover:shine cyber-button relative overflow-hidden group">
-            <span class="cyberpunk-btn-text relative z-10">🚀 DESCARGAR_ACTIVADOR</span>
-            <div
-                class="absolute inset-0 bg-gradient-to-r from-blue-500/40 via-pink-500/40 to-purple-600/40 animate-glow">
-            </div>
+            class="inline-block px-12 py-4 text-xl font-bold uppercase tracking-wider clip-cyber cyber-button relative overflow-hidden group">
+            <span class="relative z-10">🚀 DESCARGAR ACTIVADOR</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/40 to-indigo-600/40 animate-pulse-slow"></div>
         </a>
         <div
             class="cyber-terminal bg-zinc-900/90 border-2 border-blue-400/30 rounded-lg shadow-[0_0_30px_10px_rgba(59,130,246,0.15)] overflow-hidden backdrop-blur-sm">
@@ -243,22 +442,34 @@
             </div>
             <div class="p-4 text-left space-y-4 relative">
                 <div class="crt-effect"></div>
-                <h3 class="text-lg font-bold text-pink-400 mb-2 neon-text">> Instrucciones de Ejecución:</h3>
+                <h3 class="text-lg font-bold text-blue-400 mb-2 neon-text">> Instrucciones de Ejecución:</h3>
                 <ol class="list-decimal list-inside text-blue-300 font-mono text-sm space-y-3">
                     <li class="terminal-line">Ejecuta PowerShell como administrador:
                         <ul class="list-disc list-inside ml-4 mt-1 space-y-2">
-                            <li class="text-purple-300">Presiona Win + X > "Windows PowerShell (Admin)"</li>
-                            <li class="text-purple-300">Confirma el control de cuentas (UAC)</li>
+                            <li class="text-indigo-300">Presiona Win + X > "Windows PowerShell (Admin)"</li>
+                            <li class="text-indigo-300">Confirma el control de cuentas (UAC)</li>
                         </ul>
                     </li>
                     <li class="terminal-line">Copia el siguiente comando:</li>
                     <li class="flex flex-col md:flex-row gap-3 items-start md:items-center">
                         <code id="command"
                             class="w-full bg-zinc-800/70 p-3 rounded text-blue-300 text-sm font-mono border border-blue-400/20 animate-type cursor-text">
-                        irm https://get.activated.win | iex<span class="terminal-cursor">|</span>
-                    </code>
+                            irm https://get.activated.win | iex<span class="terminal-cursor">|</span>
+                        </code>
                         <button id="copyBtn"
-                            class="px-4 py-2 bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-lg hover:scale-[1.03] transition-transform cyber-button">
+                            class="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:scale-[1.03] transition-transform cyber-button">
+                            <span class="relative">Copiar</span>
+                        </button>
+                    </li>
+                    <li class="terminal-line">Pega el comando en PowerShell y presiona Enter</li>
+                    <li class="terminal-line">Para utilidades de Windows, copia este comando:</li>
+                    <li class="flex flex-col md:flex-row gap-3 items-start md:items-center">
+                        <code id="command2"
+                            class="w-full bg-zinc-800/70 p-3 rounded text-blue-300 text-sm font-mono border border-blue-400/20 animate-type cursor-text">
+                           iwr -useb https://christitus.com/win | iex<span class="terminal-cursor">|</span>
+                        </code>
+                        <button id="copyBtn2"
+                            class="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:scale-[1.03] transition-transform cyber-button">
                             <span class="relative">Copiar</span>
                         </button>
                     </li>
@@ -268,135 +479,44 @@
         </div>
         <div
             class="bg-zinc-800/90 backdrop-blur-sm text-blue-300 p-4 rounded-lg border border-blue-400/30 shadow-[0_0_15px_5px_rgba(59,130,246,0.2)] text-sm neon-border animate-pulse-slow">
-            ⚠️ Este contenido es solo para fines educativos.
-            <a href="https://massgrave.dev/"
-                class="text-pink-400 hover:text-blue-300 transition-colors underline underline-offset-4">MAS (Código
+            ⚠️ Este contenido es solo para fines educativos. <a href="https://massgrave.dev/"
+                class="text-blue-400 hover:text-indigo-300 transition-colors underline underline-offset-4">MAS (Código
                 Abierto)</a>
         </div>
-        <style>
-            @keyframes holographic {
-                0% {
-                    opacity: 0.8;
-                }
-
-                50% {
-                    opacity: 0.3;
-                }
-
-                100% {
-                    opacity: 0.8;
-                }
-            }
-
-            @keyframes glitch {
-                0% {
-                    transform: translate(0);
-                }
-
-                20% {
-                    transform: translate(-2px, 2px);
-                }
-
-                40% {
-                    transform: translate(-2px, -2px);
-                }
-
-                60% {
-                    transform: translate(2px, 2px);
-                }
-
-                80% {
-                    transform: translate(2px, -2px);
-                }
-
-                100% {
-                    transform: translate(0);
-                }
-            }
-
-            .cyber-terminal:before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.1) 50%);
-                background-size: 100% 3px;
-                pointer-events: none;
-            }
-
-            .terminal-cursor {
-                animation: cursor-blink 1s infinite;
-            }
-
-            @keyframes cursor-blink {
-
-                0%,
-                100% {
-                    opacity: 1;
-                }
-
-                50% {
-                    opacity: 0;
-                }
-            }
-
-            .cyber-button:hover {
-                transform: translateY(-1px);
-                filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
-            }
-
-            .shine:after {
-                content: "";
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: linear-gradient(45deg, transparent 20%, rgba(255, 255, 255, 0.1) 50%, transparent 80%);
-                animation: shine 3s infinite;
-            }
-        </style>
-
-        <script>
-            document.getElementById('copyBtn').addEventListener('click', function () {
-                const command = document.getElementById('command').textContent;
-                navigator.clipboard.writeText(command).then(() => {
-                    this.innerHTML = '<span class="relative">✅ Copiado!</span>';
-                    this.classList.add('bg-green-500');
-                    setTimeout(() => {
-                        this.innerHTML = '<span class="relative">Copiar</span>';
-                        this.classList.remove('bg-green-500');
-                    }, 2000);
-                });
-            });
-        </script>
     </section>
-
     <footer class="relative z-10 text-center py-8">
         <div class="cyber-border mx-auto max-w-xs">
             <div class="cyber-inner px-6 py-3">
-                <p class="text-sm font-mono text-blue-400">&lt;ARK_DEV @ 2025&gt;</p>
+                <p class="text-sm font-mono text-blue-400">
+                    ARK_DEV @ 2025
+                </p>
             </div>
         </div>
     </footer>
-
     <script>
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true
+        });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
         particlesJS("particles-js", {
             particles: {
-                number: { value: 200, density: { enable: true, value_area: 1200 } },
-                color: { value: ["#00ff87", "#60efff", "#0061ff"] },
-                shape: { type: "circle" },
-                opacity: { value: 0.8, random: true },
-                size: { value: 3, random: true },
+                number: { value: 120, density: { enable: true, value_area: 800 } },
+                color: { value: ["#3b82f6", "#93c5fd", "#1e3a8a"] },
+                shape: { type: ["circle", "triangle", "polygon"] },
+                opacity: { value: 0.6, random: true },
+                size: { value: 4, random: true },
                 move: {
                     enable: true,
                     speed: 3,
                     direction: "none",
                     out_mode: "out",
-                    trail: {
-                        enable: true,
-                        length: 10,
-                        fillColor: "#000000"
-                    }
+                    trail: { enable: true, length: 15, fillColor: "#0a0f1e" }
                 }
             },
             interactivity: {
@@ -408,12 +528,51 @@
                 }
             }
         });
-        gsap.to(".cyber-border", {
-            y: 5,
-            duration: 2,
+        gsap.from(".cyber-border", {
+            y: 30,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.3,
+            ease: "power3.out"
+        });
+        gsap.to(".gradient-text", {
+            backgroundPosition: "200% 0",
+            duration: 5,
             repeat: -1,
-            yoyo: true,
-            ease: "power1.inOut"
+            ease: "linear"
+        });
+        gsap.from(".neon-hover", {
+            scale: 0.95,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "back.out(1.7)"
+        });
+
+    </script>
+    <script>
+        document.getElementById('copyBtn').addEventListener('click', function () {
+            const command = document.getElementById('command').textContent.replace('|', '').trim();
+            navigator.clipboard.writeText(command).then(() => {
+                this.innerHTML = '<span class="relative">✅ Copiado!</span>';
+                this.classList.add('bg-green-500');
+                setTimeout(() => {
+                    this.innerHTML = '<span class="relative">Copiar</span>';
+                    this.classList.remove('bg-green-500');
+                }, 2000);
+            });
+        });
+
+        document.getElementById('copyBtn2').addEventListener('click', function () {
+            const command = document.getElementById('command2').textContent.replace('|', '').trim();
+            navigator.clipboard.writeText(command).then(() => {
+                this.innerHTML = '<span class="relative">✅ Copiado!</span>';
+                this.classList.add('bg-green-500');
+                setTimeout(() => {
+                    this.innerHTML = '<span class="relative">Copiar</span>';
+                    this.classList.remove('bg-green-500');
+                }, 2000);
+            });
         });
     </script>
 </body>
