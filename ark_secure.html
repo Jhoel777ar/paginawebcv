@@ -1,1 +1,1299 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ark Secure - Ciberseguridad Avanzada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/src/iconoark.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a0a0a;
+            --primary-black: #000;
+            --neon-green: #00ff9d;
+            --neon-teal: #00ffea;
+            --neon-cyan: #00eeff;
+            --glow: 0 0 10px rgba(0, 255, 157, 0.7);
+            --matrix-green: rgba(0, 100, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-black), var(--primary-dark));
+            font-family: 'Rajdhani', sans-serif;
+            color: #f0f0f0;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .cyber-border {
+            position: relative;
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            box-shadow: var(--glow), inset var(--glow);
+        }
+
+        .cyber-border::before,
+        .cyber-border::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--neon-green);
+        }
+
+        .cyber-border::before {
+            top: -10px;
+            left: -10px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .cyber-border::after {
+            bottom: -10px;
+            right: -10px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .glass {
+            background: rgba(15, 15, 15, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-teal), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-teal));
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.7), 0 0 20px rgba(0, 255, 157, 0.5);
+        }
+
+        .neon-box {
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.5), 0 0 30px rgba(0, 255, 157, 0.2);
+        }
+
+        .terminal {
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid rgba(0, 255, 157, 0.3);
+            font-family: 'Courier New', monospace;
+            color: var(--neon-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 255, 157, 0.3);
+            animation: scan 4s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        @keyframes matrixFall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            95% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .cyber-button {
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary-black));
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cyber-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .cyber-button:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .cyber-button:hover::before {
+            left: 100%;
+        }
+
+        .matrix-char {
+            position: absolute;
+            color: rgba(0, 255, 100, 0.8);
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            text-shadow: 0 0 5px rgba(0, 255, 100, 0.5);
+            z-index: -1;
+            opacity: 0;
+            animation: matrixFall linear infinite;
+        }
+
+        .hologram-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hologram-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 50%, rgba(0, 255, 157, 0.1) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        .grid-pattern {
+            background-image:
+                linear-gradient(rgba(0, 255, 157, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .hex-pattern {
+            background-image:
+                radial-gradient(circle, transparent 20%, var(--primary-black) 20%, var(--primary-black) 80%, transparent 80%, transparent),
+                radial-gradient(circle, transparent 20%, var(--primary-black) 20%, var(--primary-black) 80%, transparent 80%, transparent) 30px 30px,
+                linear-gradient(rgba(0, 255, 157, 0.05) 2px, transparent 2px) 0 -1px,
+                linear-gradient(90deg, rgba(0, 255, 157, 0.05) 2px, var(--primary-black) 2px) -1px 0;
+            background-size: 60px 60px, 60px 60px, 30px 30px, 30px 30px;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--neon-green);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.7;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-top: 1px solid rgba(0, 255, 157, 0.2);
+            z-index: 100;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 0.75rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background: var(--neon-green);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+
+        .neon-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 255, 157, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 157, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .matrix-code {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hologram-card {
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .hologram-card::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg,
+                    rgba(0, 255, 157, 0.2),
+                    rgba(0, 255, 234, 0.2),
+                    rgba(0, 238, 255, 0.2),
+                    rgba(0, 255, 157, 0.2));
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.7;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pulse {
+            animation: pulse 3s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav:not(.mobile-menu) {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('background-audio');
+            audio.volume = 0;
+
+            let audioPlayed = false;
+
+            function fadeInAudio(targetVolume = 0.3, duration = 3000) {
+                const steps = 30;
+                const stepTime = duration / steps;
+                let currentStep = 0;
+
+                const interval = setInterval(() => {
+                    currentStep++;
+                    const newVolume = (currentStep / steps) * targetVolume;
+                    audio.volume = Math.min(newVolume, targetVolume);
+                    if (currentStep >= steps) {
+                        clearInterval(interval);
+                    }
+                }, stepTime);
+            }
+
+            function playAudio() {
+                if (!audioPlayed) {
+                    audio.play().then(() => {
+                        audioPlayed = true;
+                        fadeInAudio();
+                        document.getElementById('audio-alert')?.remove();
+                        removeAllListeners();
+                    }).catch(() => {
+                        console.warn('Audio playback failed, trying to fade in volume instead.');
+                        fadeInAudio();
+                    });
+                }
+            }
+
+            function addAllListeners() {
+                document.addEventListener('click', playAudio, { once: true });
+                document.addEventListener('touchstart', playAudio, { once: true });
+                document.addEventListener('scroll', playAudio, { once: true });
+                document.addEventListener('mousemove', playAudio, { once: true });
+                document.addEventListener('keydown', playAudio, { once: true });
+                document.addEventListener('wheel', playAudio, { once: true });
+            }
+
+            function removeAllListeners() {
+                document.removeEventListener('click', playAudio, { once: true });
+                document.removeEventListener('touchstart', playAudio, { once: true });
+                document.removeEventListener('scroll', playAudio, { once: true });
+                document.removeEventListener('mousemove', playAudio, { once: true });
+                document.removeEventListener('keydown', playAudio, { once: true });
+                document.removeEventListener('wheel', playAudio, { once: true });
+            }
+
+            addAllListeners();
+
+            if (window.gsap) {
+                document.fonts.ready.then(() => {
+                    setTimeout(() => {
+                        playAudio();
+                    }, 1500);
+                });
+            }
+
+            setTimeout(() => {
+                playAudio();
+                setTimeout(() => {
+                    if (!audioPlayed) {
+                        if (!document.getElementById('audio-alert')) {
+                            const alert = document.createElement('div');
+                            alert.id = 'audio-alert';
+                            alert.style = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 24px;border-radius:8px;z-index:9999;box-shadow:0 2px 8px #0003;cursor:pointer;';
+                            alert.innerText = 'Haz click, mueve el mouse o desplázate para activar el sonido 🎵';
+                            alert.onclick = () => { playAudio(); alert.remove(); };
+                            document.body.appendChild(alert);
+                        }
+                    }
+                }, 500);
+            }, 3000);
+        });
+    </script>
+</head>
+
+<body class="text-white scroll-smooth overflow-x-hidden">
+
+    <audio id="background-audio" loop>
+        <source src="https://arkdev.pages.dev/music/securemusic.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <div id="matrix-bg"></div>
+    <div id="particles"></div>
+    <div class="neon-grid"></div>
+
+    <header class="flex justify-between items-center px-6 py-4 fixed w-full top-0 z-50 glass">
+        <div class="flex items-center">
+            <div class="logo-container flex items-center">
+                <img src="https://arkdev.pages.dev/src2/we001136218removebgpreview.png" alt="Logo Empresa"
+                    class="h-14 w-auto mr-3 neon-glow floating" id="logoEmpresa">
+                <div class="h-12 w-0.5 bg-gradient-to-b from-transparent via-neon-green to-transparent mx-3"></div>
+                <img src="https://arkdev.pages.dev/src/arksecure.png" alt="Ark Secure"
+                    class="h-12 w-auto neon-glow floating" id="logoProducto">
+            </div>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="hidden md:flex space-x-8">
+            <a href="#" class="cyber-button px-4 py-2 rounded">Inicio</a>
+            <a href="#soluciones" class="cyber-button px-4 py-2 rounded">Soluciones</a>
+            <a href="#herramientas" class="cyber-button px-4 py-2 rounded">Herramientas</a>
+            <a href="#contacto" class="cyber-button px-4 py-2 rounded">Contacto</a>
+        </nav>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#" class="cyber-button px-4 py-2 rounded">Inicio</a>
+            <a href="#soluciones" class="cyber-button px-4 py-2 rounded">Soluciones</a>
+            <a href="#herramientas" class="cyber-button px-4 py-2 rounded">Herramientas</a>
+            <a href="#contacto" class="cyber-button px-4 py-2 rounded">Contacto</a>
+        </div>
+    </header>
+
+    <main class="flex flex-col items-center justify-center min-h-screen text-center px-4 pt-16">
+        <div class="glass cyber-border p-8 md:p-12 rounded-3xl max-w-4xl shadow-2xl neon-box relative overflow-hidden hologram-card"
+            id="introBox">
+            <div class="scan-line"></div>
+
+            <div
+                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-green to-transparent">
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-6 tracking-tighter">
+                <span class="neon-glow">ARK</span> <span class="text-neon-green">SECURE</span>
+            </h1>
+
+            <div class="terminal p-4 rounded-lg mb-8 text-left">
+                <div class="flex items-center mb-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span class="ml-2 text-green-500">root@arksecure:~$</span>
+                </div>
+                <p class="mb-1">> Initializing security protocols...</p>
+                <p class="mb-1">> Loading defense systems...</p>
+                <p class="mb-1">> Establishing encrypted connection...</p>
+                <p class="text-neon-green">> System ready. Welcome, Operator.</p>
+            </div>
+
+            <div class="flex justify-center my-6">
+                <div class="relative w-64 h-1 bg-gradient-to-r from-neon-green to-neon-cyan rounded-full">
+                    <div class="absolute -top-2 left-1/4 w-1 h-5 bg-neon-green rounded-full"></div>
+                    <div class="absolute -top-2 left-1/2 w-1 h-5 bg-neon-green rounded-full"></div>
+                    <div class="absolute -top-2 left-3/4 w-1 h-5 bg-neon-green rounded-full"></div>
+                </div>
+            </div>
+
+            <p class="text-gray-300 text-base md:text-xl mb-8 leading-relaxed">
+                <strong class="text-neon-green">Ark Dev Secure</strong> es un grupo de élite especializado en
+                <strong>ciberseguridad</strong>,
+                conformado por personas altamente capacitadas y entrenadas en protección informática avanzada.
+                <br><br>
+                Nos enfocamos en la defensa digital estratégica y operamos con estándares internacionales, formados en
+                programas como <strong>Palo Alto Networks</strong> y otras plataformas reconocidas a nivel global.
+                <br><br>
+                Muy pronto, <strong>Ark Dev Secure</strong> pasará a formar parte del dominio <strong>militar</strong>,
+                consolidando así su rol como fuerza clave en la seguridad nacional y cibernética.
+            </p>
+
+            <div class="hero-buttons flex flex-col sm:flex-row justify-center gap-4 mt-10">
+                <button onclick="document.getElementById('soluciones').scrollIntoView({ behavior: 'smooth' });"
+                    class="cyber-button px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg flex items-center justify-center gap-2 floating">
+                    <i class="fas fa-shield-alt"></i> SOLUCIONES
+                </button>
+
+                <button onclick="document.getElementById('herramientas').scrollIntoView({ behavior: 'smooth' });"
+                    class="bg-gradient-to-r from-neon-green to-neon-cyan text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:shadow-lg hover:shadow-neon-green/40 transition-all duration-300 flex items-center justify-center gap-2 floating">
+                    <i class="fas fa-tools"></i> HERRAMIENTAS
+                </button>
+            </div>
+
+            <div class="absolute bottom-4 right-4 flex gap-2">
+                <div class="w-3 h-3 bg-red-500 rounded-full pulse"></div>
+                <div class="w-3 h-3 bg-yellow-500 rounded-full pulse" style="animation-delay: 0.2s"></div>
+                <div class="w-3 h-3 bg-green-500 rounded-full pulse" style="animation-delay: 0.4s"></div>
+            </div>
+        </div>
+
+        <div class="mt-12 md:mt-20 flex justify-center">
+            <div class="animate-bounce">
+                <i class="fas fa-chevron-down text-neon-green text-2xl"></i>
+            </div>
+        </div>
+    </main>
+
+    <section id="soluciones" class="py-20 md:py-28 px-6 text-center relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="inline-block mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-2">SOLUCIONES DE CIBERSEGURIDAD</h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-neon-green to-neon-cyan mx-auto rounded-full"></div>
+            </div>
+
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-16">
+                Protección avanzada para entornos críticos y redes defensivas con tecnología de última generación
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="glass cyber-border p-6 rounded-2xl hover:shadow-lg hover:shadow-neon-green/20 transition-all duration-300 transform hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lock text-xl md:text-3xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-neon-green mb-4">Cifrado Militar</h3>
+                    <p class="text-gray-300 text-sm md:text-base">Algoritmos de cifrado de grado militar que garantizan
+                        la confidencialidad absoluta de tus datos en tránsito y en reposo.</p>
+                </div>
+
+                <div
+                    class="glass cyber-border p-6 rounded-2xl hover:shadow-lg hover:shadow-neon-green/20 transition-all duration-300 transform hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-xl md:text-3xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-neon-green mb-4">Protección Endpoint</h3>
+                    <p class="text-gray-300 text-sm md:text-base">Defensa avanzada contra malware, ransomware y amenazas
+                        persistentes con inteligencia artificial y análisis heurístico.</p>
+                </div>
+
+                <div
+                    class="glass cyber-border p-6 rounded-2xl hover:shadow-lg hover:shadow-neon-green/20 transition-all duration-300 transform hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-secret text-xl md:text-3xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-neon-green mb-4">Análisis Forense</h3>
+                    <p class="text-gray-300 text-sm md:text-base">Investigación profunda de incidentes de seguridad con
+                        herramientas forenses especializadas para identificar y remediar brechas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="herramientas" class="py-20 md:py-28 px-6 text-center text-white
+           bg-black/40 backdrop-blur-md border border-white/10
+           rounded-2xl shadow-lg shadow-black/30 max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto">
+            <div class="inline-block mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-2">🛡️ ELIMINACIÓN DE MALWARE</h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-neon-green to-neon-cyan mx-auto rounded-full"></div>
+            </div>
+
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-12">
+                Guía avanzada para detectar, analizar y eliminar software malicioso de sistemas comprometidos
+            </p>
+            <div class="glass cyber-border p-6 md:p-10 rounded-3xl space-y-6 md:space-y-8 text-left bg-gray-900/60">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-900/50 p-4 md:p-6 rounded-xl">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center">
+                                <i class="fas fa-download text-black text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-neon-green">Malwarebytes Premium</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">Herramienta esencial para escanear y eliminar malware avanzado con
+                            detección en tiempo real.</p>
+                        <a href="https://downloads.malwarebytes.com/file/mb5-windows" target="_blank"
+                            class="inline-flex items-center gap-2 bg-gradient-to-r from-neon-green to-teal-400 hover:from-teal-400 hover:to-neon-green text-black px-5 py-3 rounded-full font-bold transition-all text-base">
+                            <i class="fas fa-arrow-down"></i> DESCARGAR
+                        </a>
+                    </div>
+                    <div class="bg-gray-900/50 p-4 md:p-6 rounded-xl">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center">
+                                <i class="fas fa-bug text-black text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-neon-green">Dr.Web CureIt</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">Solución especializada para malware tipo File Infector y amenazas
+                            persistentes avanzadas.</p>
+                        <a href="https://free.drweb.com/download+cureit/gr" target="_blank"
+                            class="inline-flex items-center gap-2 bg-gradient-to-r from-neon-green to-teal-400 hover:from-teal-400 hover:to-neon-green text-black px-5 py-3 rounded-full font-bold transition-all text-base">
+                            <i class="fas fa-arrow-down"></i> DESCARGAR
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gray-900/70 p-4 md:p-6 rounded-xl">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-yellow-400">ADVERTENCIA DE SEGURIDAD</h3>
+                    </div>
+                    <p class="text-gray-300">
+                        La eliminación de malware no repara daños estructurales en el sistema operativo.
+                        Se recomienda encarecidamente una reinstalación limpia de Windows después de eliminar amenazas
+                        avanzadas.
+                    </p>
+                    <a href="https://gravesoft.dev/clean_install_windows" target="_blank"
+                        class="mt-4 inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-amber-400 text-black px-5 py-3 rounded-full font-bold transition-all text-base">
+                        <i class="fas fa-file-alt"></i> GUÍA DE REINSTALACIÓN LIMPIA
+                    </a>
+                </div>
+            </div>
+            <div class="glass cyber-border mt-16 p-6 md:p-10 rounded-3xl space-y-10 text-left bg-gray-900/60">
+                <div class="inline-block mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-2">Algunas Herramientas de defensa,
+                        analisis y
+                        ataques ;)
+                    </h2>
+                    <div class="w-32 h-1 bg-gradient-to-r from-neon-green to-neon-cyan mx-auto rounded-full"></div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-neon-cyan mb-6">🔎 Reconocimiento y Análisis</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://www.virustotal.com/gui/" target="_blank" class="tool-card"><i
+                                class="fas fa-shield-alt text-neon-green"></i> VirusTotal <p>Análisis de archivos y URLs
+                                con +70 motores</p></a>
+                        <a href="https://www.shodan.io/" target="_blank" class="tool-card"><i
+                                class="fas fa-network-wired text-cyan-400"></i> Shodan <p>Motor de búsqueda de
+                                dispositivos conectados</p></a>
+                        <a href="https://censys.io/" target="_blank" class="tool-card"><i
+                                class="fas fa-globe text-blue-400"></i> Censys <p>Exploración de certificados y hosts
+                                públicos</p></a>
+                        <a href="https://spyse.com/" target="_blank" class="tool-card"><i
+                                class="fas fa-eye text-teal-300"></i> Spyse <p>Inteligencia de infraestructura de red
+                            </p></a>
+                        <a href="https://www.wappalyzer.com/" target="_blank" class="tool-card"><i
+                                class="fas fa-code text-purple-300"></i> Wappalyzer <p>Detecta tecnologías web de sitios
+                            </p></a>
+                        <a href="https://builtwith.com/" target="_blank" class="tool-card"><i
+                                class="fas fa-layer-group text-pink-400"></i> BuiltWith <p>Muestra stacks tecnológicos
+                                usados en webs</p></a>
+                        <a href="https://haveibeenpwned.com/" target="_blank" class="tool-card"><i
+                                class="fas fa-user-secret text-orange-400"></i> Have I Been Pwned <p>Comprueba
+                                filtraciones de correo o contraseña</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-neon-green mb-6">🔐 Pentesting</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://www.metasploit.com/" target="_blank" class="tool-card"><i
+                                class="fab fa-github"></i> Metasploit <p>Framework de explotación modular</p></a>
+                        <a href="https://github.com/offensive-security/exploitdb" target="_blank" class="tool-card"><i
+                                class="fas fa-bug text-red-400"></i> ExploitDB <p>Base de datos de exploits y POCs</p>
+                        </a>
+                        <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank"
+                            class="tool-card"><i class="fas fa-skull text-yellow-400"></i> PayloadsAllTheThings <p>
+                                Colección de payloads y bypasses</p></a>
+                        <a href="https://github.com/LOLBAS-Project/LOLBAS" target="_blank" class="tool-card"><i
+                                class="fas fa-tools text-gray-400"></i> LOLBAS <p>Binarios legítimos para evasión</p>
+                        </a>
+                        <a href="https://github.com/GTFOBins/GTFOBins.github.io" target="_blank" class="tool-card"><i
+                                class="fas fa-terminal text-green-400"></i> GTFOBins <p>Binarios Unix para escalada de
+                                privilegios</p></a>
+                        <a href="https://github.com/PowerShellMafia/PowerSploit" target="_blank" class="tool-card"><i
+                                class="fas fa-terminal text-blue-400"></i> PowerSploit <p>Toolkit de post-explotación
+                                con PowerShell</p></a>
+                        <a href="https://github.com/EmpireProject/Empire" target="_blank" class="tool-card"><i
+                                class="fas fa-satellite-dish text-cyan-400"></i> Empire <p>Framework de C2 en PowerShell
+                            </p></a>
+                        <a href="https://www.cobaltstrike.com/" target="_blank" class="tool-card"><i
+                                class="fas fa-skull-crossbones text-red-600"></i> Cobalt Strike <p>Plataforma comercial
+                                de post-explotación</p></a>
+                        <a href="https://bloodhound.readthedocs.io/" target="_blank" class="tool-card"><i
+                                class="fas fa-network-wired text-purple-400"></i> BloodHound <p>Mapeo de relaciones y
+                                privilegios en AD</p></a>
+                        <a href="https://github.com/SecureAuthCorp/impacket" target="_blank" class="tool-card"><i
+                                class="fab fa-python text-blue-400"></i> Impacket <p>Biblioteca Python para manipular
+                                protocolos</p></a>
+                        <a href="https://github.com/lgandx/Responder" target="_blank" class="tool-card"><i
+                                class="fas fa-network-wired text-orange-400"></i> Responder <p>Envenenamiento de
+                                respuestas LLMNR/NBT-NS/MDNS</p></a>
+                        <a href="https://github.com/byt3bl33d3r/CrackMapExec" target="_blank" class="tool-card"><i
+                                class="fas fa-terminal text-teal-400"></i> CrackMapExec <p>Herramienta post-exploitation
+                                en redes Windows</p></a>
+                        <a href="https://github.com/Flangvik/ResponderNG" target="_blank" class="tool-card"><i
+                                class="fas fa-network-wired text-orange-400"></i> ResponderNG <p>Fork de Responder con
+                                mejoras</p></a>
+                        <a href="https://github.com/Hackplayers/evil-winrm" target="_blank" class="tool-card"><i
+                                class="fas fa-terminal text-blue-400"></i> Evil-WinRM <p>Shell remoto para Windows via
+                                WinRM</p></a>
+                        <a href="https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon" target="_blank"
+                            class="tool-card"><i class="fas fa-search text-blue-400"></i> PowerView <p>Enumeración de AD
+                                en PowerShell</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-blue-400 mb-6">🐧 Herramientas Linux (CLI)</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <li><strong>ExploitDB:</strong> <code>sudo apt install exploitdb</code> – Base de datos de
+                            exploits</li>
+                        <li><a href="https://github.com/RustScan/RustScan" target="_blank"
+                                class="underline text-teal-400">RustScan</a> – Escáner rápido de puertos</li>
+                        <li><a href="https://github.com/OWASP/Amass" target="_blank"
+                                class="underline text-teal-400">Amass</a> – Reconocimiento de subdominios</li>
+                        <li><a href="https://github.com/OJ/gobuster" target="_blank"
+                                class="underline text-teal-400">Gobuster</a> – Fuerza bruta de directorios y DNS</li>
+                        <li><a href="https://github.com/sullo/nikto" target="_blank"
+                                class="underline text-teal-400">Nikto</a> – Escáner de vulnerabilidades web</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-pink-400 mb-6">📱 Apps Móviles</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <li><a href="https://f-droid.org/packages/com.termux/" target="_blank"
+                                class="underline text-teal-400">Termux</a> – Terminal Linux en Android</li>
+                        <li><a href="https://www.kali.org/tools/nethunter/" target="_blank"
+                                class="underline text-teal-400">Kali NetHunter</a> – Suite de pentesting móvil (root)
+                        </li>
+                        <li><a href="https://www.zimperium.com/zanti-mobile-penetration-testing-tool" target="_blank"
+                                class="underline text-teal-400">zANTI</a> – Escáner de redes Wi-Fi/Movilidad</li>
+                        <li><a href="https://play.google.com/store/apps/details?id=app.greyshirts.sslcapture"
+                                target="_blank" class="underline text-teal-400">Packet Capture</a> – Sniffer de red sin
+                            root</li>
+                        <li><a href="https://apps.apple.com/us/app/iverify/id1465781661" target="_blank"
+                                class="underline text-teal-400">iVerify</a> – Forense móvil y hardening</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-6">🕵️‍♂️ Páginas Ocultas (.onion)</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <li>The Hidden Wiki – <code>http://wikitjerrta4qgz4.onion</code> – Índice de enlaces .onion</li>
+                        <li>DuckDuckGo – <code>http://3g2upl4pq6kufc4m.onion</code> – Búsqueda privada en Tor</li>
+                        <li>Tor Project – <code>http://expyuzz4wqqyqhjn.onion</code> – Descarga oficial de Tor</li>
+                        <li>0day.today – <code>http://mvfjfugdwgc5uwho.onion</code> – Base de datos de exploits y 0-days
+                        </li>
+                        <li>Packet Storm – <code>http://2ynis3id7ubtpjop.onion</code> – Herramientas, exploits y
+                            whitepapers</li>
+                        <li>Hidden GitHub Mirror – <code>http://githubqlwvh2y4x.onion</code> – Espejo anónimo de
+                            proyectos GitHub</li>
+                        <li>0day Repository – <code>http://z6b56al63cezzbrf.onion</code> – Exploits y vulnerabilidades
+                            recientes</li>
+                        <li>Malware Bazaar – <code>http://bazaar.abuse.ch.onion</code> – Base de datos de muestras de
+                            malware</li>
+                        <li>AnonFiles – <code>http://anonfilesvxdufy.onion</code> – Almacenamiento anónimo de
+                            herramientas</li>
+                        <li>OnionShare – <code>http://onionsharehqbl.onion</code> – Compartir archivos de forma cifrada
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-orange-400 mb-6">🔍 Forense Digital</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://www.sleuthkit.org/autopsy/" target="_blank" class="tool-card"><i
+                                class="fas fa-search text-orange-400"></i> Autopsy <p>Interfaz gráfica sobre Sleuth Kit
+                            </p></a>
+                        <a href="https://www.sleuthkit.org/" target="_blank" class="tool-card"><i
+                                class="fas fa-tools text-orange-400"></i> Sleuth Kit <p>Biblioteca y utilidades forenses
+                            </p></a>
+                        <a href="https://www.volatilityfoundation.org/" target="_blank" class="tool-card"><i
+                                class="fas fa-memory text-orange-400"></i> Volatility <p>Análisis de memoria</p></a>
+                        <a href="https://github.com/simsong/bulk_extractor" target="_blank" class="tool-card"><i
+                                class="fas fa-hdd text-orange-400"></i> Bulk Extractor <p>Extrae artefactos forenses de
+                                discos</p></a>
+                        <a href="https://plaso.readthedocs.io/" target="_blank" class="tool-card"><i
+                                class="fas fa-clock text-orange-400"></i> Plaso <p>Línea de tiempo forense</p></a>
+                        <a href="https://github.com/kevoreilly/CAPEv2" target="_blank" class="tool-card"><i
+                                class="fas fa-bug text-orange-400"></i> CAPE <p>Análisis automático de malware</p></a>
+                        <a href="https://accessdata.com/product-download/ftk-imager" target="_blank"
+                            class="tool-card"><i class="fas fa-camera text-orange-400"></i> FTK Imager <p>Adquisición de
+                                imágenes forenses</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-teal-400 mb-6">🛡️ Seguridad Defensiva</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://wazuh.com/" target="_blank" class="tool-card"><i
+                                class="fas fa-shield-alt text-teal-400"></i> Wazuh <p>Plataforma de detección de
+                                intrusiones</p></a>
+                        <a href="https://www.ossec.net/" target="_blank" class="tool-card"><i
+                                class="fas fa-server text-teal-400"></i> OSSEC <p>Host-based IDS y análisis de logs</p>
+                        </a>
+                        <a href="https://thehive-project.org/" target="_blank" class="tool-card"><i
+                                class="fas fa-bug text-teal-400"></i> TheHive <p>Respuesta a incidentes</p></a>
+                        <a href="https://sigmahq.io/" target="_blank" class="tool-card"><i
+                                class="fas fa-file-alt text-teal-400"></i> Sigma <p>Formato genérico de reglas SIEM/EDR
+                            </p></a>
+                        <a href="https://fleetdm.com/" target="_blank" class="tool-card"><i
+                                class="fas fa-desktop text-teal-400"></i> FleetDM <p>Gestión remota de endpoints
+                                (osquery)</p></a>
+                        <a href="https://suricata.io/" target="_blank" class="tool-card"><i
+                                class="fas fa-network-wired text-teal-400"></i> Suricata <p>IDS/IPS de alto rendimiento
+                            </p></a>
+                        <a href="https://zeek.org/" target="_blank" class="tool-card"><i
+                                class="fas fa-eye text-teal-400"></i> Zeek <p>Monitor de tráfico de red</p></a>
+                        <a href="https://www.misp-project.org/" target="_blank" class="tool-card"><i
+                                class="fas fa-share-alt text-teal-400"></i> MISP <p>Plataforma de intercambio de IoCs
+                            </p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-purple-400 mb-6">☁️ Cloud Security</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://github.com/nccgroup/ScoutSuite" target="_blank" class="tool-card"><i
+                                class="fas fa-cloud text-purple-400"></i> ScoutSuite <p>Auditoría de seguridad
+                                multi-nube</p></a>
+                        <a href="https://github.com/prowler-cloud/prowler" target="_blank" class="tool-card"><i
+                                class="fas fa-cloud text-purple-400"></i> Prowler <p>Auditoría de AWS según CIS</p></a>
+                        <a href="https://github.com/RhinoSecurityLabs/pacu" target="_blank" class="tool-card"><i
+                                class="fas fa-cloud text-purple-400"></i> Pacu <p>Framework de pruebas de seguridad AWS
+                            </p></a>
+                        <a href="https://github.com/cloud-custodian/cloud-custodian" target="_blank"
+                            class="tool-card"><i class="fas fa-cloud text-purple-400"></i> Cloud Custodian <p>Políticas
+                                de gobernanza en nube</p></a>
+                        <a href="https://github.com/aquasecurity/kube-hunter" target="_blank" class="tool-card"><i
+                                class="fas fa-cloud text-purple-400"></i> KubeHunter <p>Pentesting de clústeres
+                                Kubernetes</p></a>
+                        <a href="https://github.com/inspec/inspec" target="_blank" class="tool-card"><i
+                                class="fas fa-cloud text-purple-400"></i> InSpec <p>Auditoría de infraestructura como
+                                código</p></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass cyber-border mt-16 p-6 md:p-10 rounded-3xl space-y-10 text-left bg-gray-900/60">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-neon-green mb-6">🔐 Frameworks y Suites de
+                        Explotación</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://www.metasploit.com/" target="_blank" class="tool-card"><i
+                                class="fab fa-github"></i> Metasploit <p>Framework modular de explotación y
+                                post‑explotación</p></a>
+                        <a href="https://beefproject.com/" target="_blank" class="tool-card"><i
+                                class="fas fa-browser text-red-400"></i> BeEF <p>Exploitation Framework para navegadores
+                                (XSS)</p></a>
+                        <a href="https://www.fastandeasyhacking.com/armitage.html" target="_blank" class="tool-card"><i
+                                class="fas fa-desktop text-blue-400"></i> Armitage <p>GUI para Metasploit con
+                                colaboración en equipo</p></a>
+                        <a href="https://github.com/cobbr/Covenant" target="_blank" class="tool-card"><i
+                                class="fas fa-server text-cyan-400"></i> Covenant <p>C2 .NET colaborativo para payloads
+                                y shells inversos</p></a>
+                        <a href="https://github.com/PowerShellEmpire/Empire" target="_blank" class="tool-card"><i
+                                class="fas fa-terminal text-blue-400"></i> PowerShell Empire <p>Framework de
+                                post‑explotación en PowerShell</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-neon-cyan mb-6">🔎 Escaneo y Enumeración</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://nmap.org/" target="_blank" class="tool-card"><i
+                                class="fas fa-network-wired text-green-400"></i> Nmap <p>Escaneo de puertos/servicios,
+                                scripting engine (NSE)</p></a>
+                        <a href="https://github.com/robertdavidgraham/masscan" target="_blank" class="tool-card"><i
+                                class="fas fa-bolt text-yellow-400"></i> Masscan <p>Escáner de puertos ultra‑rápido</p>
+                        </a>
+                        <a href="https://github.com/CiscoCXSecurity/enum4linux" target="_blank" class="tool-card"><i
+                                class="fas fa-server text-blue-400"></i> Enum4linux <p>Enumeración de recursos Windows
+                                (SMB/LDAP)</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-purple-400 mb-6">🌐 Ataques a Aplicaciones Web</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://sqlmap.org/" target="_blank" class="tool-card"><i
+                                class="fas fa-database text-teal-400"></i> sqlmap <p>Inyección SQL automatizada</p></a>
+                        <a href="https://portswigger.net/burp/communitydownload" target="_blank" class="tool-card"><i
+                                class="fas fa-eye text-orange-400"></i> Burp Suite CE <p>Proxy/interceptor y repeater
+                                (Community Edition)</p></a>
+                        <a href="https://www.zaproxy.org/" target="_blank" class="tool-card"><i
+                                class="fas fa-spider text-red-400"></i> OWASP ZAP <p>Proxy/interceptor y fuzzer de
+                                aplicaciones web</p></a>
+                        <a href="https://github.com/xmendez/wfuzz" target="_blank" class="tool-card"><i
+                                class="fas fa-hammer text-pink-400"></i> WFuzz <p>Fuerza bruta de parámetros HTTP</p>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-orange-400 mb-6">🔑 Fuerza Bruta y Cracking de
+                        Contraseñas</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://www.openwall.com/john/" target="_blank" class="tool-card"><i
+                                class="fas fa-key text-yellow-400"></i> John the Ripper <p>Cracker de contraseñas
+                                multi‑plataforma</p></a>
+                        <a href="https://hashcat.net/hashcat/" target="_blank" class="tool-card"><i
+                                class="fas fa-microchip text-blue-400"></i> Hashcat <p>Cracking avanzado con GPU</p></a>
+                        <a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank" class="tool-card"><i
+                                class="fas fa-lock text-red-400"></i> Hydra (THC) <p>Fuerza bruta de servicios (SSH,
+                                FTP, HTTP, RDP…)</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-teal-400 mb-6">📡 Ataques de Red y Wireless</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://www.aircrack-ng.org/" target="_blank" class="tool-card"><i
+                                class="fas fa-wifi text-green-400"></i> Aircrack-ng <p>Auditoría de redes Wi‑Fi
+                                (WEP/WPA‑PSK cracking)</p></a>
+                        <a href="https://www.bettercap.org/" target="_blank indexer=" 1" class="tool-card"><i
+                                class="fas fa-network-wired text-cyan-400"></i> Bettercap <p>Framework de MITM y
+                                sniffing en red (soporte shells inversas)</p></a>
+                        <a href="https://github.com/lgandx/Responder" target="_blank" class="tool-card"><i
+                                class="fas fa-skull-crossbones text-orange-400"></i> Responder <p>Poisoning LLMNR,
+                                NBT‑NS, MDNS para capturar hashes</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-red-400 mb-6">🎣 Phishing Avanzado</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://github.com/kgretzky/evilginx2" target="_blank" class="tool-card"><i
+                                class="fas fa-fish text-purple-400"></i> Evilginx2 <p>Reverse‑proxy phishing con captura
+                                de sesiones</p></a>
+                        <a href="https://github.com/drk1wi/Modlishka" target="_blank" class="tool-card"><i
+                                class="fas fa-fish text-blue-400"></i> Modlishka <p>Proxy de phishing transparente</p>
+                        </a>
+                        <a href="https://github.com/gophish/gophish" target="_blank" class="tool-card"><i
+                                class="fas fa-fish text-teal-400"></i> Gophish <p>Plataforma de phishing automatizado
+                            </p></a>
+                        <a href="https://github.com/TheShellphish/shellphish" target="_blank" class="tool-card"><i
+                                class="fas fa-mobile-alt text-yellow-400"></i> Shellphish <p>Phishing SMS/WhatsApp con
+                                plantillas</p></a>
+                        <a href="https://github.com/UndeadSec/SocialFish" target="_blank" class="tool-card"><i
+                                class="fas fa-fish text-pink-400"></i> SocialFish <p>Kit phishing web para redes
+                                sociales</p></a>
+                        <a href="https://github.com/DarkSecDevelopers/HiddenEye" target="_blank" class="tool-card"><i
+                                class="fas fa-eye-slash text-orange-400"></i> HiddenEye <p>Phishing multi‑canal (SMS,
+                                correo, redes)</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-blue-400 mb-6">🎮 Frameworks C2 y Post‑Explotación
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://github.com/BishopFox/sliver" target="_blank" class="tool-card"><i
+                                class="fas fa-server text-cyan-400"></i> Sliver <p>Framework C2 multiplataforma (Go)</p>
+                        </a>
+                        <a href="https://github.com/its-a-feature/Mythic" target="_blank" class="tool-card"><i
+                                class="fas fa-satellite-dish text-purple-400"></i> Mythic <p>Plataforma C2/Payload as a
+                                Service</p></a>
+                        <a href="https://github.com/n1nj4sec/pupy" target="_blank" class="tool-card"><i
+                                class="fab fa-python text-blue-400"></i> Pupy <p>RAT Python multiplataforma</p></a>
+                        <a href="https://github.com/Ne0nd0g/merlin" target="_blank" class="tool-card"><i
+                                class="fas fa-magic text-green-400"></i> Merlin <p>C2 en Go con túneles y plugins</p>
+                        </a>
+                        <a href="https://github.com/zerosum0x0/koadic" target="_blank" class="tool-card"><i
+                                class="fas fa-code text-orange-400"></i> Koadic <p>RAT basado en COM/JScript (Windows)
+                            </p></a>
+                        <a href="https://github.com/calebstewart/pwncat" target="_blank" class="tool-card"><i
+                                class="fas fa-terminal text-teal-400"></i> pwncat <p>Handler de bind/reverse shell,
+                                evasión IDS/IPS</p></a>
+                        <a href="https://github.com/byt3bl33d3r/CrackMapExec" target="_blank" class="tool-card"><i
+                                class="fas fa-terminal text-teal-400"></i> CrackMapExec <p>Post‑explotación en redes
+                                Windows (incluye módulos shell)</p></a>
+                        <a href="https://github.com/Hackplayers/evil-winrm" target="_blank" class="tool-card"><i
+                                class="fas fa-terminal text-blue-400"></i> Evil-WinRM <p>Shell remoto sobre WinRM para
+                                Windows</p></a>
+                        <a href="https://github.com/samratashok/nishang" target="_blank" class="tool-card"><i
+                                class="fas fa-terminal text-blue-400"></i> Nishang <p>Framework PowerShell con scripts
+                                para reverse shells & más</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-6">🕳️ RATs y Backdoors</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://github.com/quasar/Quasar" target="_blank" class="tool-card"><i
+                                class="fas fa-bug text-red-400"></i> QuasarRAT <p>RAT .NET ligero</p></a>
+                        <a href="https://github.com/Met0x/bruteforce-njrat" target="_blank" class="tool-card"><i
+                                class="fas fa-bug text-orange-400"></i> njRAT <p>RAT clásico Windows</p></a>
+                        <a href="https://www.raycast.com/remcos" target="_blank" class="tool-card"><i
+                                class="fas fa-bug text-blue-400"></i> Remcos <p>RAT comercial (trial)</p></a>
+                        <a href="https://github.com/NYAN-x-CAT/AsyncRAT-C-Sharp" target="_blank" class="tool-card"><i
+                                class="fas fa-bug text-purple-400"></i> AsyncRAT <p>RAT .NET con GUI moderno</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-pink-400 mb-6">🕵️‍♂️ Herramientas Web Ocultas
+                        (.onion)</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <li>GitHub Hidden – <code>http://githubqlwvh2y4x.onion</code> – Espejo anónimo de repos GitHub
+                        </li>
+                        <li>ExploitDB Onyx – <code>http://exploitdb5k3ziso.onion</code> – Espejo de ExploitDB</li>
+                        <li>Dark Web GitLab – <code>http://gitlabhidden.onion</code> – Espejo anónimo de GitLab</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-cyan-400 mb-6">🔌 Tunneling y Pivoting</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <a href="https://github.com/jpillora/chisel" target="_blank" class="tool-card"><i
+                                class="fas fa-tunnel text-green-400"></i> Chisel <p>Túnel TCP/UDP sobre HTTP seguro
+                                (ideal para pivoting)</p></a>
+                        <a href="https://github.com/sshuttle/sshuttle" target="_blank" class="tool-card"><i
+                                class="fas fa-shuttle-van text-blue-400"></i> sshuttle <p>Proxy transparente (“poor
+                                man’s VPN”) vía SSH</p></a>
+                        <a href="https://www.dest-unreach.org/socat/" target="_blank" class="tool-card"><i
+                                class="fas fa-exchange-alt text-orange-400"></i> Socat <p>Herramienta clásica para
+                                redirección de sockets y tunnels</p></a>
+                        <a href="https://github.com/robertdavidgraham/netcat" target="_blank" class="tool-card"><i
+                                class="fas fa-network-wired text-teal-400"></i> Netcat <p>La navaja suiza de shells
+                                inversos y bind shells</p></a>
+                        <a href="https://github.com/rofl0r/proxychains-ng" target="_blank" class="tool-card"><i
+                                class="fas fa-link text-purple-400"></i> ProxyChains-ng <p>Encadena proxies (SOCKS,
+                                HTTP) para ocultar tráfico shell</p></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contacto" class="text-center py-12 md:py-16 px-6 bg-black/90 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass cyber-border p-6 md:p-10 rounded-3xl mb-8 md:mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold gradient-text mb-4">CONTACTO SEGURO</h2>
+                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mb-6">
+                    Para consultas confidenciales, agendar una reunión o reportar vulnerabilidades, utiliza nuestro
+                    canal seguro:
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://cal.com/ark-dev" target="_blank" rel="noopener noreferrer"
+                        class="cyber-button px-4 py-2 rounded flex items-center gap-2 hover:bg-neon-green hover:text-black transition-colors">
+                        <i class="fas fa-calendar-alt"></i> Contactar vía Cal.com
+                    </a>
+                    <div class="cyber-button px-4 py-2 rounded flex items-center gap-2">
+                        <i class="fas fa-key"></i> PGP: 0x8F3A5BD21E9C84A2
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center text-gray-400 text-sm mb-10 space-y-2">
+                <p class="italic">Gracias a <strong>S4vitar</strong>, <strong>CyberViking</strong>,
+                    <strong>Hack4u</strong>, <strong>TheXploit</strong> y otros cracks de la comunidad por compartir
+                    conocimiento y motivar a la formación en ciberseguridad ofensiva y defensiva.
+                </p>
+                <p class="italic">Este sitio es posible gracias a los aprendizajes obtenidos en sus cursos, directos y
+                    contenido educativo.</p>
+            </div>
+
+            <div class="text-gray-400 text-xs mb-10 max-w-2xl mx-auto leading-relaxed italic">
+                <p>
+                    Todo el material presentado en este sitio es con fines <strong>educativos y de
+                        concienciación</strong>.
+                    No promovemos el uso malicioso de las herramientas ni técnicas aquí referidas.
+                </p>
+                <p>
+                    Consulta nuestras <a href="https://arkdev.pages.dev/legal-policy.pdf" target="_blank"
+                        class="underline hover:text-neon-green transition-colors">Políticas Legales y de Uso</a>.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <img src="https://arkdev.pages.dev/src2/we001136218removebgpreview.png" alt="Logo Empresa"
+                        class="h-10 w-auto mr-3">
+                    <img src="https://arkdev.pages.dev/src/arksecure.png" alt="Ark Secure" class="h-8 w-auto">
+                </div>
+
+                <div class="text-gray-500 text-sm mb-6 md:mb-0 text-center md:text-left">
+                    <p class="mb-1">© 2025 ARK SECURE SYSTEMS. TODOS LOS DERECHOS RESERVADOS.</p>
+                    <p>Seguridad avanzada para un mundo digital peligroso</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 3 + 1;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const animationDuration = Math.random() * 10 + 5;
+                const animationDelay = Math.random() * 5;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                particle.style.opacity = Math.random() * 0.5 + 0.2;
+
+                container.appendChild(particle);
+            }
+        }
+        function createMatrixEffect() {
+            const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@%&*()_+=-[]{}|;:,.<>?/";
+            const container = document.getElementById('matrix-bg');
+            const fontSize = 18;
+            const columns = Math.floor(window.innerWidth / fontSize);
+            const drops = Array(columns).fill(1);
+
+            function drawMatrix() {
+                const ctx = document.createElement('canvas').getContext('2d');
+                ctx.canvas.width = window.innerWidth;
+                ctx.canvas.height = window.innerHeight;
+                container.appendChild(ctx.canvas);
+
+                function draw() {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+                    ctx.fillStyle = '#0f0';
+                    ctx.font = `${fontSize}px monospace`;
+
+                    for (let i = 0; i < drops.length; i++) {
+                        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                        if (drops[i] * fontSize > ctx.canvas.height && Math.random() > 0.975) {
+                            drops[i] = 0;
+                        }
+
+                        drops[i]++;
+                    }
+
+                    requestAnimationFrame(draw);
+                }
+
+                draw();
+            }
+
+            drawMatrix();
+        }
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            createParticles();
+            createMatrixEffect();
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from("#logoEmpresa", { opacity: 0, x: -50, duration: 1, ease: "power3.out" });
+            gsap.from("#logoProducto", { opacity: 0, x: 50, duration: 1, ease: "power3.out" });
+            gsap.from("#introBox", {
+                opacity: 0,
+                y: 50,
+                duration: 1.5,
+                delay: 0.5,
+                ease: "back.out(1.2)"
+            });
+            gsap.utils.toArray("section, .glass").forEach(element => {
+                gsap.from(element, {
+                    opacity: 0,
+                    y: 40,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+            gsap.utils.toArray(".cyber-button").forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    gsap.to(button, {
+                        scale: 1.05,
+                        duration: 0.3,
+                        boxShadow: "0 0 20px rgba(0, 255, 157, 0.8)"
+                    });
+                });
+
+                button.addEventListener('mouseleave', () => {
+                    gsap.to(button, {
+                        scale: 1,
+                        duration: 0.3,
+                        boxShadow: "0 0 10px rgba(0, 255, 157, 0.3)"
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
