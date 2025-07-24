@@ -429,7 +429,7 @@
             }
         }
     </style>
-  <script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('background-audio');
     let audioPlayed = false;
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!audioPlayed) {
             audio.play().then(() => {
                 audioPlayed = true;
-                fadeInVolume(); // Aplicar fade
+                fadeInVolume(); 
                 document.getElementById('audio-alert')?.remove();
                 removeAllListeners();
             }).catch((err) => {
@@ -470,6 +470,15 @@ document.addEventListener('DOMContentLoaded', () => {
             audio.play().catch(() => {});
         }
     }
+
+    document.addEventListener('dblclick', () => {
+        if (!audioPlayed) return;
+        if (audio.paused) {
+            resumeAudio();
+        } else {
+            pauseAudio();
+        }
+    });
 
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
