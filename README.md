@@ -1,6 +1,13 @@
+ █████╗ ██████╗ ██╗  ██╗    ██████╗ ███████╗██╗   ██╗
+██╔══██╗██╔══██╗██║ ██╔╝    ██╔══██╗██╔════╝██║   ██║
+███████║██████╔╝█████╔╝     ██║  ██║█████╗  ██║   ██║
+██╔══██║██╔══██╗██╔═██╗     ██║  ██║██╔══╝  ╚██╗ ██╔╝
+██║  ██║██║  ██║██║  ██╗    ██████╔╝███████╗ ╚████╔╝ 
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝    ╚═════╝ ╚══════╝  ╚═══╝  
+
 # ✨ Ark Dev
 
-## 🛡️ Licencia de Uso – MIT + Política de Uso General
+## 🛡️ Licencia de Uso – MIT + Política de Uso y Distribución General
 
 **Copyright (c) 2025 Ark Dev**
 
@@ -13,49 +20,69 @@ Se otorga permiso, sin costo, a cualquier persona que obtenga una copia de este 
 ## ⚠️ Exención de Responsabilidad
 
 El Software se proporciona "**tal cual**", sin garantía de ningún tipo, expresa o implícita, incluidas, entre otras, las garantías de comercialización, idoneidad para un propósito particular y no infracción.  
-En ningún caso los autores o titulares del copyright serán responsables por ningún reclamo, daño u otra responsabilidad derivada del uso del Software.
+Los autores no serán responsables por ningún daño directo o indirecto, pérdida de datos o mal uso que surja del uso del Software.
 
 ---
 
 ## 📄 Política General de Uso
 
-- Este repositorio puede contener proyectos **libres** y **privativos**.
-- Los proyectos con licencia MIT son totalmente reutilizables bajo los términos mencionados.
-- Algunos proyectos pueden incluir materiales con **restricciones**, como:
-  - Imágenes o sonidos con derechos de terceros.
-  - Módulos con licencias cerradas o de terceros no redistribuibles.
-  - Scripts que requieren consentimiento para su distribución.
+Este repositorio puede contener diferentes tipos de software:
 
-> Por favor, consulta cada carpeta/proyecto para ver su archivo `LICENSE` específico antes de reutilizar.
+- 🔓 **Software Libre**: Código abierto bajo Licencia MIT (o similar), reutilizable y modificable sin restricciones.
+- 🔒 **Software Privativo**: Código restringido, protegido por derechos de autor. **No se permite su redistribución sin autorización**.
+- 🧪 **Software en Fase Beta o Experimental**: Puede contener errores, estar incompleto o no estar disponible para uso comercial.
 
----
-
-## 💿 Copias, Descargas y Distribución
-
-Está permitido:
-
-✅ Descargar copias locales del software.  
-✅ Usar y modificar el código con fines personales o comerciales.  
-❌ No se permite reclamar autoría si el software no fue modificado significativamente.  
-❌ No está permitido redistribuir software **privativo** de este repositorio sin permiso explícito.
+> Cada proyecto tiene un archivo `LICENSE` que especifica su uso permitido. Asegúrate de revisarlo antes de utilizar el software.
 
 ---
 
-## 🔒 Sobre Software Libre vs. Privativo
+## 💿 Copias, Descargas y Falsificación
 
-Este repositorio apoya el modelo de **Software Libre**, pero también respeta y distribuye software **privativo** con licencia específica.  
-🔓 *El software libre promueve la libertad de uso, estudio, modificación y redistribución.*  
-🔒 *El software privativo está protegido por restricciones que debes respetar según el archivo de licencia incluido.*
+### ✅ Permitido:
+- Descargar copias locales del software.
+- Usar o modificar el software bajo licencia libre con atribución.
+- Crear forks públicos de los repositorios abiertos.
+
+### ❌ Prohibido:
+- Reivindicar la autoría de proyectos sin cambios significativos.
+- Redistribuir software privativo o en fase beta sin permiso por escrito.
+- Falsificar identidad del autor (Joel Andres / Ark Dev).
+- Usar el software para fines ilegales, maliciosos o que infrinjan derechos de terceros.
+
+---
+
+## 🔐 Sobre Software Libre, Privativo y Licencias
+
+Este repositorio puede contener licencias mixtas:
+
+- **MIT**: Libertad de uso, modificación, distribución y sublicencia.
+- **Propietaria (Privativa)**: Requiere autorización para cualquier uso comercial o redistribución.
+- **Restricciones adicionales**:
+  - Algunos módulos pueden incluir dependencias con licencias propias (Apache, GPL, CC, etc.).
+  - Las imágenes, sonidos, vídeos o recursos visuales pueden tener licencias distintas.
+  - Scripts o herramientas en fase de pruebas no están autorizadas para entornos de producción.
+
+> **Cualquier uso indebido puede constituir una infracción de derechos de autor o uso no autorizado.**
+
+---
+
+## 📢 Nota sobre Software en Pruebas
+
+Parte del contenido puede estar en **fase de desarrollo o prueba (beta)**. Esto implica que:
+
+- Su funcionamiento no está garantizado.
+- Está sujeto a cambios sin previo aviso.
+- Su uso en producción está desaconsejado sin revisión técnica.
 
 ---
 
 ## 📬 Contacto Profesional
 
-**Desarrollado por:** Joel Andres – *Ark Dev System*  
-📅 Reserva una reunión: [https://cal.com/ark-dev](https://cal.com/ark-dev)  
-🌐 Sitio Web: [https://arkdev.pages.dev](https://arkdev.pages.dev)
+**Autor:** Joel Andres – *Ark Dev System*  
+📅 Agenda una reunión: [https://cal.com/ark-dev](https://cal.com/ark-dev)  
+🌐 Sitio Web: [https://arkdev.pages.dev](https://arkdev.pages.dev)  
 
 ---
 
-> 💡 *Gracias por revisar este proyecto. Si te parece útil, por favor dale una ⭐ estrella y compártelo.*  
-> **Acepto el reto de construir software libre, ético y útil. 😎**
+> 💡 *Gracias por visitar este proyecto. Si te parece útil, no olvides dejar una estrella ⭐ y compartirlo.*  
+> **Estoy comprometido con el desarrollo ético y responsable del software. Acepto el reto. 😎**
