@@ -465,66 +465,92 @@
       }
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const audio = document.getElementById('background-audio');
-      let audioPlayed = false;
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('background-audio');
+    let audioPlayed = false;
+    let fadeInterval;
 
-      function playAudio() {
+    audio.volume = 0;
+
+    function fadeInVolume(targetVolume = 0.2, step = 0.01, delay = 100) {
+        clearInterval(fadeInterval);
+        fadeInterval = setInterval(() => {
+            if (audio.volume < targetVolume) {
+                audio.volume = Math.min(audio.volume + step, targetVolume);
+            } else {
+                clearInterval(fadeInterval);
+            }
+        }, delay);
+    }
+
+    function playAudio() {
         if (!audioPlayed) {
-          audio.play().then(() => {
-            audioPlayed = true;
-            document.getElementById('audio-alert')?.remove();
-            removeAllListeners();
-          }).catch(() => {
-          });
+            audio.play().then(() => {
+                audioPlayed = true;
+                fadeInVolume(); // Aplicar fade
+                document.getElementById('audio-alert')?.remove();
+                removeAllListeners();
+            }).catch((err) => {
+                console.warn('No se pudo reproducir el audio:', err);
+            });
         }
-      }
-      function addAllListeners() {
-        document.addEventListener('click', playAudio, { once: true });
-        document.addEventListener('touchstart', playAudio, { once: true });
-        document.addEventListener('scroll', playAudio, { once: true });
-        document.addEventListener('mousemove', playAudio, { once: true });
-        document.addEventListener('keydown', playAudio, { once: true });
-        document.addEventListener('wheel', playAudio, { once: true });
-      }
+    }
 
-      function removeAllListeners() {
-        document.removeEventListener('click', playAudio, { once: true });
-        document.removeEventListener('touchstart', playAudio, { once: true });
-        document.removeEventListener('scroll', playAudio, { once: true });
-        document.removeEventListener('mousemove', playAudio, { once: true });
-        document.removeEventListener('keydown', playAudio, { once: true });
-        document.removeEventListener('wheel', playAudio, { once: true });
-      }
+    function pauseAudio() {
+        if (!audio.paused) audio.pause();
+    }
 
-      addAllListeners();
+    function resumeAudio() {
+        if (audioPlayed && audio.paused) {
+            audio.play().catch(() => {});
+        }
+    }
 
-      if (window.gsap) {
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            pauseAudio();
+        } else {
+            resumeAudio();
+        }
+    });
+
+    function addAllListeners() {
+        const events = ['click', 'touchstart', 'scroll', 'mousemove', 'keydown', 'wheel'];
+        events.forEach(evt => document.addEventListener(evt, playAudio, { once: true }));
+    }
+
+    function removeAllListeners() {
+        const events = ['click', 'touchstart', 'scroll', 'mousemove', 'keydown', 'wheel'];
+        events.forEach(evt => document.removeEventListener(evt, playAudio, { once: true }));
+    }
+
+    addAllListeners();
+
+    if (window.gsap) {
         document.fonts.ready.then(() => {
-          setTimeout(() => {
-            playAudio();
-          }, 1500);
+            setTimeout(playAudio, 1500);
         });
-      }
+    }
 
-      setTimeout(() => {
+    setTimeout(() => {
         playAudio();
         setTimeout(() => {
-          if (!audioPlayed) {
-            if (!document.getElementById('audio-alert')) {
-              const alert = document.createElement('div');
-              alert.id = 'audio-alert';
-              alert.style = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 24px;border-radius:8px;z-index:9999;box-shadow:0 2px 8px #0003;cursor:pointer;';
-              alert.innerText = 'Haz click, mueve el mouse o desplázate para activar el sonido 🎵';
-              alert.onclick = () => { playAudio(); alert.remove(); };
-              document.body.appendChild(alert);
+            if (!audioPlayed && !document.getElementById('audio-alert')) {
+                const alert = document.createElement('div');
+                alert.id = 'audio-alert';
+                alert.style = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 24px;border-radius:8px;z-index:9999;box-shadow:0 2px 8px #0003;cursor:pointer;';
+                alert.innerText = 'Haz clic o mueve el mouse para activar la música 🎵';
+                alert.onclick = () => {
+                    playAudio();
+                    alert.remove();
+                };
+                document.body.appendChild(alert);
             }
-          }
         }, 500);
-      }, 3000);
-    });
-  </script>
+    }, 3000);
+});
+</script>
 </head>
 
 <body>
