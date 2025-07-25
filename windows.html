@@ -231,104 +231,104 @@
         }
     </style>
     <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('background-audio');
-    let audioPlayed = false;
-    let fadeInterval;
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('background-audio');
+            let audioPlayed = false;
+            let fadeInterval;
 
-    audio.volume = 0;
+            audio.volume = 0;
 
-    function fadeInVolume(targetVolume = 0.2, step = 0.01, delay = 100) {
-        clearInterval(fadeInterval);
-        fadeInterval = setInterval(() => {
-            if (audio.volume < targetVolume) {
-                audio.volume = Math.min(audio.volume + step, targetVolume);
-            } else {
+            function fadeInVolume(targetVolume = 0.2, step = 0.01, delay = 100) {
                 clearInterval(fadeInterval);
+                fadeInterval = setInterval(() => {
+                    if (audio.volume < targetVolume) {
+                        audio.volume = Math.min(audio.volume + step, targetVolume);
+                    } else {
+                        clearInterval(fadeInterval);
+                    }
+                }, delay);
             }
-        }, delay);
-    }
 
-    function playAudio() {
-        if (!audioPlayed) {
-            audio.play().then(() => {
-                audioPlayed = true;
-                fadeInVolume(); 
-                document.getElementById('audio-alert')?.remove();
-                removeAllListeners();
-            }).catch((err) => {
-                console.warn('No se pudo reproducir el audio:', err);
+            function playAudio() {
+                if (!audioPlayed) {
+                    audio.play().then(() => {
+                        audioPlayed = true;
+                        fadeInVolume();
+                        document.getElementById('audio-alert')?.remove();
+                        removeAllListeners();
+                    }).catch((err) => {
+                        console.warn('No se pudo reproducir el audio:', err);
+                    });
+                }
+            }
+
+            function pauseAudio() {
+                if (!audio.paused) audio.pause();
+            }
+
+            function resumeAudio() {
+                if (audioPlayed && audio.paused) {
+                    audio.play().catch(() => { });
+                }
+            }
+
+            document.addEventListener('dblclick', () => {
+                if (!audioPlayed) return;
+                if (audio.paused) {
+                    resumeAudio();
+                } else {
+                    pauseAudio();
+                }
             });
-        }
-    }
 
-    function pauseAudio() {
-        if (!audio.paused) audio.pause();
-    }
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    pauseAudio();
+                } else {
+                    resumeAudio();
+                }
+            });
 
-    function resumeAudio() {
-        if (audioPlayed && audio.paused) {
-            audio.play().catch(() => {});
-        }
-    }
-
-    document.addEventListener('dblclick', () => {
-        if (!audioPlayed) return;
-        if (audio.paused) {
-            resumeAudio();
-        } else {
-            pauseAudio();
-        }
-    });
-
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            pauseAudio();
-        } else {
-            resumeAudio();
-        }
-    });
-
-    function addAllListeners() {
-        const events = ['click', 'touchstart', 'scroll', 'mousemove', 'keydown', 'wheel'];
-        events.forEach(evt => document.addEventListener(evt, playAudio, { once: true }));
-    }
-
-    function removeAllListeners() {
-        const events = ['click', 'touchstart', 'scroll', 'mousemove', 'keydown', 'wheel'];
-        events.forEach(evt => document.removeEventListener(evt, playAudio, { once: true }));
-    }
-
-    addAllListeners();
-
-    if (window.gsap) {
-        document.fonts.ready.then(() => {
-            setTimeout(playAudio, 1500);
-        });
-    }
-
-    setTimeout(() => {
-        playAudio();
-        setTimeout(() => {
-            if (!audioPlayed && !document.getElementById('audio-alert')) {
-                const alert = document.createElement('div');
-                alert.id = 'audio-alert';
-                alert.style = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 24px;border-radius:8px;z-index:9999;box-shadow:0 2px 8px #0003;cursor:pointer;';
-                alert.innerText = 'Haz clic o mueve el mouse para activar la música 🎵';
-                alert.onclick = () => {
-                    playAudio();
-                    alert.remove();
-                };
-                document.body.appendChild(alert);
+            function addAllListeners() {
+                const events = ['click', 'touchstart', 'scroll', 'mousemove', 'keydown', 'wheel'];
+                events.forEach(evt => document.addEventListener(evt, playAudio, { once: true }));
             }
-        }, 500);
-    }, 3000);
-});
-</script>
+
+            function removeAllListeners() {
+                const events = ['click', 'touchstart', 'scroll', 'mousemove', 'keydown', 'wheel'];
+                events.forEach(evt => document.removeEventListener(evt, playAudio, { once: true }));
+            }
+
+            addAllListeners();
+
+            if (window.gsap) {
+                document.fonts.ready.then(() => {
+                    setTimeout(playAudio, 1500);
+                });
+            }
+
+            setTimeout(() => {
+                playAudio();
+                setTimeout(() => {
+                    if (!audioPlayed && !document.getElementById('audio-alert')) {
+                        const alert = document.createElement('div');
+                        alert.id = 'audio-alert';
+                        alert.style = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 24px;border-radius:8px;z-index:9999;box-shadow:0 2px 8px #0003;cursor:pointer;';
+                        alert.innerText = 'Haz clic o mueve el mouse para activar la música 🎵';
+                        alert.onclick = () => {
+                            playAudio();
+                            alert.remove();
+                        };
+                        document.body.appendChild(alert);
+                    }
+                }, 500);
+            }, 3000);
+        });
+    </script>
 </head>
 
 <body class="min-h-screen font-['Inter']">
-     <audio id="background-audio" loop>
+    <audio id="background-audio" loop>
         <source src="https://arkdev.pages.dev/music/musicwindows.mp3" type="audio/mpeg">
         Tu navegador no soporta audio.
     </audio>
@@ -689,26 +689,346 @@ document.addEventListener('DOMContentLoaded', () => {
 
         </div>
     </div>
+
+    <section>
+        <div class="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8">
+                    <div class="space-y-6">
+                        <img src="https://strapi.novgar.com/uploads/Lumion_Ver_Logo_Azure_16x9_4d5cb5afec.png"
+                            alt="Logo Lumion 2024" class="w-full h-24 object-contain mx-auto" />
+                        <p class="text-gray-400 text-sm text-justify">
+                            <strong>Lumion 2024</strong> es una poderosa herramienta de renderizado en tiempo real,
+                            diseñada para arquitectos y diseñadores. Transforma modelos 3D en renders fotorrealistas con
+                            materiales,
+                            luces, sombras y efectos avanzados.
+                        </p>
+                        <ul class="text-gray-400 text-sm list-disc pl-6">
+                            <li>Renderizado rápido y en tiempo real</li>
+                            <li>Compatibilidad con SketchUp, Revit, ArchiCAD y más</li>
+                            <li>Biblioteca de materiales, objetos y efectos atmosféricos</li>
+                            <li>Ideal para presentaciones arquitectónicas profesionales</li>
+                        </ul>
+                        <div class="flex gap-4 mt-4">
+                            <a href="https://mega.nz/folder/180BjQ4Z#7ikapSFs5znHDEeyVHVR_g" target="_blank"
+                                rel="noopener"
+                                class="flex-1 flex justify-center items-center px-6 py-4 bg-gradient-to-r from-sky-800/50 to-sky-700/50 hover:bg-sky-700/70 rounded-lg border border-white/5 text-white font-medium tracking-wide transition">
+                                DESCARGAR
+                                <svg class="w-6 h-6 ml-3 text-sky-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </a>
+                            <a href="https://mega.nz/file/Ek8hBbIK#eODqm89UPMIBwO0yTMj3mHz63uEg9b--S_kY73QX_L4"
+                                target="_blank" rel="noopener"
+                                class="flex-1 flex justify-center items-center px-6 py-4 bg-gradient-to-r from-gray-700/50 to-gray-600/50 hover:bg-gray-600/70 rounded-lg border border-white/5 text-white font-medium tracking-wide transition">
+                                COMPLEMENTO
+                                <svg class="w-6 h-6 ml-3 text-gray-300" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-xs text-gray-500 text-center mt-2">
+                            Incluye dos opciones de descarga (MEGA y Mediafire). Ejecuta como administrador para una
+                            instalación correcta.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8">
+                    <div class="space-y-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/1051px-Adobe_Photoshop_CC_icon.svg.png"
+                            alt="Logo de Adobe Photoshop 2025" class="w-full h-24 object-contain mx-auto">
+                        <p class="text-gray-400 text-sm text-justify">
+                            <strong>Adobe Photoshop 2025</strong> es la última versión del software de edición de
+                            imágenes más
+                            potente y versátil del mundo. Equipado con inteligencia artificial avanzada, herramientas
+                            automáticas de
+                            selección, edición no destructiva y funciones para diseño gráfico, fotografía profesional y
+                            creación de
+                            contenido.
+                        </p>
+                        <ul class="text-gray-400 text-sm list-disc pl-6">
+                            <li>Edición con IA mejorada para selección y relleno</li>
+                            <li>Soporte para capas inteligentes, filtros y efectos avanzados</li>
+                            <li>Optimizado para rendimiento en equipos modernos</li>
+                            <li>Ideal para creativos, diseñadores y fotógrafos</li>
+                        </ul>
+                        <a href="https://mega.nz/folder/dEIl0JQT#HLDrrsiNw8wOtgmME2tVjA"
+                            class="group relative block mt-4">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">DESCARGAR PHOTOSHOP 2025</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <p class="text-xs text-gray-500 text-center mt-2">
+                            Recomendado ejecutar el instalador como administrador para una instalación correcta y sin
+                            interrupciones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8">
+                    <div class="space-y-6">
+                        <img src="https://img.icons8.com/color/512/solidworks.png" alt="Logo de SolidWorks"
+                            class="w-full h-24 object-contain mx-auto" />
+                        <p class="text-gray-400 text-sm text-justify">
+                            <strong>SolidWorks</strong> es una herramienta líder en diseño CAD 3D, usada ampliamente en
+                            ingeniería
+                            mecánica, manufactura y prototipado. Permite modelado sólido, simulaciones, ensambles y
+                            planos técnicos
+                            con precisión profesional.
+                        </p>
+                        <ul class="text-gray-400 text-sm list-disc pl-6">
+                            <li>Modelado paramétrico y ensambles complejos</li>
+                            <li>Simulación estructural, térmica y de movimiento</li>
+                            <li>Compatible con hardware de gama media y alta</li>
+                            <li>Versiones optimizadas según tus necesidades</li>
+                        </ul>
+
+                        <a href="https://mega.nz/folder/kERyhaxR#T0GtPabTDu1iAgrNihJMLg" target="_blank" rel="noopener"
+                            class="group relative block mt-4">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">DESCARGAR SOLIDWORKS 2020</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-yellow-500/20 rounded-lg group-hover:bg-yellow-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1w2BbHmQ6_b_limkI8c7yTDJVM_DD5HLH/view" target="_blank"
+                            rel="noopener" class="group relative block mt-4">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-blue-800/50 to-blue-700/50 hover:bg-blue-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">COMPLEMENTO</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <p class="text-xs text-gray-500 text-center mt-2">
+                            Ejecuta el instalador como administrador para evitar errores durante la instalación.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8">
+                    <div class="space-y-6">
+                        <img src="https://img.icons8.com/color/512/solidworks.png" alt="Logo de SolidWorks"
+                            class="w-full h-24 object-contain mx-auto" />
+                        <p class="text-gray-400 text-sm text-justify">
+                            <strong>SolidWorks</strong> es una herramienta líder en diseño CAD 3D, usada ampliamente en
+                            ingeniería
+                            mecánica, manufactura y prototipado. Permite modelado sólido, simulaciones, ensambles y
+                            planos técnicos
+                            con precisión profesional.
+                        </p>
+                        <ul class="text-gray-400 text-sm list-disc pl-6">
+                            <li>Modelado paramétrico y ensambles complejos</li>
+                            <li>Simulación estructural, térmica y de movimiento</li>
+                            <li>Compatible con hardware de gama media y alta</li>
+                            <li>Versiones optimizadas según tus necesidades</li>
+                        </ul>
+                        <a href="https://mega.nz/folder/RgEHwK5R#iWqI0eshaiRG0OvTPcbIgg" target="_blank" rel="noopener"
+                            class="group relative block mt-4">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">DESCARGAR SOLIDWORKS 2024</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-red-500/20 rounded-lg group-hover:bg-red-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://mega.nz/file/Np8FCZID#S-L-2DerhySqZ7RO84Y6vTSGNZz_udpVibOJeBKjLn0"
+                            target="_blank" rel="noopener" class="group relative block mt-4">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-blue-800/50 to-blue-700/50 hover:bg-blue-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">COMPLEMENTO 1</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://youtu.be/KCgnv95amqQ" target="_blank" rel="noopener"
+                            class="group relative block mt-4">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-purple-800/50 to-purple-700/50 hover:bg-purple-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">COMPLEMENTO 2</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <p class="text-xs text-gray-500 text-center mt-2">
+                            Ejecuta el instalador como administrador para evitar errores durante la instalación.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8">
+                    <div class="space-y-6">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia_7dmyzsRCkpAN58nwzgCDPghhIBUgTRRfQG4yaG_1Rxs05cADdvPLcL4m60R53jnKFm5buHqJV8poSbClNPyFmGE3nwEsqMzqV2aYT4LRjQs4ihniPrYSudDLJ4KDslh7U5tQRKJf5f6SVM1fY1GIyPyfeoWFFcxRBh6lcuZ5ml_nWsxE06JQZ0tFHLR/s3000/Adobe%20illustrator.png"
+                            alt="Logo de Adobe Illustrator 2025" class="w-full h-24 object-contain mx-auto">
+                        <p class="text-gray-400 text-sm text-justify">
+                            <strong>Adobe Illustrator 2025</strong> es la herramienta profesional por excelencia para
+                            diseño
+                            gráfico vectorial. Crea ilustraciones, logotipos, tipografías, íconos y piezas gráficas con
+                            precisión
+                            absoluta y compatibilidad con otros programas de Adobe.
+                        </p>
+                        <ul class="text-gray-400 text-sm list-disc pl-6">
+                            <li>Diseño 100% vectorial escalable sin pérdida de calidad</li>
+                            <li>Herramientas inteligentes para trazado, formas y tipografía</li>
+                            <li>Compatible con pantallas 4K y flujos de trabajo en la nube</li>
+                            <li>Ideal para diseñadores gráficos, ilustradores y creativos</li>
+                        </ul>
+                        <a href="https://mega.nz/folder/oE4xnCyA#N_ReOwmm3AhY9E9uMFWV5Q"
+                            class="group relative block mt-4">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">DESCARGAR ILLUSTRATOR 2025</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-orange-500/20 rounded-lg group-hover:bg-orange-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <p class="text-xs text-gray-500 text-center mt-2">
+                            Asegúrate de ejecutar el instalador como administrador para evitar errores durante la
+                            instalación.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cyber-border neon-hover">
+                <div class="cyber-inner p-8">
+                    <div class="space-y-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/SketchUp-Logo.png"
+                            alt="Logo de SketchUp" class="w-full h-24 object-contain mx-auto">
+                        <p class="text-gray-400 text-sm text-justify">
+                            <strong>SketchUp</strong> es una herramienta de modelado 3D intuitiva y versátil, ideal para
+                            arquitectura, diseño de interiores, ingeniería civil y creación de prototipos.
+                            Su interfaz amigable permite crear y modificar geometría 3D con gran facilidad.
+                        </p>
+                        <ul class="text-gray-400 text-sm list-disc pl-6">
+                            <li>Ideal para diseño arquitectónico y visualizaciones rápidas</li>
+                        </ul>
+                        <a href="https://mega.nz/folder/4DEj0Y5S#dngq1b71MutWwchg2znWNQ"
+                            class="group relative block mt-4">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">DESCARGAR SKETCHUP</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://mega.nz/file/QWVihKpL#p-n6RgOTI575AtZuqomDT6P1dqu6vlBjwm2VBrJ5_mI"
+                            class="group relative block mt-4">
+                            <div
+                                class="flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 hover:bg-gray-700/70 rounded-lg border border-white/5 transition-all">
+                                <span class="text-white font-medium tracking-wide">COMPLEMENTO SKETCHUP</span>
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-all">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 4v16m8-8H4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <p class="text-xs text-gray-500 text-center mt-2">
+                            Asegúrate de instalar ambos elementos para un funcionamiento completo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
     <section class="text-center space-y-8 p-8 w-full relative z-10 cyber-section">
         <div class="absolute inset-0 rounded-xl bg-gradient-to-tr from-blue-500/10 to-indigo-600/10 animate-pulse-slow">
         </div>
         <h1
             class="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-            ARK DEV</h1>
+            ARK DEV
+        </h1>
         <div class="cyber-border neon-hover">
             <div class="cyber-inner p-8 space-y-6 text-gray-300 text-lg leading-relaxed">
                 <p class="p-4 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-lg border border-white/5">
-                    <strong>ARK DEV</strong> es una empresa privada de desarrollo de software y mantenimiento,
-                    especializada en la gestión de proyectos bajo normativas de <strong>Microsoft</strong>,
-                    <strong>Adobe</strong>, y otras empresas líderes. Inspirados en los principios de <strong>Richard
-                        Stallman</strong>, promovemos software libre, pero no necesariamente gratuito, siempre con un
-                    enfoque ético.
+                    <strong>ARK DEV</strong> es una empresa privada dedicada al desarrollo de software y mantenimiento
+                    especializado,
+                    enfocada en la gestión de proyectos basados en tecnologías de <strong>Microsoft</strong>,
+                    <strong>Adobe</strong>,
+                    entre otras compañías líderes. Nos inspiran los principios éticos del <a
+                        href="https://aportesingecivil.com/"
+                        class="underline decoration-transparent hover:decoration-blue-400 transition-all"
+                        target="_blank"><strong>Richard Stallman</strong></a>, fomentando el uso de software libre,
+                    aunque no siempre gratuito.
                 </p>
                 <p class="p-4 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-lg border border-white/5">
-                    Nos dedicamos a crear soluciones innovadoras para optimizar sistemas y mejorar el rendimiento. Todo
-                    nuestro contenido es educativo, diseñado para un uso responsable y legal. Descarga nuestras
-                    herramientas y activadores exclusivamente para fines educativos y respeta las políticas de uso de
-                    <strong>Microsoft</strong> y otras empresas para evitar problemas legales.
+                    Desarrollamos herramientas para mejorar el rendimiento y optimización de sistemas, siempre con fines
+                    educativos. Algunas versiones disponibles pueden estar parcheadas debido a restricciones de
+                    licenciamiento, por lo que su correcta visualización o funcionalidad podría variar. Promovemos el
+                    uso responsable y legal del software, respetando siempre las licencias y políticas de uso de
+                    <strong>Microsoft</strong> y otras compañías para evitar sanciones o problemas legales.
                 </p>
                 <a href="https://arkdev.pages.dev/legal-policy.pdf" class="group relative block mt-4">
                     <div
@@ -836,11 +1156,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     </script>
-    <footer class="relative z-10 text-center py-8">
-        <div class="cyber-border mx-auto max-w-xs">
-            <div class="cyber-inner px-6 py-3">
+    <footer class="relative z-10 text-center py-8 w-full">
+        <div class="cyber-border mx-auto w-full max-w-none">
+            <div class="cyber-inner px-6 py-4 space-y-2">
                 <p class="text-sm font-mono text-blue-400">
                     ARK_DEV @ 2025
+                </p>
+                <p class="text-xs text-gray-400">
+                    En caso de requerir más software o herramientas personalizadas,<br>
+                    por favor <a href="https://cal.com/ark-dev" target="_blank"
+                        class="text-blue-400 underline hover:text-indigo-400 transition">contacte con nuestro
+                        equipo</a>.
                 </p>
             </div>
         </div>
